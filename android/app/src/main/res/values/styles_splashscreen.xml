@@ -1,0 +1,8 @@
+<!-- 
+    This file was created by 'expo-splash-screen' and some of it's content shouldn't be modified by hand
+ -->
+<resources>
+  <style name="SplashScreenTheme" parent="SplashScreen_SplashTheme">
+    <item name="colorPrimaryDark">@color/white</item>
+  </style>
+</resources>

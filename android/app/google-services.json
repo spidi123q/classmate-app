@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1029614808285",
+    "project_id": "classmate-ca068",
+    "storage_bucket": "classmate-ca068.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029614808285:android:1f67ffbbfab677a8193f34",
+        "android_client_info": {
+          "package_name": "com.inspiritsolutions.classmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029614808285-3ps59e7sld1dbltmsn9derj21tpb8fvv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inspiritsolutions.classmate",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1029614808285-makkoc90h5ggu9mdv1v2sj77kml09q8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7WHznsB24H5VP0AG4m-N9hwq1mmfykmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029614808285-makkoc90h5ggu9mdv1v2sj77kml09q8b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1029614808285-te5d2rksvdqqsmldqoaub306iaq5h8gi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.inspiritsolutions.classmate"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
