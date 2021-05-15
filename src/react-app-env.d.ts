@@ -1,15 +1,9 @@
 /// <reference types="react-scripts" />
 
 declare module "*.svg" {
-  const content: React.ComponentType<
-    {
-      width?: string | number;
-      height?: string | number;
-      opacity?: string;
-      preserveAspectRatio?: string | "none";
-      style?: any;
-    } & ViewStyle
-  >;
+  import React from "react";
+  import { SvgProps } from "react-native-svg";
+  const content: React.FC<SvgProps>;
   export default content;
 }
 
