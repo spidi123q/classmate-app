@@ -202,10 +202,7 @@ dependencies {
 
     implementation project(path: ":@react-native-firebase_storage")
 
-    implementation ('org.jitsi.react:jitsi-meet-sdk:2.+') {
-        exclude group: 'com.facebook.react',module:'react-native-svg'
-        transitive = true
-    }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:3.+') { transitive = true }
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'

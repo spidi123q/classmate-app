@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Ripple from "react-native-material-ripple";
-import { View, Text } from "react-native";
+import { View, Text, NativeModules } from "react-native";
 import User, { UserEdit } from "../../../models/User";
 import { RoutePath, TabPages } from "../../../models/RoutePath";
 import { UserRoles } from "../../../models/enum";
@@ -120,7 +120,11 @@ const Login = () => {
                 <NativeButton
                   size="lg"
                   title="Login"
-                  onPress={() => formikProps.handleSubmit()}
+                  onPress={() => {
+                    console.log("Hello from js");
+                    const { JitsiMeetModule } = NativeModules;
+                    JitsiMeetModule.join("saSa");
+                  }}
                 />
               </View>
             </View>
