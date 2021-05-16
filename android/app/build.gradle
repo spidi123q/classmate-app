@@ -79,10 +79,11 @@ import com.android.build.OutputFile
 
 project.ext.react = [
     enableHermes: false,  // clean and rebuild if changing
+    entryFile: "index.js",
+    bundleAssetName: "app.bundle",
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
-apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -202,7 +203,12 @@ dependencies {
 
     implementation project(path: ":@react-native-firebase_storage")
 
-    implementation ('org.jitsi.react:jitsi-meet-sdk:3.+') { transitive = true }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:3.+') {
+        exclude group: 'com.facebook.react',module:'react-native-svg'
+        exclude group: 'com.facebook.react',module:'react-native-device-info'
+        exclude group: 'com.facebook.react',module:'react-native-splash-screen'
+        transitive = true
+    }
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'

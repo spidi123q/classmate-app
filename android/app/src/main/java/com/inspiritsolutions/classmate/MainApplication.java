@@ -10,7 +10,8 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import com.microsoft.codepush.react.CodePush;
+
+import androidx.annotation.Nullable;
 import androidx.multidex.MultiDexApplication;
 
 public class MainApplication extends MultiDexApplication implements ReactApplication {
@@ -39,10 +40,12 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
 
         // the CodePush runtime determine where to get the JS
         // bundle location from on each app start
-        @Override
-        protected String getJSBundleFile() {
-            return CodePush.getJSBundleFile();
-        }
+
+          @Override
+          protected @Nullable
+          String getBundleAssetName() {
+              return "app.bundle";
+          }
       };
 
   @Override

@@ -1,7 +1,5 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import "react-native-get-random-values";
-import codePush from "react-native-code-push";
 import { store, persistor } from "./store/AppStore";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
