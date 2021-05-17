@@ -207,6 +207,7 @@ dependencies {
         exclude group: 'com.facebook.react',module:'react-native-svg'
         exclude group: 'com.facebook.react',module:'react-native-device-info'
         exclude group: 'com.facebook.react',module:'react-native-splash-screen'
+        exclude group: 'com.facebook.react',module:'react-native-async-storage'
         transitive = true
     }
 

@@ -3,12 +3,12 @@ import AppState from "./AppState";
 import { AppInfoReducer } from "../common/state/AppInfoReducer";
 import { LoginReducer } from "../features/login/state/reducer";
 import { ProductReducer } from "../features/product/state/reducer";
-import FilesystemStorage from "redux-persist-filesystem-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { persistReducer } from "redux-persist";
 
 const appInfoPersistConfig = {
   key: "appInfo",
-  storage: FilesystemStorage,
+  storage: AsyncStorage,
   whitelist: ["recentSearch", "isFirstLaunch"],
 };
 
