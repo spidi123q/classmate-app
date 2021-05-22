@@ -30,6 +30,9 @@
 		4481B0CD25B73873007E992A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4481B0CC25B73873007E992A /* GoogleService-Info.plist */; };
 		448A89EF2658EAA7001D98AE /* RCTJitsiMeetModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */; };
 		448A89F02658EAA7001D98AE /* RCTJitsiMeetModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */; };
+		448A89F426590822001D98AE /* RNJitsiMeetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89F326590822001D98AE /* RNJitsiMeetView.m */; };
+		448A89F526590822001D98AE /* RNJitsiMeetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89F326590822001D98AE /* RNJitsiMeetView.m */; };
+		448A89F626590822001D98AE /* RNJitsiMeetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89F326590822001D98AE /* RNJitsiMeetView.m */; };
 		44C7301A264FD1EE00C656F9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C73019264FD1EE00C656F9 /* File.swift */; };
 		7952CE3826D9F028428D7346 /* libPods-Classmate-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34080A1651268D23ADCBA17D /* libPods-Classmate-tvOS.a */; };
 		9D5CC5D7D5300E4AA98642AA /* libPods-Classmate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF80C3045E99CD69C7A6056F /* libPods-Classmate.a */; };
@@ -86,6 +89,8 @@
 		4481B0CC25B73873007E992A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		448A89ED2658E9DB001D98AE /* RCTJitsiMeetModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTJitsiMeetModule.h; sourceTree = "<group>"; };
 		448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTJitsiMeetModule.m; sourceTree = "<group>"; };
+		448A89F2265907BB001D98AE /* RNJitsiMeetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNJitsiMeetView.h; sourceTree = "<group>"; };
+		448A89F326590822001D98AE /* RNJitsiMeetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNJitsiMeetView.m; sourceTree = "<group>"; };
 		44C73018264FD1ED00C656F9 /* Classmate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Classmate-Bridging-Header.h"; sourceTree = "<group>"; };
 		44C73019264FD1EE00C656F9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		81480BB5CE464BD1177C7B66 /* Pods-Classmate-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Classmate-tvOSTests/Pods-Classmate-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,11 +159,10 @@
 		13B07FAE1A68108700A75B9A /* Classmate */ = {
 			isa = PBXGroup;
 			children = (
+				448A89F72659109C001D98AE /* Jitsi */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				448A89ED2658E9DB001D98AE /* RCTJitsiMeetModule.h */,
-				448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -193,6 +197,17 @@
 				CF0DE29F7A55E1F4DF98C397 /* Pods-Classmate-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		448A89F72659109C001D98AE /* Jitsi */ = {
+			isa = PBXGroup;
+			children = (
+				448A89ED2658E9DB001D98AE /* RCTJitsiMeetModule.h */,
+				448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */,
+				448A89F2265907BB001D98AE /* RNJitsiMeetView.h */,
+				448A89F326590822001D98AE /* RNJitsiMeetView.m */,
+			);
+			name = Jitsi;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -449,10 +464,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Classmate-ClassmateTests/Pods-Classmate-ClassmateTests-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/JitsiMeetSDK/JitsiMeetSDK.framework/JitsiMeetSDK",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/WebRTC/WebRTC.framework/WebRTC",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeetSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,10 +500,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Classmate/Pods-Classmate-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/JitsiMeetSDK/JitsiMeetSDK.framework/JitsiMeetSDK",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/WebRTC/WebRTC.framework/WebRTC",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeetSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,6 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				448A89F02658EAA7001D98AE /* RCTJitsiMeetModule.m in Sources */,
+				448A89F526590822001D98AE /* RNJitsiMeetView.m in Sources */,
 				00E356F31AD99517003FC87E /* KissanSevaTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -749,6 +773,7 @@
 			files = (
 				448A89EF2658EAA7001D98AE /* RCTJitsiMeetModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				448A89F426590822001D98AE /* RNJitsiMeetView.m in Sources */,
 				44C7301A264FD1EE00C656F9 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -759,6 +784,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
+				448A89F626590822001D98AE /* RNJitsiMeetView.m in Sources */,
 				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

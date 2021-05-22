@@ -1,6 +1,11 @@
 import React, { useState, useRef } from "react";
 import Ripple from "react-native-material-ripple";
-import { View, Text, NativeModules } from "react-native";
+import {
+  View,
+  Text,
+  NativeModules,
+  requireNativeComponent,
+} from "react-native";
 import User, { UserEdit } from "../../../models/User";
 import { RoutePath, TabPages } from "../../../models/RoutePath";
 import { UserRoles } from "../../../models/enum";
@@ -43,6 +48,8 @@ import {
 } from "../../../common/config/themeConfig";
 import Typography from "../../../common/components/Typography";
 import { VericalSpacer } from "../../../common/components/VericalSpacer";
+import VideoPlayer from "../../../common/components/videoPlayer/VideoPlayer";
+import { JitsiMeetView, RNJitsiMeet } from "../../../native/jitsiMeet/index";
 
 const Login = () => {
   const isKeyBoardActive = useKeyBoard();
@@ -53,6 +60,21 @@ const Login = () => {
       phone,
     });
   };
+
+  function onConferenceTerminated(nativeEvent) {
+    console.log(
+      "🚀 ~ file: Login.tsx ~ line 67 ~ onConferenceTerminated ~ onConferenceTerminated"
+    );
+    /* Conference terminated event */
+  }
+
+  function onConferenceJoined(nativeEvent) {
+    /* Conference joined event */
+  }
+
+  function onConferenceWillJoin(nativeEvent) {
+    /* Conference will join event */
+  }
 
   return (
     <NativeLayout backgroundColor={SecondaryBackgroundColor}>
@@ -74,56 +96,33 @@ const Login = () => {
                 >
                   Get Started
                 </Typography>
+                {/* <VideoPlayer
+                  source={{ uri: "https://vjs.zencdn.net/v/oceans.mp4" }}
+                /> */}
               </Animatable.View>
             )}
             <View style={styles.formContainer}>
               <View style={styles.container}>
-                <NativeField
-                  autoCompleteType="off"
-                  placeholder="Mobile number  "
-                  name="phone"
-                  formikProps={formikProps}
-                  type="text"
-                  keyboardType="number-pad"
-                  iconName="phone-call-outline"
-                  vericalSpacer
-                  onFocus={() => {
-                    if (isEmpty(formikProps.values.phone)) {
-                      formikProps.setFieldValue("phone", "+91 ");
-                    }
-                  }}
+                <JitsiMeetView
+                  onConferenceTerminated={onConferenceTerminated}
+                  onConferenceJoined={onConferenceJoined}
+                  onConferenceWillJoin={onConferenceWillJoin}
+                  style={{ flex: 1, height: "100%", width: "100%" }}
                 />
-                <VericalSpacer />
-                <Typography
-                  size={FontSize.h3}
-                  opacity={DefaultOpacity}
-                  marginLeft={DefaultMargin}
-                >
-                  <Typography
-                    size={FontSize.h3}
-                    color={AppTheme["color-grey2"]}
-                    opacity={DefaultOpacity}
-                  >
-                    I accept
-                  </Typography>{" "}
-                  terms and conditions{" "}
-                  <Typography
-                    size={FontSize.h3}
-                    color={AppTheme["color-grey2"]}
-                    opacity={DefaultOpacity}
-                  >
-                    and
-                  </Typography>{" "}
-                  privacy policy
-                </Typography>
-                <VericalSpacer height={DefaultMargin * 2} />
                 <NativeButton
                   size="lg"
                   title="Login"
                   onPress={() => {
-                    console.log("Hello from js");
-                    const { JitsiMeetModule } = NativeModules;
-                    JitsiMeetModule.join("saSa");
+                    const userInfo = {
+                      displayName: "User",
+                      email: "user@example.com",
+                      avatar: "https:/gravatar.com/avatar/abc123",
+                    };
+
+                    RNJitsiMeet.join(
+                      "https://meet.jit.si/test1233231231231",
+                      userInfo
+                    );
                   }}
                 />
               </View>

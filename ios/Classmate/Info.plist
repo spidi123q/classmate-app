@@ -63,6 +63,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>For taking pictures of the item you like to add</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone Permission</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -84,6 +86,11 @@
 		<string>Gilroy-SemiBold.ttf</string>
 		<string>Gilroy-Thin.ttf</string>
 		<string>Gilroy-UltraLight.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>voip</string>
+		<string>audio</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

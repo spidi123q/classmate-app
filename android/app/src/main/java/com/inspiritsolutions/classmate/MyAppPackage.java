@@ -3,6 +3,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
+import com.inspiritsolutions.classmate.jitsi.RNJitsiMeetModule;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +21,7 @@ public class MyAppPackage implements ReactPackage {
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
-        modules.add(new JitsiMeetModule(reactContext));
+        modules.add(new RNJitsiMeetModule(reactContext));
 
         return modules;
     }

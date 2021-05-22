@@ -1,5 +1,6 @@
-package com.reactnativejitsimeet;
+package com.inspiritsolutions.classmate.jitsi;
 
+import android.app.Activity;
 import android.util.Log;
 import java.net.URL;
 import java.net.MalformedURLException;
@@ -11,14 +12,16 @@ import com.facebook.react.bridge.UiThreadUtil;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.bridge.ReadableMap;
 
+import org.jitsi.meet.sdk.JitsiMeetActivity;
+import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
+import org.jitsi.meet.sdk.JitsiMeetUserInfo;
+
 @ReactModule(name = RNJitsiMeetModule.MODULE_NAME)
 public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
     public static final String MODULE_NAME = "RNJitsiMeetModule";
-    private IRNJitsiMeetViewReference mJitsiMeetViewReference;
 
-    public RNJitsiMeetModule(ReactApplicationContext reactContext, IRNJitsiMeetViewReference jitsiMeetViewReference) {
+    public RNJitsiMeetModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        mJitsiMeetViewReference = jitsiMeetViewReference;
     }
 
     @Override
@@ -32,79 +35,39 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void call(String url, ReadableMap userInfo) {
+    public void join(String url, ReadableMap userInfo) {
+        Activity currentActivity = this.getCurrentActivity();
         UiThreadUtil.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (mJitsiMeetViewReference.getJitsiMeetView() != null) {
-                    RNJitsiMeetUserInfo _userInfo = new RNJitsiMeetUserInfo();
-                    if (userInfo != null) {
-                        if (userInfo.hasKey("displayName")) {
-                            _userInfo.setDisplayName(userInfo.getString("displayName"));
-                          }
-                          if (userInfo.hasKey("email")) {
-                            _userInfo.setEmail(userInfo.getString("email"));
-                          }
-                          if (userInfo.hasKey("avatar")) {
-                            String avatarURL = userInfo.getString("avatar");
-                            try {
-                                _userInfo.setAvatar(new URL(avatarURL));
-                            } catch (MalformedURLException e) {
-                            }
-                          }
+                JitsiMeetUserInfo _userInfo = new JitsiMeetUserInfo();
+                if (userInfo != null) {
+                    if (userInfo.hasKey("displayName")) {
+                        _userInfo.setDisplayName(userInfo.getString("displayName"));
                     }
-                    RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
-                            .setRoom(url)
-                            .setAudioOnly(false)
-                            .setUserInfo(_userInfo)
-                            .build();
-                    mJitsiMeetViewReference.getJitsiMeetView().join(options);
-                }
-            }
-        });
-    }
-
-    @ReactMethod
-    public void audioCall(String url, ReadableMap userInfo) {
-        UiThreadUtil.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (mJitsiMeetViewReference.getJitsiMeetView() != null) {
-                    RNJitsiMeetUserInfo _userInfo = new RNJitsiMeetUserInfo();
-                    if (userInfo != null) {
-                        if (userInfo.hasKey("displayName")) {
-                            _userInfo.setDisplayName(userInfo.getString("displayName"));
-                          }
-                          if (userInfo.hasKey("email")) {
-                            _userInfo.setEmail(userInfo.getString("email"));
-                          }
-                          if (userInfo.hasKey("avatar")) {
-                            String avatarURL = userInfo.getString("avatar");
-                            try {
-                                _userInfo.setAvatar(new URL(avatarURL));
-                            } catch (MalformedURLException e) {
-                            }
-                          }
+                    if (userInfo.hasKey("email")) {
+                        _userInfo.setEmail(userInfo.getString("email"));
                     }
-                    RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
-                            .setRoom(url)
-                            .setAudioOnly(true)
-                            .setUserInfo(_userInfo)
-                            .build();
-                    mJitsiMeetViewReference.getJitsiMeetView().join(options);
+                    if (userInfo.hasKey("avatar")) {
+                        String avatarURL = userInfo.getString("avatar");
+                        try {
+                            _userInfo.setAvatar(new URL(avatarURL));
+                        } catch (MalformedURLException e) {
+                        }
+                    }
                 }
-            }
-        });
-    }
-
-    @ReactMethod
-    public void endCall() {
-        UiThreadUtil.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (mJitsiMeetViewReference.getJitsiMeetView() != null) {
-                    mJitsiMeetViewReference.getJitsiMeetView().leave();
-                }
+                JitsiMeetConferenceOptions options
+                        = new JitsiMeetConferenceOptions.Builder()
+                        .setRoom("https://meet.jit.si/test1233231231231")
+                        .setUserInfo(_userInfo)
+                        // Settings for audio and video
+                        //.setAudioMuted(true)
+                        //.setVideoMuted(true)
+                        .setWelcomePageEnabled(false)
+                        .build();
+                // Launch the new activity with the given options. The launch() method takes care
+                // of creating the required Intent and passing the options.
+                JitsiMeetActivity.launch(currentActivity, options);
             }
         });
     }

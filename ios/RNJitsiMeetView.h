@@ -1,12 +1,9 @@
-//
-//  RNJitsiMeetView.h
-//  Classmate
-//
-//  Created by Suraj Kiran on 22/05/21.
-//
+#import <React/RCTComponent.h>
+@import JitsiMeetSDK;
 
-#ifndef RNJitsiMeetView_h
-#define RNJitsiMeetView_h
-
-
-#endif /* RNJitsiMeetView_h */
+@interface RNJitsiMeetView : JitsiMeetView
+@property (nonatomic, copy) RCTBubblingEventBlock onConferenceJoined;
+@property (nonatomic, copy) RCTBubblingEventBlock onConferenceTerminated;
+@property (nonatomic, copy) RCTBubblingEventBlock onConferenceWillJoin;
+@property (nonatomic, copy) RCTBubblingEventBlock onEnteredPip;
+@end
