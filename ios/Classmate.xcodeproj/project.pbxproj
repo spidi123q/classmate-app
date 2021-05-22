@@ -28,6 +28,8 @@
 		4471BAFD2550350500FC3E98 /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4471BAF32550350500FC3E98 /* Gilroy-Regular.ttf */; };
 		4471BAFE2550350500FC3E98 /* Gilroy-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4471BAF42550350500FC3E98 /* Gilroy-UltraLight.ttf */; };
 		4481B0CD25B73873007E992A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4481B0CC25B73873007E992A /* GoogleService-Info.plist */; };
+		448A89EF2658EAA7001D98AE /* RCTJitsiMeetModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */; };
+		448A89F02658EAA7001D98AE /* RCTJitsiMeetModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */; };
 		44C7301A264FD1EE00C656F9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C73019264FD1EE00C656F9 /* File.swift */; };
 		7952CE3826D9F028428D7346 /* libPods-Classmate-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34080A1651268D23ADCBA17D /* libPods-Classmate-tvOS.a */; };
 		9D5CC5D7D5300E4AA98642AA /* libPods-Classmate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF80C3045E99CD69C7A6056F /* libPods-Classmate.a */; };
@@ -82,6 +84,8 @@
 		4471BAF32550350500FC3E98 /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gilroy-Regular.ttf"; path = "../assets/fonts/Gilroy-Regular.ttf"; sourceTree = "<group>"; };
 		4471BAF42550350500FC3E98 /* Gilroy-UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gilroy-UltraLight.ttf"; path = "../assets/fonts/Gilroy-UltraLight.ttf"; sourceTree = "<group>"; };
 		4481B0CC25B73873007E992A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		448A89ED2658E9DB001D98AE /* RCTJitsiMeetModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTJitsiMeetModule.h; sourceTree = "<group>"; };
+		448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTJitsiMeetModule.m; sourceTree = "<group>"; };
 		44C73018264FD1ED00C656F9 /* Classmate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Classmate-Bridging-Header.h"; sourceTree = "<group>"; };
 		44C73019264FD1EE00C656F9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		81480BB5CE464BD1177C7B66 /* Pods-Classmate-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Classmate-tvOSTests/Pods-Classmate-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				448A89ED2658E9DB001D98AE /* RCTJitsiMeetModule.h */,
+				448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -732,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448A89F02658EAA7001D98AE /* RCTJitsiMeetModule.m in Sources */,
 				00E356F31AD99517003FC87E /* KissanSevaTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,6 +747,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448A89EF2658EAA7001D98AE /* RCTJitsiMeetModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				44C7301A264FD1EE00C656F9 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
