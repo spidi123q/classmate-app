@@ -202,6 +202,8 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation project(path: ":@react-native-firebase_storage")
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
 
     implementation ('org.jitsi.react:jitsi-meet-sdk:3.+') {
         exclude group: 'com.facebook.react',module:'react-native-svg'

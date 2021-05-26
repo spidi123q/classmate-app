@@ -125,6 +125,15 @@ const Login = () => {
                     );
                   }}
                 />
+                                <NativeButton
+                  size="lg"
+                  title="Test"
+                  onPress={() => {
+
+
+                    RNJitsiMeet.showJoinMeetingNotification()
+                  }}
+                />
               </View>
             </View>
           </View>

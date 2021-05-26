@@ -1,7 +1,18 @@
 package com.inspiritsolutions.classmate.jitsi;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
+import android.widget.RemoteViews;
+
+import androidx.core.app.NotificationCompat;
+
 import java.net.URL;
 import java.net.MalformedURLException;
 
@@ -11,6 +22,8 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.UiThreadUtil;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.bridge.ReadableMap;
+import com.inspiritsolutions.classmate.MainActivity;
+import com.inspiritsolutions.classmate.R;
 
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
@@ -19,9 +32,13 @@ import org.jitsi.meet.sdk.JitsiMeetUserInfo;
 @ReactModule(name = RNJitsiMeetModule.MODULE_NAME)
 public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
     public static final String MODULE_NAME = "RNJitsiMeetModule";
+    private String CHANNEL_ID = "12312312";
+    private Context context;
 
     public RNJitsiMeetModule(ReactApplicationContext reactContext) {
         super(reactContext);
+        context = reactContext.getApplicationContext();
+
     }
 
     @Override
@@ -31,44 +48,12 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void initialize() {
-        Log.d("JitsiMeet", "Initialize is deprecated in v2");
+        Log.d(MODULE_NAME, "Initialize is deprecated in v2");
     }
 
     @ReactMethod
     public void join(String url, ReadableMap userInfo) {
         Activity currentActivity = this.getCurrentActivity();
-        UiThreadUtil.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                JitsiMeetUserInfo _userInfo = new JitsiMeetUserInfo();
-                if (userInfo != null) {
-                    if (userInfo.hasKey("displayName")) {
-                        _userInfo.setDisplayName(userInfo.getString("displayName"));
-                    }
-                    if (userInfo.hasKey("email")) {
-                        _userInfo.setEmail(userInfo.getString("email"));
-                    }
-                    if (userInfo.hasKey("avatar")) {
-                        String avatarURL = userInfo.getString("avatar");
-                        try {
-                            _userInfo.setAvatar(new URL(avatarURL));
-                        } catch (MalformedURLException e) {
-                        }
-                    }
-                }
-                JitsiMeetConferenceOptions options
-                        = new JitsiMeetConferenceOptions.Builder()
-                        .setRoom("https://meet.jit.si/test1233231231231")
-                        .setUserInfo(_userInfo)
-                        // Settings for audio and video
-                        //.setAudioMuted(true)
-                        //.setVideoMuted(true)
-                        .setWelcomePageEnabled(false)
-                        .build();
-                // Launch the new activity with the given options. The launch() method takes care
-                // of creating the required Intent and passing the options.
-                JitsiMeetActivity.launch(currentActivity, options);
-            }
-        });
+        JitsiHelper.join(url, userInfo, context);
     }
 }

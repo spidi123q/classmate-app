@@ -20,6 +20,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <!-- END OPTIONAL PERMISSIONS -->
 
     <application
@@ -40,6 +41,14 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+      <service android:name=".jitsi.MeetingService">
+          <intent-filter>
+              <action android:name="com.google.firebase.MESSAGING_EVENT" />
+          </intent-filter>
+      </service>
+       <receiver
+           android:name=".jitsi.MeetingNotificationReceiver" >
+       </receiver>
     </application>
 
 </manifest>
