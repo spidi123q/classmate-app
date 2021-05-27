@@ -61,21 +61,6 @@ const Login = () => {
     });
   };
 
-  function onConferenceTerminated(nativeEvent) {
-    console.log(
-      "🚀 ~ file: Login.tsx ~ line 67 ~ onConferenceTerminated ~ onConferenceTerminated"
-    );
-    /* Conference terminated event */
-  }
-
-  function onConferenceJoined(nativeEvent) {
-    /* Conference joined event */
-  }
-
-  function onConferenceWillJoin(nativeEvent) {
-    /* Conference will join event */
-  }
-
   return (
     <NativeLayout backgroundColor={SecondaryBackgroundColor}>
       <Formik
@@ -96,45 +81,13 @@ const Login = () => {
                 >
                   Get Started
                 </Typography>
-                {/* <VideoPlayer
+                <VideoPlayer
                   source={{ uri: "https://vjs.zencdn.net/v/oceans.mp4" }}
-                /> */}
+                />
               </Animatable.View>
             )}
             <View style={styles.formContainer}>
-              <View style={styles.container}>
-                <JitsiMeetView
-                  onConferenceTerminated={onConferenceTerminated}
-                  onConferenceJoined={onConferenceJoined}
-                  onConferenceWillJoin={onConferenceWillJoin}
-                  style={{ flex: 1, height: "100%", width: "100%" }}
-                />
-                <NativeButton
-                  size="lg"
-                  title="Login"
-                  onPress={() => {
-                    const userInfo = {
-                      displayName: "User",
-                      email: "user@example.com",
-                      avatar: "https:/gravatar.com/avatar/abc123",
-                    };
-
-                    RNJitsiMeet.join(
-                      "https://meet.jit.si/test1233231231231",
-                      userInfo
-                    );
-                  }}
-                />
-                                <NativeButton
-                  size="lg"
-                  title="Test"
-                  onPress={() => {
-
-
-                    RNJitsiMeet.showJoinMeetingNotification()
-                  }}
-                />
-              </View>
+              <View style={styles.container}></View>
             </View>
           </View>
         )}

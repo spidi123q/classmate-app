@@ -8,7 +8,6 @@ interface IJitsiMeetUserInfo {
 
 interface IRNJitsiMeet {
   join: (url: string, userInfo: IJitsiMeetUserInfo | null) => void;
-  showJoinMeetingNotification();
 }
 
 /**
