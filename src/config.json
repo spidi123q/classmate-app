@@ -1,5 +1,5 @@
 {
-  "endpoint": "http://localhost:9090",
+  "endpoint": "http://192.168.1.43:9090",
   "versionCode": 1,
   "packageId": "app.kisanseva",
   "licenseUrl": "https://makemydrink.in/license.html",

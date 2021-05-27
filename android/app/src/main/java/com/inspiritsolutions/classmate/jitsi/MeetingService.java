@@ -12,6 +12,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -52,15 +53,7 @@ public class MeetingService extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
             startForeground(NotificationHelper.MEETING_JOIN__ID, notificationHelper.getJoinMeetingNotification());
-
-            if (/* Check if data needs to be processed by long running job */ true) {
-                // For long-running tasks (10 seconds or more) use WorkManager.
-                //scheduleJob();
-            } else {
-                // Handle message within 10 seconds
-                //handleNow();
-            }
-
+            notificationHelper.cancelJoinNotificationOnTimeout();
         }
 
         // Check if message contains a notification payload.

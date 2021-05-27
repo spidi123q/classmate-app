@@ -10,6 +10,7 @@ import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Looper;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
@@ -25,9 +26,10 @@ public class NotificationHelper {
     private NotificationManager notificationManager;
     public static  String MEETING_JOIN_CHANNEL_ID = "JitsiMeeting";
     public static int MEETING_JOIN__ID = 123456;
-    public static  String ACTION_TYPE = "ACTION_TYPE";
-    public static  String ACTION_JOIN = "ACTION_JOIN";
-    public static  String ACTION_DECLINE = "ACTION_DECLINE";
+    public static  final String ACTION_TYPE = "ACTION_TYPE";
+    public static  final String ACTION_JOIN = "ACTION_JOIN";
+    public static  final String ACTION_DECLINE = "ACTION_DECLINE";
+    public static  final int RING_TIMEOUT = 45000;
 
 
     NotificationHelper(Context context) {
@@ -98,5 +100,16 @@ public class NotificationHelper {
         NotificationManagerCompat mNotificationManager = NotificationManagerCompat.from(context.getApplicationContext());
         mNotificationManager.deleteNotificationChannel(NotificationHelper.MEETING_JOIN_CHANNEL_ID);
         mNotificationManager.cancel(NotificationHelper.MEETING_JOIN__ID);
+    }
+
+    public void cancelJoinNotificationOnTimeout() {
+        new android.os.Handler(Looper.getMainLooper()).postDelayed(
+                new Runnable() {
+                    public void run() {
+                        Log.d(TAG, "Call ring timeout");
+                        removeJoinNotification();
+                    }
+                },
+                RING_TIMEOUT);
     }
 }
