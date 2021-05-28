@@ -1,6 +1,7 @@
 import React, { Component, Ref } from "react";
 import Video, {
   LoadError,
+  OnBufferData,
   OnLoadData,
   OnProgressData,
   OnSeekData,
@@ -25,6 +26,7 @@ import padStart from "lodash/padStart";
 import styles, { PlayerIconColor } from "./VideoPlayer.style";
 import { Icon } from "react-native-elements";
 import { DefaultIconFamily } from "../../config/themeConfig";
+import Loader from "../Loader";
 
 interface IOpts {
   playWhenInactive?: boolean;
@@ -117,6 +119,7 @@ interface IState extends Omit<IProps, "source"> {
   seeking: boolean;
   originallyPaused: boolean;
   loading: boolean;
+  isBuffering: boolean;
   currentTime: number;
   error: boolean;
   duration: number;
@@ -184,6 +187,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
       originallyPaused: false,
       scrubbing: false,
       loading: false,
+      isBuffering: false,
       currentTime: 0,
       error: false,
       duration: 0,
@@ -1306,24 +1310,10 @@ export default class VideoPlayer extends Component<IProps, IState> {
    * Show loading icon
    */
   renderLoader() {
-    if (this.state.loading) {
+    if (this.state.loading || this.state.isBuffering) {
       return (
         <View style={styles.loader.container}>
-          <Animated.Image
-            source={require("./assets/img/loader-icon.png")}
-            style={[
-              {
-                transform: [
-                  {
-                    rotate: this.animations.loader.rotate.interpolate({
-                      inputRange: [0, 360],
-                      outputRange: ["0deg", "360deg"],
-                    }),
-                  },
-                ],
-              },
-            ]}
-          />
+          <Loader style={{ height: 10, width: 10 }} />
         </View>
       );
     }
@@ -1346,6 +1336,11 @@ export default class VideoPlayer extends Component<IProps, IState> {
     }
     return null;
   }
+
+  onBuffer = (data: OnBufferData) => {
+    console.log("🚀 ~ file: VideoPlayer.tsx ~ line 1341 ~ data", data);
+    this.setState({ isBuffering: data.isBuffering });
+  };
 
   /**
    * Provide all of our options and render the whole component.
@@ -1373,6 +1368,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
             onSeek={this.events.onSeek}
             style={[styles.player.video, this.styles.videoStyle as any]}
             source={this.props.source}
+            onBuffer={this.onBuffer}
           />
           {this.renderError()}
           {this.renderLoader()}
