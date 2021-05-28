@@ -203,3 +203,5 @@ const styles = {
 };
 
 export default styles;
+
+export const PlayerIconColor: string = "white";

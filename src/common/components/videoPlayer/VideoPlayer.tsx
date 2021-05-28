@@ -22,7 +22,9 @@ import {
   ViewStyle,
 } from "react-native";
 import padStart from "lodash/padStart";
-import styles from "./VideoPlayer.style";
+import styles, { PlayerIconColor } from "./VideoPlayer.style";
+import { Icon } from "react-native-elements";
+import { DefaultIconFamily } from "../../config/themeConfig";
 
 interface IOpts {
   playWhenInactive?: boolean;
@@ -680,19 +682,35 @@ export default class VideoPlayer extends Component<IProps, IState> {
     time = Math.min(Math.max(time, 0), this.state.duration);
 
     if (!this.state.showHours) {
-      const formattedMinutes = padStart(Math.floor(time / 60).toFixed(0), 2, 0 as any);
-      const formattedSeconds = padStart(Math.floor(time % 60).toFixed(0), 2, 0 as any);
+      const formattedMinutes = padStart(
+        Math.floor(time / 60).toFixed(0),
+        2,
+        0 as any
+      );
+      const formattedSeconds = padStart(
+        Math.floor(time % 60).toFixed(0),
+        2,
+        0 as any
+      );
 
       return `${symbol}${formattedMinutes}:${formattedSeconds}`;
     }
 
-    const formattedHours = padStart(Math.floor(time / 3600).toFixed(0), 2, 0 as any);
+    const formattedHours = padStart(
+      Math.floor(time / 3600).toFixed(0),
+      2,
+      0 as any
+    );
     const formattedMinutes = padStart(
       (Math.floor(time / 60) % 60).toFixed(0),
       2,
       0 as any
     );
-    const formattedSeconds = padStart(Math.floor(time % 60).toFixed(0), 2, 0 as any);
+    const formattedSeconds = padStart(
+      Math.floor(time % 60).toFixed(0),
+      2,
+      0 as any
+    );
 
     return `${symbol}${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
   }
@@ -1106,11 +1124,12 @@ export default class VideoPlayer extends Component<IProps, IState> {
    */
   renderBack() {
     return this.renderControl(
-      <Image
-        source={require("./assets/img/back.png")}
-        //style={styles.controls.back}
+      <Icon
+        type={DefaultIconFamily}
+        name="arrow-back"
+        color={PlayerIconColor}
       />,
-      this.events.onBack,
+      this.events.onBack
       //styles.controls.back
     );
   }
@@ -1131,9 +1150,11 @@ export default class VideoPlayer extends Component<IProps, IState> {
           style={[styles.volume.handle, { left: this.state.volumePosition }]}
           {...this.player.volumePanResponder.panHandlers}
         >
-          <Image
+          <Icon
+            type={DefaultIconFamily}
+            name="volume-low"
+            color={PlayerIconColor}
             style={styles.volume.icon}
-            source={require("./assets/img/volume.png")}
           />
         </View>
       </View>
@@ -1144,12 +1165,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
    * Render fullscreen toggle and set icon based on the fullscreen state.
    */
   renderFullscreen() {
-    let source =
-      this.state.isFullscreen === true
-        ? require("./assets/img/shrink.png")
-        : require("./assets/img/expand.png");
+    const iconName = this.state.isFullscreen === true ? "contract" : "expand";
     return this.renderControl(
-      <Image source={source} />,
+      <Icon type={DefaultIconFamily} name={iconName} color={PlayerIconColor} />,
       this.methods.toggleFullscreen,
       styles.controls.fullscreen
     );
@@ -1245,12 +1263,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
    * Render the play/pause button and show the respective icon
    */
   renderPlayPause() {
-    let source =
-      this.state.paused === true
-        ? require("./assets/img/play.png")
-        : require("./assets/img/pause.png");
+    const iconName = this.state.paused === true ? "play" : "pause";
     return this.renderControl(
-      <Image source={source} />,
+      <Icon type={DefaultIconFamily} name={iconName} color={PlayerIconColor} />,
       this.methods.togglePlayPause,
       styles.controls.playPause
     );
@@ -1319,8 +1334,10 @@ export default class VideoPlayer extends Component<IProps, IState> {
     if (this.state.error) {
       return (
         <View style={styles.error.container}>
-          <Image
-            source={require("./assets/img/error-icon.png")}
+          <Icon
+            type={DefaultIconFamily}
+            name="bug"
+            color={PlayerIconColor}
             style={styles.error.icon}
           />
           <Text style={styles.error.text}>Video unavailable</Text>
