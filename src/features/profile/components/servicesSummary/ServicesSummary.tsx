@@ -3,7 +3,6 @@ import moment from "moment";
 import React, { createRef, useRef, useState } from "react";
 import NativeLayout from "../../../../common/components/NativeLayout";
 import Typography from "../../../../common/components/Typography";
-import useProduct from "../../../product/hooks/useProduct";
 import { useNavigation } from "@react-navigation/native";
 import {
   DefaultMargin,
@@ -12,7 +11,6 @@ import {
 } from "../../../../common/config/themeConfig";
 import { FlatListRenderItem } from "../../../../common/models/RenderItem";
 import { FlatList } from "react-native";
-import TabPageTitle from "../../../product/components/TabPageTitle";
 import ServiceCard from "./ServiceCard";
 import NativeView from "../../../../common/components/NativeView";
 import useClaimAPI from "../../hooks/useClaimAPI";
@@ -35,7 +33,6 @@ export default function SellerSummary() {
     <NativeLayout horizontalMargin>
       <FlatList
         renderItem={renderItem}
-        ListHeaderComponent={<TabPageTitle title="My Product Services" />}
         keyExtractor={defaultDocKeyExtractor}
         data={claimPagination.collections}
         onEndReachedThreshold={DefaultonEndReachedThreshold}

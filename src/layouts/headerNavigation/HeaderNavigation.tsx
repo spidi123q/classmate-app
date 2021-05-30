@@ -88,7 +88,7 @@ export default function HeaderNavigation(
               padding={0.2 * blankUserSize}
               marginHorizontal={DefaultMargin}
             >
-              <BlankUser height={blankUserSize} width={blankUserSize} />
+              {/* <BlankUser height={blankUserSize} width={blankUserSize} /> */}
             </NativeView>
           </NativeView>
         </NativeView>

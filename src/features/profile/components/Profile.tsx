@@ -3,7 +3,6 @@ import { Text } from "react-native";
 import NativeHeader from "../../../common/components/NativeHeader";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
-import TransitionLayout from "../../../common/components/TransitionLayout";
 import Typography from "../../../common/components/Typography";
 import {
   DefaultMargin,
@@ -11,7 +10,6 @@ import {
   FontSize,
 } from "../../../common/config/themeConfig";
 import useUser from "../../login/hooks/useUser";
-import BlankUser from "../../../common/assets/BlankUser.svg";
 import { formatPhoneNumber } from "../../../common/helpers/format";
 import { AppTheme } from "../../../common/config/custom-theme";
 import ProfileMenu from "./ProfileMenu";
@@ -38,9 +36,7 @@ export default function Profile() {
               {formatPhoneNumber(phone)}
             </Typography>
           </NativeView>
-          <NativeView marginTop={-DefaultMargin * 3}>
-            <BlankUser height={profilePicSize} width={profilePicSize} />
-          </NativeView>
+          <NativeView marginTop={-DefaultMargin * 3}></NativeView>
         </NativeView>
         <NativeView marginTop={DoubleMargin}>
           <ProfileMenu />

@@ -137,9 +137,10 @@ const ProfileForm = (props: IProps) => {
         </Formik>
       </NativeLayout>
       {!isKeyBoardActive && (
-        <Animatable.View {...slideUpProps} style={styles.bottomLogoContainer}>
-          <LogoBG width="100%" height="100%" />
-        </Animatable.View>
+        <Animatable.View
+          {...slideUpProps}
+          style={styles.bottomLogoContainer}
+        ></Animatable.View>
       )}
     </>
   );

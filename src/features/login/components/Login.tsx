@@ -73,7 +73,6 @@ const Login = () => {
           <View style={styles.mainContainer}>
             {!isKeyBoardActive && (
               <Animatable.View {...slideUpProps} style={styles.logoContainer}>
-                <Logo height={DefaultLogoHeight} width={DefaultLogoWidth} />
                 <Typography
                   size={FontSize.h1x}
                   family="bold"
@@ -81,11 +80,11 @@ const Login = () => {
                 >
                   Get Started
                 </Typography>
-                <VideoPlayer
+                {/* <VideoPlayer
                   source={{
                     uri: "https://classmate-clasmmatemedia-inso.streaming.media.azure.net/3e7805f5-129d-4d5a-85ec-b9541514b54c/PromisingYoung720.ism/manifest(format=m3u8-aapl)",
                   }}
-                />
+                /> */}
               </Animatable.View>
             )}
             <View style={styles.formContainer}>

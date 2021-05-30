@@ -28,7 +28,7 @@ export default function ErrorLayout() {
               return (
                 <>
                   <Animatable.View {...slideUpProps}>
-                    <Sync height="150px" width="150px" />
+                    {/* <Sync height="150px" width="150px" /> */}
                   </Animatable.View>
                   <View style={styles.messageConatiner}>
                     <Typography>Update app to continue</Typography>
@@ -44,7 +44,7 @@ export default function ErrorLayout() {
               return (
                 <>
                   <Animatable.View {...slideUpProps}>
-                    <Bug height="150px" width="150px" />
+                    {/* <Bug height="150px" width="150px" /> */}
                   </Animatable.View>
                   <View style={styles.messageConatiner}>
                     <Typography>

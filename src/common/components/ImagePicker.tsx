@@ -21,13 +21,8 @@ interface IProps {
 }
 
 export default function ImagePicker(props: IProps) {
-  const {
-    readonly,
-    onLongPressImage,
-    onAddImagePress,
-    uriList,
-    progressList,
-  } = props;
+  const { readonly, onLongPressImage, onAddImagePress, uriList, progressList } =
+    props;
   const imageListRef = useRef<FlatList>(null);
   const renderItem = ({ item }: any) => {
     return (
@@ -86,7 +81,7 @@ interface IAddImageProps {
 
 const AddImage = ({ onAddImagePress }: IAddImageProps) => (
   <Ripple onPress={onAddImagePress} style={styles.item}>
-    <AddImageIcon style={styles.addImageIcon} />
+    <AddImageIcon />
   </Ripple>
 );
 
