@@ -35,7 +35,7 @@ export default function NativeCamera(props: IProps) {
   };
 
   const openGallery = () => {
-    ImagePicker.launchImageLibrary({}, ({ uri }) => {
+    ImagePicker.launchImageLibrary({} as any, ({ uri }) => {
       uri && onCapture(uri);
     });
   };

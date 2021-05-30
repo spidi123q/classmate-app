@@ -432,7 +432,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
           this.methods.toggleControls();
         }
         this.player.tapActionTimeout = 0;
-      }, this.props.doubleTapTime);
+      }, this.props.doubleTapTime) as any;
     }
   }
 
@@ -456,7 +456,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
   setControlTimeout() {
     this.player.controlTimeout = setTimeout(() => {
       this._hideControls();
-    }, this.player.controlTimeoutDelay);
+    }, this.player.controlTimeoutDelay) as any;
   }
 
   /**

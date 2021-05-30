@@ -1,7 +1,7 @@
 import { find, isEmpty, remove } from "lodash";
 import IField from "../../../models/template/Field";
 import ISection from "../../../models/template/Section";
-import ITemplate from "../../../models/template/template";
+import ITemplate from "../../../models/template/Template";
 
 export default class TemplateDTO {
   private readonly template: ITemplate;

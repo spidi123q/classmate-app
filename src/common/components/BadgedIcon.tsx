@@ -29,7 +29,7 @@ const BadgedIcon = ({
       marginLeft={marginLeft}
       marginRight={marginRight}
     >
-      <CustomBadgeIcon {...rest} />
+      <CustomBadgeIcon {...(rest as any)} />
     </NativeView>
   );
 };

@@ -14,7 +14,7 @@ export default function useScrollDirection() {
 
   const scrollViewStartOffsetYRef = useRef<number>(0);
   const scrollViewScrollDirectionYRef = useRef<number>(0);
-  const scrollDirection = useAppInfo("scrollDirection");
+  const scrollDirection = useAppInfo();
 
   /**
    * Sliding start callback event

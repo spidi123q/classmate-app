@@ -52,7 +52,7 @@ export default function ProductDetailsCard({ product }: IProps) {
       footerBody={<View style={styles.detailsFooterContainer} />}
       body={
         <NativeView>
-          {product.template.sections.map((section) => {
+          {product.template.sections.map((section: any) => {
             switch (section.name) {
               case "Warranty Details":
                 return (

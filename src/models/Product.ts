@@ -6,7 +6,6 @@ import { TimeStamps } from "../common/models/TimeStamps";
 import SystemConfig from "../SystemConfig";
 import IBrand from "./Brand";
 import ISeller from "./Seller";
-import ITemplate from "./template/template";
 import User from "./User";
 
 export default interface IProduct extends TimeStamps, ICreatedBy<User> {
@@ -29,7 +28,7 @@ export default interface IProduct extends TimeStamps, ICreatedBy<User> {
   createdByUser?: User;
   brand: IBrand;
   seller: ISeller;
-  template: ITemplate;
+  template: any;
 }
 
 export interface IProductQuery extends IProduct, IPagination {
