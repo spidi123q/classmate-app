@@ -1,5 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import NativeTextInput from "./common/components/NativeTextInput";
+import ThemeProvider from "./layouts/ThemeProvider";
 // import { store, persistor } from "./store/AppStore";
 // import { PersistGate } from "redux-persist/integration/react";
 // import { Provider } from "react-redux";
@@ -44,9 +46,12 @@ function App() {
   // );
 
   return (
-    <View>
-      <Text>Hello, world!</Text>
-    </View>
+    <ThemeProvider>
+      <View>
+        <Text>Hello, world!</Text>
+        <NativeTextInput />
+      </View>
+    </ThemeProvider>
   );
 }
 

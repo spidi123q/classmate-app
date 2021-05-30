@@ -10,13 +10,14 @@ import {
   FontFamily,
   FontSize,
   FontType,
+  IFontFamily,
 } from "../config/themeConfig";
 
 interface IProps extends TextProps, TextStyle {
   size?: number;
   color?: string;
   type?: FontType;
-  family?: FontFamily;
+  family?: IFontFamily;
 }
 
 const Typography: React.FunctionComponent<IProps> = (props) => {

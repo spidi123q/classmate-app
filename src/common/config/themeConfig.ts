@@ -3,7 +3,7 @@ import { AppTheme } from "./custom-theme";
 
 export type FontType = "h1x" | "h1" | "h2" | "h3" | "h3x" | "regular" | "xs";
 
-export type FontFamily =
+export type IFontFamily =
   | "light"
   | "regular"
   | "medium"
@@ -44,7 +44,7 @@ export const DefaultInputFontSize: number = FontSize.h3;
 
 export const DoubleMargin: number = DefaultMargin * 2;
 
-export const FontFamily: Record<FontFamily, string> = {
+export const FontFamily: Record<IFontFamily, string> = {
   light: DefaultFontLight,
   regular: DefaultFont,
   medium: AppFonts.GilroyMedium,

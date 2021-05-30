@@ -19,7 +19,6 @@
     "andoid:signingReport": "cd android && ./gradlew signingReport && cd ../"
   },
   "dependencies": {
-    "@codebet/react-native-background-color": "https://github.com/spidi123q/react-native-background-color",
     "@react-native-async-storage/async-storage": "^1.15.4",
     "@react-native-community/art": "^1.2.0",
     "@react-native-community/clipboard": "^1.2.3",

@@ -1416,10 +1416,6 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@codebet/react-native-background-color@https://github.com/spidi123q/react-native-background-color":
-  version "0.0.6"
-  resolved "https://github.com/spidi123q/react-native-background-color#0f145f60aa393589eb623ea02e8bceb5c00e82bc"
-
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
