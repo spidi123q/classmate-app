@@ -82,7 +82,9 @@ const Login = () => {
                   Get Started
                 </Typography>
                 <VideoPlayer
-                  source={{ uri: "https://vjs.zencdn.net/v/oceans.mp4" }}
+                  source={{
+                    uri: "https://classmate-clasmmatemedia-inso.streaming.media.azure.net/3e7805f5-129d-4d5a-85ec-b9541514b54c/PromisingYoung720.ism/manifest(format=m3u8-aapl)",
+                  }}
                 />
               </Animatable.View>
             )}
