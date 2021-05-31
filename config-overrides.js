@@ -5,6 +5,7 @@ const {
   babelInclude,
   addWebpackModuleRule,
   addWebpackAlias,
+  addTslintLoader,
 } = require("customize-cra");
 
 module.exports = override(

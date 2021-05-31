@@ -56,11 +56,7 @@ export default function IconButton({
           shadowRadius: 3.49,
           borderRadius: defaultSize,
         }}
-        type={gradient ? "gradient" : "default"}
-        colors={[
-          AppTheme["color-primary-500"],
-          AppTheme["color-secondary-dark"],
-        ]}
+        type={"default"}
       >
         <NativeView
           type={onPress && !isLoading ? "ripple" : "default"}

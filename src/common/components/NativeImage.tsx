@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ImageStyle, StyleProp, View } from "react-native";
 import { Image, ImageProps } from "react-native-elements";
 import Shimmer from "react-native-shimmer";
-import { ShimmerPlaceHolder } from "../config/constants";
 import { getBase64Image } from "../helpers/image";
 import useFirebaseStorage from "../hooks/useFirebaseStorage";
 
@@ -36,7 +35,7 @@ function NativeImage(props: IProps & ImageStyle) {
     },
     style,
   ];
-  const PlaceholderContent = <ShimmerPlaceHolder style={imageStyle} />;
+  const PlaceholderContent = null;
   const getFirebaseDownloadUrl = async () => {
     if (firebaseRef) {
       const url = await getDownloadURL(firebaseRef, thumbnail);
@@ -52,12 +51,7 @@ function NativeImage(props: IProps & ImageStyle) {
   return isLoading ? (
     PlaceholderContent
   ) : (
-    <Image
-      style={imageStyle}
-      source={uri ? { uri } : source}
-      PlaceholderContent={PlaceholderContent}
-      {...rest}
-    />
+    <Image style={imageStyle} source={uri ? { uri } : source} {...rest} />
   );
 }
 

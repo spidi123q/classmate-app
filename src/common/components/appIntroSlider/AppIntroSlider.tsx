@@ -220,15 +220,6 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
                     onPress={() => this.goToSlide(i, true)}
                   >
                     <NativeView
-                      type={"gradient"}
-                      colors={
-                        this._rtlSafeIndex(i) !== this.state.activeIndex
-                          ? ["white", "white"]
-                          : [
-                              AppTheme["color-primary-500"],
-                              AppTheme["color-secondary-dark"],
-                            ]
-                      }
                       key={i}
                       style={[
                         styles.dot,

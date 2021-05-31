@@ -33,7 +33,6 @@ import {
 import _ from "lodash";
 import NativeTextInput, { INativeTextInput } from "./NativeTextInput";
 import Typography from "./Typography";
-import ImageInput from "./ImageInput";
 import NativeLabel from "./NativeLabel";
 import NativeButtonGroup from "./NativeButtonGroup";
 import LocationInput from "./location/LocationInput";
@@ -199,18 +198,6 @@ const NativeField = (props: IProps) => {
           </NativeLabel>
         );
       }
-      case "image":
-        return (
-          <ImageInput
-            value={formikProps.values[name]}
-            onChange={(uriList) => {
-              console.log(`${name} -> selected`, uriList);
-              formikProps.setFieldValue(name, uriList);
-            }}
-            onLongPressImage={onLongPress}
-            progressList={progressList}
-          />
-        );
       case "button-group":
         return (
           <NativeButtonGroup
