@@ -1,7 +1,7 @@
 import { UserPermissions, UserRoles } from "./enum";
 import GeoJSON from "../common/models/GeoJSON";
 
-export default interface User {
+export interface User {
   _id: string;
   role: UserRoles;
   firebaseId: string;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AxiosApi, IResponse } from "../../../common/helpers/axios";
-import User, { UserEdit } from "../../../models/User";
+import { User, UserEdit } from "../../../models/User";
 import GetUser from "../api/GetUser";
 import UpdateUser from "../api/UpdateUser";
 
@@ -17,7 +17,7 @@ export default function useUserAPI() {
     return response;
   };
 
-  const getUser = async (isStateUpdate: boolean = true): IResponse<User> => {
+  const getUser = async (isStateUpdate: boolean = true): Promise<any> => {
     const request = GetUser(isStateUpdate);
     setIsLoading(true);
     const response = await dispatch(AxiosApi(request));

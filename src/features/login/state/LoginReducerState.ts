@@ -1,9 +1,9 @@
-import User, { InitialUser } from "../../../models/User";
+import { InitialUser, User } from "../../../models/User";
 
 export interface LoginReducerState {
-    user: User 
+  user: User;
 }
 
 export const InitialLoginReducerState: LoginReducerState = {
-    user: InitialUser
-}   
+  user: InitialUser,
+};

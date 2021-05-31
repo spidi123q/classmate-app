@@ -1,6 +1,7 @@
 import INotification from "../models/Notification";
-import PaginateResult, {
+import {
   InitialPaginateResult,
+  PaginateResult,
 } from "../models/PaginateResult";
 import ToastMessage from "../models/ToastMessage";
 

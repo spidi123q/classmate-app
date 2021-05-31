@@ -1,43 +1,30 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import NativeLayout from "../../../../common/components/NativeLayout";
-import User, { UserEdit } from "../../../../models/User";
-import { IResponse } from "../../../../common/helpers/axios";
-import { loginSchema, profileSchema } from "../yupSchema";
+import { UserEdit } from "../../../../models/User";
+import { profileSchema } from "../yupSchema";
 import { UserRoles } from "../../../../models/enum";
 import styles from "./ProfileForm.style";
-import LocationResult from "../../../../models/LocationResult";
-import Ripple from "react-native-material-ripple";
 import Loader from "../../../../common/components/Loader";
-import auth from "@react-native-firebase/auth";
-import { AppTheme } from "../../../../common/config/custom-theme";
+import firebase from "@react-native-firebase/app";
 import cleanDeep from "clean-deep";
-import { RoutePath, TabPages } from "../../../../models/RoutePath";
-import { useNavigation } from "@react-navigation/native";
 import useUserAPI from "../../hooks/useUserAPI";
-import useUser from "../../hooks/useUser";
 import { showToast } from "../../../../common/helpers/notification";
 import { ToastTitle } from "../../../../common/models/enum";
 import { Formik, FormikProps } from "formik";
-import { isEmpty } from "lodash";
 import { LogBox, View } from "react-native";
 import NativeButton from "../../../../common/components/NativeButton";
 import NativeField from "../../../../common/components/NativeField";
 import Typography from "../../../../common/components/Typography";
 import { VericalSpacer } from "../../../../common/components/VericalSpacer";
 import {
-  DefaultLogoHeight,
-  DefaultLogoWidth,
   FontSize,
   DefaultMargin,
-  DefaultOpacity,
   SecondaryBackgroundColor,
 } from "../../../../common/config/themeConfig";
 import { slideUpProps } from "../../../../common/helpers/animation";
-import LoginForm, { InitialLoginForm } from "../../../../models/LoginForm";
 import * as Animatable from "react-native-animatable";
 import useKeyBoard from "../../../../common/helpers/useKeyboard";
 import UserPic from "../../assets/UserPic.svg";
-import LogoBG from "../../../../common/assets/LogoBG.svg";
 
 interface IProps {}
 
@@ -47,7 +34,7 @@ const ProfileForm = (props: IProps) => {
   const isKeyBoardActive = useKeyBoard();
 
   const updateCurrentUser = async (values: UserEdit) => {
-    const firebaseUser = await auth().currentUser;
+    const firebaseUser = await firebase.auth().currentUser;
     let userEdit: UserEdit = cleanDeep<UserEdit>({
       role: UserRoles.User,
       email: firebaseUser?.email as string,

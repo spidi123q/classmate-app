@@ -5,7 +5,7 @@ import PatchNotificationsAsSeen from "../api/PatchNotificationsAsSeen";
 import { AxiosApi, IResponse } from "../helpers/axios";
 import INotification, { INotificationQuery } from "../models/Notification";
 import IPaginatedRequest from "../models/PaginatedRequest";
-import PaginateResult from "../models/PaginateResult";
+import { PaginateResult } from "../models/PaginateResult";
 
 export default function useNotificationAPI() {
   const dispatch: any = useDispatch();
@@ -13,7 +13,7 @@ export default function useNotificationAPI() {
   const getNotifications = async (
     params?: INotificationQuery,
     stateUpdate?: boolean | undefined
-  ): IResponse<PaginateResult<INotification>> => {
+  ): Promise<any> => {
     const request = GetNotification(params, stateUpdate);
     return dispatch(AxiosApi(request));
   };

@@ -1,8 +1,8 @@
-import { IRequest } from "../helpers/axios";
 import { PushTokenEdit } from "../models/PushToken";
 import { RequestTypes } from "../models/enum";
 import { Platform } from "react-native";
 import { getUniqueId } from "react-native-device-info";
+import { IRequest } from "../helpers/axios";
 
 export default function CreatePushToken(
   token: string,

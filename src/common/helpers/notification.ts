@@ -1,10 +1,12 @@
-import messaging from "@react-native-firebase/messaging";
+//import messaging from "@react-native-firebase/messaging";
+import firebase from "firebase";
 import CreatePushToken from "../api/CreatePushToken";
 import { AxiosApi } from "./axios";
 import { getDeviceName } from "react-native-device-info";
 import Toast from "react-native-toast-message";
 import { DefaultMargin } from "../config/themeConfig";
 import { TAB_HEIGHT } from "../../layouts/headerNavigation/navigationFooter/NavigationFooter.style";
+import { Platform } from "react-native";
 
 export type ToastModes = "success" | "error" | "info";
 export type ToastPosition = "top" | "bottom";
@@ -25,7 +27,9 @@ export const showToast = (
 };
 
 export const initFCM = async () => {
-  const token: string = await messaging().getToken();
+  const token: string = await (Platform.OS === "web"
+    ? firebase.messaging().getToken()
+    : "messaging().getToken()");
   console.log("initFCM -> token", token);
   return token;
 };

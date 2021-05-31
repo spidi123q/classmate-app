@@ -2,7 +2,7 @@ import { AppInfoActions } from "../common/state/AppInfoAction";
 import { AxiosApi, IResponse } from "../common/helpers/axios";
 import { Dispatch } from "redux";
 import { enableScreens } from "react-native-screens";
-import { onAuthStateChanged } from "../helpers/auth";
+import { initializeApp, onAuthStateChanged } from "../helpers/auth";
 import GetConnectionPing from "./api/GetConnectionPing";
 import GetUser from "../features/login/api/GetUser";
 import { showToast } from "../common/helpers/notification";
@@ -33,9 +33,7 @@ const getNotifications = async (dispatch: Dispatch<any>) => {
   return dispatch(AxiosApi(request));
 };
 
-const getSystemConfig = (
-  dispatch: any
-): IResponse<Record<keyof SystemConfig, string>> => {
+const getSystemConfig = (dispatch: any): any => {
   const request = GetSystemConfig();
   return dispatch(AxiosApi(request));
 };
@@ -60,6 +58,7 @@ const updateSystemConfig = async (dispatch: any) => {
 };
 
 const Initialize = async (dispatch: Dispatch<any>) => {
+  initializeApp();
   enableScreens();
   try {
     await onAuthStateChanged();

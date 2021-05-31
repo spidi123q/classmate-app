@@ -1,6 +1,6 @@
 import { IResponse } from "../helpers/axios";
 
-export default interface PaginateResult<T> {
+export interface PaginateResult<T> {
   docs: T[];
   totalDocs: number;
   limit: number;

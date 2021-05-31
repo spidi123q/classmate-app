@@ -17,7 +17,6 @@ import {
   InputHeight,
 } from "../config/themeConfig";
 import _ from "lodash";
-import LinearGradient from "react-native-linear-gradient";
 import Typography from "./Typography";
 import NativeView from "./NativeView";
 import { Circle } from "react-native-progress";
@@ -63,15 +62,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
       onPress={onPress}
       rippleContainerBorderRadius={500}
     >
-      <LinearGradient
-        start={{ x: 0, y: 1 }}
-        end={{ x: 1, y: 0 }}
-        colors={[
-          AppTheme["color-primary-500"],
-          AppTheme["color-secondary-dark"],
-        ]}
-        style={[getButtonStyle(mode, size), buttonStyle, customStyle]}
-      >
+      <View style={[getButtonStyle(mode, size), buttonStyle, customStyle]}>
         {children ??
           (!isLoading && (
             <Typography color="white" size={ButtonFontSize[size ?? "lg"]}>
@@ -85,7 +76,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
             indeterminate={true}
           />
         )}
-      </LinearGradient>
+      </View>
     </NativeView>
   );
 };

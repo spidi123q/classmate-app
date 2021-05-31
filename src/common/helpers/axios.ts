@@ -5,8 +5,8 @@ import { AppInfoActionTypes } from "../state/AppInfoAction";
 export interface IRequest extends AxiosRequestConfig {
   actionType?: string;
 }
-export type IResponse<T> = Promise<{payload: T}>
-export const IResponse = Promise;
+export type IResponse<T> = Promise<{ payload: T }>;
+//export const IResponse = Promise;
 
 export const client = axios.create({
   //all axios can be used, shown in axios documentation

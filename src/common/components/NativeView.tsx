@@ -6,9 +6,6 @@ import {
   ViewStyle,
   ScrollViewProps,
 } from "react-native";
-import LinearGradient, {
-  LinearGradientProps,
-} from "react-native-linear-gradient";
 import Ripple, { RippleProps } from "react-native-material-ripple";
 import * as Animatable from "react-native-animatable";
 
@@ -18,9 +15,7 @@ interface IProps extends ViewProps, ViewStyle, ScrollViewProps, RippleProps {
   viewRef?: any;
 }
 
-const NativeView: React.FunctionComponent<
-  IProps & Partial<LinearGradientProps>
-> = (props) => {
+const NativeView: React.FunctionComponent<IProps> = (props) => {
   const {
     type,
     children,
@@ -48,7 +43,7 @@ const NativeView: React.FunctionComponent<
     position,
     ...rest
   } = props;
-  const SelectedView = viewMap[type ?? "default"];
+  const SelectedView = viewMap[(type as ViewTypes) ?? "default"];
 
   return (
     <SelectedView
@@ -89,13 +84,12 @@ const NativeView: React.FunctionComponent<
   );
 };
 
-type ViewTypes = "scroll" | "ripple" | "default" | "gradient" | "animatable";
+type ViewTypes = "scroll" | "ripple" | "default" | "animatable";
 
 const viewMap: Record<ViewTypes, any> = {
   default: View,
   scroll: ScrollView,
   ripple: Ripple,
-  gradient: LinearGradient,
   animatable: Animatable.View,
 };
 

@@ -1,5 +1,14 @@
 {
   "endpoint": "http://192.168.1.43:9090",
+  "firebase": {
+    "apiKey": "AIzaSyCjMzZkd3XXDKSHAovz6JJx77MzR_llVo4",
+    "authDomain": "classmate-ca068.firebaseapp.com",
+    "projectId": "classmate-ca068",
+    "storageBucket": "classmate-ca068.appspot.com",
+    "messagingSenderId": "1029614808285",
+    "appId": "1:1029614808285:web:ebc68e47e2e11584193f34",
+    "measurementId": "G-F51BWH0W73"
+  },
   "versionCode": 1,
   "packageId": "app.kisanseva",
   "licenseUrl": "https://makemydrink.in/license.html",

@@ -1,13 +1,16 @@
 import { UserPermissions, UserRoles } from "./../models/enum";
-import { AsyncStorage } from "react-native";
 import _, { includes } from "lodash";
-import auth, { FirebaseAuthTypes, firebase } from "@react-native-firebase/auth";
 import GetUser from "../features/login/api/GetUser";
 import { AxiosApi } from "../common/helpers/axios";
+import firebase from "@react-native-firebase/app";
+import { FirebaseAuthTypes } from "@react-native-firebase/auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import config from "../config.json";
+import { Platform } from "react-native";
 
 const signInAnonymously = async () => {
   try {
-    return await auth().signInAnonymously();
+    return await firebase.auth().signInAnonymously();
   } catch (error) {
     console.error("TCL: signInAnonymously -> error", error);
   }
@@ -26,7 +29,7 @@ const setAccessToken = async (user?: FirebaseAuthTypes.User | null) => {
 
 export const onAuthStateChanged = async (): Promise<FirebaseAuthTypes.User> => {
   return new Promise((resolve: any, reject: any) => {
-    auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
       console.log("TCL: onAuthStateChanged -> user");
       const authUser = user ?? (await signInAnonymously())?.user;
       const token = await authUser?.getIdToken();
@@ -34,6 +37,12 @@ export const onAuthStateChanged = async (): Promise<FirebaseAuthTypes.User> => {
       authUser ? resolve(authUser) : reject();
     });
   });
+};
+
+export const initializeApp = () => {
+  if (Platform.OS === "web") {
+    firebase.initializeApp(config.firebase);
+  }
 };
 
 /**

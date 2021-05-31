@@ -14,7 +14,6 @@ import NativeLabel from "./NativeLabel";
 import _, { isEmpty } from "lodash";
 import KeyValuePair from "../models/KeyValuePair";
 import SkeletonList from "./SkeletonList";
-import { ShimmerPlaceHolder } from "../config/constants";
 
 interface IProps {
   defaultValue?: string;
@@ -100,7 +99,7 @@ const Item = ({ isSelected, title, onPress }: ItemProps) => {
 
 export const NativeButtonGroupHeight: number = InputHeight / 1.7;
 
-export const NativeButtonGroupSkeleton = () => <ShimmerPlaceHolder />;
+export const NativeButtonGroupSkeleton = () => <>/</>;
 
 const styles = StyleSheet.create({
   container: {

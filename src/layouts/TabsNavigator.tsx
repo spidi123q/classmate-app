@@ -1,16 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { DefaultBackgroundColor } from "../common/config/themeConfig";
-import Profile from "../features/profile/components/Profile";
-import {
-  HomePages,
-  ProductPages,
-  RoutePath,
-  TabPages,
-} from "../models/RoutePath";
+import { TabPages } from "../models/RoutePath";
 import HeaderNavigation from "./headerNavigation/HeaderNavigation";
-import ServicesSummary from "../features/profile/components/servicesSummary/ServicesSummary";
-import Login from "../features/login/components/Login";
 export default function TabNavigator() {
   useEffect(() => {}, []);
 
@@ -22,7 +14,7 @@ export default function TabNavigator() {
       tabBar={(props) => <HeaderNavigation {...props} />}
       initialRouteName={TabPages.WalletPage}
     >
-      <Tab.Screen name={TabPages.ServicesPage} component={ServicesSummary} />
+      {null}
     </Tab.Navigator>
   );
 }

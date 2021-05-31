@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { IResponse } from "../helpers/axios";
-import PaginateResult, {
+import {
   InitialPaginateResult,
   IPaginateResponse,
+  PaginateResult,
 } from "../models/PaginateResult";
 import _, { throttle, uniqBy } from "lodash";
 import { DefaultonEndReachedThreshold, StartPage } from "../config/constants";

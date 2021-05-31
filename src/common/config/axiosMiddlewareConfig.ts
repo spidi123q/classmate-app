@@ -1,7 +1,7 @@
 import { AppInfoActions } from "../state/AppInfoAction";
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import HttpStatus from "http-status-codes";
-import auth from "@react-native-firebase/auth";
+import firebase from "@react-native-firebase/app";
 import { showToast } from "../helpers/notification";
 import { ToastTitle } from "../models/enum";
 import cleanDeep from "clean-deep";
@@ -22,9 +22,9 @@ export const axiosMiddlewareConfig = {
           params: AxiosMiddleWareConfigParams,
           req: AxiosRequestConfig
         ) {
-          const token:
-            | string
-            | undefined = await auth().currentUser?.getIdToken();
+          const token: string | undefined = await firebase
+            .auth()
+            .currentUser?.getIdToken();
           req.headers.Authorization = `Bearer ${token}`;
           params.dispatch(AppInfoActions.InApiProgress());
           console.log("req to : ", req.url, "Method: ", req.method);

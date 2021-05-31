@@ -1,5 +1,5 @@
 import { createAction } from "redux-actions";
-import User from "../../../models/User";
+import { User } from "../../../models/User";
 export enum LoginActionTypes {
   GetUser = "@@UI/login/GetUser",
   GetUserOnSuccess = "@@UI/login/GetUserOnSuccess",
@@ -11,7 +11,10 @@ export enum LoginActionTypes {
 
 export const LoginActions = {
   GetUser: createAction(LoginActionTypes.GetUser),
-  GetUserOnSuccess: createAction(LoginActionTypes.GetUserOnSuccess, (user: User) => user),
+  GetUserOnSuccess: createAction(
+    LoginActionTypes.GetUserOnSuccess,
+    (user: User) => user
+  ),
   GetUserOnFail: createAction(LoginActionTypes.GetUserOnFail),
   GetFirebaseUser: createAction(LoginActionTypes.GetFirebaseUser),
   GetFirebaseUserOnSuccess: createAction(

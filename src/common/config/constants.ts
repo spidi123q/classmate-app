@@ -1,5 +1,4 @@
 import { FlatListProps } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
 
 /**
@@ -17,8 +16,6 @@ export const DefaultListConfig: Partial<FlatListProps<any>> = {
   scrollEventThrottle: 1,
   showsVerticalScrollIndicator: false,
 };
-
-export const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient);
 
 export const DefaultonEndReachedThreshold = 0.1;
 

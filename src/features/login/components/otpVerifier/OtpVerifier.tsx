@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { useState, useEffect } from "react";
+import { View } from "react-native";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import { showToast } from "../../../../common/helpers/notification";
-import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
+import firebase from "@react-native-firebase/app";
 import styles from "./OtpVerifier.style";
-import NativeButton from "../../../../common/components/NativeButton";
 import { ToastTitle } from "../../../../common/models/enum";
 import NativeLayout from "../../../../common/components/NativeLayout";
 import { Route, useNavigation, useRoute } from "@react-navigation/native";
-import ProfileForm from "../profileForm/ProfileForm";
-import Loader from "../../../../common/components/Loader";
-import useUserAPI from "../../hooks/useUserAPI";
 import Typography from "../../../../common/components/Typography";
 import {
   FontSize,
@@ -19,15 +15,14 @@ import {
 } from "../../../../common/config/themeConfig";
 import NativeHeader from "../../../../common/components/NativeHeader";
 import { RoutePath } from "../../../../models/RoutePath";
+import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 
 interface IProps {}
 
 const OtpVerifier = (props: IProps) => {
   const route = useRoute<Route<string, IParams | undefined>>();
-  const [
-    confirmationResult,
-    setConfirmationResult,
-  ] = useState<FirebaseAuthTypes.ConfirmationResult>();
+  const [confirmationResult, setConfirmationResult] =
+    useState<FirebaseAuthTypes.ConfirmationResult>();
   const [isVerified, setIsVerified] = useState<boolean>(false);
   const navigation = useNavigation();
 
@@ -64,7 +59,7 @@ const OtpVerifier = (props: IProps) => {
   };
 
   const onAuthStateChanged = () => {
-    const unsubscribe = auth().onAuthStateChanged((user) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user && !user.isAnonymous) {
         console.log("User verified: ", user.phoneNumber);
         loginSuccess(user);
@@ -79,9 +74,9 @@ const OtpVerifier = (props: IProps) => {
       return;
     }
     try {
-      const confirmationResult = await auth().signInWithPhoneNumber(
-        route.params.phone
-      );
+      const confirmationResult = await firebase
+        .auth()
+        .signInWithPhoneNumber(route.params.phone);
       setConfirmationResult(confirmationResult);
     } catch (err) {
       showToast(ToastTitle.Error, err.message, "error");

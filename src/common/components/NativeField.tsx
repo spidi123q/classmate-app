@@ -11,8 +11,7 @@ import {
 import Ripple from "react-native-material-ripple";
 import { VericalSpacer } from "./VericalSpacer";
 import { Icon } from "react-native-elements";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import RNPickerSelect from "react-native-picker-select";
+//import DateTimePicker from "@react-native-community/datetimepicker";
 import {
   AppFonts,
   DefaultFontLight,
@@ -140,7 +139,7 @@ const NativeField = (props: IProps) => {
                 new Date(formikProps.values[name]).toDateString()
               }
             />
-            {visible && (
+            {/* {visible && (
               <DateTimePicker
                 testID="dateTimePicker"
                 timeZoneOffsetInMinutes={0}
@@ -154,7 +153,7 @@ const NativeField = (props: IProps) => {
                   formikProps.setFieldValue(name, selectedDate);
                 }}
               />
-            )}
+            )} */}
           </>
         );
       }
@@ -163,7 +162,7 @@ const NativeField = (props: IProps) => {
         const { placeholder, label } = props;
         return (
           <NativeLabel label={label}>
-            <RNPickerSelect
+            {/* <RNPickerSelect
               value={formikProps.values[name]}
               onValueChange={(value) => formikProps.setFieldValue(name, value)}
               items={
@@ -196,7 +195,7 @@ const NativeField = (props: IProps) => {
                 label: placeholder ?? "Choose",
                 value: null,
               }}
-            />
+            /> */}
           </NativeLabel>
         );
       }
