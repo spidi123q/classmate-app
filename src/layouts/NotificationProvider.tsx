@@ -5,7 +5,7 @@ import ToastMessage from "../common/models/ToastMessage";
 import { createPushToken, showToast } from "../common/helpers/notification";
 import Toast from "react-native-toast-message";
 import { User } from "../models/User";
-import { messaging } from "../native/firebase";
+import { messaging } from "../common/native/firebase";
 
 interface IProps {
   user: User;

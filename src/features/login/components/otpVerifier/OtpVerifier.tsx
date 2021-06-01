@@ -16,7 +16,7 @@ import {
 import NativeHeader from "../../../../common/components/NativeHeader";
 import { RoutePath } from "../../../../models/RoutePath";
 import { FirebaseAuthTypes } from "@react-native-firebase/auth";
-import { auth } from "../../../../native/firebase";
+import { auth } from "../../../../common/native/firebase";
 
 interface IProps {}
 

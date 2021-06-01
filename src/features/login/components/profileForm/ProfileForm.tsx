@@ -24,7 +24,7 @@ import { slideUpProps } from "../../../../common/helpers/animation";
 import * as Animatable from "react-native-animatable";
 import useKeyBoard from "../../../../common/helpers/useKeyboard";
 import UserPic from "../../assets/UserPic.svg";
-import { auth } from "../../../../native/firebase";
+import { auth } from "../../../../common/native/firebase";
 
 interface IProps {}
 

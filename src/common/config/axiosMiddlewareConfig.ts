@@ -4,7 +4,7 @@ import HttpStatus from "http-status-codes";
 import { showToast } from "../helpers/notification";
 import { ToastTitle } from "../models/enum";
 import cleanDeep from "clean-deep";
-import { auth } from "../../native/firebase";
+import { auth } from "../native/firebase";
 
 interface AxiosMiddleWareConfigParams {
   getState: any;

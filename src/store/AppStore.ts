@@ -2,7 +2,6 @@ import thunk from "redux-thunk";
 import axiosMiddleware from "redux-axios-middleware";
 import { createStore, applyMiddleware } from "redux";
 import { PersistConfig, persistReducer, persistStore } from "redux-persist";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { logger } from "redux-logger";
 
 import { RootReducer } from "./RootReducer";
@@ -10,10 +9,11 @@ import { client } from "../common/helpers/axios";
 import { axiosMiddlewareConfig } from "../common/config/axiosMiddlewareConfig";
 import Initialize from "./AppInit";
 import AppState from "./AppState";
+import AsyncLocalStorage from "../common/native/asyncLocalStorage";
 
 const persistConfig: PersistConfig<AppState, any, any, any> = {
   key: "root",
-  storage: AsyncStorage,
+  storage: AsyncLocalStorage,
   whitelist: ["login"],
 };
 

@@ -4,10 +4,10 @@ import GetUser from "../features/login/api/GetUser";
 import { AxiosApi } from "../common/helpers/axios";
 import firebase from "@react-native-firebase/app";
 import { FirebaseAuthTypes } from "@react-native-firebase/auth";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import config from "../config.json";
 import { Platform } from "react-native";
-import { auth } from "../native/firebase";
+import { auth } from "../common/native/firebase";
+import AsyncLocalStorage from "../common/native/asyncLocalStorage";
 
 const signInAnonymously = async () => {
   try {
@@ -25,7 +25,7 @@ const setAccessToken = async (user?: FirebaseAuthTypes.User | null) => {
   }
   const token: string = await user.getIdToken();
   console.log("Firebase token initialized: ", token);
-  await AsyncStorage.setItem("@access_token", token);
+  await AsyncLocalStorage.setItem("@access_token", token);
 };
 
 export const onAuthStateChanged = async (): Promise<FirebaseAuthTypes.User> => {
