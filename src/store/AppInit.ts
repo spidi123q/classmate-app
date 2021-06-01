@@ -1,5 +1,5 @@
 import { AppInfoActions } from "../common/state/AppInfoAction";
-import { AxiosApi, IResponse } from "../common/helpers/axios";
+import { AxiosApi } from "../common/helpers/axios";
 import { Dispatch } from "redux";
 import { enableScreens } from "react-native-screens";
 import { initializeApp, onAuthStateChanged } from "../helpers/auth";
@@ -9,8 +9,6 @@ import GetUser from "../features/login/api/GetUser";
 import GetSystemConfig from "./api/GetSystemConfig";
 import SystemConfig from "../SystemConfig";
 import config from "../config.json";
-import KeyValuePair from "../common/models/KeyValuePair";
-import { ToastTitle } from "../common/models/enum";
 import GetNotification from "../common/api/GetNotifications";
 
 const getUser = async (dispatch: Dispatch<any>) => {

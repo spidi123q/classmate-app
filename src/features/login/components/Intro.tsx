@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import AppIntroSlider from "../../../common/components/appIntroSlider/AppIntroSlider";
 import NativeView from "../../../common/components/NativeView";
