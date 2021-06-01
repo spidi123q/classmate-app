@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "web": "react-app-rewired start",
     "android:release": "react-native run-android --variant=release",
+    "web:release": "react-app-rewired build",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
