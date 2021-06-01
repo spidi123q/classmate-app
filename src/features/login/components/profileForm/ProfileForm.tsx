@@ -5,7 +5,6 @@ import { profileSchema } from "../yupSchema";
 import { UserRoles } from "../../../../models/enum";
 import styles from "./ProfileForm.style";
 import Loader from "../../../../common/components/Loader";
-import firebase from "@react-native-firebase/app";
 import cleanDeep from "clean-deep";
 import useUserAPI from "../../hooks/useUserAPI";
 import { showToast } from "../../../../common/helpers/notification";
@@ -25,6 +24,7 @@ import { slideUpProps } from "../../../../common/helpers/animation";
 import * as Animatable from "react-native-animatable";
 import useKeyBoard from "../../../../common/helpers/useKeyboard";
 import UserPic from "../../assets/UserPic.svg";
+import { auth } from "../../../../native/firebase";
 
 interface IProps {}
 
@@ -34,7 +34,7 @@ const ProfileForm = (props: IProps) => {
   const isKeyBoardActive = useKeyBoard();
 
   const updateCurrentUser = async (values: UserEdit) => {
-    const firebaseUser = await firebase.auth().currentUser;
+    const firebaseUser = await auth().currentUser;
     let userEdit: UserEdit = cleanDeep<UserEdit>({
       role: UserRoles.User,
       email: firebaseUser?.email as string,

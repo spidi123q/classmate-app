@@ -3,9 +3,9 @@ import AppState from "../store/AppState";
 import { connect } from "react-redux";
 import ToastMessage from "../common/models/ToastMessage";
 import { createPushToken, showToast } from "../common/helpers/notification";
-import firebase from "@react-native-firebase/app";
 import Toast from "react-native-toast-message";
 import { User } from "../models/User";
+import { messaging } from "../native/firebase";
 
 interface IProps {
   user: User;
@@ -18,17 +18,17 @@ const NotificationProvider: FunctionComponent<IProps> = (props) => {
   const { lastApiError, children, updateFCMToken, user, appReady } = props;
 
   useEffect(() => {
-    // const unsubscribeMessaging = firebase.messaging().onMessage((payload) => {
-    //   payload.notification &&
-    //     showToast(
-    //       payload.notification.title ?? "New Message",
-    //       payload.notification.body ?? "",
-    //       "info"
-    //     );
-    // });
-    // return () => {
-    //   unsubscribeMessaging();
-    // };
+    const unsubscribeMessaging = messaging().onMessage((payload) => {
+      payload.notification &&
+        showToast(
+          payload.notification.title ?? "New Message",
+          payload.notification.body ?? "",
+          "info"
+        );
+    });
+    return () => {
+      unsubscribeMessaging();
+    };
   }, []);
 
   useEffect(() => {

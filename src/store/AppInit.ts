@@ -5,7 +5,7 @@ import { enableScreens } from "react-native-screens";
 import { initializeApp, onAuthStateChanged } from "../helpers/auth";
 import GetConnectionPing from "./api/GetConnectionPing";
 import GetUser from "../features/login/api/GetUser";
-import { showToast } from "../common/helpers/notification";
+// import { showToast } from "../common/helpers/notification";
 import GetSystemConfig from "./api/GetSystemConfig";
 import SystemConfig from "../SystemConfig";
 import config from "../config.json";
@@ -70,12 +70,7 @@ const Initialize = async (dispatch: Dispatch<any>) => {
     Promise.all([updateSystemConfig(dispatch), getNotifications(dispatch)]);
     dispatch(AppInfoActions.AppReady());
   } catch (err) {
-    console.log("Failed");
-    showToast(
-      ToastTitle.FirebaseError,
-      `Failed to initialize app ${err.message}`,
-      "error"
-    );
+    console.log("Failed", err);
   }
 };
 

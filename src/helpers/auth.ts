@@ -7,10 +7,11 @@ import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import config from "../config.json";
 import { Platform } from "react-native";
+import { auth } from "../native/firebase";
 
 const signInAnonymously = async () => {
   try {
-    return await firebase.auth().signInAnonymously();
+    return await auth().signInAnonymously();
   } catch (error) {
     console.error("TCL: signInAnonymously -> error", error);
   }
@@ -29,7 +30,7 @@ const setAccessToken = async (user?: FirebaseAuthTypes.User | null) => {
 
 export const onAuthStateChanged = async (): Promise<FirebaseAuthTypes.User> => {
   return new Promise((resolve: any, reject: any) => {
-    firebase.auth().onAuthStateChanged(async (user) => {
+    auth().onAuthStateChanged(async (user) => {
       console.log("TCL: onAuthStateChanged -> user");
       const authUser = user ?? (await signInAnonymously())?.user;
       const token = await authUser?.getIdToken();
@@ -58,7 +59,7 @@ export const isAuthorized = (
 };
 
 export const logout = async (dispatch: any) => {
-  await firebase.auth().signOut();
+  await auth().signOut();
   await onAuthStateChanged();
   const request = GetUser();
   await dispatch(AxiosApi(request));
