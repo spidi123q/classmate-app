@@ -12,6 +12,7 @@ import config from "../../config.json";
 import SystemConfig from "../../SystemConfig";
 import Typography from "../../common/components/Typography";
 import { Button } from "react-native-elements";
+import NativeView from "../../common/components/NativeView";
 
 interface IParams {
   type?: "update";
@@ -21,7 +22,7 @@ export default function ErrorLayout() {
   const params = { type: "error" };
   return (
     <NativeLayout>
-      <View style={styles.container}>
+      <NativeView style={styles.container}>
         {(() => {
           switch (params.type) {
             case "update":
@@ -44,7 +45,7 @@ export default function ErrorLayout() {
               return (
                 <>
                   <Animatable.View {...slideUpProps}>
-                    <Bug />
+                    <Bug height={150} width={150} />
                   </Animatable.View>
                   <View style={styles.messageConatiner}>
                     <Typography>
@@ -62,7 +63,7 @@ export default function ErrorLayout() {
               );
           }
         })()}
-      </View>
+      </NativeView>
     </NativeLayout>
   );
 }

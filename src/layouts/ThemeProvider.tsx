@@ -25,11 +25,9 @@ const ThemeProvider: React.FunctionComponent = (props) => {
   }, []);
 
   return (
-    <>
-      <ElementsThemeProvider theme={elementsTheme}>
-        {children}
-      </ElementsThemeProvider>
-    </>
+    <ElementsThemeProvider theme={elementsTheme}>
+      {children}
+    </ElementsThemeProvider>
   );
 };
 

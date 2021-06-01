@@ -15,7 +15,8 @@ import {
 } from "../../../../common/config/themeConfig";
 import NativeHeader from "../../../../common/components/NativeHeader";
 import { RoutePath } from "../../../../models/RoutePath";
-import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { auth } from "../../../../native/firebase";
 
 interface IProps {}
 
@@ -62,7 +63,7 @@ const OtpVerifier = (props: IProps) => {
     const unsubscribe = auth().onAuthStateChanged((user) => {
       if (user && !user.isAnonymous) {
         console.log("User verified: ", user.phoneNumber);
-        loginSuccess(user);
+        loginSuccess(user as any);
       }
     });
     return unsubscribe;

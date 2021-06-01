@@ -1,19 +1,13 @@
-import React, { useRef } from "react";
 import {
   BottomTabBarProps,
   BottomTabBarOptions,
 } from "@react-navigation/bottom-tabs";
-import { Animated, SafeAreaView, View } from "react-native";
+import { SafeAreaView } from "react-native";
 import styles from "./HeaderNavigation.style";
 import NavigationFooter from "./navigationFooter/NavigationFooter";
-import { Text } from "react-native";
 import useAppInfo from "../../common/hooks/useAppInfo";
 import * as Animatable from "react-native-animatable";
-import {
-  animate,
-  bounceInProps,
-  slideDownProps,
-} from "../../common/helpers/animation";
+import { bounceInProps } from "../../common/helpers/animation";
 import useUser from "../../features/login/hooks/useUser";
 import { capitalize } from "lodash";
 import Typography from "../../common/components/Typography";
@@ -25,12 +19,9 @@ import {
 } from "../../common/config/themeConfig";
 import { AppTheme } from "../../common/config/custom-theme";
 import NativeView from "../../common/components/NativeView";
-import { Icon } from "react-native-elements";
 import BlankUser from "../../common/assets/BlankUser.svg";
-import Ripple from "react-native-material-ripple";
 import { useNavigation } from "@react-navigation/native";
 import { ProductPages } from "../../models/RoutePath";
-import { withBadge, BadgeProps } from "react-native-elements";
 import BadgedIcon from "../../common/components/BadgedIcon";
 
 export default function HeaderNavigation(
@@ -88,7 +79,7 @@ export default function HeaderNavigation(
               padding={0.2 * blankUserSize}
               marginHorizontal={DefaultMargin}
             >
-              {/* <BlankUser height={blankUserSize} width={blankUserSize} /> */}
+              <BlankUser height={blankUserSize} width={blankUserSize} />
             </NativeView>
           </NativeView>
         </NativeView>

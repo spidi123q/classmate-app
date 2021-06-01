@@ -1,14 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
 import AppIntroSlider from "../../../common/components/appIntroSlider/AppIntroSlider";
-import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
-import {
-  DefaultMargin,
-  DoubleMargin,
-  FontSize,
-} from "../../../common/config/themeConfig";
+import { DoubleMargin, FontSize } from "../../../common/config/themeConfig";
 import useFirstLauch from "../../../common/hooks/useFirstLauch";
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { RoutePath } from "../../../models/RoutePath";

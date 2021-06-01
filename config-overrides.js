@@ -20,6 +20,7 @@ module.exports = override(
     path.resolve(__dirname, "node_modules/react-native-picker-select"),
     path.resolve(__dirname, "node_modules/@react-native-picker"),
     path.resolve(__dirname, "node_modules/react-native-progress"),
+    path.resolve(__dirname, "node_modules/react-native-raw-bottom-sheet"),
     path.resolve(
       __dirname,
       "node_modules/@twotalltotems/react-native-otp-input"
@@ -40,5 +41,6 @@ module.exports = override(
     "@react-native-firebase/app": "firebase/app",
     "@react-native-firebase/auth": "firebase/auth",
     "lottie-react-native": "react-native-web-lottie",
+    "react-native-progress": "rc-progress",
   })
 );

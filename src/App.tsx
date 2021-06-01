@@ -27,10 +27,10 @@ function App() {
                   }}
                   initialRouteName={RoutePath.Dashboard}
                 >
-                  {/* <Stack.Screen
+                  <Stack.Screen
                     name={RoutePath.Dashboard}
                     component={DashboardRoute}
-                  /> */}
+                  />
                   <Stack.Screen
                     name={RoutePath.Error}
                     component={ErrorLayout}
