@@ -19,6 +19,11 @@ import {
 import Typography from "../../../common/components/Typography";
 import { Icon } from "react-native-elements";
 import VideoPlayer from "../../../common/components/videoPlayer/VideoPlayer";
+import { VericalSpacer } from "../../../common/components/VericalSpacer";
+import NativeButton from "../../../common/components/NativeButton";
+import NativeField from "../../../common/components/NativeField";
+import { isEmpty } from "lodash";
+import NativeView from "../../../common/components/NativeView";
 
 const Login = () => {
   const isKeyBoardActive = useKeyBoard();
@@ -31,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <NativeLayout backgroundColor={SecondaryBackgroundColor}>
+    <NativeLayout horizontalMargin>
       <Formik
         validationSchema={loginSchema}
         initialValues={InitialLoginForm}
@@ -39,28 +44,45 @@ const Login = () => {
         validateOnChange={false}
       >
         {(formikProps: FormikProps<LoginForm>) => (
-          <View style={styles.mainContainer}>
-            {!isKeyBoardActive && (
-              <Animatable.View {...slideUpProps} style={styles.logoContainer}>
-                <Typography
-                  size={FontSize.h1x}
-                  family="bold"
-                  marginTop={DefaultMargin * 4}
-                >
-                  Get Started
-                </Typography>
-                {/* <VideoPlayer
+          <NativeView>
+            <Animatable.View {...slideUpProps}>
+              <Typography
+                size={FontSize.h1x}
+                family="bold"
+                marginTop={DefaultMargin * 4}
+              >
+                Get Started
+              </Typography>
+              {/* <VideoPlayer
                   source={{
                     uri: "https://classmate-clasmmatemedia-inso.streaming.media.azure.net/855d809b-1c4f-49c2-84bc-7b0ba296b470/PromisingYoung720.ism/manifest(format=m3u8-aapl)",
                     type: "m3u8",
                   }}
                 /> */}
-              </Animatable.View>
-            )}
-            <View style={styles.formContainer}>
-              <View style={styles.container}></View>
-            </View>
-          </View>
+              <NativeField
+                autoCompleteType="off"
+                placeholder="Mobile number  "
+                name="phone"
+                formikProps={formikProps}
+                type="text"
+                keyboardType="number-pad"
+                iconName="phone-call-outline"
+                vericalSpacer
+                onFocus={() => {
+                  if (isEmpty(formikProps.values.phone)) {
+                    formikProps.setFieldValue("phone", "+91 ");
+                  }
+                }}
+              />
+              <VericalSpacer />
+              <VericalSpacer height={DefaultMargin * 2} />
+              <NativeButton
+                size="lg"
+                title="Login"
+                onPress={() => formikProps.handleSubmit()}
+              />
+            </Animatable.View>
+          </NativeView>
         )}
       </Formik>
     </NativeLayout>

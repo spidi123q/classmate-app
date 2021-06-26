@@ -15,7 +15,7 @@ export const FontSize: Record<FontType, number> = {
   h1x: 28,
   h1: 24,
   h2: 20,
-  h3x: 17,
+  h3x: 16,
   h3: 14,
   regular: 14,
   xs: 11,
@@ -34,11 +34,11 @@ export const DefaultFontLight: AppFonts = AppFonts.light;
 export const DefaultFontBold: AppFonts = AppFonts.bold;
 export const DefaultFont: AppFonts = AppFonts.medium;
 
-export const InputHeight: number = 50;
+export const InputHeight: number = 62;
 export const InputFontSize: number = 16;
-export const DefaultMargin: number = 10;
+export const DefaultMargin: number = 25;
 export const DefaultThumbnailSize: number = 105;
-export const DefaultBorderRadius: number = 8;
+export const DefaultBorderRadius: number = 6;
 export const ICON_SIZE: number = 30;
 export const DefaultInputFontSize: number = FontSize.h3;
 
@@ -58,10 +58,10 @@ export enum IconFamily {
   Material = "material",
 }
 
-export const DefaultBackgroundColor: string = "#F6F6F6";
+export const DefaultBackgroundColor: string = AppTheme["color-primary"];
 export const DefaultPrimaryColor: string = AppTheme["color-primary-500"];
-export const DefaultFontColor: string = AppTheme["color-black"];
-export const SecondaryBackgroundColor: string = "white";
+export const DefaultFontColor: string = AppTheme["color-secondary"];
+export const SecondaryBackgroundColor: string = AppTheme["color-primary2"];
 export const TrasparentColor: string = "rgba(255, 0, 0, 0)";
 
 export const DefaultOpacity: number = 68;

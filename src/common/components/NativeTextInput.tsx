@@ -8,9 +8,11 @@ import {
   DefaultBackgroundColor,
   DefaultBorderRadius,
   DefaultFont,
+  DefaultFontColor,
   DefaultFontLight,
   DefaultIconFamily,
   DefaultMargin,
+  FontFamily,
   FontSize,
   InputFontSize,
   InputHeight,
@@ -77,10 +79,11 @@ export const TextInputSize: Record<InputSize, number> = {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    //backgroundColor: "white",
-    fontFamily: DefaultFont,
+    // backgroundColor: "#2C2C2C",
+    fontFamily: FontFamily.semiBold,
     paddingLeft: InputFontSize,
     fontSize: FontSize.h3x,
+    color: DefaultFontColor,
     flex: 1,
   },
   icon: {
@@ -91,8 +94,8 @@ const styles = StyleSheet.create({
     borderRadius: DefaultBorderRadius,
     flexDirection: "row",
     alignItems: "center",
-    borderColor: AppTheme["color-grey"],
-    borderWidth: 1,
+    // borderColor: AppTheme["color-grey"],
+    //borderWidth: 1,
   },
 });
 

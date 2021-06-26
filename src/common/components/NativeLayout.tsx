@@ -30,13 +30,13 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
         style={[
           styles.container,
           {
-            marginHorizontal: horizontalMargin ? DefaultMargin * 2 : undefined,
+            marginHorizontal: horizontalMargin ? DefaultMargin : undefined,
           },
         ]}
       >
         <StatusBar
           backgroundColor={backgroundColor ?? DefaultBackgroundColor}
-          barStyle={barStyle ?? "dark-content"}
+          barStyle={barStyle ?? "light-content"}
         />
         {children}
       </View>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    marginTop: DefaultMargin * 2,
+    marginTop: DefaultMargin,
   },
   safeArea: {
     flex: 1,

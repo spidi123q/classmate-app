@@ -10,8 +10,8 @@ import { DefaultBackgroundColor } from "../common/config/themeConfig";
 
 const elementsTheme: Theme = {
   colors: {
-    primary: AppTheme["color-primary-500"],
-    secondary: AppTheme["color-dark"],
+    primary: AppTheme["color-primary"],
+    secondary: AppTheme["color-secondary"],
   },
 };
 
