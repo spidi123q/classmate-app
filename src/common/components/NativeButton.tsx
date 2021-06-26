@@ -8,7 +8,6 @@ import {
   View,
 } from "react-native";
 import { Button, ButtonProps } from "react-native-elements";
-import Ripple from "react-native-material-ripple";
 import { AppTheme } from "../config/custom-theme";
 import {
   AppFonts,

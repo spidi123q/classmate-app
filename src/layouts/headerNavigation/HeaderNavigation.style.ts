@@ -8,9 +8,7 @@ import {
 } from "../../common/config/themeConfig";
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: DefaultBackgroundColor,
-  },
+  container: {},
   headerIcons: {
     marginRight: DoubleMargin,
   },

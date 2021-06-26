@@ -1,5 +1,4 @@
-import { FlatListProps } from "react-native";
-import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
+import { FlatListProps, Platform } from "react-native";
 
 /**
  * Starting page used for pagination
@@ -21,3 +20,6 @@ export const DefaultonEndReachedThreshold = 0.1;
 
 export const DefaultShareMessage =
   "Hey! Checkout WarrantyWallet - One stop for managing all warranty information & claims";
+
+export const IsMobile: boolean =
+  Platform.OS === "ios" || Platform.OS === "android";

@@ -2971,10 +2971,10 @@
     "@types/react" "*"
     "@types/react-native" "*"
 
-"@types/react-native-video@^5.0.5":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@types/react-native-video/-/react-native-video-5.0.5.tgz#4177e16e3da87b1b1e04d8b7a7e45237401f40ff"
-  integrity sha512-x+r0J/UhMbWsaFUSv7GPM1U6SG64IOuaUkBJMDesihIljVO4UB0roupdst0e4BupcjLFVYOq0oIuDViJhEBG8g==
+"@types/react-native-video@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@types/react-native-video/-/react-native-video-5.0.7.tgz#f1d05698c62f2c9b54cff6cf7050bca2052bac99"
+  integrity sha512-ITJ9K3jEaP1hX58JhLvXJHGdNAkIKAYDxGZMiYys+5h3AOjFmdg7B3lqmoOc5+dGL41op3h1dNDoqstDD+H8eg==
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"

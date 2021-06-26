@@ -6,7 +6,6 @@ import {
 import SplashScreen from "react-native-splash-screen";
 import { AppTheme } from "../common/config/custom-theme";
 import { Platform, SafeAreaView } from "react-native";
-import { DefaultBackgroundColor } from "../common/config/themeConfig";
 
 const elementsTheme: Theme = {
   colors: {

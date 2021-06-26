@@ -8,9 +8,6 @@ export default function TabNavigator() {
 
   return (
     <Tab.Navigator
-      sceneContainerStyle={{
-        backgroundColor: DefaultBackgroundColor,
-      }}
       tabBar={(props) => <HeaderNavigation {...props} />}
       initialRouteName={TabPages.WalletPage}
     >

@@ -83,9 +83,9 @@ const ProfileForm = (props: IProps) => {
           validateOnChange={false}
         >
           {(formikProps: FormikProps<UserEdit>) => (
-            <View style={styles.mainContainer}>
+            <View>
               {!isKeyBoardActive && (
-                <Animatable.View {...slideUpProps} style={styles.logoContainer}>
+                <Animatable.View {...slideUpProps}>
                   <Typography
                     size={FontSize.h1x}
                     family="bold"
@@ -102,8 +102,8 @@ const ProfileForm = (props: IProps) => {
                   <UserPic />
                 </Animatable.View>
               )}
-              <View style={styles.formContainer}>
-                <View style={styles.container}>
+              <View>
+                <View>
                   <NativeField
                     placeholder="Name"
                     name="name"
@@ -123,12 +123,6 @@ const ProfileForm = (props: IProps) => {
           )}
         </Formik>
       </NativeLayout>
-      {!isKeyBoardActive && (
-        <Animatable.View
-          {...slideUpProps}
-          style={styles.bottomLogoContainer}
-        ></Animatable.View>
-      )}
     </>
   );
 };

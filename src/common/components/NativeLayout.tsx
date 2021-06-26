@@ -1,5 +1,13 @@
 import React from "react";
-import { StyleSheet, StatusBar, SafeAreaView, View } from "react-native";
+import {
+  StyleSheet,
+  StatusBar,
+  SafeAreaView,
+  View,
+  Platform,
+} from "react-native";
+import SystemConfig from "../../SystemConfig";
+import { IsMobile } from "../config/constants";
 import { DefaultBackgroundColor, DefaultMargin } from "../config/themeConfig";
 
 export interface INativeLayoutProps {
@@ -21,10 +29,12 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
 
   return (
     <SafeAreaView
-      style={{
-        ...styles.safeArea,
-        backgroundColor: backgroundColor ?? DefaultBackgroundColor,
-      }}
+      style={[
+        styles.safeArea,
+        {
+          backgroundColor: backgroundColor ?? DefaultBackgroundColor,
+        },
+      ]}
     >
       <View
         style={[
@@ -51,7 +61,8 @@ const styles = StyleSheet.create({
     marginTop: DefaultMargin,
   },
   safeArea: {
-    flex: 1,
+    flex: IsMobile ? 1 : undefined,
+    height: !IsMobile ? "100vh" : undefined,
   },
 });
 
