@@ -1,4 +1,4 @@
-package com.inspiritsolutions.classmate.jitsi;
+package guru.classmate.jitsi;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -16,8 +16,8 @@ import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.inspiritsolutions.classmate.MainActivity;
-import com.inspiritsolutions.classmate.R;
+import guru.classmate.MainActivity;
+import guru.classmate.R;
 
 public class NotificationHelper {
 

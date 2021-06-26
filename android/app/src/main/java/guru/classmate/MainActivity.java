@@ -1,4 +1,4 @@
-package com.inspiritsolutions.classmate;
+package guru.classmate;
 
 import com.facebook.react.ReactActivity;
 
@@ -9,7 +9,7 @@ import android.util.Log;
 import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
-import com.inspiritsolutions.classmate.jitsi.MeetingService;
+import guru.classmate.jitsi.MeetingService;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 
 public class MainActivity extends ReactActivity {

@@ -27,15 +27,25 @@ module.exports = override(
     ),
     path.resolve(__dirname, "src"),
   ]),
-  addWebpackModuleRule({
-    test: /\.svg$/,
-    exclude: /node_modules/,
-    use: [
-      {
-        loader: "@svgr/webpack",
-      },
-    ],
-  }),
+  addWebpackModuleRule(
+    {
+      test: /\.svg$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: "@svgr/webpack",
+        },
+      ],
+    },
+    {
+      test: /\.ttf$/,
+      loader: "url-loader", // or directly file-loader
+      include: path.resolve(
+        __dirname,
+        "node_modules/react-native-vector-icons"
+      ),
+    }
+  ),
   addWebpackAlias({
     "react-native": "react-native-web",
     "@react-native-firebase/app": "firebase/app",

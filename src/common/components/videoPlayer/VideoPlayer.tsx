@@ -322,6 +322,10 @@ export default class VideoPlayer extends Component<IProps, IState> {
    * @param {object} data The video meta data
    */
   _onLoad(data: OnLoadData) {
+    console.log(
+      "🚀 ~ file: VideoPlayer.tsx ~ line 325 ~ VideoPlayer ~ _onLoad ~ data",
+      data as any
+    );
     let state: IState = this.state;
 
     state.duration = data.duration;
@@ -399,6 +403,10 @@ export default class VideoPlayer extends Component<IProps, IState> {
    * @param {object} err  Err obj returned from <Video> component
    */
   _onError(err: LoadError) {
+    console.log(
+      "🚀 ~ file: VideoPlayer.tsx ~ line 406 ~ VideoPlayer ~ _onError ~ err",
+      err
+    );
     let state: IState = this.state;
     state.error = true;
     state.loading = false;
@@ -1338,7 +1346,6 @@ export default class VideoPlayer extends Component<IProps, IState> {
   }
 
   onBuffer = (data: OnBufferData) => {
-    console.log("🚀 ~ file: VideoPlayer.tsx ~ line 1341 ~ data", data);
     this.setState({ isBuffering: data.isBuffering });
   };
 
@@ -1369,6 +1376,12 @@ export default class VideoPlayer extends Component<IProps, IState> {
             style={[styles.player.video, this.styles.videoStyle as any]}
             source={this.props.source}
             onBuffer={this.onBuffer}
+            onBandwidthUpdate={(data) => {
+              console.log(
+                "🚀 ~ file: VideoPlayer.tsx ~ line 1376 ~ render ~ data",
+                data
+              );
+            }}
           />
           {this.renderError()}
           {this.renderLoader()}

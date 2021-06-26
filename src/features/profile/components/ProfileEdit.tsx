@@ -4,7 +4,7 @@ import NativeButton from "../../../common/components/NativeButton";
 import NativeField from "../../../common/components/NativeField";
 import NativeView from "../../../common/components/NativeView";
 import { DoubleMargin } from "../../../common/config/themeConfig";
-import { InitialUser, UserEdit } from "../../../models/User";
+import { UserEdit } from "../../../models/User";
 import useUser from "../../login/hooks/useUser";
 import useUserAPI from "../../login/hooks/useUserAPI";
 

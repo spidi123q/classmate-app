@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.inspiritsolutions.classmate"
+        applicationId "guru.classmate"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

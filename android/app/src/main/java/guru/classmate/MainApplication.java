@@ -1,4 +1,4 @@
-package com.inspiritsolutions.classmate;
+package guru.classmate;
 
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -75,7 +75,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.inspiritsolutions.classmate.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("guru.classmate.ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

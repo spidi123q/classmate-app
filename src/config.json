@@ -1,5 +1,5 @@
 {
-  "endpoint": "http://192.168.1.43:9090",
+  "endpoint": "https://api.warrantywallet.wingleinfotech.com",
   "firebase": {
     "apiKey": "AIzaSyCjMzZkd3XXDKSHAovz6JJx77MzR_llVo4",
     "authDomain": "classmate-ca068.firebaseapp.com",

@@ -1,4 +1,4 @@
-package com.inspiritsolutions.classmate.jitsi;
+package guru.classmate.jitsi;
 
 import android.content.Context;
 

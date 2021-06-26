@@ -1,9 +1,9 @@
-package com.inspiritsolutions.classmate;
+package guru.classmate;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.inspiritsolutions.classmate.jitsi.RNJitsiMeetModule;
+import guru.classmate.jitsi.RNJitsiMeetModule;
 
 import java.util.ArrayList;
 import java.util.Collections;

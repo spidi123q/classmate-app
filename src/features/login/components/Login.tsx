@@ -11,11 +11,14 @@ import { slideUpProps } from "../../../common/helpers/animation";
 import useKeyBoard from "../../../common/helpers/useKeyboard";
 import { useNavigation } from "@react-navigation/native";
 import {
+  DefaultIconFamily,
   DefaultMargin,
   FontSize,
   SecondaryBackgroundColor,
 } from "../../../common/config/themeConfig";
 import Typography from "../../../common/components/Typography";
+import { Icon } from "react-native-elements";
+import VideoPlayer from "../../../common/components/videoPlayer/VideoPlayer";
 
 const Login = () => {
   const isKeyBoardActive = useKeyBoard();
@@ -46,11 +49,12 @@ const Login = () => {
                 >
                   Get Started
                 </Typography>
-                {/* <VideoPlayer
+                <VideoPlayer
                   source={{
-                    uri: "https://classmate-clasmmatemedia-inso.streaming.media.azure.net/3e7805f5-129d-4d5a-85ec-b9541514b54c/PromisingYoung720.ism/manifest(format=m3u8-aapl)",
+                    uri: "https://classmate-clasmmatemedia-inso.streaming.media.azure.net/855d809b-1c4f-49c2-84bc-7b0ba296b470/PromisingYoung720.ism/manifest(format=m3u8-aapl)",
+                    type: "m3u8",
                   }}
-                /> */}
+                />
               </Animatable.View>
             )}
             <View style={styles.formContainer}>
