@@ -63,10 +63,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>For taking pictures of the item you like to add</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone Permission</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone Permission</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>For importing picture</string>
 	<key>NSPhotoLibraryUsageDescription</key>

@@ -873,7 +873,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.warrantywallet;
+				PRODUCT_BUNDLE_IDENTIFIER = guru.classmate;
 				PRODUCT_NAME = Classmate;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classmate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -896,7 +896,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.warrantywallet;
+				PRODUCT_BUNDLE_IDENTIFIER = guru.classmate;
 				PRODUCT_NAME = Classmate;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classmate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

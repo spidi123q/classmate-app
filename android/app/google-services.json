@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1029614808285:android:1f67ffbbfab677a8193f34",
+        "mobilesdk_app_id": "1:1029614808285:android:2e5717272e446c7c193f34",
         "android_client_info": {
-          "package_name": "com.inspiritsolutions.classmate"
+          "package_name": "guru.classmate"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "1029614808285-3ps59e7sld1dbltmsn9derj21tpb8fvv.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.inspiritsolutions.classmate",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
-          }
-        },
         {
           "client_id": "1029614808285-makkoc90h5ggu9mdv1v2sj77kml09q8b.apps.googleusercontent.com",
           "client_type": 3

@@ -1,5 +1,5 @@
 {
-  "endpoint": "https://api.warrantywallet.wingleinfotech.com",
+  "endpoint": "http://localhost:9090",
   "firebase": {
     "apiKey": "AIzaSyCjMzZkd3XXDKSHAovz6JJx77MzR_llVo4",
     "authDomain": "classmate-ca068.firebaseapp.com",
@@ -10,7 +10,7 @@
     "measurementId": "G-F51BWH0W73"
   },
   "versionCode": 1,
-  "packageId": "app.kisanseva",
+  "packageId": "guru.classmate",
   "licenseUrl": "https://makemydrink.in/license.html",
   "privacyUrl": "https://makemydrink.in/privacy.html"
 }
