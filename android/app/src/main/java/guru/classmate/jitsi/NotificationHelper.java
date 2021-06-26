@@ -58,7 +58,7 @@ public class NotificationHelper {
         notification.setContentTitle("Classmate");
         notification.setTicker("Call_STATUS");
         notification.setContentText("IncomingCall");
-        notification.setSmallIcon(R.drawable.v_logo);
+        notification.setSmallIcon(R.drawable.ic_launcher_foreground);
         notification.setCategory(NotificationCompat.CATEGORY_CALL);
         notification.setOngoing(true);
         notification.setAutoCancel(true);

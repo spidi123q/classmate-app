@@ -3,6 +3,6 @@
  -->
 <resources>
   <style name="SplashScreenTheme" parent="SplashScreen_SplashTheme">
-    <item name="colorPrimaryDark">@color/white</item>
+    <item name="colorPrimaryDark">@color/splashscreen_background</item>
   </style>
 </resources>

@@ -4,31 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/splashscreen_background"
     android:orientation="vertical">
 
     <ImageView
         android:layout_width="122dp"
         android:layout_height="107dp"
         android:layout_centerInParent="true"
-        android:background="@color/ic_launcher_background"
+        android:background="@color/splashscreen_background"
         android:maxWidth="124dp"
         android:minHeight="109dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/splashscreen_image"
-        app:srcCompat="@drawable/splashscreen_image" />
+        android:src="@drawable/logoinverted" />
 
-    <ImageView
-        android:id="@+id/VLogoImage"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/ic_launcher_background"
-        android:maxWidth="124dp"
-        android:minHeight="109dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/v_logo"
-        android:translationY="150dp"
-        app:srcCompat="@drawable/v_logo"
-        tools:srcCompat="@drawable/v_logo" />
 </RelativeLayout>

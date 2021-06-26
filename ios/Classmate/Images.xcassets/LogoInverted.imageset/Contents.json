@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "v-logo.png",
+      "filename" : "logoin.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "v-logo@2x.png",
+      "filename" : "logoin@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "v-logo@3x.png",
+      "filename" : "logoin@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
