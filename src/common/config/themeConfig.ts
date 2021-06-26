@@ -22,17 +22,17 @@ export const FontSize: Record<FontType, number> = {
 };
 
 export enum AppFonts {
-  GilroyRegular = "Gilroy-Regular",
-  GilroyLight = "Gilroy-Light",
-  GilroyExtraBold = "Gilroy-ExtraBold",
-  GilroyBold = "Gilroy-Bold",
-  GilroySemiBold = "Gilroy-SemiBold",
-  GilroyMedium = "Gilroy-Medium",
+  regular = "SFUIDisplay-Regular",
+  light = "SFUIDisplay-Light",
+  extraBold = "SFUIDisplay-Heavy",
+  bold = "SFUIDisplay-Bold",
+  semiBold = "SFUIDisplay-Semibold",
+  medium = "SFUIDisplay-Medium",
 }
 
-export const DefaultFontLight: string = AppFonts.GilroyLight;
-export const DefaultFontBold: string = AppFonts.GilroyBold;
-export const DefaultFont: string = AppFonts.GilroyMedium;
+export const DefaultFontLight: AppFonts = AppFonts.light;
+export const DefaultFontBold: AppFonts = AppFonts.bold;
+export const DefaultFont: AppFonts = AppFonts.medium;
 
 export const InputHeight: number = 50;
 export const InputFontSize: number = 16;
@@ -44,13 +44,13 @@ export const DefaultInputFontSize: number = FontSize.h3;
 
 export const DoubleMargin: number = DefaultMargin * 2;
 
-export const FontFamily: Record<IFontFamily, string> = {
+export const FontFamily: Record<IFontFamily, AppFonts> = {
   light: DefaultFontLight,
   regular: DefaultFont,
-  medium: AppFonts.GilroyMedium,
-  semiBold: AppFonts.GilroySemiBold,
+  medium: AppFonts.medium,
+  semiBold: AppFonts.semiBold,
   bold: DefaultFontBold,
-  extraBold: AppFonts.GilroyExtraBold,
+  extraBold: AppFonts.extraBold,
 };
 
 export enum IconFamily {

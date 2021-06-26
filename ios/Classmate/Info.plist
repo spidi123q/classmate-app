@@ -76,16 +76,15 @@
 		<string>MaterialIcons.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
 		<string>Ionicons.ttf</string>
-		<string>Gilroy-Black.ttf</string>
-		<string>Gilroy-Bold.ttf</string>
-		<string>Gilroy-ExtraBold.ttf</string>
-		<string>Gilroy-Heavy.ttf</string>
-		<string>Gilroy-Light.ttf</string>
-		<string>Gilroy-Medium.ttf</string>
-		<string>Gilroy-Regular.ttf</string>
-		<string>Gilroy-SemiBold.ttf</string>
-		<string>Gilroy-Thin.ttf</string>
-		<string>Gilroy-UltraLight.ttf</string>
+		<string>SFUIDisplay-Black.otf</string>
+		<string>SFUIDisplay-Bold.otf</string>
+		<string>SFUIDisplay-Heavy.otf</string>
+		<string>SFUIDisplay-Light.otf</string>
+		<string>SFUIDisplay-Medium.otf</string>
+		<string>SFUIDisplay-Regular.ttf</string>
+		<string>SFUIDisplay-Semibold.otf</string>
+		<string>SFUIDisplay-Thin.otf</string>
+		<string>SFUIDisplay-Ultralight.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

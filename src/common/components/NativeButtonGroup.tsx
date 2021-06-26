@@ -86,7 +86,7 @@ const Item = ({ isSelected, title, onPress }: ItemProps) => {
         title={title}
         margin={DefaultMargin / 3}
         size="xs"
-        fontFamily={AppFonts.GilroyMedium}
+        fontFamily={AppFonts.medium}
         buttonStyle={isSelected ? undefined : styles.unSelectedButton}
         onPress={() => {
           onPress();

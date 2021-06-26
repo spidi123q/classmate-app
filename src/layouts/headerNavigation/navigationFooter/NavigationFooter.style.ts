@@ -6,6 +6,7 @@ import {
   DefaultFontColor,
   DefaultMargin,
   DoubleMargin,
+  FontFamily,
   FontSize,
   ICON_SIZE,
 } from "../../../common/config/themeConfig";
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: FontSize.h3x,
     color: DefaultFontColor,
-    fontFamily: AppFonts.GilroySemiBold,
+    fontFamily: FontFamily.semiBold,
     opacity: 0.6,
     textAlign: "center",
     //backgroundColor: "red",

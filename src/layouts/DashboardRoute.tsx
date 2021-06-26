@@ -8,9 +8,9 @@ import TabNavigator from "./TabsNavigator";
 import LoginNavigator from "./LoginNavigator";
 import ProductNavigator from "./ProductNavigator";
 const DashboardRoute: React.FunctionComponent = () => {
-  const { permissions } = useUser();
+  const user = useUser();
 
-  if (isAuthorized(permissions, UserPermissions.ReadProductSelf)) {
+  if (isAuthorized(user?.permissions, UserPermissions.ReadProductSelf)) {
     return <ProductNavigator />;
   } else {
     return <LoginNavigator />;
