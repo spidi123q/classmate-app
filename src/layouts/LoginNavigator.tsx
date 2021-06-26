@@ -7,6 +7,8 @@ import { RoutePath } from "../models/RoutePath";
 import DashboardRoute from "./DashboardRoute";
 import Intro from "../features/login/components/Intro";
 import useFirstLauch from "../common/hooks/useFirstLauch";
+import { Platform } from "react-native";
+import SystemConfig from "../SystemConfig";
 
 export default function LoginNavigator() {
   const { isFirstLaunch } = useFirstLauch();
@@ -16,7 +18,7 @@ export default function LoginNavigator() {
         headerShown: false,
       }}
     >
-      {isFirstLaunch && (
+      {isFirstLaunch && SystemConfig.isMobile && (
         <Stack.Screen name={RoutePath.Intro} component={Intro} />
       )}
       <Stack.Screen name={RoutePath.Login} component={Login} />
