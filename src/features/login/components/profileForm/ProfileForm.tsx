@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NativeLayout from "../../../../common/components/NativeLayout";
-import { UserEdit } from "../../../../models/User";
+import { IUserEdit } from "../../../../models/User";
 import { profileSchema } from "../yupSchema";
 import { UserRoles } from "../../../../models/enum";
 import styles from "./ProfileForm.style";
@@ -33,17 +33,7 @@ const ProfileForm = (props: IProps) => {
   const [isProfileComplete, setIsProfileComplete] = useState<boolean>(false);
   const isKeyBoardActive = useKeyBoard();
 
-  const updateCurrentUser = async (values: UserEdit) => {
-    const firebaseUser = await auth().currentUser;
-    let userEdit: UserEdit = cleanDeep<UserEdit>({
-      role: UserRoles.User,
-      email: firebaseUser?.email as string,
-      phone: firebaseUser?.phoneNumber as string,
-      avatarURL: firebaseUser?.photoURL as string,
-      name: firebaseUser?.displayName as string,
-    });
-    userEdit = { ...userEdit, ...values };
-    await updateUser(userEdit);
+  const updateCurrentUser = async (values: IUserEdit) => {
     setIsProfileComplete(true);
   };
 
@@ -82,7 +72,7 @@ const ProfileForm = (props: IProps) => {
           onSubmit={updateCurrentUser}
           validateOnChange={false}
         >
-          {(formikProps: FormikProps<UserEdit>) => (
+          {(formikProps: FormikProps<IUserEdit>) => (
             <View>
               {!isKeyBoardActive && (
                 <Animatable.View {...slideUpProps}>

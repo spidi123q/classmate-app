@@ -1,26 +1,52 @@
 import { UserPermissions, UserRoles } from "./enum";
 import GeoJSON from "../common/models/GeoJSON";
+import { IClassroom } from "./Classroom";
+import IOrganization from "./Organization";
+import { ITimeStamps } from "../common/models/TimeStamps";
 
-export interface User {
+export default interface IUser extends Partial<ITimeStamps> {
   _id: string;
-  role: UserRoles;
-  firebaseId: string;
-  dob?: Date;
   name?: string;
+  email?: string;
   phone?: string;
+  role: string;
+  firebaseId: string;
+  avatarURL?: string;
+  dob?: Date;
   location?: GeoJSON;
   address?: string;
-  email?: string;
-  avatarURL?: string;
+  distance?: number;
+  username?: string;
+  password?: string;
+  classroomId?: string;
+  classroom?: IClassroom;
+  organizationId?: string;
+  organization?: IOrganization;
   permissions: UserPermissions[];
+  active?: boolean;
 }
 
-export const InitialUser: User = {
+export interface IUserEdit extends Partial<IUser> {
+  password?: string;
+}
+
+export interface IUserQuery extends Partial<IUser> {
+  page?: number;
+}
+
+export const InitialUser: IUser = {
   _id: "",
   role: UserRoles.Guest,
   firebaseId: "",
-  name: "",
   permissions: [],
 };
 
-export type UserEdit = Partial<User>;
+export const InitialUserEdit: IUserEdit = {
+  email: "",
+  password: "",
+  name: "",
+  phone: "",
+  organizationId: "",
+  role: UserRoles.User,
+  active: true,
+};

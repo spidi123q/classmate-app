@@ -1,4 +1,4 @@
-export declare abstract class TimeStamps {
+export declare abstract class ITimeStamps {
   createdAt: Date;
   updatedAt: Date;
 }

@@ -1,29 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { View } from "react-native";
-import OTPInputView from "@twotalltotems/react-native-otp-input";
-import { showToast } from "../../../../common/helpers/notification";
-import styles from "./OtpVerifier.style";
-import { ToastTitle } from "../../../../common/models/enum";
-import NativeLayout from "../../../../common/components/NativeLayout";
+import { showToast } from "../../../common/helpers/notification";
+import { ToastTitle } from "../../../common/models/enum";
+import NativeLayout from "../../../common/components/NativeLayout";
 import { Route, useNavigation, useRoute } from "@react-navigation/native";
-import Typography from "../../../../common/components/Typography";
+import Typography from "../../../common/components/Typography";
 import {
   FontSize,
   DefaultMargin,
   SecondaryBackgroundColor,
   DoubleMargin,
   DefaultOpacity,
-} from "../../../../common/config/themeConfig";
-import NativeHeader from "../../../../common/components/NativeHeader";
-import { RoutePath } from "../../../../models/RoutePath";
+} from "../../../common/config/themeConfig";
+import NativeHeader from "../../../common/components/NativeHeader";
+import { RoutePath } from "../../../models/RoutePath";
 import { FirebaseAuthTypes } from "@react-native-firebase/auth";
-import { auth } from "../../../../common/native/firebase";
-import NativeView from "../../../../common/components/NativeView";
-import NativeTextInput from "../../../../common/components/NativeTextInput";
-import NativeButton from "../../../../common/components/NativeButton";
-import NativeField from "../../../../common/components/NativeField";
+import { auth } from "../../../common/native/firebase";
+import NativeView from "../../../common/components/NativeView";
+import NativeButton from "../../../common/components/NativeButton";
+import NativeField from "../../../common/components/NativeField";
 import { Formik, FormikProps } from "formik";
-import { slideUpProps } from "../../../../common/helpers/animation";
+import { slideUpProps } from "../../../common/helpers/animation";
 import { otpSchema } from "./yupSchema";
 
 interface IProps {}

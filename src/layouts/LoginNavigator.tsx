@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "../features/login/components/Login";
-import OtpVerifier from "../features/login/components/otpVerifier/OtpVerifier";
+import OtpVerifier from "../features/login/components/OtpVerifier";
 import ProfileForm from "../features/login/components/profileForm/ProfileForm";
 import { RoutePath } from "../models/RoutePath";
 import DashboardRoute from "./DashboardRoute";

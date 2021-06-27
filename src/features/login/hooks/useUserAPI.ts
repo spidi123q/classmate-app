@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AxiosApi, IResponse } from "../../../common/helpers/axios";
-import { User, UserEdit } from "../../../models/User";
+import IUser, { IUserEdit } from "../../../models/User";
 import GetUser from "../api/GetUser";
 import UpdateUser from "../api/UpdateUser";
 
@@ -9,7 +9,7 @@ export default function useUserAPI() {
   const dispatch: any = useDispatch();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const updateUser = async (userEdit: UserEdit) => {
+  const updateUser = async (userEdit: IUserEdit) => {
     const request = UpdateUser(userEdit);
     setIsLoading(true);
     const response = await dispatch(AxiosApi(request));
@@ -25,7 +25,7 @@ export default function useUserAPI() {
     return response;
   };
 
-  const updateAndGetUser = async (userEdit: UserEdit) => {
+  const updateAndGetUser = async (userEdit: IUserEdit) => {
     await updateUser(userEdit);
     await getUser(true);
   };

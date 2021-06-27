@@ -17,7 +17,8 @@
     "clean:android": "cd android && ./gradlew clean && cd ../",
     "clean:ios": "cd ios && xcodebuild clean && cd ../",
     "ios:podinstall": "cd ios && pod install && cd ../",
-    "andoid:signingReport": "cd android && ./gradlew signingReport && cd ../"
+    "andoid:signingReport": "cd android && ./gradlew signingReport && cd ../",
+    "bundleVisualizer": "react-native-bundle-visualizer"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.4",
@@ -34,7 +35,6 @@
     "@react-navigation/material-top-tabs": "^5.3.12",
     "@react-navigation/native": "^5.9.2",
     "@react-navigation/stack": "^5.14.2",
-    "@twotalltotems/react-native-otp-input": "^1.3.11",
     "axios": "^0.21.0",
     "buffer": "^6.0.3",
     "clean-deep": "^3.3.0",
@@ -126,6 +126,7 @@
     "prettier": "^2.0.4",
     "react-app-rewired": "^2.1.8",
     "react-dev-utils": "^11.0.4",
+    "react-native-bundle-visualizer": "^2.2.1",
     "react-native-clean-project": "^3.6.3",
     "react-native-svg-transformer": "^0.14.3",
     "react-scripts": "^4.0.3",
