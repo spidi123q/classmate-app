@@ -1,4 +1,9 @@
+import { ReactNativeFirebase } from "@react-native-firebase/app";
+import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import firebase from "firebase";
 
 export const messaging = firebase.messaging;
-export const auth = firebase.auth;
+export const auth: ReactNativeFirebase.FirebaseModuleWithStaticsAndApp<
+  FirebaseAuthTypes.Module,
+  FirebaseAuthTypes.Statics
+> = firebase.auth as any;

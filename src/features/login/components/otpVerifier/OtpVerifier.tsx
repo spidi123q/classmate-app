@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
 import { showToast } from "../../../../common/helpers/notification";
-import firebase from "@react-native-firebase/app";
 import styles from "./OtpVerifier.style";
 import { ToastTitle } from "../../../../common/models/enum";
 import NativeLayout from "../../../../common/components/NativeLayout";
@@ -75,9 +74,9 @@ const OtpVerifier = (props: IProps) => {
       return;
     }
     try {
-      const confirmationResult = await firebase
-        .auth()
-        .signInWithPhoneNumber(route.params.phone);
+      const confirmationResult = await auth().signInWithPhoneNumber(
+        route.params.phone
+      );
       setConfirmationResult(confirmationResult);
     } catch (err) {
       showToast(ToastTitle.Error, err.message, "error");
