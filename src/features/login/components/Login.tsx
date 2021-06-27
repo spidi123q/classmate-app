@@ -13,6 +13,8 @@ import { useNavigation } from "@react-navigation/native";
 import {
   DefaultIconFamily,
   DefaultMargin,
+  DefaultOpacity,
+  DoubleMargin,
   FontSize,
   SecondaryBackgroundColor,
 } from "../../../common/config/themeConfig";
@@ -44,21 +46,26 @@ const Login = () => {
         validateOnChange={false}
       >
         {(formikProps: FormikProps<LoginForm>) => (
-          <NativeView>
-            <Animatable.View {...slideUpProps}>
-              <Typography
-                size={FontSize.h1x}
-                family="bold"
-                marginTop={DefaultMargin * 4}
-              >
-                Get Started
+          <NativeView type="animatable" {...slideUpProps}>
+            <NativeView marginTop={DoubleMargin}>
+              <Typography type="h1x" family="semiBold">
+                Login to your account
               </Typography>
-              {/* <VideoPlayer
+              <Typography type="h1x" family="semiBold">
+                account
+              </Typography>
+              <Typography opacity={DefaultOpacity} marginTop={DefaultMargin}>
+                Login to unlock the complete learning experience
+              </Typography>
+            </NativeView>
+
+            {/* <VideoPlayer
                   source={{
                     uri: "https://classmate-clasmmatemedia-inso.streaming.media.azure.net/855d809b-1c4f-49c2-84bc-7b0ba296b470/PromisingYoung720.ism/manifest(format=m3u8-aapl)",
                     type: "m3u8",
                   }}
                 /> */}
+            <NativeView marginTop={DefaultMargin}>
               <NativeField
                 autoCompleteType="off"
                 placeholder="Mobile number  "
@@ -67,21 +74,23 @@ const Login = () => {
                 type="text"
                 keyboardType="number-pad"
                 iconName="phone-call-outline"
-                vericalSpacer
                 onFocus={() => {
                   if (isEmpty(formikProps.values.phone)) {
                     formikProps.setFieldValue("phone", "+91 ");
                   }
                 }}
               />
-              <VericalSpacer />
-              <VericalSpacer height={DefaultMargin * 2} />
-              <NativeButton
-                size="lg"
-                title="Login"
-                onPress={() => formikProps.handleSubmit()}
-              />
-            </Animatable.View>
+              <NativeView marginTop={DefaultMargin}>
+                <NativeButton
+                  size="lg"
+                  title="Login"
+                  onPress={() => formikProps.handleSubmit()}
+                />
+                <Typography marginTop={DefaultMargin} textAlign="center">
+                  Partner With Us?
+                </Typography>
+              </NativeView>
+            </NativeView>
           </NativeView>
         )}
       </Formik>

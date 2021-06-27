@@ -21,7 +21,11 @@ export default function LoginNavigator() {
       {isFirstLaunch && IsMobile && (
         <Stack.Screen name={RoutePath.Intro} component={Intro} />
       )}
-      <Stack.Screen name={RoutePath.Login} component={Login} />
+      <Stack.Screen
+        name={RoutePath.Login}
+        component={Login}
+        options={{ title: SystemConfig.appName }}
+      />
       <Stack.Screen name={RoutePath.OtpVerifier} component={OtpVerifier} />
       <Stack.Screen name={RoutePath.ProfileComplete} component={ProfileForm} />
     </Stack.Navigator>

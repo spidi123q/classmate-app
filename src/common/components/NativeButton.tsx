@@ -11,7 +11,10 @@ import { Button, ButtonProps } from "react-native-elements";
 import { AppTheme } from "../config/custom-theme";
 import {
   AppFonts,
+  DefaultBackgroundColor,
   DefaultBorderRadius,
+  DefaultPrimaryColor,
+  DefaultSecondaryColor,
   FontSize,
   InputHeight,
 } from "../config/themeConfig";
@@ -47,7 +50,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
     isLoading,
     ...rest
   } = props;
-  const mode = props.mode ?? "oval";
+  const mode = props.mode;
   const customStyle: any = {};
   if (width) {
     customStyle.width = width;
@@ -64,7 +67,11 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
       <View style={[getButtonStyle(mode, size), buttonStyle, customStyle]}>
         {children ??
           (!isLoading && (
-            <Typography color="white" size={ButtonFontSize[size ?? "lg"]}>
+            <Typography
+              size={ButtonFontSize[size ?? "lg"]}
+              color={DefaultBackgroundColor}
+              family="medium"
+            >
               {title}
             </Typography>
           ))}
@@ -88,6 +95,8 @@ const getButtonStyle = (
     height: ButtonSize[size ?? "lg"],
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: DefaultSecondaryColor,
+    borderRadius: DefaultBorderRadius,
   };
   if (mode === "oval") {
     return {
@@ -115,7 +124,7 @@ const ButtonSize: Record<ButtonSizes, number> = {
 };
 
 const ButtonFontSize: Record<ButtonSizes, number> = {
-  lg: FontSize["h2"],
+  lg: FontSize["h3x"],
   sm: FontSize["regular"],
   xs: FontSize["xs"],
 };

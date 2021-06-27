@@ -1,5 +1,6 @@
 import { Platform } from "react-native";
 import KeyValuePair from "./common/models/KeyValuePair";
+import appJson from "./app.json";
 
 interface SystemConfig {
   currency: string;
@@ -8,6 +9,7 @@ interface SystemConfig {
   supportEmail: string;
   minVersionCode: number;
   swipeCancelSpeed: number;
+  appName: string;
 }
 
 const SystemConfig: SystemConfig = {
@@ -17,6 +19,7 @@ const SystemConfig: SystemConfig = {
   supportEmail: "contact@inspirit-solutions.com",
   minVersionCode: 0,
   swipeCancelSpeed: 50,
+  appName: appJson.displayName,
 };
 
 export default SystemConfig;

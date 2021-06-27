@@ -12,12 +12,12 @@ export type IFontFamily =
   | "extraBold";
 
 export const FontSize: Record<FontType, number> = {
-  h1x: 28,
+  h1x: 30,
   h1: 24,
   h2: 20,
-  h3x: 16,
-  h3: 14,
-  regular: 14,
+  h3x: 18,
+  h3: 16,
+  regular: 15,
   xs: 11,
 };
 
@@ -61,10 +61,11 @@ export enum IconFamily {
 export const DefaultBackgroundColor: string = AppTheme["color-primary"];
 export const DefaultPrimaryColor: string = AppTheme["color-primary-500"];
 export const DefaultFontColor: string = AppTheme["color-secondary"];
+export const DefaultSecondaryColor: string = AppTheme["color-secondary"];
 export const SecondaryBackgroundColor: string = AppTheme["color-primary2"];
 export const TrasparentColor: string = "rgba(255, 0, 0, 0)";
 
-export const DefaultOpacity: number = 68;
+export const DefaultOpacity: number = 0.57;
 
 export const DefaultIconFamily: IconFamily = IconFamily.Ionicon;
 export const DefaultLoaderHeight: number = 100;

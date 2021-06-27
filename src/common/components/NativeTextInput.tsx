@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "#2C2C2C",
     fontFamily: FontFamily.semiBold,
     paddingLeft: InputFontSize,
-    fontSize: FontSize.h3x,
+    fontSize: FontSize.h3,
     color: DefaultFontColor,
     flex: 1,
   },
