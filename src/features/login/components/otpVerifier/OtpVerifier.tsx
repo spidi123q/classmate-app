@@ -11,11 +11,20 @@ import {
   FontSize,
   DefaultMargin,
   SecondaryBackgroundColor,
+  DoubleMargin,
+  DefaultOpacity,
 } from "../../../../common/config/themeConfig";
 import NativeHeader from "../../../../common/components/NativeHeader";
 import { RoutePath } from "../../../../models/RoutePath";
 import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import { auth } from "../../../../common/native/firebase";
+import NativeView from "../../../../common/components/NativeView";
+import NativeTextInput from "../../../../common/components/NativeTextInput";
+import NativeButton from "../../../../common/components/NativeButton";
+import NativeField from "../../../../common/components/NativeField";
+import { Formik, FormikProps } from "formik";
+import { slideUpProps } from "../../../../common/helpers/animation";
+import { otpSchema } from "./yupSchema";
 
 interface IProps {}
 
@@ -46,15 +55,11 @@ const OtpVerifier = (props: IProps) => {
     }
   };
 
-  const codeFilled = async (code: string) => {
+  const codeFilled = async (values: IOtpForm) => {
     try {
-      await confirmationResult?.confirm(code);
+      await confirmationResult?.confirm(values.otp);
     } catch (err) {
-      showToast(
-        ToastTitle.Error,
-        "Incorrect OTP! Please check again.",
-        "error"
-      );
+      showToast(ToastTitle.Error, err.message, "error");
     }
   };
 
@@ -94,33 +99,55 @@ const OtpVerifier = (props: IProps) => {
   }, []);
 
   return (
-    <NativeLayout backgroundColor={SecondaryBackgroundColor}>
-      <NativeHeader noBorder />
-      <View style={styles.container}>
-        <Typography
-          size={FontSize.h1x}
-          family="bold"
-          marginVertical={DefaultMargin * 4}
-        >
-          Verification Code
-        </Typography>
-        <Typography size={FontSize.h3} marginVertical={DefaultMargin * 4}>
-          Please type the verification code sent to registered mobile number.
-        </Typography>
-        <OTPInputView
-          autoFocusOnLoad={false}
-          style={styles.otp}
-          pinCount={6}
-          onCodeFilled={codeFilled}
-          codeInputFieldStyle={styles.codeInputField}
-        />
-      </View>
+    <NativeLayout horizontalMargin>
+      <Formik
+        validationSchema={otpSchema}
+        initialValues={{
+          otp: "",
+        }}
+        onSubmit={codeFilled}
+        validateOnChange={false}
+      >
+        {(formikProps: FormikProps<IOtpForm>) => (
+          <NativeView type="animatable" {...slideUpProps}>
+            <NativeView marginTop={DoubleMargin}>
+              <Typography type="h1x" family="semiBold">
+                Enter Verification
+              </Typography>
+              <Typography type="h1x" family="semiBold">
+                code
+              </Typography>
+            </NativeView>
+            <NativeView marginTop={DefaultMargin}>
+              <NativeField
+                autoCompleteType="off"
+                placeholder="Mobile number  "
+                name="otp"
+                formikProps={formikProps}
+                type="text"
+                keyboardType="number-pad"
+              />
+              <NativeView marginTop={DefaultMargin}>
+                <NativeButton
+                  size="lg"
+                  title="Submit"
+                  onPress={() => formikProps.handleSubmit()}
+                />
+              </NativeView>
+            </NativeView>
+          </NativeView>
+        )}
+      </Formik>
     </NativeLayout>
   );
 };
 
 interface IParams {
   phone: string;
+}
+
+export interface IOtpForm {
+  otp: string;
 }
 
 export default OtpVerifier;

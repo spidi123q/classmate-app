@@ -49,7 +49,7 @@ const Login = () => {
           <NativeView type="animatable" {...slideUpProps}>
             <NativeView marginTop={DoubleMargin}>
               <Typography type="h1x" family="semiBold">
-                Login to your account
+                Login to your
               </Typography>
               <Typography type="h1x" family="semiBold">
                 account
@@ -73,7 +73,6 @@ const Login = () => {
                 formikProps={formikProps}
                 type="text"
                 keyboardType="number-pad"
-                iconName="phone-call-outline"
                 onFocus={() => {
                   if (isEmpty(formikProps.values.phone)) {
                     formikProps.setFieldValue("phone", "+91 ");
