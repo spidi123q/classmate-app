@@ -22,8 +22,8 @@ export const loginSchema = yup.object().shape({
     } as any),
 });
 
-export const profileSchema = yup.object().shape({
-  name: yup.string().required(),
+export const profileSchema = yup.object().shape<YupRecord<IUserEdit>>({
+  classroomId: yup.string().required(),
 });
 
 export const otpSchema = yup.object().shape<YupRecord<IOtpForm>>({

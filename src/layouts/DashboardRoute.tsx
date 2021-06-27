@@ -2,16 +2,14 @@ import React, { useEffect } from "react";
 import { isAuthorized } from "../helpers/auth";
 import { UserPermissions, UserRoles } from "../models/enum";
 import useUser from "../features/login/hooks/useUser";
-import { HomePages, RoutePath } from "../models/RoutePath";
-import { useNavigation } from "@react-navigation/native";
 import TabNavigator from "./TabsNavigator";
 import LoginNavigator from "./LoginNavigator";
-import ProductNavigator from "./ProductNavigator";
+import HomeNavigator from "./HomeNavigator";
 const DashboardRoute: React.FunctionComponent = () => {
   const user = useUser();
 
-  if (isAuthorized(user?.permissions, UserPermissions.ReadProductSelf)) {
-    return <ProductNavigator />;
+  if (isAuthorized(user?.permissions, UserPermissions.WriteUserSelf)) {
+    return <HomeNavigator />;
   } else {
     return <LoginNavigator />;
   }

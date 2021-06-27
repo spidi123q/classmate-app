@@ -25,6 +25,7 @@ import * as Animatable from "react-native-animatable";
 import useKeyBoard from "../../../../common/helpers/useKeyboard";
 import UserPic from "../../assets/UserPic.svg";
 import { auth } from "../../../../common/native/firebase";
+import NativeView from "../../../../common/components/NativeView";
 
 interface IProps {}
 
@@ -39,6 +40,10 @@ const ProfileForm = (props: IProps) => {
 
   const validateUser = async () => {
     const user = await getUser(false);
+    console.log(
+      "🚀 ~ file: ProfileForm.tsx ~ line 43 ~ validateUser ~ user",
+      user
+    );
     try {
       const isValid = profileSchema.isValidSync(user.payload);
       setIsProfileComplete(isValid);
@@ -65,7 +70,7 @@ const ProfileForm = (props: IProps) => {
 
   return (
     <>
-      <NativeLayout backgroundColor={SecondaryBackgroundColor}>
+      <NativeLayout>
         <Formik
           validationSchema={profileSchema}
           initialValues={{ name: "" }}
@@ -73,43 +78,9 @@ const ProfileForm = (props: IProps) => {
           validateOnChange={false}
         >
           {(formikProps: FormikProps<IUserEdit>) => (
-            <View>
-              {!isKeyBoardActive && (
-                <Animatable.View {...slideUpProps}>
-                  <Typography
-                    size={FontSize.h1x}
-                    family="bold"
-                    marginTop={DefaultMargin * 4}
-                  >
-                    Welcome
-                  </Typography>
-                  <Typography
-                    marginTop={DefaultMargin}
-                    marginBottom={DefaultMargin * 4}
-                  >
-                    Complete your profile
-                  </Typography>
-                  <UserPic />
-                </Animatable.View>
-              )}
-              <View>
-                <View>
-                  <NativeField
-                    placeholder="Name"
-                    name="name"
-                    formikProps={formikProps}
-                    type="text"
-                    vericalSpacer
-                  />
-                  <VericalSpacer height={DefaultMargin * 3} />
-                  <NativeButton
-                    size="lg"
-                    title="Save"
-                    onPress={() => formikProps.handleSubmit()}
-                  />
-                </View>
-              </View>
-            </View>
+            <NativeView>
+              <Typography>No subscription available.</Typography>
+            </NativeView>
           )}
         </Formik>
       </NativeLayout>
