@@ -117,7 +117,7 @@ const OtpVerifier = (props: IProps) => {
             <NativeView marginTop={DefaultMargin}>
               <NativeField
                 autoCompleteType="off"
-                placeholder="Mobile number  "
+                placeholder="Enter OTP  "
                 name="otp"
                 formikProps={formikProps}
                 type="text"

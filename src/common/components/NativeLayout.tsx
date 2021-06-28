@@ -5,16 +5,22 @@ import {
   SafeAreaView,
   View,
   Platform,
+  ScrollView,
 } from "react-native";
 import SystemConfig from "../../SystemConfig";
 import { IsMobile } from "../config/constants";
 import { DefaultBackgroundColor, DefaultMargin } from "../config/themeConfig";
+import NativeView from "./NativeView";
 
 export interface INativeLayoutProps {
   backgroundColor?: string;
+  statusBarColor?: string;
   barStyle?: "default" | "light-content" | "dark-content";
   animated?: boolean;
   horizontalMargin?: boolean;
+  marginTop?: number;
+  noSafeArea?: boolean;
+  scroll?: boolean;
 }
 
 const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
@@ -24,11 +30,17 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
     animated,
     backgroundColor,
     horizontalMargin,
+    marginTop,
+    statusBarColor,
+    noSafeArea,
+    scroll,
     ...rest
   } = props;
 
+  const LayoutView = noSafeArea ? View : SafeAreaView;
+
   return (
-    <SafeAreaView
+    <LayoutView
       style={[
         styles.safeArea,
         {
@@ -36,21 +48,23 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
         },
       ]}
     >
-      <View
+      <NativeView
+        type={scroll ? "scroll" : undefined}
         style={[
           styles.container,
           {
             marginHorizontal: horizontalMargin ? DefaultMargin : undefined,
+            marginTop,
           },
         ]}
       >
         <StatusBar
-          backgroundColor={backgroundColor ?? DefaultBackgroundColor}
+          backgroundColor={statusBarColor ?? DefaultBackgroundColor}
           barStyle={barStyle ?? "light-content"}
         />
         {children}
-      </View>
-    </SafeAreaView>
+      </NativeView>
+    </LayoutView>
   );
 };
 
@@ -58,7 +72,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    marginTop: DefaultMargin,
   },
   safeArea: {
     flex: IsMobile ? 1 : undefined,

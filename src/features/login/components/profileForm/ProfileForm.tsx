@@ -58,7 +58,7 @@ const ProfileForm = (props: IProps) => {
 
   if (isProfileComplete) {
     return (
-      <NativeLayout backgroundColor="white">
+      <NativeLayout>
         <Loader
           type="success"
           onAnimationFinish={() => getUser()}

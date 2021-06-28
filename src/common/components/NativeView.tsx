@@ -5,15 +5,22 @@ import {
   ViewProps,
   ViewStyle,
   ScrollViewProps,
+  ImageBackground,
+  ImageBackgroundProps,
 } from "react-native";
 import Ripple, { RippleProps } from "react-native-material-ripple";
 import * as Animatable from "react-native-animatable";
+import LinearGradient, {
+  LinearGradientProps,
+} from "react-native-linear-gradient";
 
-interface IProps extends ViewProps, ViewStyle, ScrollViewProps, RippleProps {
-  children?: React.ReactNode;
-  type?: ViewTypes;
-  viewRef?: any;
-}
+type IProps =
+  | IGradientProps
+  | IViewProps
+  | IScrollViewProps
+  | IRippleProps
+  | IImageProps
+  | IAnimatableProps;
 
 const NativeView: React.FunctionComponent<IProps> = (props) => {
   const {
@@ -34,13 +41,14 @@ const NativeView: React.FunctionComponent<IProps> = (props) => {
     borderBottomColor,
     borderBottomWidth,
     backgroundColor,
-    keyboardShouldPersistTaps,
     viewRef,
     top,
     bottom,
     left,
     right,
     position,
+    height,
+    width,
     ...rest
   } = props;
   const SelectedView = viewMap[(type as ViewTypes) ?? "default"];
@@ -73,10 +81,18 @@ const NativeView: React.FunctionComponent<IProps> = (props) => {
           left,
           right,
           position,
+          height,
+          width,
+          resizeMethod: props.type === "image" ? props.resizeMethod : undefined,
+          resizeMode: props.type === "image" ? props.resizeMode : undefined,
         },
         style,
       ]}
-      keyboardShouldPersistTaps={keyboardShouldPersistTaps ?? "handled"}
+      keyboardShouldPersistTaps={
+        props.type === "scroll"
+          ? props.keyboardShouldPersistTaps ?? "handled"
+          : undefined
+      }
       {...rest}
     >
       {children}
@@ -84,13 +100,54 @@ const NativeView: React.FunctionComponent<IProps> = (props) => {
   );
 };
 
-type ViewTypes = "scroll" | "ripple" | "default" | "animatable";
+type ViewTypes =
+  | "scroll"
+  | "ripple"
+  | "default"
+  | "animatable"
+  | "gradient"
+  | "image";
 
 const viewMap: Record<ViewTypes, any> = {
   default: View,
   scroll: ScrollView,
   ripple: Ripple,
+  gradient: LinearGradient,
   animatable: Animatable.View,
+  image: ImageBackground,
 };
+
+interface IBaseProps extends ViewStyle {
+  children?: React.ReactNode;
+  viewRef?: any;
+}
+interface IGradientProps
+  extends LinearGradientProps,
+    Omit<IBaseProps, "start" | "end"> {
+  type: "gradient";
+}
+
+interface IViewProps extends ViewProps, IBaseProps {
+  type?: "default" | undefined;
+}
+
+interface IScrollViewProps extends ScrollViewProps, IBaseProps {
+  type: "scroll";
+}
+
+interface IRippleProps extends RippleProps, IBaseProps {
+  type: "ripple";
+}
+
+interface IAnimatableProps extends ViewProps, IBaseProps {
+  type: "animatable";
+}
+
+interface IImageProps
+  extends ImageBackgroundProps,
+    Omit<IBaseProps, "height" | "width"> {
+  type: "image";
+  children?: React.ReactNode;
+}
 
 export default React.memo(NativeView);
