@@ -67,6 +67,8 @@ export const TrasparentColor: string = "rgba(255, 0, 0, 0)";
 
 export const DefaultOpacity: number = 0.57;
 
+export const SecondaryOpacity: number = 0.63;
+
 export const DefaultIconFamily: IconFamily = IconFamily.Ionicon;
 export const DefaultLoaderHeight: number = 100;
 

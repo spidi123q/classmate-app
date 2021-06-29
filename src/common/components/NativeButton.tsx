@@ -7,12 +7,13 @@ import {
   Text,
   View,
 } from "react-native";
-import { Button, ButtonProps } from "react-native-elements";
+import { Button, ButtonProps, Icon } from "react-native-elements";
 import { AppTheme } from "../config/custom-theme";
 import {
   AppFonts,
   DefaultBackgroundColor,
   DefaultBorderRadius,
+  DefaultIconFamily,
   DefaultPrimaryColor,
   DefaultSecondaryColor,
   FontSize,
@@ -33,6 +34,7 @@ interface IProps extends ButtonProps {
   color?: string;
   title?: string;
   isLoading?: boolean;
+  iconName?: string;
 }
 
 const NativeButton: React.FunctionComponent<IProps> = (props) => {
@@ -48,6 +50,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
     height,
     children,
     isLoading,
+    iconName,
     ...rest
   } = props;
   const mode = props.mode;
@@ -62,18 +65,25 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
     <NativeView
       type={isLoading ? "default" : "ripple"}
       onPress={onPress}
-      rippleContainerBorderRadius={500}
+      rippleContainerBorderRadius={DefaultBorderRadius}
     >
       <View style={[getButtonStyle(mode, size), buttonStyle, customStyle]}>
         {children ??
           (!isLoading && (
-            <Typography
-              size={ButtonFontSize[size ?? "lg"]}
-              color={DefaultBackgroundColor}
-              family="medium"
-            >
-              {title}
-            </Typography>
+            <NativeView flexDirection="row" alignItems="center">
+              {iconName && (
+                <NativeView marginRight={10} marginBottom={0.5}>
+                  <Icon type={DefaultIconFamily} name={iconName} />
+                </NativeView>
+              )}
+              <Typography
+                size={ButtonFontSize[size ?? "lg"]}
+                color={DefaultBackgroundColor}
+                family="medium"
+              >
+                {title}
+              </Typography>
+            </NativeView>
           ))}
         {isLoading && (
           <Circle
@@ -119,7 +129,7 @@ type ButtonSizes = "lg" | "sm" | "xs";
 
 const ButtonSize: Record<ButtonSizes, number> = {
   lg: InputHeight,
-  sm: InputHeight / 1,
+  sm: 43,
   xs: InputHeight / 2,
 };
 

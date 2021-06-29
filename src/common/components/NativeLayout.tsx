@@ -4,10 +4,9 @@ import {
   StatusBar,
   SafeAreaView,
   View,
-  Platform,
-  ScrollView,
+  RefreshControlProps,
 } from "react-native";
-import SystemConfig from "../../SystemConfig";
+
 import { IsMobile } from "../config/constants";
 import { DefaultBackgroundColor, DefaultMargin } from "../config/themeConfig";
 import NativeView from "./NativeView";
@@ -21,6 +20,12 @@ export interface INativeLayoutProps {
   marginTop?: number;
   noSafeArea?: boolean;
   scroll?: boolean;
+  refreshControl?:
+    | React.ReactElement<
+        RefreshControlProps,
+        string | React.JSXElementConstructor<any>
+      >
+    | undefined;
 }
 
 const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
@@ -34,6 +39,7 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
     statusBarColor,
     noSafeArea,
     scroll,
+    refreshControl,
     ...rest
   } = props;
 
@@ -57,6 +63,7 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
             marginTop,
           },
         ]}
+        refreshControl={refreshControl}
       >
         <StatusBar
           backgroundColor={statusBarColor ?? DefaultBackgroundColor}
