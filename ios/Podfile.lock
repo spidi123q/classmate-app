@@ -333,9 +333,6 @@ PODS:
     - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
-  - react-native-shimmer (0.6.0):
-    - React (>= 0.45.1)
-    - Shimmer (~> 1)
   - react-native-splash-screen (3.2.0):
     - React
   - react-native-video (5.1.1):
@@ -444,7 +441,6 @@ PODS:
     - React
   - RNVectorIcons (8.1.0):
     - React-Core
-  - Shimmer (1.0.2)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -496,7 +492,6 @@ DEPENDENCIES:
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
-  - react-native-shimmer (from `../node_modules/react-native-shimmer`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-video (from `../node_modules/react-native-video`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -555,7 +550,6 @@ SPEC REPOS:
     - nanopb
     - OpenSSL-Universal
     - PromisesObjC
-    - Shimmer
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -607,8 +601,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-image-resizer"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
-  react-native-shimmer:
-    :path: "../node_modules/react-native-shimmer"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
   react-native-video:
@@ -720,7 +712,6 @@ SPEC CHECKSUMS:
   react-native-image-picker: 5bb3325530fd4dc3053a77a73d4f65b6649de820
   react-native-image-resizer: 13ac4af788f88af36d0353a1324401ebabd04fe4
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
-  react-native-shimmer: 2fdba9953215a29106febc9d147caa31a0080a8a
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-video: 0bb76b6d6b77da3009611586c7dbf817b947f30e
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
@@ -750,7 +741,6 @@ SPEC CHECKSUMS:
   RNScreens: f7ad633b2e0190b77b6a7aab7f914fad6f198d8d
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
-  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
