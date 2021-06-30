@@ -18,30 +18,8 @@ export default function Profile() {
   const { name, phone } = useUser();
   return (
     <NativeLayout>
-      <NativeHeader noBorder />
-      <NativeView marginHorizontal={DefaultMargin * 3}>
-        <NativeView
-          flexDirection="row"
-          justifyContent="space-between"
-          alignItems="center"
-          paddingBottom={DoubleMargin}
-          borderBottomColor={AppTheme["color-grey"]}
-          borderBottomWidth={1}
-        >
-          <NativeView>
-            <Typography family="semiBold" size={FontSize.h1}>
-              {name}
-            </Typography>
-            <Typography size={FontSize.regular} marginTop={DefaultMargin}>
-              {formatPhoneNumber(phone)}
-            </Typography>
-          </NativeView>
-          <NativeView marginTop={-DefaultMargin * 3}></NativeView>
-        </NativeView>
-        <NativeView marginTop={DoubleMargin}>
-          <ProfileMenu />
-        </NativeView>
-      </NativeView>
+      <NativeHeader title="Edit Profile" />
+      <NativeView marginHorizontal={DefaultMargin}></NativeView>
     </NativeLayout>
   );
 }

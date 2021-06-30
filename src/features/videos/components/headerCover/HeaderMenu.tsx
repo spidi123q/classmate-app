@@ -6,8 +6,16 @@ import {
 } from "../../../../common/config/themeConfig";
 import LogoHorizontal from "../../../../common/assets/LogoHorizontal.svg";
 import Profile from "../../../../common/assets/Profile.svg";
+import { useNavigation } from "@react-navigation/native";
+import { HomePages } from "../../../../models/RoutePath";
 
 export function HeaderMenu() {
+  const navigation = useNavigation();
+
+  const openProfile = () => {
+    navigation.navigate(HomePages.Profile);
+  };
+
   return (
     <NativeView
       marginTop={DoubleMargin}
@@ -18,7 +26,7 @@ export function HeaderMenu() {
     >
       <LogoHorizontal />
       <NativeView>
-        <NativeView type="ripple">
+        <NativeView type="ripple" onPress={openProfile}>
           <Profile />
         </NativeView>
       </NativeView>

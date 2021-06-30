@@ -4,6 +4,7 @@ import { HomePages } from "../models/RoutePath";
 import { createStackNavigator } from "@react-navigation/stack";
 import useUser from "../features/login/hooks/useUser";
 import Profile from "../features/profile/components/Profile";
+import VideoDetails from "../features/videos/components/VideoDetails";
 
 export default function HomeNavigator() {
   const user = useUser();
@@ -16,9 +17,13 @@ export default function HomeNavigator() {
       {user.active && (
         <>
           <Stack.Screen name={HomePages.Videos} component={Videos} />
+          <Stack.Screen
+            name={HomePages.VideoDetails}
+            component={VideoDetails}
+          />
+          <Stack.Screen name={HomePages.Profile} component={Profile} />
         </>
       )}
-      <Stack.Screen name={HomePages.Profile} component={Profile} />
     </Stack.Navigator>
   );
 }

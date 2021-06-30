@@ -8,6 +8,8 @@ import {
 } from "../../../common/config/themeConfig";
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { Image } from "react-native-elements";
+import { useNavigation } from "@react-navigation/native";
+import { HomePages } from "../../../models/RoutePath";
 
 const DATA = [
   {
@@ -38,13 +40,18 @@ const DATA = [
 ];
 
 export default function VideoList() {
+  const navigation = useNavigation();
+
+  const openVideo = () => {
+    navigation.navigate(HomePages.VideoDetails);
+  };
+
   const renderItem = ({ item }: FlatListRenderItem<any>) => (
     <NativeView
-      height={153}
-      width={130}
       type="ripple"
       marginTop={DefaultMargin / 2}
       marginRight={DefaultMargin}
+      onPress={openVideo}
     >
       <Image
         source={{

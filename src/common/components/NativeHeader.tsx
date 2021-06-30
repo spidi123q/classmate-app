@@ -12,6 +12,7 @@ import { AppTheme } from "../config/custom-theme";
 import Typography from "./Typography";
 import { Button, Icon } from "react-native-elements";
 import {
+  DefaultFontColor,
   DefaultIconFamily,
   DefaultMargin,
   DoubleMargin,
@@ -53,19 +54,13 @@ const NativeHeader = forwardRef((props: IProps, ref: any) => {
   }, [showActions]);
   return (
     <NativeView>
-      <View
-        style={[
-          styles.container,
-          {
-            borderBottomWidth: noBorder ? 0 : 1,
-          },
-        ]}
-      >
+      <View style={[styles.container]}>
         <Icon
           containerStyle={styles.backButton}
           type={DefaultIconFamily}
           name="chevron-back-outline"
           size={ICON_SIZE}
+          color={DefaultFontColor}
           onPress={showActions ? ref.current.toggle : navigation.goBack}
         />
         <>
@@ -95,10 +90,9 @@ const NativeHeader = forwardRef((props: IProps, ref: any) => {
               ref={(ref) => (titleViewRef.current = ref)}
             >
               <Typography
-                type="h2"
+                type="h3x"
                 family="semiBold"
-                marginRight={DoubleMargin + ICON_SIZE + DefaultMargin}
-                marginTop={DefaultMargin}
+                marginTop={DefaultMargin + 10}
               >
                 {title}
               </Typography>
@@ -119,10 +113,7 @@ export interface IActions {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    alignItems: "center",
-    paddingBottom: DoubleMargin,
-    borderBottomColor: AppTheme["color-grey"],
-    borderBottomWidth: 1,
+    marginTop: DefaultMargin / 3,
   },
   cancelButtonText: {
     color: AppTheme["color-dark"],
@@ -143,8 +134,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   backButton: {
-    marginLeft: DoubleMargin,
-    paddingTop: DefaultMargin,
+    position: "absolute",
+    top: DefaultMargin + 6,
+    left: DefaultMargin / 2,
+    zIndex: 1,
   },
 });
 export default NativeHeader;

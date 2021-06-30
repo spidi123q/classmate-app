@@ -13,5 +13,6 @@ export enum RoutePath {
 
 export const HomePages = {
   Videos: "/videos",
+  VideoDetails: "/videos/details",
   Profile: "/profile",
 };
