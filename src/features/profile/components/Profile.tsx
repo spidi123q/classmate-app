@@ -1,25 +1,47 @@
 import React from "react";
-import { Text } from "react-native";
 import NativeHeader from "../../../common/components/NativeHeader";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
-import Typography from "../../../common/components/Typography";
-import {
-  DefaultMargin,
-  DoubleMargin,
-  FontSize,
-} from "../../../common/config/themeConfig";
+import { DefaultMargin } from "../../../common/config/themeConfig";
 import useUser from "../../login/hooks/useUser";
 import { formatPhoneNumber } from "../../../common/helpers/format";
-import { AppTheme } from "../../../common/config/custom-theme";
-import ProfileMenu from "./ProfileMenu";
+import NativeTextInput from "../../../common/components/NativeTextInput";
+import BlankUser from "../assets/BlankUser.svg";
 
 export default function Profile() {
-  const { name, phone } = useUser();
+  const { name, phone, email, organization } = useUser();
   return (
-    <NativeLayout>
+    <NativeLayout scroll>
       <NativeHeader title="Edit Profile" />
-      <NativeView marginHorizontal={DefaultMargin}></NativeView>
+      <NativeView marginTop={DefaultMargin} marginHorizontal={DefaultMargin}>
+        <NativeView
+          justifyContent="center"
+          alignItems="center"
+          marginVertical={DefaultMargin}
+        >
+          <BlankUser />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
+          <NativeTextInput label="Name" value={name} editable={false} />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
+          <NativeTextInput
+            label="Phone Number"
+            value={formatPhoneNumber(phone)}
+            editable={false}
+          />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
+          <NativeTextInput label="Email" value={email} editable={false} />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
+          <NativeTextInput
+            label="Organization"
+            value={organization?.name}
+            editable={false}
+          />
+        </NativeView>
+      </NativeView>
     </NativeLayout>
   );
 }

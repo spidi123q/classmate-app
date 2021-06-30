@@ -80,9 +80,9 @@ export const TextInputSize: Record<InputSize, number> = {
 const styles = StyleSheet.create({
   inputContainer: {
     // backgroundColor: "#2C2C2C",
-    fontFamily: FontFamily.semiBold,
+    fontFamily: FontFamily.regular,
     paddingLeft: InputFontSize,
-    fontSize: FontSize.h3,
+    fontSize: FontSize.regular,
     color: DefaultFontColor,
     flex: 1,
   },
@@ -94,8 +94,6 @@ const styles = StyleSheet.create({
     borderRadius: DefaultBorderRadius,
     flexDirection: "row",
     alignItems: "center",
-    // borderColor: AppTheme["color-grey"],
-    //borderWidth: 1,
   },
 });
 

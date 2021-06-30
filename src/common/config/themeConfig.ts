@@ -1,7 +1,15 @@
 import { Platform } from "react-native";
 import { AppTheme } from "./custom-theme";
 
-export type FontType = "h1x" | "h1" | "h2" | "h3" | "h3x" | "regular" | "xs";
+export type FontType =
+  | "h1x"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h3x"
+  | "regular"
+  | "xsx"
+  | "xs";
 
 export type IFontFamily =
   | "light"
@@ -18,6 +26,7 @@ export const FontSize: Record<FontType, number> = {
   h3x: 18,
   h3: 16,
   regular: 15,
+  xsx: 13,
   xs: 11,
 };
 
