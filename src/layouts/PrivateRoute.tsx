@@ -3,6 +3,8 @@ import AppState from "../store/AppState";
 import { connect } from "react-redux";
 import NativeLayout from "../common/components/NativeLayout";
 import Loader from "../common/components/Loader";
+import NativeView from "../common/components/NativeView";
+import { DefaultBackgroundColor } from "../common/config/themeConfig";
 
 interface IProps {
   appReady: boolean;
@@ -12,9 +14,9 @@ const PrivateRoute: React.FunctionComponent<IProps> = (props) => {
   const { children, appReady } = props;
   if (!appReady) {
     return (
-      <NativeLayout>
+      <NativeView backgroundColor={DefaultBackgroundColor}>
         <Loader size={100} />
-      </NativeLayout>
+      </NativeView>
     );
   }
 

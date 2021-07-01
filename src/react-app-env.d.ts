@@ -36,3 +36,9 @@ declare module "react-native-android-location-enabler" {
   };
   export default RNAndroidLocationEnabler;
 }
+
+declare module "react-native-html-parser" {
+  export class DOMParser {
+    parseFromString(html: string, format: string): any {}
+  }
+}

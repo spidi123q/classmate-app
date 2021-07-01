@@ -58,13 +58,6 @@ const Login = () => {
                 Login to unlock the complete learning experience
               </Typography>
             </NativeView>
-
-            {/* <VideoPlayer
-                  source={{
-                    uri: "https://classmate-clasmmatemedia-inso.streaming.media.azure.net/855d809b-1c4f-49c2-84bc-7b0ba296b470/PromisingYoung720.ism/manifest(format=m3u8-aapl)",
-                    type: "m3u8",
-                  }}
-                /> */}
             <NativeView marginTop={DefaultMargin}>
               <NativeField
                 autoCompleteType="off"

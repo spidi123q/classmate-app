@@ -21,12 +21,14 @@ import {
   Text,
   StyleProp,
   ViewStyle,
+  Dimensions,
 } from "react-native";
 import padStart from "lodash/padStart";
 import styles, { PlayerIconColor } from "./VideoPlayer.style";
 import { Icon } from "react-native-elements";
 import { DefaultIconFamily } from "../../config/themeConfig";
 import Loader from "../Loader";
+import Orientation from "react-native-orientation";
 
 interface IOpts {
   playWhenInactive?: boolean;
@@ -322,10 +324,6 @@ export default class VideoPlayer extends Component<IProps, IState> {
    * @param {object} data The video meta data
    */
   _onLoad(data: OnLoadData) {
-    console.log(
-      "🚀 ~ file: VideoPlayer.tsx ~ line 325 ~ VideoPlayer ~ _onLoad ~ data",
-      data as any
-    );
     let state: IState = this.state;
 
     state.duration = data.duration;
@@ -618,11 +616,11 @@ export default class VideoPlayer extends Component<IProps, IState> {
     }
 
     if (state.isFullscreen) {
-      typeof this.events.onEnterFullscreen === "function" &&
-        this.events.onEnterFullscreen();
+      this.events.onEnterFullscreen && this.events.onEnterFullscreen();
+      Orientation.lockToLandscape();
     } else {
-      typeof this.events.onExitFullscreen === "function" &&
-        this.events.onExitFullscreen();
+      this.events.onExitFullscreen && this.events.onExitFullscreen();
+      Orientation.lockToPortrait();
     }
 
     this.setState(state);
@@ -1353,12 +1351,28 @@ export default class VideoPlayer extends Component<IProps, IState> {
    * Provide all of our options and render the whole component.
    */
   render() {
+    const windowWidth = Dimensions.get("window").width;
+    const windowHeight = Dimensions.get("window").height;
+    let fullscreenStyle: StyleProp<ViewStyle> = {};
+
+    if (this.state.isFullscreen) {
+      fullscreenStyle = {
+        height: windowHeight,
+        width: windowWidth,
+      };
+    }
     return (
       <TouchableWithoutFeedback
         onPress={this.events.onScreenTouch}
         style={[styles.player.container, this.styles.containerStyle]}
       >
-        <View style={[styles.player.container, this.styles.containerStyle]}>
+        <View
+          style={[
+            styles.player.container,
+            this.styles.containerStyle,
+            fullscreenStyle,
+          ]}
+        >
           <Video
             {...this.props}
             ref={(videoPlayer) => (this.player.ref = videoPlayer)}
@@ -1373,15 +1387,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
             onLoad={this.events.onLoad}
             onEnd={this.events.onEnd}
             onSeek={this.events.onSeek}
-            style={[styles.player.video, this.styles.videoStyle as any]}
+            style={[styles.player.video, this.styles.videoStyle]}
             source={this.props.source}
             onBuffer={this.onBuffer}
-            onBandwidthUpdate={(data) => {
-              console.log(
-                "🚀 ~ file: VideoPlayer.tsx ~ line 1376 ~ render ~ data",
-                data
-              );
-            }}
           />
           {this.renderError()}
           {this.renderLoader()}

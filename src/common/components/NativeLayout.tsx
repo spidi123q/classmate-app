@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   StyleSheet,
   StatusBar,
@@ -10,6 +10,8 @@ import {
 import { IsMobile } from "../config/constants";
 import { DefaultBackgroundColor, DefaultMargin } from "../config/themeConfig";
 import NativeView from "./NativeView";
+import Orientation from "react-native-orientation";
+import { useFocusEffect } from "@react-navigation/native";
 
 export interface INativeLayoutProps {
   backgroundColor?: string;
@@ -42,6 +44,10 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
     refreshControl,
     ...rest
   } = props;
+
+  useFocusEffect(() => {
+    Orientation.lockToPortrait();
+  });
 
   const LayoutView = noSafeArea ? View : SafeAreaView;
 
