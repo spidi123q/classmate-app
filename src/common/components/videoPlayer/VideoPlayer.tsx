@@ -35,6 +35,7 @@ import {
   immersiveModeOn,
   immersiveModeOff,
 } from "react-native-android-immersive-mode";
+import NativeView from "../NativeView";
 
 interface IOpts {
   playWhenInactive?: boolean;
@@ -646,9 +647,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
     state.paused = !state.paused;
 
     if (state.paused) {
-      typeof this.events.onPause === "function" && this.events.onPause();
+      this.events.onPause && this.events.onPause();
     } else {
-      typeof this.events.onPlay === "function" && this.events.onPlay();
+      this.events.onPlay && this.events.onPlay();
     }
 
     this.setState(state);
@@ -686,8 +687,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
    */
   calculateTime() {
     if (this.state.showTimeRemaining) {
-      const time = this.state.duration - this.state.currentTime;
-      return `-${this.formatTime(time)}`;
+      return `${this.formatTime(this.state.currentTime)}/${this.formatTime(
+        this.state.duration
+      )}`;
     }
 
     return this.formatTime(this.state.currentTime);
@@ -1112,9 +1114,6 @@ export default class VideoPlayer extends Component<IProps, IState> {
     const volumeControl = this.props.disableVolume
       ? this.renderNullControl()
       : this.renderVolume();
-    const fullscreenControl = this.props.disableFullscreen
-      ? this.renderNullControl()
-      : this.renderFullscreen();
 
     return (
       <Animated.View
@@ -1132,11 +1131,8 @@ export default class VideoPlayer extends Component<IProps, IState> {
           imageStyle={[styles.controls.vignette]}
         >
           <SafeAreaView style={styles.controls.topControlGroup}>
-            {backControl}
-            <View style={styles.controls.pullRight}>
-              {volumeControl}
-              {fullscreenControl}
-            </View>
+            {!this.state.isFullscreen && backControl}
+            <View style={styles.controls.pullRight}></View>
           </SafeAreaView>
         </ImageBackground>
       </Animated.View>
@@ -1150,11 +1146,10 @@ export default class VideoPlayer extends Component<IProps, IState> {
     return this.renderControl(
       <Icon
         type={DefaultIconFamily}
-        name="arrow-back"
+        name="chevron-back-outline"
         color={PlayerIconColor}
       />,
       this.events.onBack
-      //styles.controls.back
     );
   }
 
@@ -1210,6 +1205,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
     const playPauseControl = this.props.disablePlayPause
       ? this.renderNullControl()
       : this.renderPlayPause();
+    const fullscreenControl = this.props.disableFullscreen
+      ? this.renderNullControl()
+      : this.renderFullscreen();
 
     return (
       <Animated.View
@@ -1230,9 +1228,22 @@ export default class VideoPlayer extends Component<IProps, IState> {
           <SafeAreaView
             style={[styles.controls.row, styles.controls.bottomControlGroup]}
           >
-            {playPauseControl}
+            <NativeView
+              flexDirection="row"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {playPauseControl}
+              {timerControl}
+            </NativeView>
             {this.renderTitle()}
-            {timerControl}
+            <NativeView
+              flexDirection="row"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {fullscreenControl}
+            </NativeView>
           </SafeAreaView>
         </ImageBackground>
       </Animated.View>
@@ -1333,7 +1344,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
     if (this.state.loading || this.state.isBuffering) {
       return (
         <View style={styles.loader.container}>
-          <Loader style={{ height: 20, width: 20 }} type="loader" />
+          <Loader size={150} type="loader" />
         </View>
       );
     }

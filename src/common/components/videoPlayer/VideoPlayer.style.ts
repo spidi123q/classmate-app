@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { AppFonts, DefaultMargin } from "../../config/themeConfig";
 
 /**
  * This object houses our styles. There's player
@@ -75,6 +76,7 @@ const styles = {
       color: "#FFF",
       fontSize: 14,
       textAlign: "center",
+      fontFamily: AppFonts.light,
     },
     pullRight: {
       flexDirection: "row",
@@ -96,8 +98,7 @@ const styles = {
       alignItems: "center",
       justifyContent: "space-between",
       flexDirection: "row",
-      margin: 12,
-      marginBottom: 18,
+      marginTop: DefaultMargin,
     },
     bottomControlGroup: {
       alignSelf: "stretch",
@@ -128,7 +129,7 @@ const styles = {
       textAlign: "center",
     },
     timer: {
-      width: 80,
+      width: 110,
     },
     timerText: {
       backgroundColor: "transparent",
