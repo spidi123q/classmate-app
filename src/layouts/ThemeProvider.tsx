@@ -6,6 +6,8 @@ import {
 import SplashScreen from "react-native-splash-screen";
 import { AppTheme } from "../common/config/custom-theme";
 import { Platform, SafeAreaView } from "react-native";
+import BackgroundColor from "@codebet/react-native-background-color";
+import { DefaultBackgroundColor } from "../common/config/themeConfig";
 
 const elementsTheme: Theme = {
   colors: {
@@ -21,6 +23,7 @@ const ThemeProvider: React.FunctionComponent = (props) => {
     if (Platform.OS !== "web") {
       SplashScreen.hide();
     }
+    BackgroundColor.setColor(DefaultBackgroundColor);
   }, []);
 
   return (

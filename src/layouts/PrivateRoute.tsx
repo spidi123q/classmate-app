@@ -5,6 +5,7 @@ import NativeLayout from "../common/components/NativeLayout";
 import Loader from "../common/components/Loader";
 import NativeView from "../common/components/NativeView";
 import { DefaultBackgroundColor } from "../common/config/themeConfig";
+import { StatusBar } from "react-native";
 
 interface IProps {
   appReady: boolean;
@@ -16,6 +17,10 @@ const PrivateRoute: React.FunctionComponent<IProps> = (props) => {
     return (
       <NativeView backgroundColor={DefaultBackgroundColor} flex={1}>
         <Loader size={100} />
+        <StatusBar
+          backgroundColor={DefaultBackgroundColor}
+          barStyle={"light-content"}
+        />
       </NativeView>
     );
   }

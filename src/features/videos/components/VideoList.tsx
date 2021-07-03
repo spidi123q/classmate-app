@@ -58,8 +58,8 @@ export default function VideoList() {
           uri: item.title,
         }}
         style={{
-          height: 153,
-          width: 130,
+          height: 136,
+          width: 175,
           borderRadius: 8,
         }}
       />

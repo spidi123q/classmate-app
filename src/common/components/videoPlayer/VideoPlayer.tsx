@@ -1333,7 +1333,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
     if (this.state.loading || this.state.isBuffering) {
       return (
         <View style={styles.loader.container}>
-          <Loader style={{ height: 10, width: 10 }} />
+          <Loader style={{ height: 20, width: 20 }} type="loader" />
         </View>
       );
     }
