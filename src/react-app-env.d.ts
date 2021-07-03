@@ -42,3 +42,8 @@ declare module "react-native-html-parser" {
     parseFromString(html: string, format: string): any {}
   }
 }
+
+declare module "react-native-android-immersive-mode" {
+  declare const immersiveModeOn: () => void;
+  declare const immersiveModeOff: () => void;
+}

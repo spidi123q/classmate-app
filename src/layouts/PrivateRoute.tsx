@@ -14,7 +14,7 @@ const PrivateRoute: React.FunctionComponent<IProps> = (props) => {
   const { children, appReady } = props;
   if (!appReady) {
     return (
-      <NativeView backgroundColor={DefaultBackgroundColor}>
+      <NativeView backgroundColor={DefaultBackgroundColor} flex={1}>
         <Loader size={100} />
       </NativeView>
     );

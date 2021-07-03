@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { isAuthorized } from "../helpers/auth";
 import { UserPermissions, UserRoles } from "../models/enum";
 import useUser from "../features/login/hooks/useUser";
-import TabNavigator from "./TabsNavigator";
 import LoginNavigator from "./LoginNavigator";
 import HomeNavigator from "./HomeNavigator";
 const DashboardRoute: React.FunctionComponent = () => {

@@ -22,6 +22,8 @@ import {
   StyleProp,
   ViewStyle,
   Dimensions,
+  Platform,
+  StatusBar,
 } from "react-native";
 import padStart from "lodash/padStart";
 import styles, { PlayerIconColor } from "./VideoPlayer.style";
@@ -29,6 +31,10 @@ import { Icon } from "react-native-elements";
 import { DefaultIconFamily } from "../../config/themeConfig";
 import Loader from "../Loader";
 import Orientation from "react-native-orientation";
+import {
+  immersiveModeOn,
+  immersiveModeOff,
+} from "react-native-android-immersive-mode";
 
 interface IOpts {
   playWhenInactive?: boolean;
@@ -618,9 +624,15 @@ export default class VideoPlayer extends Component<IProps, IState> {
     if (state.isFullscreen) {
       this.events.onEnterFullscreen && this.events.onEnterFullscreen();
       Orientation.lockToLandscape();
+      if (Platform.OS === "android") {
+        immersiveModeOn();
+      }
     } else {
       this.events.onExitFullscreen && this.events.onExitFullscreen();
       Orientation.lockToPortrait();
+      if (Platform.OS === "android") {
+        immersiveModeOff();
+      }
     }
 
     this.setState(state);
@@ -907,7 +919,6 @@ export default class VideoPlayer extends Component<IProps, IState> {
     this.setVolumePosition(position);
     state.volumeOffset = position;
     this.mounted = true;
-
     this.setState(state);
   }
 
@@ -918,6 +929,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
   componentWillUnmount() {
     this.mounted = false;
     this.clearControlTimeout();
+    if (Platform.OS === "android") {
+      immersiveModeOff();
+    }
   }
 
   /**

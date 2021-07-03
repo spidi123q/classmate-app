@@ -14386,6 +14386,11 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-android-immersive-mode@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-android-immersive-mode/-/react-native-android-immersive-mode-1.3.0.tgz#09ea88b6407724deec3e6532f76aee704b930741"
+  integrity sha512-ADKzigTK+xfr31LIw5iIro/4Yp/h+9gawndO1RUcXGqp94OhctP3XzRjVvGUTbZl7DDxBpfTgRrJPt1ZXZ3fGQ==
+
 react-native-android-location-enabler@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-native-android-location-enabler/-/react-native-android-location-enabler-1.2.2.tgz#84b8dbbda0d5198d99cf264e6be4edaa7f256ba1"
@@ -14496,6 +14501,11 @@ react-native-image-resizer@^1.3.0:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/react-native-image-resizer/-/react-native-image-resizer-1.4.4.tgz#75eee65580de509ada674669d13e4d236caea2d5"
   integrity sha512-cPb2R3ZF/9+gBVYx2QyubqILICJpxElIxgRwLSnBSNRFl8eeaAxzWPHa6QNjtki55dkGsgoq5l5EjEu6XjlUng==
+
+react-native-immersive-mode@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-immersive-mode/-/react-native-immersive-mode-2.0.0.tgz#4183dad2bd46c02153e4520ec4bfaeb03713cc04"
+  integrity sha512-qpn7L9AckhE7rvHNaxjZlIp2RDa5QUBLmDOB5IoyatGq9Ahhx3AjH0ZtZVFcP28gS5emZ6/j9tehCEwXyLWl6Q==
 
 react-native-iphone-x-helper@^1.3.0:
   version "1.3.1"
