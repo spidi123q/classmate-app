@@ -1376,8 +1376,8 @@ export default class VideoPlayer extends Component<IProps, IState> {
    * Provide all of our options and render the whole component.
    */
   render() {
-    const windowWidth = Dimensions.get("window").width;
-    const windowHeight = Dimensions.get("window").height;
+    const windowWidth = Dimensions.get("screen").width;
+    const windowHeight = Dimensions.get("screen").height;
     let fullscreenStyle: StyleProp<ViewStyle> = {};
 
     if (this.state.isFullscreen) {
