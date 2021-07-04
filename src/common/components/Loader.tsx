@@ -7,14 +7,17 @@ interface IProp extends ViewProps {
   type?: "success" | "payment-success" | "loader" | "empty" | "default";
   loop?: boolean;
   size?: number;
+  autoPlay?: boolean;
   onAnimationFinish?: (isCancelled: boolean) => void;
+  onInit?: (lottie: LottieView | null) => void;
 }
 const Loader = (props: IProp) => {
-  const { type, size: inputSize, style, ...rest } = props;
+  const { type, size: inputSize, style, onInit, ...rest } = props;
   const size = inputSize ?? DefaultSize[type ?? "default"];
   return (
     <View style={[styles.container, style]}>
       <LottieView
+        ref={onInit}
         style={{ height: size, width: size }}
         source={(() => {
           switch (type) {

@@ -16,7 +16,7 @@ const PrivateRoute: React.FunctionComponent<IProps> = (props) => {
   if (!appReady) {
     return (
       <NativeView backgroundColor={DefaultBackgroundColor} flex={1}>
-        <Loader size={100} />
+        <Loader />
         <StatusBar
           backgroundColor={DefaultBackgroundColor}
           barStyle={"light-content"}
