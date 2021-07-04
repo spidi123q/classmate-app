@@ -13,6 +13,7 @@ import guru.classmate.jitsi.MeetingService;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.view.WindowManager;
 
 public class MainActivity extends ReactActivity {
 
@@ -34,6 +35,8 @@ public class MainActivity extends ReactActivity {
       Intent meetingService = new Intent(this, MeetingService.class);
       startService(meetingService);
       Bundle extras = getIntent().getExtras();
+      getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+
 
       if (extras != null) {
           String userName = extras.getString("x");

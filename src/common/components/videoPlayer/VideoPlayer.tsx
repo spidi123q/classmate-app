@@ -28,7 +28,10 @@ import {
 import padStart from "lodash/padStart";
 import styles, { PlayerIconColor } from "./VideoPlayer.style";
 import { Icon } from "react-native-elements";
-import { DefaultIconFamily } from "../../config/themeConfig";
+import {
+  DefaultBackgroundColor,
+  DefaultIconFamily,
+} from "../../config/themeConfig";
 import Loader from "../Loader";
 import Orientation from "react-native-orientation";
 import {
@@ -36,6 +39,10 @@ import {
   immersiveModeOff,
 } from "react-native-android-immersive-mode";
 import NativeView from "../NativeView";
+import RBSheet from "react-native-raw-bottom-sheet";
+import Typography from "../Typography";
+import NativeList from "../NativeList";
+import { find, first } from "lodash";
 
 interface IOpts {
   playWhenInactive?: boolean;
@@ -57,6 +64,7 @@ interface IEvents extends Pick<VideoProperties, "onLoad" | "onProgress"> {
   onLoadStart: (args?: any) => void;
   onScreenTouch: () => void;
   onSeek: (data?: any) => void;
+  onSettings: () => void;
 }
 
 interface IMethods {
@@ -134,6 +142,7 @@ interface IState extends Omit<IProps, "source"> {
   duration: number;
   showRemainingTime?: boolean;
   volume: number;
+  currentBitrate: number;
 }
 
 export default class VideoPlayer extends Component<IProps, IState> {
@@ -163,6 +172,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
   private styles: IStyles;
   private animations: any;
   private mounted: boolean = false;
+  private RBSheet: RBSheet | null = null;
 
   constructor(props: any) {
     super(props);
@@ -200,6 +210,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
       currentTime: 0,
       error: false,
       duration: 0,
+      currentBitrate: first(availableBitrates)?.bitrate ?? 0,
     };
 
     /**
@@ -230,6 +241,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
       onLoad: this._onLoad.bind(this),
       onPause: this.props.onPause,
       onPlay: this.props.onPlay,
+      onSettings: this._onSettings,
     };
 
     /**
@@ -345,6 +357,10 @@ export default class VideoPlayer extends Component<IProps, IState> {
       this.props.onLoad(data);
     }
   }
+
+  _onSettings = () => {
+    this.RBSheet?.open();
+  };
 
   /**
    * For onprogress we fire listeners that
@@ -1114,6 +1130,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
     const volumeControl = this.props.disableVolume
       ? this.renderNullControl()
       : this.renderVolume();
+    const settingsControl = this.renderSettings();
 
     return (
       <Animated.View
@@ -1132,7 +1149,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
         >
           <SafeAreaView style={styles.controls.topControlGroup}>
             {!this.state.isFullscreen && backControl}
-            <View style={styles.controls.pullRight}></View>
+            <View style={styles.controls.pullRight}>{settingsControl}</View>
           </SafeAreaView>
         </ImageBackground>
       </Animated.View>
@@ -1150,6 +1167,17 @@ export default class VideoPlayer extends Component<IProps, IState> {
         color={PlayerIconColor}
       />,
       this.events.onBack
+    );
+  }
+
+  renderSettings() {
+    return this.renderControl(
+      <Icon
+        type={DefaultIconFamily}
+        name="settings-outline"
+        color={PlayerIconColor}
+      />,
+      this.events.onSettings
     );
   }
 
@@ -1372,6 +1400,11 @@ export default class VideoPlayer extends Component<IProps, IState> {
     this.setState({ isBuffering: data.isBuffering });
   };
 
+  onBitrateChange = (birate: IBitRate) => {
+    this.setState({ currentBitrate: birate.bitrate });
+    this.RBSheet?.close();
+  };
+
   /**
    * Provide all of our options and render the whole component.
    */
@@ -1415,13 +1448,54 @@ export default class VideoPlayer extends Component<IProps, IState> {
             style={[styles.player.video, this.styles.videoStyle]}
             source={this.props.source}
             onBuffer={this.onBuffer}
+            // maxBitRate={1}
           />
           {this.renderError()}
           {this.renderLoader()}
           {this.renderTopControls()}
           {this.renderBottomControls()}
+          <RBSheet
+            ref={(ref) => {
+              this.RBSheet = ref;
+            }}
+            height={225}
+            customStyles={{
+              container: {
+                backgroundColor: DefaultBackgroundColor,
+              },
+            }}
+          >
+            <NativeList<IBitRate>
+              stringKey="name"
+              options={availableBitrates}
+              onPress={this.onBitrateChange}
+              selectedValue={find(availableBitrates, {
+                bitrate: this.state.currentBitrate,
+              })}
+            />
+          </RBSheet>
         </View>
       </TouchableWithoutFeedback>
     );
   }
 }
+
+interface IBitRate {
+  bitrate: number;
+  name: string;
+}
+
+const availableBitrates: IBitRate[] = [
+  {
+    name: "180p",
+    bitrate: 357804,
+  },
+  {
+    name: "360p",
+    bitrate: 585674,
+  },
+  {
+    name: "540p",
+    bitrate: 863983,
+  },
+];

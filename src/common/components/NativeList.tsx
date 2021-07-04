@@ -4,6 +4,7 @@ import { Icon } from "react-native-elements";
 import Ripple from "react-native-material-ripple";
 import {
   DefaultBorderRadius,
+  DefaultFontColor,
   DefaultIconFamily,
   DefaultMargin,
   FontSize,
@@ -16,11 +17,13 @@ interface IProps<T> {
   stringKey: keyof T;
   iconNames?: string[];
   iconFamily?: IconFamily;
+  selectedValue?: T;
   onPress?: (value: T) => any;
 }
 
 export default function NativeList<T>(props: IProps<T>) {
-  const { options, stringKey, onPress, iconNames, iconFamily } = props;
+  const { options, stringKey, onPress, iconNames, iconFamily, selectedValue } =
+    props;
 
   return (
     <FlatList
@@ -45,6 +48,14 @@ export default function NativeList<T>(props: IProps<T>) {
           >
             {item[stringKey]}
           </Typography>
+          {selectedValue && selectedValue[stringKey] === item[stringKey] && (
+            <Icon
+              size={FontSize.h3}
+              type={iconFamily ?? DefaultIconFamily}
+              name={"checkmark-outline"}
+              color={DefaultFontColor}
+            />
+          )}
         </Ripple>
       )}
     />
@@ -55,5 +66,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
+    marginHorizontal: DefaultMargin,
   },
 });
