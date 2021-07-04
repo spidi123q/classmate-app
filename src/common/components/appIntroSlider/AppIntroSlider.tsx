@@ -17,7 +17,11 @@ import {
 } from "react-native";
 import { Button } from "react-native-elements";
 import { AppTheme } from "../../config/custom-theme";
-import { DoubleMargin, FontFamily } from "../../config/themeConfig";
+import {
+  DefaultFontColor,
+  DoubleMargin,
+  FontFamily,
+} from "../../config/themeConfig";
 import { WindowWidth } from "../../helpers/misc";
 import NativeButton from "../NativeButton";
 import NativeLayout from "../NativeLayout";
@@ -54,6 +58,7 @@ type Props<ItemT> = {
   showPrevButton: boolean;
   showSkipButton: boolean;
   bottomButton: boolean;
+  footer?: JSX.Element;
 } & FlatListProps<ItemT>;
 
 type State = {
@@ -209,7 +214,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
   _renderPagination = () => {
     return (
       <View style={styles.paginationContainer}>
-        <SafeAreaView>
+        <View>
           <View style={styles.paginationDots}>
             {this.props.data.length > 1 &&
               this.props.data.map((_, i) =>
@@ -226,6 +231,16 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
                         this._rtlSafeIndex(i) === this.state.activeIndex
                           ? this.props.activeDotStyle
                           : this.props.dotStyle,
+                        {
+                          backgroundColor:
+                            this._rtlSafeIndex(i) === this.state.activeIndex
+                              ? DefaultFontColor
+                              : AppTheme["color-grey3"],
+                          opacity:
+                            this._rtlSafeIndex(i) === this.state.activeIndex
+                              ? 1
+                              : 0.34,
+                        },
                       ]}
                       onPress={() => this.goToSlide(i, true)}
                     />
@@ -243,7 +258,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
                 )
               )}
           </View>
-        </SafeAreaView>
+        </View>
       </View>
     );
   };
@@ -294,6 +309,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
       renderItem,
       data,
       extraData,
+      footer,
       ...otherProps
     } = this.props;
     /* eslint-enable @typescript-eslint/no-unused-vars */
@@ -312,16 +328,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
 
     return (
       <NativeLayout>
-        <NativeView
-          alignItems="flex-end"
-          justifyContent="center"
-          marginTop={DoubleMargin}
-          marginRight={DoubleMargin}
-          height={40}
-        >
-          {secondaryButton}
-        </NativeView>
-        <View style={styles.flexOne}>
+        <NativeView flex={3}>
           <FlatList
             ref={(ref) => (this.flatList = ref as FlatList<ItemT>)}
             data={this.props.data}
@@ -338,14 +345,15 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
             initialNumToRender={data.length}
             {...otherProps}
           />
-        </View>
-        <NativeView justifyContent="center" alignItems="center">
-          {primaryButton}
+        </NativeView>
+        <NativeView justifyContent="center" alignItems="center" flex={1}>
           <NativeView>
             {renderPagination
               ? renderPagination(this.state.activeIndex)
               : this._renderPagination()}
           </NativeView>
+          {primaryButton}
+          {footer}
         </NativeView>
       </NativeLayout>
     );
@@ -353,9 +361,6 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
 }
 
 const styles = StyleSheet.create({
-  flexOne: {
-    flex: 1,
-  },
   flatList: {
     flex: 1,
     flexDirection: isAndroidRTL ? "row-reverse" : "row",
@@ -381,12 +386,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   dot: {
-    width: 12,
-    height: 12,
-    borderRadius: 12,
+    width: 8,
+    height: 8,
+    borderRadius: 8,
     marginHorizontal: 4,
-    borderColor: AppTheme["color-grey2"],
-    borderWidth: 1,
   },
   leftButtonContainer: {
     position: "absolute",

@@ -51,6 +51,7 @@ export const DefaultBorderRadius: number = 6;
 export const ICON_SIZE: number = 30;
 export const DefaultInputFontSize: number = FontSize.h3;
 export const DescriptionLineHeight: number = 25;
+export const SubTextLineHeight: number = 19;
 
 export const DoubleMargin: number = DefaultMargin * 2;
 

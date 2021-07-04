@@ -83,7 +83,7 @@ export const AppTheme = {
   "color-dark-light": "#f2f2f2",
   "color-grey": "#0000009E",
   "color-grey2": "#A0A0A0",
-  "color-grey3": "#777777",
+  "color-grey3": "#C4C4C4",
   "color-black": "#000236",
   "color-danger": "#ED2359",
 };

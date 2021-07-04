@@ -18,7 +18,7 @@ export default function LoginNavigator() {
         headerShown: false,
       }}
     >
-      {isFirstLaunch && IsMobile && (
+      {true && IsMobile && (
         <Stack.Screen name={RoutePath.Intro} component={Intro} />
       )}
       <Stack.Screen name={RoutePath.Login} component={Login} />
