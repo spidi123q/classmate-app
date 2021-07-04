@@ -12,11 +12,13 @@ import Typography from "../../../../common/components/Typography";
 import NativeView from "../../../../common/components/NativeView";
 import useLoading from "../../../../common/hooks/useLoading";
 import LottieView from "lottie-react-native";
+import useLoginActions from "../../hooks/useLoginActions";
 
 interface IProps {}
 
 const ProfileForm = (props: IProps) => {
   const { getUser } = useUserAPI();
+  const { logout } = useLoginActions();
   const [isProfileComplete, setIsProfileComplete] = useState<boolean>(false);
   const loading = useLoading();
   const successLottieRef = useRef<LottieView | null>(null);
@@ -30,6 +32,10 @@ const ProfileForm = (props: IProps) => {
     const user = await getUser(false);
     try {
       const isValid = await profileSchema.isValid(user.payload);
+      if (!isValid) {
+        // Firebase is still logged in so need to logout first if user want to login again
+        logout();
+      }
       setIsProfileComplete(isValid);
     } catch (e) {
       showToast(ToastTitle.FormError, "Validation Failed", "error");
@@ -76,8 +82,10 @@ const ProfileForm = (props: IProps) => {
           validateOnChange={false}
         >
           {(formikProps: FormikProps<IUserEdit>) => (
-            <NativeView>
-              <Typography>No subscription available.</Typography>
+            <NativeView flex={1} alignItems="center" justifyContent="center">
+              <Typography family="semiBold" type="h1x" textAlign="center">
+                You have no active subscription.
+              </Typography>
             </NativeView>
           )}
         </Formik>
