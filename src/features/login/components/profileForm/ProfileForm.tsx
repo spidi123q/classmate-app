@@ -13,6 +13,9 @@ import NativeView from "../../../../common/components/NativeView";
 import useLoading from "../../../../common/hooks/useLoading";
 import LottieView from "lottie-react-native";
 import useLoginActions from "../../hooks/useLoginActions";
+import NativeHeader from "../../../../common/components/NativeHeader";
+import { RoutePath } from "../../../../models/RoutePath";
+import { useNavigation } from "@react-navigation/native";
 
 interface IProps {}
 
@@ -22,6 +25,7 @@ const ProfileForm = (props: IProps) => {
   const [isProfileComplete, setIsProfileComplete] = useState<boolean>(false);
   const loading = useLoading();
   const successLottieRef = useRef<LottieView | null>(null);
+  const navigation = useNavigation();
 
   const updateCurrentUser = async (values: IUserEdit) => {
     setIsProfileComplete(true);
@@ -42,6 +46,13 @@ const ProfileForm = (props: IProps) => {
     }
     loading.stop();
     successLottieRef.current?.play();
+  };
+
+  const onBack = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: RoutePath.Login }],
+    });
   };
 
   useEffect(() => {
@@ -75,6 +86,7 @@ const ProfileForm = (props: IProps) => {
   return (
     <>
       <NativeLayout>
+        <NativeHeader onBack={onBack} />
         <Formik
           validationSchema={profileSchema}
           initialValues={{ name: "" }}

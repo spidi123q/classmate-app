@@ -65,7 +65,7 @@ const Initialize = async (dispatch: Dispatch<any>) => {
     // Blocking tasks should be added to promise array below
     await Promise.all([getUser(dispatch)]);
     // Non blocking tasks should be added to promise array below
-    Promise.all([updateSystemConfig(dispatch), getNotifications(dispatch)]);
+    Promise.all([updateSystemConfig(dispatch)]);
     dispatch(AppInfoActions.AppReady());
   } catch (err) {
     console.log("Failed", err);

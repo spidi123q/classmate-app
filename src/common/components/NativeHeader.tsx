@@ -26,7 +26,7 @@ import NativeView from "./NativeView";
 interface IProps {
   title?: string;
   component?: JSX.Element;
-  noBorder?: boolean;
+  onBack?: () => any;
 }
 
 export interface IHeader {
@@ -36,7 +36,7 @@ export interface IHeader {
 
 const NativeHeader = forwardRef((props: IProps, ref: any) => {
   const navigation = useNavigation();
-  const { title, component, noBorder } = props;
+  const { title, component, onBack } = props;
   const titleViewRef = useRef<any>();
   const actionViewRef = useRef<any>();
   const actionsRef = useRef<IActions[]>([]);
@@ -48,6 +48,8 @@ const NativeHeader = forwardRef((props: IProps, ref: any) => {
       setActions: (actions) => (actionsRef.current = actions),
     } as IHeader;
   }
+
+  const goBack = onBack ?? navigation.goBack;
 
   useEffect(() => {
     //showActions ? fadeIn(actionViewRef) : fadeIn(titleViewRef);
@@ -61,7 +63,7 @@ const NativeHeader = forwardRef((props: IProps, ref: any) => {
           name="chevron-back-outline"
           size={ICON_SIZE}
           color={DefaultFontColor}
-          onPress={showActions ? ref.current.toggle : navigation.goBack}
+          onPress={showActions ? ref.current.toggle : goBack}
         />
         <>
           {showActions ? (
