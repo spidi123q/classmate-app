@@ -50,6 +50,7 @@ export const DefaultThumbnailSize: number = 105;
 export const DefaultBorderRadius: number = 6;
 export const ICON_SIZE: number = 30;
 export const DefaultInputFontSize: number = FontSize.h3;
+export const DescriptionLineHeight: number = 25;
 
 export const DoubleMargin: number = DefaultMargin * 2;
 
@@ -74,7 +75,7 @@ export const DefaultSecondaryColor: string = AppTheme["color-secondary"];
 export const SecondaryBackgroundColor: string = AppTheme["color-primary2"];
 export const TrasparentColor: string = "rgba(255, 0, 0, 0)";
 
-export const DefaultOpacity: number = 0.57;
+export const DefaultOpacity: number = 0.65;
 
 export const SecondaryOpacity: number = 0.63;
 

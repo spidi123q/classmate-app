@@ -7,12 +7,18 @@ import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
 import VideoPlayer from "../../../common/components/videoPlayer/VideoPlayer";
+import {
+  DefaultMargin,
+  DefaultOpacity,
+  DescriptionLineHeight,
+} from "../../../common/config/themeConfig";
+import VideoList from "./VideoList";
 
 export function VideoDetails() {
   const navigation = useNavigation();
   const scrollRef = useRef<ScrollView>(null);
   return (
-    <NativeLayout noSafeArea>
+    <NativeLayout statusBarColor="black" noSafeArea>
       <ScrollView ref={scrollRef}>
         <VideoPlayer
           source={{
@@ -32,6 +38,37 @@ export function VideoDetails() {
             });
           }}
         />
+        <NativeView
+          marginVertical={DefaultMargin}
+          marginHorizontal={DefaultMargin}
+        >
+          <NativeView marginBottom={DefaultMargin / 2}>
+            <Typography opacity={DefaultOpacity} type="xs">
+              STD 10 · PHYSICS
+            </Typography>
+            <Typography family="medium" type="h3x">
+              Basic of Electromagnetic Induction
+            </Typography>
+          </NativeView>
+          <NativeView>
+            <Typography opacity={DefaultOpacity}>Description</Typography>
+            <Typography
+              marginTop={DefaultMargin / 5}
+              lineHeight={DescriptionLineHeight}
+            >
+              myOrdersUp saves you time and money by consolidating all of the
+              #online food delivery apps into one convenient app while showing
+              you the best deal from your #favorite restaurants!
+            </Typography>
+          </NativeView>
+          <VideoList
+            titleComponent={
+              <Typography opacity={DefaultOpacity}>
+                Learn Next on Physics
+              </Typography>
+            }
+          />
+        </NativeView>
       </ScrollView>
     </NativeLayout>
   );

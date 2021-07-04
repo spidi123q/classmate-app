@@ -9,6 +9,7 @@ import { HeaderMenu } from "./HeaderMenu";
 import Live from "../../assets/Live.svg";
 import {
   DefaultMargin,
+  DefaultOpacity,
   SecondaryOpacity,
 } from "../../../../common/config/themeConfig";
 
@@ -44,7 +45,7 @@ export default function HeaderCover() {
       >
         <NativeView marginHorizontal={DefaultMargin}>
           <NativeView marginBottom={DefaultMargin / 2}>
-            <Typography opacity={SecondaryOpacity} type="xs">
+            <Typography opacity={DefaultOpacity} type="xs">
               STD 10 · PHYSICS
             </Typography>
             <Typography family="medium" type="h3x">

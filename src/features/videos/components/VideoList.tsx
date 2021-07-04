@@ -39,8 +39,14 @@ const DATA = [
   },
 ];
 
-export default function VideoList() {
+interface IProps {
+  title?: string;
+  titleComponent?: JSX.Element;
+}
+
+export default function VideoList(props: IProps) {
   const navigation = useNavigation();
+  const { title, titleComponent } = props;
 
   const openVideo = () => {
     navigation.navigate(HomePages.VideoDetails);
@@ -67,9 +73,11 @@ export default function VideoList() {
   );
   return (
     <NativeView marginTop={DefaultMargin}>
-      <Typography family="medium" type="h3">
-        Top Physics Lectures
-      </Typography>
+      {titleComponent ?? (
+        <Typography family="medium" type="h3">
+          Top Physics Lectures
+        </Typography>
+      )}
       <NativeView>
         <FlatList
           data={DATA}
