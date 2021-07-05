@@ -4,6 +4,7 @@ import AppIntroSlider from "../../../common/components/appIntroSlider/AppIntroSl
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
 import {
+  DefaultBackgroundColor,
   DefaultFontColor,
   DefaultMargin,
   DefaultOpacity,
@@ -31,17 +32,22 @@ export default function Intro() {
           <NativeView
             type="image"
             source={item.image}
-            height={500}
+            height={height / 1.5}
             width={width}
             alignItems="center"
             justifyContent="flex-end"
           >
-            <Typography marginBottom={5} type="h2" family="semiBold">
+            <Typography
+              marginBottom={5}
+              type="h2"
+              family="semiBold"
+              marginHorizontal={DefaultMargin}
+            >
               {item.title}
             </Typography>
           </NativeView>
         )}
-        <NativeView marginTop={10}>
+        <NativeView marginTop={10} marginHorizontal={DefaultMargin}>
           <Typography
             textAlign="center"
             type="xsx"
@@ -65,14 +71,21 @@ export default function Intro() {
       title: "Real Classes and Real Institutions",
       description:
         "We provide comprehensive live sessions and video call features with subscribed institutions.",
-      image: require("../assets/realclass.jpg"),
+      image: require("../assets/Artboard_1.jpg"),
     },
     {
       key: "2",
-      title: "All your brands",
+      title: "Personalized Sessions",
       description:
-        "One stop for all your devices.\nManage warranty and services",
-      image: require("../assets/realclass.jpg"),
+        "Create your own learning sessions and subscribe to your favorite lectures or institutions",
+      image: require("../assets/Artboard_2.jpg"),
+    },
+    {
+      key: "3",
+      title: "Live Sessions and Video Call",
+      description:
+        "We provide comprehensive live sessions and video call features with subscribed institutions.",
+      image: require("../assets/Artboard_3.jpg"),
     },
   ];
 

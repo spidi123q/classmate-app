@@ -31,6 +31,7 @@ import { Icon } from "react-native-elements";
 import {
   DefaultBackgroundColor,
   DefaultIconFamily,
+  DefaultMargin,
 } from "../../config/themeConfig";
 import Loader from "../Loader";
 import Orientation from "react-native-orientation";
@@ -1269,6 +1270,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
               flexDirection="row"
               alignItems="center"
               justifyContent="center"
+              marginRight={DefaultMargin}
             >
               {fullscreenControl}
             </NativeView>

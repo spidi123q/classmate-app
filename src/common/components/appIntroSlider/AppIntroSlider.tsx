@@ -14,6 +14,7 @@ import {
   GestureResponderEvent,
   LayoutChangeEvent,
   ListRenderItemInfo,
+  StatusBar,
 } from "react-native";
 import { Button } from "react-native-elements";
 import { AppTheme } from "../../config/custom-theme";
@@ -327,7 +328,8 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
       : this._renderNextButton();
 
     return (
-      <NativeLayout>
+      <NativeLayout noSafeArea>
+        <StatusBar translucent backgroundColor={"transparent"} />
         <NativeView flex={3}>
           <FlatList
             ref={(ref) => (this.flatList = ref as FlatList<ItemT>)}

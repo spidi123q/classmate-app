@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,6 +11,10 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController interfaceStyle="dark" id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rCr-jb-lvQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="hnp-Q7-Up3"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dBz-M3-HTk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -24,7 +27,6 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="of2-Ha-VNt"/>
                         <color key="backgroundColor" red="0.082352941176470587" green="0.070588235294117646" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="25L-0P-lId" firstAttribute="centerX" secondItem="dBz-M3-HTk" secondAttribute="centerX" id="bLj-I5-jcm"/>
