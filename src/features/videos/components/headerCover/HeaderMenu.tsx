@@ -5,7 +5,7 @@ import {
   DefaultMargin,
 } from "../../../../common/config/themeConfig";
 import LogoHorizontal from "../../../../common/assets/LogoHorizontal.svg";
-import Profile from "../../../../common/assets/Profile.svg";
+import Profile from "../../assets/Profile.svg";
 import { useNavigation } from "@react-navigation/native";
 import { HomePages } from "../../../../models/RoutePath";
 

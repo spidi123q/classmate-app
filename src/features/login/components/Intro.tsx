@@ -4,20 +4,13 @@ import AppIntroSlider from "../../../common/components/appIntroSlider/AppIntroSl
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
 import {
-  DefaultBackgroundColor,
   DefaultFontColor,
   DefaultMargin,
-  DefaultOpacity,
-  DescriptionLineHeight,
-  DoubleMargin,
-  FontSize,
   SubTextLineHeight,
 } from "../../../common/config/themeConfig";
 import useFirstLauch from "../../../common/hooks/useFirstLauch";
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { RoutePath } from "../../../models/RoutePath";
-import BrandIntro from "../assets/BrandIntro.svg";
-import HelpIntro from "../assets/HelpIntro.svg";
 import { useWindowDimensions } from "react-native";
 import { AppTheme } from "../../../common/config/custom-theme";
 
@@ -65,30 +58,6 @@ export default function Intro() {
     navigation.navigate(RoutePath.Login);
   };
 
-  const slides: ISlide[] = [
-    {
-      key: "1",
-      title: "Real Classes and Real Institutions",
-      description:
-        "We provide comprehensive live sessions and video call features with subscribed institutions.",
-      image: require("../assets/Artboard_1.jpg"),
-    },
-    {
-      key: "2",
-      title: "Personalized Sessions",
-      description:
-        "Create your own learning sessions and subscribe to your favorite lectures or institutions",
-      image: require("../assets/Artboard_2.jpg"),
-    },
-    {
-      key: "3",
-      title: "Live Sessions and Video Call",
-      description:
-        "We provide comprehensive live sessions and video call features with subscribed institutions.",
-      image: require("../assets/Artboard_3.jpg"),
-    },
-  ];
-
   return (
     <AppIntroSlider
       showSkipButton
@@ -120,3 +89,27 @@ interface ISlide {
   description: string;
   image: any;
 }
+
+const slides: ISlide[] = [
+  {
+    key: "1",
+    title: "Real Classes and Real Institutions",
+    description:
+      "We provide comprehensive live sessions and video call features with subscribed institutions.",
+    image: require("../assets/Artboard_1.jpg"),
+  },
+  {
+    key: "2",
+    title: "Personalized Sessions",
+    description:
+      "Create your own learning sessions and subscribe to your favorite lectures or institutions",
+    image: require("../assets/Artboard_2.jpg"),
+  },
+  {
+    key: "3",
+    title: "Live Sessions and Video Call",
+    description:
+      "We provide comprehensive live sessions and video call features with subscribed institutions.",
+    image: require("../assets/Artboard_3.jpg"),
+  },
+];

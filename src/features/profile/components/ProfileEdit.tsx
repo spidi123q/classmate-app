@@ -4,7 +4,7 @@ import NativeButton from "../../../common/components/NativeButton";
 import NativeField from "../../../common/components/NativeField";
 import NativeView from "../../../common/components/NativeView";
 import { DoubleMargin } from "../../../common/config/themeConfig";
-import { UserEdit } from "../../../models/User";
+import { IUserEdit } from "../../../models/User";
 import useUser from "../../login/hooks/useUser";
 import useUserAPI from "../../login/hooks/useUserAPI";
 
@@ -16,7 +16,7 @@ export default function ProfileEdit({ close }: IProps) {
   const { updateAndGetUser, isLoading } = useUserAPI();
   const user = useUser();
 
-  const handleSubmit = async (value: UserEdit) => {
+  const handleSubmit = async (value: IUserEdit) => {
     await updateAndGetUser(value);
     !isLoading && close();
   };
