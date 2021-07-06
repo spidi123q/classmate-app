@@ -1330,17 +1330,18 @@ export default class VideoPlayer extends Component<IProps, IState> {
   renderVideoTrackSettings = () => {
     const windowHeight = Dimensions.get("screen").height;
     if (this.state.videoTracks) {
-      const videoOptions = uniqBy(
-        this.state.videoTracks
-          .filter(
-            (videoTrack) =>
-              videoTrack.height < getSystemConfigValue("maxVideoResolution")
-          )
-          .map<IAvatarListItem<IVideoTrack>>((videoTrack) => ({
-            title: `${videoTrack.height}p`,
-            option: videoTrack,
-          })),
-        "title"
+      let videoTracks = uniqBy(this.state.videoTracks, "height");
+      const maxVideoResolution = getSystemConfigValue("maxVideoResolution");
+      if (maxVideoResolution) {
+        videoTracks = videoTracks.filter(
+          (videoTrack) => videoTrack.height <= maxVideoResolution
+        );
+      }
+      const videoOptions = videoTracks.map<IAvatarListItem<IVideoTrack>>(
+        (videoTrack) => ({
+          title: `${videoTrack.height}p`,
+          option: videoTrack,
+        })
       );
       return (
         <RBSheet
