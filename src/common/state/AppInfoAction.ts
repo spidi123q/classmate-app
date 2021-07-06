@@ -11,6 +11,7 @@ export enum AppInfoActionTypes {
   GetNotificationOnSuccess = "@@UI/GetNotificationOnSuccess",
   GetNotification = "@@UI/GetNotification",
   SetFirstLaunch = "@@UI/SetFirstLaunch",
+  SetIsValidVersion = "@@UI/SetIsValidVersion",
 }
 
 export const AppInfoActions = {
@@ -28,6 +29,10 @@ export const AppInfoActions = {
   ),
   SetFirstLaunch: createAction(
     AppInfoActionTypes.SetFirstLaunch,
+    (value: boolean) => value
+  ),
+  SetIsValidVersion: createAction(
+    AppInfoActionTypes.SetIsValidVersion,
     (value: boolean) => value
   ),
 };

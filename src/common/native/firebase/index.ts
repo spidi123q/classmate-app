@@ -7,3 +7,5 @@ export const auth: ReactNativeFirebase.FirebaseModuleWithStaticsAndApp<
   FirebaseAuthTypes.Module,
   FirebaseAuthTypes.Statics
 > = firebase.auth as any;
+export const analytics = firebase.analytics;
+export const remoteConfig = firebase.remoteConfig;

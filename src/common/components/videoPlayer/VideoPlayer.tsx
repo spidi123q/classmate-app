@@ -2,10 +2,8 @@ import React, { Component, Ref } from "react";
 import Video, {
   LoadError,
   OnBufferData,
-  OnLoadData,
   OnProgressData,
   OnSeekData,
-  VideoProperties,
 } from "react-native-video";
 import {
   TouchableWithoutFeedback,
@@ -41,9 +39,8 @@ import {
 } from "react-native-android-immersive-mode";
 import NativeView from "../NativeView";
 import RBSheet from "react-native-raw-bottom-sheet";
-import Typography from "../Typography";
 import NativeList, { IAvatarListItem, ItemHeight } from "../NativeList";
-import { find, first, isEmpty, min, minBy, uniqBy } from "lodash";
+import { first, isEmpty, min, minBy, uniqBy } from "lodash";
 import {
   availableBitrates,
   IBitRate,
@@ -58,6 +55,7 @@ import {
   IVideoTrack,
 } from "./models";
 import SystemConfig from "../../../SystemConfig";
+import { getSystemConfigValue } from "../../helpers/remoteConfig";
 
 export default class VideoPlayer extends Component<IProps, IState> {
   static defaultProps: Omit<IProps, "source"> = {
@@ -1335,7 +1333,8 @@ export default class VideoPlayer extends Component<IProps, IState> {
       const videoOptions = uniqBy(
         this.state.videoTracks
           .filter(
-            (videoTrack) => videoTrack.height < SystemConfig.maxVideoResolution
+            (videoTrack) =>
+              videoTrack.height < getSystemConfigValue("maxVideoResolution")
           )
           .map<IAvatarListItem<IVideoTrack>>((videoTrack) => ({
             title: `${videoTrack.height}p`,

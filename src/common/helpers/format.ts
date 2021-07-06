@@ -9,9 +9,6 @@ import parsePhoneNumber from "libphonenumber-js";
 import { capitalize } from "lodash";
 import IField from "../../models/template/Field";
 
-export const getPlaystoreURL = (packageId: string) =>
-  `http://play.google.com/store/apps/details?id=${packageId}`;
-
 export const parseFieldValue = (value: string, field: IField) => {
   switch (field.type) {
     case FieldType.Date:

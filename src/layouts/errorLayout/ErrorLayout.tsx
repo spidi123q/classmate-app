@@ -6,39 +6,53 @@ import Sync from "./assets/Sync.svg";
 import Bug from "./assets/Bug.svg";
 import { slideUpProps } from "../../common/helpers/animation";
 import * as Animatable from "react-native-animatable";
-import { openURL } from "../../common/helpers/platform";
-import { getPlaystoreURL } from "../../common/helpers/format";
+import { openStore, openURL } from "../../common/helpers/platform";
 import config from "../../config.json";
 import SystemConfig from "../../SystemConfig";
 import Typography from "../../common/components/Typography";
 import { Button } from "react-native-elements";
 import NativeView from "../../common/components/NativeView";
+import {
+  DefaultMargin,
+  DefaultThumbnailSize,
+} from "../../common/config/themeConfig";
+import NativeButton from "../../common/components/NativeButton";
+import { getSystemConfigValue } from "../../common/helpers/remoteConfig";
 
-interface IParams {
+interface IProps {
   type?: "update";
 }
 
-export default function ErrorLayout() {
-  const params = { type: "error" };
+export default function ErrorLayout(props: IProps) {
+  const { type } = props;
   return (
     <NativeLayout>
       <NativeView style={styles.container}>
         {(() => {
-          switch (params.type) {
+          switch (type) {
             case "update":
               return (
                 <>
                   <Animatable.View {...slideUpProps}>
-                    <Sync />
+                    <Sync
+                      height={DefaultThumbnailSize}
+                      width={DefaultThumbnailSize}
+                    />
                   </Animatable.View>
-                  <View style={styles.messageConatiner}>
-                    <Typography>Update app to continue</Typography>
-                    <Button
-                      onPress={() => openURL(getPlaystoreURL(config.packageId))}
+                  <NativeView justifyContent="center" alignItems="center">
+                    <Typography
+                      family="semiBold"
+                      type="h2"
+                      marginVertical={DefaultMargin}
                     >
-                      Update
-                    </Button>
-                  </View>
+                      Update app to continue
+                    </Typography>
+                    <NativeButton
+                      title="Update"
+                      width={200}
+                      onPress={() => openStore(config.packageId)}
+                    />
+                  </NativeView>
                 </>
               );
             default:
@@ -53,7 +67,9 @@ export default function ErrorLayout() {
                     </Typography>
                     <Button
                       onPress={() =>
-                        openURL(`mailto:${SystemConfig.supportEmail}`)
+                        openURL(
+                          `mailto:${getSystemConfigValue("supportEmail")}`
+                        )
                       }
                     >
                       Contact

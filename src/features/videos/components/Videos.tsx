@@ -8,6 +8,7 @@ import HeaderCover from "./headerCover/HeaderCover";
 import VideoList from "./VideoList";
 
 export default function () {
+  useEffect(() => {}, []);
   return (
     <NativeLayout
       scroll

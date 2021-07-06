@@ -4,7 +4,6 @@ import appJson from "./app.json";
 
 interface SystemConfig {
   currency: string;
-  isValidVersion: boolean;
   supportEmail: string;
   minVersionCode: number;
   swipeCancelSpeed: number;
@@ -15,7 +14,6 @@ interface SystemConfig {
 
 const SystemConfig: SystemConfig = {
   currency: "₹",
-  isValidVersion: true,
   supportEmail: "contact@inspirit-solutions.com",
   minVersionCode: 0,
   swipeCancelSpeed: 50,

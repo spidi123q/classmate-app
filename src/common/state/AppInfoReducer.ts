@@ -32,6 +32,8 @@ export const AppInfoReducer: Reducer<any> = (
       return { ...state, notifications: action.payload };
     case AppInfoActionTypes.SetFirstLaunch:
       return { ...state, isFirstLaunch: action.payload };
+    case AppInfoActionTypes.SetIsValidVersion:
+      return { ...state, isValidVersion: action.payload };
     default:
       return state;
   }

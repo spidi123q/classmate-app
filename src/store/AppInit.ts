@@ -10,6 +10,10 @@ import GetSystemConfig from "./api/GetSystemConfig";
 import SystemConfig from "../SystemConfig";
 import config from "../config.json";
 import GetNotification from "../common/api/GetNotifications";
+import {
+  getSystemConfigValue,
+  initRemoteConfig,
+} from "../common/helpers/remoteConfig";
 
 const getUser = async (dispatch: Dispatch<any>) => {
   const request = GetUser();
@@ -41,18 +45,10 @@ const getSystemConfig = (dispatch: any): any => {
  * @param dispatch Redux dispatch
  */
 const updateSystemConfig = async (dispatch: any) => {
-  const result = await getSystemConfig(dispatch);
-  if (result?.payload?.maxDistance) {
-    SystemConfig.maxDistance = parseInt(result.payload.maxDistance);
-  }
-  if (result?.payload?.supportEmail) {
-    SystemConfig.supportEmail = result.payload.supportEmail;
-  }
-  if (result?.payload?.minVersionCode) {
-    SystemConfig.minVersionCode = parseInt(result.payload.minVersionCode);
-    SystemConfig.isValidVersion =
-      SystemConfig.minVersionCode <= config.versionCode;
-  }
+  await initRemoteConfig(SystemConfig);
+  const isValidVersion =
+    getSystemConfigValue("minVersionCode") <= config.versionCode;
+  await dispatch(AppInfoActions.SetIsValidVersion(true));
 };
 
 const Initialize = async (dispatch: Dispatch<any>) => {

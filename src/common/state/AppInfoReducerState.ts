@@ -13,6 +13,7 @@ export interface AppInfoReducerState {
   recentSearch: string[];
   notifications: PaginateResult<INotification>;
   isFirstLaunch: boolean;
+  isValidVersion: boolean;
 }
 
 export const InitialAppInfoReducerState: AppInfoReducerState = {
@@ -21,6 +22,7 @@ export const InitialAppInfoReducerState: AppInfoReducerState = {
   recentSearch: [],
   notifications: InitialPaginateResult,
   isFirstLaunch: true,
+  isValidVersion: true,
 };
 
 export type IScrollDirection = "up" | "down" | undefined;

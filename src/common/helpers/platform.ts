@@ -156,3 +156,12 @@ export const onShare = async (message: string) => {
     alert(error.message);
   }
 };
+
+export const getPlaystoreURL = (packageId: string) =>
+  `http://play.google.com/store/apps/details?id=${packageId}`;
+
+export const openStore = (packageId: string) => {
+  if (Platform.OS === "android") {
+    openURL(getPlaystoreURL(packageId));
+  }
+};
