@@ -262,7 +262,6 @@ export default class VideoPlayer extends Component<IProps, IState> {
     state.duration = data.duration;
     state.loading = false;
     state.videoTracks = data.videoTracks;
-    console.log(data.videoTracks);
     state.currentVideoTrack = minBy(data.videoTracks, "height");
     this.setState(state);
 
@@ -1416,7 +1415,6 @@ export default class VideoPlayer extends Component<IProps, IState> {
                 value: this.state.currentVideoTrack.height,
               }
             }
-            // maxBitRate={1}
           />
           {this.renderError()}
           {this.renderLoader()}
