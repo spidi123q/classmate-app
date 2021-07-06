@@ -82,6 +82,7 @@ const styles = {
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
+      marginRight: DefaultMargin,
     },
     top: {
       flex: 1,

@@ -42,109 +42,22 @@ import {
 import NativeView from "../NativeView";
 import RBSheet from "react-native-raw-bottom-sheet";
 import Typography from "../Typography";
-import NativeList from "../NativeList";
-import { find, first } from "lodash";
-
-interface IOpts {
-  playWhenInactive?: boolean;
-  playInBackground?: boolean;
-  repeat?: boolean;
-  title?: string;
-}
-
-interface IEvents extends Pick<VideoProperties, "onLoad" | "onProgress"> {
-  onError: (err: any) => void;
-  onBack: () => void;
-  onEnd: () => void;
-  onEnterFullscreen?: () => void;
-  onExitFullscreen?: () => void;
-  onShowControls?: () => void;
-  onHideControls?: () => void;
-  onPause?: () => void;
-  onPlay?: () => void;
-  onLoadStart: (args?: any) => void;
-  onScreenTouch: () => void;
-  onSeek: (data?: any) => void;
-  onSettings: () => void;
-}
-
-interface IMethods {
-  toggleFullscreen: () => void;
-  togglePlayPause: () => void;
-  toggleControls: () => void;
-  toggleTimer: () => void;
-}
-
-interface IPlayer {
-  controlTimeoutDelay: number;
-  volumePanResponder: any;
-  seekPanResponder: any;
-  controlTimeout: number | null;
-  tapActionTimeout: number | null;
-  volumeWidth: number;
-  iconOffset: number;
-  seekerWidth: number;
-  ref: any;
-  scrubbingTimeStep: boolean | number;
-  tapAnywhereToPause?: boolean;
-}
-
-interface IStyles {
-  videoStyle: any;
-  containerStyle: any;
-}
-
-interface IProps extends VideoProperties {
-  toggleResizeModeOnFullscreen?: boolean;
-  controlAnimationTiming?: 500;
-  doubleTapTime?: 130;
-  isFullscreen?: boolean;
-  showOnStart?: boolean;
-  title?: string;
-  videoStyle?: StyleProp<ViewStyle>;
-  navigator?: any;
-  showTimeRemaining?: boolean;
-  showHours?: boolean;
-  controlTimeout?: number;
-  tapAnywhereToPause?: boolean;
-  scrubbing?: boolean;
-  seekColor?: string;
-  disablePlayPause?: boolean;
-  disableSeekbar?: boolean;
-  disableTimer?: boolean;
-  disableFullscreen?: boolean;
-  disableVolume?: boolean;
-  disableBack?: boolean;
-  onEnterFullscreen?: () => void;
-  onExitFullscreen?: () => void;
-  onShowControls?: () => void;
-  onHideControls?: () => void;
-  onPause?: () => void;
-  onPlay?: () => void;
-  onBack?: () => void;
-}
-
-interface IState extends Omit<IProps, "source"> {
-  isFullscreen?: boolean;
-  volumeTrackWidth: number;
-  volumeFillWidth: number;
-  seekerFillWidth: number;
-  showControls?: boolean;
-  volumePosition: number;
-  seekerPosition: number;
-  volumeOffset: number;
-  seekerOffset: number;
-  seeking: boolean;
-  originallyPaused: boolean;
-  loading: boolean;
-  isBuffering: boolean;
-  currentTime: number;
-  error: boolean;
-  duration: number;
-  showRemainingTime?: boolean;
-  volume: number;
-  currentBitrate: number;
-}
+import NativeList, { IAvatarListItem, ItemHeight } from "../NativeList";
+import { find, first, isEmpty, min, minBy, uniqBy } from "lodash";
+import {
+  availableBitrates,
+  IBitRate,
+  IEvents,
+  IMethods,
+  IOnLoadData,
+  IOpts,
+  IPlayer,
+  IProps,
+  IState,
+  IStyles,
+  IVideoTrack,
+} from "./models";
+import SystemConfig from "../../../SystemConfig";
 
 export default class VideoPlayer extends Component<IProps, IState> {
   static defaultProps: Omit<IProps, "source"> = {
@@ -239,7 +152,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
       onLoadStart: this._onLoadStart.bind(this),
       onProgress: this._onProgress.bind(this),
       onSeek: this._onSeek.bind(this),
-      onLoad: this._onLoad.bind(this),
+      onLoad: this._onLoad.bind(this) as any,
       onPause: this.props.onPause,
       onPlay: this.props.onPlay,
       onSettings: this._onSettings,
@@ -343,19 +256,22 @@ export default class VideoPlayer extends Component<IProps, IState> {
    *
    * @param {object} data The video meta data
    */
-  _onLoad(data: OnLoadData) {
+  _onLoad(data: IOnLoadData) {
     let state: IState = this.state;
 
     state.duration = data.duration;
     state.loading = false;
+    state.videoTracks = data.videoTracks;
+    console.log(data.videoTracks);
+    state.currentVideoTrack = minBy(data.videoTracks, "height");
     this.setState(state);
 
     if (state.showControls) {
       this.setControlTimeout();
     }
 
-    if (typeof this.props.onLoad === "function") {
-      this.props.onLoad(data);
+    if (this.props.onLoad) {
+      this.props.onLoad(data as any);
     }
   }
 
@@ -1150,7 +1066,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
         >
           <SafeAreaView style={styles.controls.topControlGroup}>
             {!this.state.isFullscreen && backControl}
-            <View style={styles.controls.pullRight}>{settingsControl}</View>
+            <View style={styles.controls.pullRight}>
+              {!isEmpty(this.state.videoTracks) && settingsControl}
+            </View>
           </SafeAreaView>
         </ImageBackground>
       </Animated.View>
@@ -1407,14 +1325,56 @@ export default class VideoPlayer extends Component<IProps, IState> {
     this.RBSheet?.close();
   };
 
+  onVideoTrackChange = (videoTrack: IVideoTrack) => {
+    this.setState({ currentVideoTrack: videoTrack });
+    this.RBSheet?.close();
+  };
+
+  renderVideoTrackSettings = () => {
+    const windowHeight = Dimensions.get("screen").height;
+    if (this.state.videoTracks) {
+      const videoOptions = uniqBy(
+        this.state.videoTracks
+          .filter(
+            (videoTrack) => videoTrack.height < SystemConfig.maxVideoResolution
+          )
+          .map<IAvatarListItem<IVideoTrack>>((videoTrack) => ({
+            title: `${videoTrack.height}p`,
+            option: videoTrack,
+          })),
+        "title"
+      );
+      return (
+        <RBSheet
+          ref={(ref) => {
+            this.RBSheet = ref;
+          }}
+          height={min([ItemHeight * videoOptions.length, windowHeight / 3])}
+          customStyles={{
+            container: {
+              backgroundColor: DefaultBackgroundColor,
+            },
+          }}
+        >
+          <NativeList<IVideoTrack>
+            options={videoOptions}
+            onPress={this.onVideoTrackChange}
+            selectedValue={this.state.currentVideoTrack}
+          />
+        </RBSheet>
+      );
+    }
+  };
+
   /**
    * Provide all of our options and render the whole component.
    */
   render() {
     const windowWidth = Dimensions.get("screen").width;
     const windowHeight = Dimensions.get("screen").height;
-    let fullscreenStyle: StyleProp<ViewStyle> = {};
 
+    // Set fullscreen styles
+    let fullscreenStyle: StyleProp<ViewStyle> = {};
     if (this.state.isFullscreen) {
       fullscreenStyle = {
         height: windowHeight,
@@ -1450,54 +1410,21 @@ export default class VideoPlayer extends Component<IProps, IState> {
             style={[styles.player.video, this.styles.videoStyle]}
             source={this.props.source}
             onBuffer={this.onBuffer}
+            selectedVideoTrack={
+              this.state.currentVideoTrack && {
+                type: "resolution",
+                value: this.state.currentVideoTrack.height,
+              }
+            }
             // maxBitRate={1}
           />
           {this.renderError()}
           {this.renderLoader()}
           {this.renderTopControls()}
           {this.renderBottomControls()}
-          <RBSheet
-            ref={(ref) => {
-              this.RBSheet = ref;
-            }}
-            height={225}
-            customStyles={{
-              container: {
-                backgroundColor: DefaultBackgroundColor,
-              },
-            }}
-          >
-            <NativeList<IBitRate>
-              stringKey="name"
-              options={availableBitrates}
-              onPress={this.onBitrateChange}
-              selectedValue={find(availableBitrates, {
-                bitrate: this.state.currentBitrate,
-              })}
-            />
-          </RBSheet>
+          {this.renderVideoTrackSettings()}
         </View>
       </TouchableWithoutFeedback>
     );
   }
 }
-
-interface IBitRate {
-  bitrate: number;
-  name: string;
-}
-
-const availableBitrates: IBitRate[] = [
-  {
-    name: "180p",
-    bitrate: 357804,
-  },
-  {
-    name: "360p",
-    bitrate: 585674,
-  },
-  {
-    name: "540p",
-    bitrate: 863983,
-  },
-];
