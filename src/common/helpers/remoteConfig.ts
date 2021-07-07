@@ -6,6 +6,8 @@ import { remoteConfig } from "../native/firebase";
 export const initRemoteConfig = async (intialSystemConfig: SystemConfig) => {
   if (IsMobile) {
     await (remoteConfig() as any).setDefaults({ ...initRemoteConfig } as any);
+  } else {
+    remoteConfig().defaultConfig = { ...initRemoteConfig };
   }
   const fetchedRemotely = await remoteConfig().fetchAndActivate();
 

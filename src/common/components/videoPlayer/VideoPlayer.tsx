@@ -85,6 +85,7 @@ export default class VideoPlayer extends Component<IProps, IState> {
   private animations: any;
   private mounted: boolean = false;
   private RBSheet: RBSheet | null = null;
+  private maxVideoResolution: number;
 
   constructor(props: any) {
     super(props);
@@ -213,6 +214,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
       videoStyle: this.props.videoStyle || {},
       containerStyle: this.props.style || {},
     };
+    this.maxVideoResolution = getSystemConfigValue(
+      "maxVideoResolution"
+    ) as number;
   }
 
   componentDidUpdate = (prevProps: IProps) => {
@@ -260,7 +264,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
     state.duration = data.duration;
     state.loading = false;
     state.videoTracks = data.videoTracks;
-    state.currentVideoTrack = minBy(data.videoTracks, "height");
+    if (this.maxVideoResolution) {
+      state.currentVideoTrack = minBy(data.videoTracks, "height");
+    }
     this.setState(state);
 
     if (state.showControls) {
@@ -1331,10 +1337,9 @@ export default class VideoPlayer extends Component<IProps, IState> {
     const windowHeight = Dimensions.get("screen").height;
     if (this.state.videoTracks) {
       let videoTracks = uniqBy(this.state.videoTracks, "height");
-      const maxVideoResolution = getSystemConfigValue("maxVideoResolution");
-      if (maxVideoResolution) {
+      if (this.maxVideoResolution) {
         videoTracks = videoTracks.filter(
-          (videoTrack) => videoTrack.height <= maxVideoResolution
+          (videoTrack) => videoTrack.height <= this.maxVideoResolution
         );
       }
       const videoOptions = videoTracks.map<IAvatarListItem<IVideoTrack>>(
