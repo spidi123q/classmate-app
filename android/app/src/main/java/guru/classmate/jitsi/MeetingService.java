@@ -52,8 +52,8 @@ public class MeetingService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-            startForeground(NotificationHelper.MEETING_JOIN__ID, notificationHelper.getJoinMeetingNotification());
-            notificationHelper.cancelJoinNotificationOnTimeout();
+            // startForeground(NotificationHelper.MEETING_JOIN__ID, notificationHelper.getJoinMeetingNotification());
+            // notificationHelper.cancelJoinNotificationOnTimeout();
         }
 
         // Check if message contains a notification payload.
