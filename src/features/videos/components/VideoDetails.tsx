@@ -1,7 +1,8 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import axios from "axios";
+import { find, isEmpty } from "lodash";
 import React, { useEffect, useRef, useState } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, useWindowDimensions } from "react-native";
 import NativeHeader from "../../../common/components/NativeHeader";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
@@ -12,20 +13,42 @@ import {
   DefaultOpacity,
   DescriptionLineHeight,
 } from "../../../common/config/themeConfig";
+import { getSystemConfigValue } from "../../../common/helpers/remoteConfig";
+import { StreamingPolicyStreamingProtocol } from "../../../common/models/azure/mediaServices";
+import IVideo from "../../../models/Video";
+import useUser from "../../login/hooks/useUser";
+import useVideo from "../hooks/useVideo";
 import VideoList from "./VideoList";
+import VideoListDTO from "./VideoListDTO";
 
 export function VideoDetails() {
+  const { params } = useRoute();
+  const video = (params as IParam).video;
+  const { height, width } = useWindowDimensions();
+
   const navigation = useNavigation();
   const scrollRef = useRef<ScrollView>(null);
+  const { classroom } = useUser();
+  const { videoSummary } = useVideo();
+  const videoListDTO = new VideoListDTO(videoSummary?.docs ?? []);
+  const nextVideos = videoListDTO
+    .byCategory(video.category)
+    .orderGreaterThan(video.order)
+    .getVideos();
+
   return (
     <NativeLayout statusBarColor="black" noSafeArea>
       <ScrollView ref={scrollRef}>
         <VideoPlayer
           source={{
-            uri: "https://amssamples.streaming.mediaservices.windows.net/3b970ae0-39d5-44bd-b3a3-3136143d6435/AzureMediaServicesPromo.ism/manifest(format=m3u8-aapl)",
+            uri: find(video.streamingLocatorAzure, {
+              streamingProtocol: getSystemConfigValue(
+                "streamingProtocol"
+              ) as StreamingPolicyStreamingProtocol,
+            })?.path,
             type: "m3u8",
           }}
-          style={{ height: 400 }}
+          style={{ height: height / 2.05 }}
           onBack={navigation.goBack}
           onEnterFullscreen={() => {
             scrollRef.current?.setNativeProps({
@@ -44,10 +67,10 @@ export function VideoDetails() {
         >
           <NativeView marginBottom={DefaultMargin / 2}>
             <Typography opacity={DefaultOpacity} type="xs">
-              STD 10 · PHYSICS
+              {classroom?.name} . {video.category}
             </Typography>
             <Typography family="medium" type="h3x">
-              Basic of Electromagnetic Induction
+              {video.name}
             </Typography>
           </NativeView>
           <NativeView>
@@ -56,22 +79,27 @@ export function VideoDetails() {
               marginTop={DefaultMargin / 5}
               lineHeight={DescriptionLineHeight}
             >
-              myOrdersUp saves you time and money by consolidating all of the
-              #online food delivery apps into one convenient app while showing
-              you the best deal from your #favorite restaurants!
+              {video.description}
             </Typography>
           </NativeView>
-          <VideoList
-            titleComponent={
-              <Typography opacity={DefaultOpacity}>
-                Learn Next on Physics
-              </Typography>
-            }
-          />
+          {!isEmpty(nextVideos) && (
+            <VideoList
+              videos={nextVideos}
+              titleComponent={
+                <Typography opacity={DefaultOpacity}>
+                  Learn Next on Physics
+                </Typography>
+              }
+            />
+          )}
         </NativeView>
       </ScrollView>
     </NativeLayout>
   );
+}
+
+export interface IParam {
+  video: IVideo;
 }
 
 export default React.memo(VideoDetails);

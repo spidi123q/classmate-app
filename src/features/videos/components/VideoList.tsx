@@ -13,6 +13,7 @@ import { HomePages } from "../../../models/RoutePath";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { DefaultPlaceholderList } from "../../../common/config/constants";
 import IVideo from "../../../models/Video";
+import { IParam } from "./VideoDetails";
 
 interface IProps {
   title?: string;
@@ -25,15 +26,17 @@ export default function VideoList(props: IProps) {
   const navigation = useNavigation();
   const { title, titleComponent, isLoading, videos } = props;
 
-  const openVideo = () => {
-    navigation.navigate(HomePages.VideoDetails);
+  const openVideo = (video: IVideo) => {
+    navigation.navigate(HomePages.VideoDetails, {
+      video,
+    } as IParam);
   };
   const renderItem = ({ item }: FlatListRenderItem<IVideo>) => (
     <NativeView
       type="ripple"
       marginTop={DefaultMargin / 2}
       marginRight={DefaultMargin}
-      onPress={openVideo}
+      onPress={() => openVideo(item)}
     >
       <Image
         source={{

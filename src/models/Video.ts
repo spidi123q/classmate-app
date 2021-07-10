@@ -17,7 +17,7 @@ export default interface IVideo extends ITimeStamps {
   category: string;
   organizationId: string;
   classroomId: string;
-  order: number | null;
+  order: number;
   organization?: IOrganization;
   classroom?: IClassroom;
 }

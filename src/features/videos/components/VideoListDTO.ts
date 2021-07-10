@@ -8,10 +8,15 @@ export default class VideoListDTO {
     this.videos = [...videos];
   }
 
-  public getVideosByCategory(category: string): VideoListDTO {
+  public byCategory(category: string): VideoListDTO {
     const result = filter(this.videos, {
       category,
     });
+    return new VideoListDTO(result);
+  }
+
+  public orderGreaterThan(order: number): VideoListDTO {
+    const result = filter(this.videos, (video) => video.order > order);
     return new VideoListDTO(result);
   }
 

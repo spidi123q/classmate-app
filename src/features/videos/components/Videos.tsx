@@ -43,7 +43,7 @@ export default function () {
             title={category}
             isLoading={showPlaceholder}
             key={category}
-            videos={videoListDTO.getVideosByCategory(category).getVideos()}
+            videos={videoListDTO.byCategory(category).getVideos()}
           />
         ))}
       </NativeView>

@@ -1,6 +1,7 @@
 import { Platform } from "react-native";
 import KeyValuePair from "./common/models/KeyValuePair";
 import appJson from "./app.json";
+import { StreamingPolicyStreamingProtocol } from "./common/models/azure/mediaServices";
 
 interface SystemConfig {
   currency: string;
@@ -10,6 +11,7 @@ interface SystemConfig {
   appName: string;
   // Maximum allowed video track height
   maxVideoResolution: number;
+  streamingProtocol: StreamingPolicyStreamingProtocol;
 }
 
 const SystemConfig: SystemConfig = {
@@ -19,6 +21,7 @@ const SystemConfig: SystemConfig = {
   swipeCancelSpeed: 50,
   appName: appJson.displayName,
   maxVideoResolution: 550,
+  streamingProtocol: "Hls",
 };
 
 export default SystemConfig;
