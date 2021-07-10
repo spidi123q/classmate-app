@@ -17,6 +17,12 @@ export default function useUserAPI() {
     return response;
   };
 
+  /**
+   * Get currently signedin user
+   * Note: By default this will update user state
+   * @param isStateUpdate If true will update app state with new user
+   * @returns
+   */
   const getUser = async (isStateUpdate: boolean = true): Promise<any> => {
     const request = GetUser(isStateUpdate);
     setIsLoading(true);

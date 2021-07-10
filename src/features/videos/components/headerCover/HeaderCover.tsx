@@ -1,4 +1,4 @@
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import React, { useCallback } from "react";
 import { Platform, StatusBar, useWindowDimensions } from "react-native";
 import NativeButton from "../../../../common/components/NativeButton";
@@ -13,6 +13,15 @@ import {
   SecondaryOpacity,
 } from "../../../../common/config/themeConfig";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import useVideo from "../../hooks/useVideo";
+import useUser from "../../../login/hooks/useUser";
+import { first } from "lodash";
+import useVideoActions from "../../hooks/useVideoActions";
+import IVideo from "../../../../models/Video";
+import { HomePages } from "../../../../models/RoutePath";
+import { IParam } from "../VideoDetails";
+import { RNJitsiMeet } from "../../../../common/native/jitsiMeet";
+import { getJitsiUrl } from "../../../../common/helpers/misc";
 
 interface IProps {
   isLoading?: boolean;
@@ -22,6 +31,16 @@ export default function HeaderCover(props: IProps) {
   const { isLoading } = props;
   const { height, width } = useWindowDimensions();
   const coverHeight = height / 1.95;
+  const { videoSummary, lastPlayedVideo } = useVideo();
+  const { classroom, name } = useUser();
+  const video = lastPlayedVideo ?? first(videoSummary.docs);
+  const navigation = useNavigation();
+  const { setLastPlayedVideo } = useVideoActions();
+  const isLive = classroom?.liveDetails?.isLive;
+
+  if (!video && !isLive) {
+    return null;
+  }
 
   if (isLoading) {
     return (
@@ -30,12 +49,36 @@ export default function HeaderCover(props: IProps) {
       </SkeletonPlaceholder>
     );
   }
+
+  const openVideo = (video: IVideo) => {
+    setLastPlayedVideo(video);
+    navigation.navigate(HomePages.VideoDetails, {
+      video,
+    } as IParam);
+  };
+
+  const onPlay = (video?: IVideo) => {
+    if (isLive) {
+      const roomName = classroom?.liveDetails?.roomName;
+      roomName &&
+        RNJitsiMeet.join(getJitsiUrl(roomName), {
+          displayName: name,
+        });
+    } else {
+      video && openVideo(video);
+    }
+  };
+
   return (
     <NativeView
       type="image"
-      source={{
-        uri: "https://quotessquare.com/wp-content/uploads/2019/04/teachers-day-background-hd-1280x720.jpg",
-      }}
+      source={
+        isLive
+          ? require("../../../login/assets/Artboard_2.jpg")
+          : {
+              uri: video?.coverImageAzureBlob.url,
+            }
+      }
       height={coverHeight}
       width={width}
       backgroundColor={AppTheme["color-grey"]}
@@ -59,12 +102,22 @@ export default function HeaderCover(props: IProps) {
       >
         <NativeView marginHorizontal={DefaultMargin}>
           <NativeView marginBottom={DefaultMargin / 2}>
-            <Typography opacity={DefaultOpacity} type="xs">
-              STD 10 · PHYSICS
-            </Typography>
-            <Typography family="medium" type="h3x">
-              Basic of Electromagnetic Induction
-            </Typography>
+            {isLive ? (
+              <>
+                <Typography opacity={DefaultOpacity} type="xs">
+                  {classroom?.name}
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography opacity={DefaultOpacity} type="xs">
+                  {classroom?.name} · {video?.category}
+                </Typography>
+                <Typography family="medium" type="h3x">
+                  {video?.name}
+                </Typography>
+              </>
+            )}
           </NativeView>
           <NativeView
             flexDirection="row"
@@ -73,11 +126,12 @@ export default function HeaderCover(props: IProps) {
           >
             <NativeButton
               width={175}
-              title="Play Now"
+              title={`Play ${isLive ? "live" : "Now"}`}
               size="sm"
               iconName="videocam"
+              onPress={() => onPlay(video)}
             />
-            <Live />
+            {isLive && <Live />}
           </NativeView>
         </NativeView>
       </NativeView>

@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import axios from "axios";
-import { find, isEmpty } from "lodash";
+import { find, first, isEmpty } from "lodash";
 import React, { useEffect, useRef, useState } from "react";
 import { ScrollView, useWindowDimensions } from "react-native";
 import NativeHeader from "../../../common/components/NativeHeader";
@@ -18,6 +18,7 @@ import { StreamingPolicyStreamingProtocol } from "../../../common/models/azure/m
 import IVideo from "../../../models/Video";
 import useUser from "../../login/hooks/useUser";
 import useVideo from "../hooks/useVideo";
+import useVideoActions from "../hooks/useVideoActions";
 import VideoList from "./VideoList";
 import VideoListDTO from "./VideoListDTO";
 
@@ -25,11 +26,11 @@ export function VideoDetails() {
   const { params } = useRoute();
   const video = (params as IParam).video;
   const { height, width } = useWindowDimensions();
-
   const navigation = useNavigation();
   const scrollRef = useRef<ScrollView>(null);
   const { classroom } = useUser();
   const { videoSummary } = useVideo();
+  const { setLastPlayedVideo } = useVideoActions();
   const videoListDTO = new VideoListDTO(videoSummary?.docs ?? []);
   const nextVideos = videoListDTO
     .byCategory(video.category)
@@ -60,6 +61,7 @@ export function VideoDetails() {
               scrollEnabled: true,
             });
           }}
+          onEnd={() => setLastPlayedVideo(first(nextVideos))}
         />
         <NativeView
           marginVertical={DefaultMargin}

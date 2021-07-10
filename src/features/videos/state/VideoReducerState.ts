@@ -6,6 +6,7 @@ import IVideo from "../../../models/Video";
 
 export interface IVideoReducerState {
   videoSummary: IPaginateResult<IVideo>;
+  lastPlayedVideo?: IVideo;
 }
 
 export const InitialVideoReducerState: IVideoReducerState = {

@@ -1,4 +1,4 @@
-import ITimeStamps from "../common/models/TimeStamps";
+import { ITimeStamps } from "../common/models/TimeStamps";
 import IOrganization from "./Organization";
 export interface IClassroom extends ITimeStamps {
   _id: string;
@@ -10,6 +10,14 @@ export interface IClassroom extends ITimeStamps {
   organization?: IOrganization;
   userCount?: number;
   categories: string[];
+  liveDetails?: ILiveDetails;
+  liveUpdateInterval: number;
+}
+
+export interface ILiveDetails {
+  roomName: string;
+  lastSeem: Date;
+  isLive: boolean;
 }
 
 export interface IClassroomEdit extends Partial<IClassroom> {

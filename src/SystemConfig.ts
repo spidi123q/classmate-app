@@ -12,6 +12,7 @@ interface SystemConfig {
   // Maximum allowed video track height
   maxVideoResolution: number;
   streamingProtocol: StreamingPolicyStreamingProtocol;
+  jitsiDomain: string;
 }
 
 const SystemConfig: SystemConfig = {
@@ -22,6 +23,7 @@ const SystemConfig: SystemConfig = {
   appName: appJson.displayName,
   maxVideoResolution: 550,
   streamingProtocol: "Hls",
+  jitsiDomain: "meet.jit.si",
 };
 
 export default SystemConfig;

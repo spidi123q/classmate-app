@@ -14,6 +14,7 @@ import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { DefaultPlaceholderList } from "../../../common/config/constants";
 import IVideo from "../../../models/Video";
 import { IParam } from "./VideoDetails";
+import useVideoActions from "../hooks/useVideoActions";
 
 interface IProps {
   title?: string;
@@ -25,8 +26,10 @@ interface IProps {
 export default function VideoList(props: IProps) {
   const navigation = useNavigation();
   const { title, titleComponent, isLoading, videos } = props;
+  const { setLastPlayedVideo } = useVideoActions();
 
   const openVideo = (video: IVideo) => {
+    setLastPlayedVideo(video);
     navigation.navigate(HomePages.VideoDetails, {
       video,
     } as IParam);

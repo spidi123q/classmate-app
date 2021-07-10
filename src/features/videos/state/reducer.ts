@@ -12,6 +12,8 @@ export const VideoReducer: Reducer<IVideoReducerState> = (
   switch (action.type) {
     case VideoActionTypes.GetVideosOnSuccess:
       return { ...state, videoSummary: action.payload };
+    case VideoActionTypes.SetLastPlayedVideo:
+      return { ...state, lastPlayedVideo: action.payload };
     default:
       return state;
   }
