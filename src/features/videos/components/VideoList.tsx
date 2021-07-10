@@ -5,6 +5,8 @@ import Typography from "../../../common/components/Typography";
 import {
   DefaultBorderRadius,
   DefaultMargin,
+  DefaultPlaceholderBackgroudColor,
+  DefaultPlaceholderHighlightColor,
 } from "../../../common/config/themeConfig";
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { Image } from "react-native-elements";
@@ -81,7 +83,10 @@ const Placeholder = () => (
   <FlatList
     data={DefaultPlaceholderList}
     renderItem={({ item }) => (
-      <SkeletonPlaceholder>
+      <SkeletonPlaceholder
+        backgroundColor={DefaultPlaceholderBackgroudColor}
+        highlightColor={DefaultPlaceholderHighlightColor}
+      >
         <SkeletonPlaceholder.Item
           width={imageStyle.width}
           height={imageStyle.height}

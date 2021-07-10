@@ -84,6 +84,8 @@ export const AppTheme = {
   "color-grey": "#0000009E",
   "color-grey2": "#A0A0A0",
   "color-grey3": "#C4C4C4",
+  "color-grey4": "#3F3F3F",
+  "color-grey5": "#2E2E2E",
   "color-black": "#000236",
   "color-danger": "#ED2359",
 };

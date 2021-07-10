@@ -10,6 +10,8 @@ import Live from "../../assets/Live.svg";
 import {
   DefaultMargin,
   DefaultOpacity,
+  DefaultPlaceholderBackgroudColor,
+  DefaultPlaceholderHighlightColor,
   SecondaryOpacity,
 } from "../../../../common/config/themeConfig";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
@@ -44,7 +46,10 @@ export default function HeaderCover(props: IProps) {
 
   if (isLoading) {
     return (
-      <SkeletonPlaceholder>
+      <SkeletonPlaceholder
+        backgroundColor={DefaultPlaceholderBackgroudColor}
+        highlightColor={DefaultPlaceholderHighlightColor}
+      >
         <SkeletonPlaceholder.Item width={width} height={coverHeight} />
       </SkeletonPlaceholder>
     );
