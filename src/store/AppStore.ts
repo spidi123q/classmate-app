@@ -14,7 +14,7 @@ import AsyncLocalStorage from "../common/native/asyncLocalStorage";
 const persistConfig: PersistConfig<AppState, any, any, any> = {
   key: "root",
   storage: AsyncLocalStorage,
-  whitelist: ["login"],
+  whitelist: ["login", "video"],
 };
 
 const configureStore = () => {

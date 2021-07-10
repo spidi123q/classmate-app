@@ -54,11 +54,6 @@ export default function VideoList(props: IProps) {
   const openVideo = () => {
     navigation.navigate(HomePages.VideoDetails);
   };
-
-  if (isLoading) {
-    return <Placeholder />;
-  }
-
   const renderItem = ({ item }: FlatListRenderItem<any>) => (
     <NativeView
       type="ripple"
@@ -82,12 +77,16 @@ export default function VideoList(props: IProps) {
         </Typography>
       )}
       <NativeView>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          horizontal
-        />
+        {isLoading ? (
+          <Placeholder />
+        ) : (
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            horizontal
+          />
+        )}
       </NativeView>
     </NativeView>
   );
@@ -100,7 +99,7 @@ const imageStyle: ImageStyle = {
 };
 const Placeholder = () => (
   <SkeletonPlaceholder>
-    <SkeletonPlaceholder.Item flexDirection="row" marginTop={DefaultMargin}>
+    <SkeletonPlaceholder.Item flexDirection="row">
       {DefaultPlaceholderList.map((item, index) => (
         <SkeletonPlaceholder.Item
           width={imageStyle.width}

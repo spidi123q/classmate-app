@@ -9,7 +9,7 @@ import NativeTextInput from "../../../common/components/NativeTextInput";
 import BlankUser from "../assets/BlankUser.svg";
 
 export default function Profile() {
-  const { name, phone, email, organization } = useUser();
+  const { name, phone, email, organization, classroom } = useUser();
   return (
     <NativeLayout scroll>
       <NativeHeader title="Edit Profile" />
@@ -38,6 +38,13 @@ export default function Profile() {
           <NativeTextInput
             label="Organization"
             value={organization?.name}
+            editable={false}
+          />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
+          <NativeTextInput
+            label="Classroom"
+            value={classroom?.name}
             editable={false}
           />
         </NativeView>

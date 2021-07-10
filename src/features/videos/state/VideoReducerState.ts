@@ -1,9 +1,13 @@
+import {
+  InitialPaginateResult,
+  IPaginateResult,
+} from "../../../common/models/PaginateResult";
 import IVideo from "../../../models/Video";
 
 export interface IVideoReducerState {
-  videos: IVideo[];
+  videoSummary: IPaginateResult<IVideo>;
 }
 
 export const InitialVideoReducerState: IVideoReducerState = {
-  videos: [],
+  videoSummary: InitialPaginateResult,
 };

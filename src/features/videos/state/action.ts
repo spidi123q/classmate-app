@@ -2,7 +2,7 @@ import { createAction } from "redux-actions";
 import IVideo from "../../../models/Video";
 export enum VideoActionTypes {
   GetVideos = "@@UI/videos/GetVideos",
-  GetVideosOnSuccess = "@@UI/videos/GetUserOnSuccess",
+  GetVideosOnSuccess = "@@UI/videos/GetVideosOnSuccess",
   GetVideosOnFail = "@@UI/login/GetUserOnFail",
 }
 

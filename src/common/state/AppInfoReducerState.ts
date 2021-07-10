@@ -1,7 +1,7 @@
 import INotification from "../models/Notification";
 import {
   InitialPaginateResult,
-  PaginateResult,
+  IPaginateResult,
 } from "../models/PaginateResult";
 import ToastMessage from "../models/ToastMessage";
 
@@ -11,7 +11,7 @@ export interface IAppInfoReducerState {
   lastApiError?: ToastMessage;
   scrollDirection?: IScrollDirection;
   recentSearch: string[];
-  notifications: PaginateResult<INotification>;
+  notifications: IPaginateResult<INotification>;
   isFirstLaunch: boolean;
   isValidVersion: boolean;
 }

@@ -1,6 +1,6 @@
 import { IResponse } from "../helpers/axios";
 
-export interface PaginateResult<T> {
+export interface IPaginateResult<T> {
   docs: T[];
   totalDocs: number;
   limit: number;
@@ -14,10 +14,10 @@ export interface PaginateResult<T> {
   meta?: any;
 }
 
-export type IPaginateResponse<T> = IResponse<PaginateResult<T>>;
+export type IPaginateResponse<T> = IResponse<IPaginateResult<T>>;
 export const IPaginateResponse = Promise;
 
-export const InitialPaginateResult: PaginateResult<any> = {
+export const InitialPaginateResult: IPaginateResult<any> = {
   docs: [],
   totalDocs: 0,
   limit: 10,
