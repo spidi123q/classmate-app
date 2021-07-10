@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, ImageStyle, StyleProp } from "react-native";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
 import {
@@ -10,6 +10,8 @@ import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { Image } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { HomePages } from "../../../models/RoutePath";
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import { DefaultPlaceholderList } from "../../../common/config/constants";
 
 const DATA = [
   {
@@ -42,15 +44,20 @@ const DATA = [
 interface IProps {
   title?: string;
   titleComponent?: JSX.Element;
+  isLoading?: boolean;
 }
 
 export default function VideoList(props: IProps) {
   const navigation = useNavigation();
-  const { title, titleComponent } = props;
+  const { title, titleComponent, isLoading } = props;
 
   const openVideo = () => {
     navigation.navigate(HomePages.VideoDetails);
   };
+
+  if (isLoading) {
+    return <Placeholder />;
+  }
 
   const renderItem = ({ item }: FlatListRenderItem<any>) => (
     <NativeView
@@ -63,11 +70,7 @@ export default function VideoList(props: IProps) {
         source={{
           uri: item.title,
         }}
-        style={{
-          height: 136,
-          width: 175,
-          borderRadius: 8,
-        }}
+        style={imageStyle}
       />
     </NativeView>
   );
@@ -89,3 +92,25 @@ export default function VideoList(props: IProps) {
     </NativeView>
   );
 }
+
+const imageStyle: ImageStyle = {
+  height: 136,
+  width: 175,
+  borderRadius: 8,
+};
+const Placeholder = () => (
+  <SkeletonPlaceholder>
+    <SkeletonPlaceholder.Item flexDirection="row" marginTop={DefaultMargin}>
+      {DefaultPlaceholderList.map((item, index) => (
+        <SkeletonPlaceholder.Item
+          width={imageStyle.width}
+          height={imageStyle.height}
+          borderRadius={imageStyle.borderRadius}
+          marginTop={DefaultMargin / 2}
+          marginRight={DefaultMargin}
+          key={index}
+        />
+      ))}
+    </SkeletonPlaceholder.Item>
+  </SkeletonPlaceholder>
+);

@@ -5,7 +5,7 @@ import {
 } from "../models/PaginateResult";
 import ToastMessage from "../models/ToastMessage";
 
-export interface AppInfoReducerState {
+export interface IAppInfoReducerState {
   appReady: boolean;
   isLoading: boolean;
   lastApiError?: ToastMessage;
@@ -16,7 +16,7 @@ export interface AppInfoReducerState {
   isValidVersion: boolean;
 }
 
-export const InitialAppInfoReducerState: AppInfoReducerState = {
+export const InitialAppInfoReducerState: IAppInfoReducerState = {
   appReady: false,
   isLoading: false,
   recentSearch: [],

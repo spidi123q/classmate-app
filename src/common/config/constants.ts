@@ -23,3 +23,5 @@ export const DefaultShareMessage =
 
 export const IsMobile: boolean =
   Platform.OS === "ios" || Platform.OS === "android";
+
+export const DefaultPlaceholderList = Array.from(Array(10).keys());

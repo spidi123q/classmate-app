@@ -1,7 +1,9 @@
-import { AppInfoReducerState } from "../common/state/AppInfoReducerState";
-import { LoginReducerState } from "../features/login/state/LoginReducerState";
+import { IAppInfoReducerState } from "../common/state/AppInfoReducerState";
+import { ILoginReducerState } from "../features/login/state/LoginReducerState";
+import { IVideoReducerState } from "../features/videos/state/VideoReducerState";
 
 export default interface AppState {
-  appInfo: AppInfoReducerState;
-  login: LoginReducerState;
+  appInfo: IAppInfoReducerState;
+  login: ILoginReducerState;
+  video: IVideoReducerState;
 }

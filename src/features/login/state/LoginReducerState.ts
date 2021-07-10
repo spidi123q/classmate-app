@@ -1,9 +1,9 @@
 import IUser, { InitialUser } from "../../../models/User";
 
-export interface LoginReducerState {
+export interface ILoginReducerState {
   user: IUser;
 }
 
-export const InitialLoginReducerState: LoginReducerState = {
+export const InitialLoginReducerState: ILoginReducerState = {
   user: InitialUser,
 };

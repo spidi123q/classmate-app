@@ -3113,6 +3113,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-11.5.0.tgz#951c5ec2ebea3f07ee4249bba7d903ad7bf679a0"
   integrity sha512-IQ0ZIjYijWsGF0rDOjO6e7GozJOLHuBOfwlUPDKh3YP2p9GQ5t6XQTkSRgO40mZ88ZB7+So39oYOIYJuGleOcA==
 
+"@react-native-masked-view/masked-view@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@react-native-masked-view/masked-view/-/masked-view-0.2.5.tgz#2505f269a53b134e3306a2772d981138e11f1537"
+  integrity sha512-yXaWyV8xu1N5tfdfP8L29U0TIDvBriN4zHUI+Zs7Sw+VI8pBbEEYoITK9aFt495Y0/PPm4FsTpa35hOeTLfGPA==
+
 "@react-native-picker/picker@^1.8.3":
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-1.16.0.tgz#3e5268da892349a35c66ab7bd75e834147621e5a"
@@ -14595,6 +14600,11 @@ react-native-size-matters@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz#24d0cfc335a2c730f6d58bd7b43ea5a41be4b49f"
   integrity sha512-mKOfBLIBFBcs9br1rlZDvxD5+mAl8Gfr5CounwJtxI6Z82rGrMO+Kgl9EIg3RMVf3G855a85YVqHJL2f5EDRlw==
+
+react-native-skeleton-placeholder@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-skeleton-placeholder/-/react-native-skeleton-placeholder-4.0.0.tgz#8c982cd9e00ffc69d5193da94945b75191eaa7c4"
+  integrity sha512-nX0NM6GhurCIgz8Yf+H9VYIaxSF2mbtdozLgaJNh/8QIH9mi+aJ2G9BVHSpjQ0o1fNdKYbGzrXDsC+6v4hmqAA==
 
 react-native-splash-screen@^3.2.0:
   version "3.2.0"

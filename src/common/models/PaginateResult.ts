@@ -15,6 +15,7 @@ export interface PaginateResult<T> {
 }
 
 export type IPaginateResponse<T> = IResponse<PaginateResult<T>>;
+export const IPaginateResponse = Promise;
 
 export const InitialPaginateResult: PaginateResult<any> = {
   docs: [],

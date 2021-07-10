@@ -12,17 +12,31 @@ import {
   DefaultOpacity,
   SecondaryOpacity,
 } from "../../../../common/config/themeConfig";
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 
-export default function HeaderCover() {
+interface IProps {
+  isLoading?: boolean;
+}
+
+export default function HeaderCover(props: IProps) {
+  const { isLoading } = props;
   const { height, width } = useWindowDimensions();
+  const coverHeight = height / 1.95;
 
+  if (isLoading) {
+    return (
+      <SkeletonPlaceholder>
+        <SkeletonPlaceholder.Item width={width} height={coverHeight} />
+      </SkeletonPlaceholder>
+    );
+  }
   return (
     <NativeView
       type="image"
       source={{
         uri: "https://quotessquare.com/wp-content/uploads/2019/04/teachers-day-background-hd-1280x720.jpg",
       }}
-      height={height / 1.95}
+      height={coverHeight}
       width={width}
       backgroundColor={AppTheme["color-grey"]}
     >
