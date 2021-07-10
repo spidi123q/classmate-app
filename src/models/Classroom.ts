@@ -12,6 +12,7 @@ export interface IClassroom extends ITimeStamps {
   categories: string[];
   liveDetails?: ILiveDetails;
   liveUpdateInterval: number;
+  appLogoUrl?: string;
 }
 
 export interface ILiveDetails {
