@@ -26,6 +26,8 @@ public class JitsiHelper {
                         //.setAudioMuted(true)
                         //.setVideoMuted(true)
                         .setWelcomePageEnabled(false)
+                        .setFeatureFlag("recording.enabled", false)
+                        .setFeatureFlag("live-streaming.enabled", false)
                         .build();
                 // Launch the new activity with the given options. The launch() method takes care
                 // of creating the required Intent and passing the options.
