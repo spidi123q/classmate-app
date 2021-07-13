@@ -15,4 +15,5 @@ export const HomePages = {
   Videos: "/videos",
   VideoDetails: "/videos/details",
   Profile: "/profile",
+  JitsiMeet: "/jitsi",
 };

@@ -22,7 +22,10 @@ import useVideoActions from "../../hooks/useVideoActions";
 import IVideo from "../../../../models/Video";
 import { HomePages } from "../../../../models/RoutePath";
 import { IParam } from "../VideoDetails";
-import { RNJitsiMeet } from "../../../../common/native/jitsiMeet";
+import {
+  IJitsiMeetUserInfo,
+  RNJitsiMeet,
+} from "../../../../common/native/jitsiMeet";
 import { getJitsiUrl } from "../../../../common/helpers/misc";
 
 interface IProps {
@@ -64,11 +67,19 @@ export default function HeaderCover(props: IProps) {
 
   const onPlay = (video?: IVideo) => {
     if (isLive) {
-      const roomName = classroom?.liveDetails?.roomName;
-      roomName &&
-        RNJitsiMeet.join(getJitsiUrl(roomName), {
-          displayName: name,
+      const url = getJitsiUrl(classroom?.liveDetails?.roomName ?? "");
+      const userInfo: IJitsiMeetUserInfo = {
+        displayName: name,
+      };
+
+      if (Platform.OS === "ios") {
+        navigation.navigate(HomePages.JitsiMeet, {
+          url,
+          userInfo,
         });
+      } else if (Platform.OS === "android") {
+        RNJitsiMeet.join(url, userInfo);
+      }
     } else {
       video && openVideo(video);
     }
@@ -88,7 +99,11 @@ export default function HeaderCover(props: IProps) {
       width={width}
       backgroundColor={AppTheme["color-grey"]}
     >
-      <StatusBar translucent backgroundColor={"transparent"} />
+      <StatusBar
+        translucent
+        backgroundColor={"transparent"}
+        barStyle="light-content"
+      />
       <NativeView
         type="gradient"
         colors={["#000000", "#00000000"]}
