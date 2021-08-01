@@ -11,10 +11,7 @@ import { DefaultPlaceholderList } from "../../../common/config/constants";
 import IVideo from "../../../models/Video";
 import { IParam } from "./VideoDetails";
 import useVideoActions from "../hooks/useVideoActions";
-import {
-  NativeSkeletonItem,
-  NativeSkeletonPlaceholder,
-} from "../../../common/components/nativeSkeleton";
+import { NativeSkeletonPlaceholder } from "../../../common/components/nativeSkeleton";
 
 interface IProps {
   title?: string;
@@ -81,16 +78,17 @@ const Placeholder = () => (
   <FlatList
     data={DefaultPlaceholderList}
     renderItem={({ item }) => (
-      <NativeSkeletonPlaceholder>
-        <NativeSkeletonItem
-          width={imageStyle.width}
-          height={imageStyle.height}
-          borderRadius={imageStyle.borderRadius}
-          marginTop={DefaultMargin / 2}
-          marginRight={DefaultMargin}
-          key={item}
-        />
-      </NativeSkeletonPlaceholder>
+      <NativeSkeletonPlaceholder
+        items={[
+          {
+            width: imageStyle.width,
+            height: imageStyle.height,
+            borderRadius: imageStyle.borderRadius,
+            marginTop: DefaultMargin / 2,
+            marginRight: DefaultMargin,
+          },
+        ]}
+      ></NativeSkeletonPlaceholder>
     )}
     keyExtractor={(item) => item.toString()}
     horizontal

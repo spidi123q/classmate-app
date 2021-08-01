@@ -23,10 +23,7 @@ import {
   RNJitsiMeet,
 } from "../../../../common/native/jitsiMeet";
 import { getJitsiUrl } from "../../../../common/helpers/misc";
-import {
-  NativeSkeletonItem,
-  NativeSkeletonPlaceholder,
-} from "../../../../common/components/nativeSkeleton";
+import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeSkeleton";
 import Airboard2 from "../../../login/assets/Artboard_2.jpg";
 
 interface IProps {
@@ -44,16 +41,21 @@ export default function HeaderCover(props: IProps) {
   const { setLastPlayedVideo } = useVideoActions();
   const isLive = classroom?.liveDetails?.isLive;
 
-  if (!video && !isLive) {
-    return null;
-  }
-
   if (isLoading) {
     return (
-      <NativeSkeletonPlaceholder>
-        <NativeSkeletonItem width={width} height={coverHeight} />
-      </NativeSkeletonPlaceholder>
+      <NativeSkeletonPlaceholder
+        items={[
+          {
+            width,
+            height: coverHeight,
+          },
+        ]}
+      />
     );
+  }
+
+  if (!video && !isLive) {
+    return null;
   }
 
   const openVideo = (video: IVideo) => {

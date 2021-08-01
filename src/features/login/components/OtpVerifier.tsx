@@ -135,7 +135,12 @@ const OtpVerifier = (props: IProps) => {
                   title="Submit"
                   onPress={() => formikProps.handleSubmit()}
                 />
-                <div id="sign-in-button" />
+                {Platform.OS === "web" && (
+                  <>
+                    <br />
+                    <div id="sign-in-button" />
+                  </>
+                )}
               </NativeView>
             </NativeView>
           </NativeView>

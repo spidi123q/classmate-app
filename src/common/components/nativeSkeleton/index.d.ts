@@ -1,7 +1,4 @@
-export interface IPlaceholderProps {
-  highlightColor?: string;
-  backgroundColor?: string;
-}
+import React from "react";
 
 export interface IPlaceholderItemProps {
   width?: string | number | undefined;
@@ -11,7 +8,12 @@ export interface IPlaceholderItemProps {
   marginRight?: number;
 }
 
-declare const NativeSkeletonPlaceholder: React.ComponentType<IPlaceholderProps>;
-declare const NativeSkeletonItem: React.ComponentType<IPlaceholderItemProps>;
+export interface IPlaceholderProps {
+  highlightColor?: string;
+  backgroundColor?: string;
+  items: IPlaceholderItemProps[];
+}
 
-export { NativeSkeletonItem, NativeSkeletonPlaceholder };
+declare const NativeSkeletonPlaceholder: React.ComponentType<IPlaceholderProps>;
+
+export { NativeSkeletonPlaceholder };

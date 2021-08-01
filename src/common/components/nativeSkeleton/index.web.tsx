@@ -8,18 +8,16 @@ import {
 
 export const NativeSkeletonPlaceholder: React.FunctionComponent<IPlaceholderProps> =
   (props) => {
-    const { children, backgroundColor, highlightColor } = props;
+    const { backgroundColor, highlightColor, items } = props;
 
     return (
       <SkeletonTheme
         color={backgroundColor ?? DefaultPlaceholderBackgroudColor}
         highlightColor={highlightColor ?? DefaultPlaceholderHighlightColor}
       >
-        {children as any}
+        {items.map((item, index) => (
+          <Skeleton key={index} {...item} />
+        ))}
       </SkeletonTheme>
     );
   };
-
-export const NativeSkeletonItem = (props: IPlaceholderItemProps) => (
-  <Skeleton {...props} />
-);
