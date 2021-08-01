@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
-import { AppFonts, DefaultMargin } from "../../config/themeConfig";
+import {
+  AppFonts,
+  DefaultMargin,
+  DoubleMargin,
+} from "../../config/themeConfig";
 
 /**
  * This object houses our styles. There's player
@@ -202,6 +206,15 @@ const styles = {
       width: 12,
     },
   }),
+  webTopControls: {
+    position: "absolute",
+    top: DefaultMargin,
+    left: DefaultMargin,
+    zIndex: 1,
+  },
+  webControlButton: {
+    cursor: "pointer",
+  },
 };
 
 export default styles;
