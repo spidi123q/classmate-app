@@ -13,6 +13,10 @@ declare module "*.jpg" {
   export default content;
 }
 
+declare module "*.ttf" {
+  export default content;
+}
+
 declare module "react-native-material-ripple" {
   import { TouchableWithoutFeedbackProps } from "react-native";
   export interface RippleProps extends TouchableWithoutFeedbackProps {

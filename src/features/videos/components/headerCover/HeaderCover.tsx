@@ -27,6 +27,7 @@ import {
   NativeSkeletonItem,
   NativeSkeletonPlaceholder,
 } from "../../../../common/components/nativeSkeleton";
+import Airboard2 from "../../../login/assets/Artboard_2.jpg";
 
 interface IProps {
   isLoading?: boolean;
@@ -64,15 +65,17 @@ export default function HeaderCover(props: IProps) {
 
   const onPlay = (video?: IVideo) => {
     if (isLive) {
-      const url = getJitsiUrl(classroom?.liveDetails?.roomName ?? "");
+      const roomName = classroom?.liveDetails?.roomName ?? "";
+      const url = getJitsiUrl(roomName);
       const userInfo: IJitsiMeetUserInfo = {
         displayName: name,
       };
 
-      if (Platform.OS === "ios") {
+      if (Platform.OS === "ios" || Platform.OS === "web") {
         navigation.navigate(HomePages.JitsiMeet, {
           url,
           userInfo,
+          roomName,
         });
       } else if (Platform.OS === "android") {
         RNJitsiMeet.join(url, userInfo);
@@ -87,7 +90,7 @@ export default function HeaderCover(props: IProps) {
       type="image"
       source={
         isLive
-          ? require("../../../login/assets/Artboard_2.jpg")
+          ? Airboard2
           : {
               uri: video?.coverImageAzureBlob.url,
             }

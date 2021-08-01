@@ -48,6 +48,8 @@ const NativeView: React.FunctionComponent<IProps> = (props) => {
     right,
     position,
     height,
+    maxWidth,
+    maxHeight,
     width,
     ...rest
   } = props;
@@ -83,6 +85,8 @@ const NativeView: React.FunctionComponent<IProps> = (props) => {
           position,
           height,
           width,
+          maxWidth,
+          maxHeight,
           resizeMethod: props.type === "image" ? props.resizeMethod : undefined,
           resizeMode: props.type === "image" ? props.resizeMode : undefined,
         },

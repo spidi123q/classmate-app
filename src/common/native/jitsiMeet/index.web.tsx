@@ -5,30 +5,34 @@ import {
   requireNativeComponent,
   useWindowDimensions,
 } from "react-native";
+import Jitsi from "react-jitsi";
 import { IParams } from ".";
+import { getSystemConfigValue } from "../../helpers/remoteConfig";
 
 export const JitsiMeetView = () => {
-  const { params } = useRoute();
+  const params = useRoute().params as IParams;
   const { height, width } = useWindowDimensions();
   const navigation = useNavigation();
 
-  useEffect(() => {
-    const { userInfo, url } = params as IParams;
-  }, []);
-
-  const onConferenceTerminated = (nativeEvent: any) => {
-    navigation.goBack();
-    /* Conference terminated event */
+  const onAPILoad = (api: any) => {
+    api.addListener("readyToClose", () => {
+      navigation.goBack();
+    });
   };
 
-  const onConferenceJoined = (nativeEvent: any) => {
-    /* Conference joined event */
-  };
-
-  const onConferenceWillJoin = (nativeEvent: any) => {
-    /* Conference will join event */
-  };
-  return null;
+  return (
+    <Jitsi
+      roomName={params.roomName}
+      displayName={params.userInfo.displayName}
+      domain={getSystemConfigValue("jitsiDomain") as string}
+      config={{
+        // @ts-ignore
+        prejoinPageEnabled: false,
+      }}
+      frameStyle={{ height, width }}
+      onAPILoad={onAPILoad}
+    />
+  );
 };
 
 export const RNJitsiMeet = {

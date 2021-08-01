@@ -3,6 +3,7 @@ import React from "react";
 export interface IParams {
   userInfo: IJitsiMeetUserInfo;
   url: string;
+  roomName?: string;
 }
 
 interface IJitsiMeetUserInfo {
