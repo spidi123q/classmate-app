@@ -32,6 +32,10 @@ export const JitsiMeetView = () => {
         config={{
           // @ts-ignore
           prejoinPageEnabled: false,
+          liveStreamingEnabled: false,
+          fileRecordingsEnabled: false,
+          fileRecordingsServiceEnabled: false,
+          disableDeepLinking: true,
         }}
         frameStyle={{ height, width }}
         onAPILoad={onAPILoad}
