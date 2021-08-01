@@ -3,7 +3,7 @@ import { IResponse } from "../helpers/axios";
 import {
   InitialPaginateResult,
   IPaginateResponse,
-  PaginateResult,
+  IPaginateResult,
 } from "../models/PaginateResult";
 import _, { throttle, uniqBy } from "lodash";
 import { DefaultonEndReachedThreshold, StartPage } from "../config/constants";
@@ -66,7 +66,7 @@ export default function usePagination<T, U extends IPagination>(
     onEndReachedCalledDuringMomentum.current = false;
   };
 
-  const currentResult = useRef<PaginateResult<any>>(InitialPaginateResult);
+  const currentResult = useRef<IPaginateResult<any>>(InitialPaginateResult);
 
   /**
    *Fetch data from API

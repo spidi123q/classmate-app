@@ -53,7 +53,7 @@ import {
   IState,
   IStyles,
   IVideoTrack,
-} from "./models";
+} from ".";
 import SystemConfig from "../../../SystemConfig";
 import { getSystemConfigValue } from "../../helpers/remoteConfig";
 

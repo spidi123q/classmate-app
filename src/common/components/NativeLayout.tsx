@@ -10,8 +10,8 @@ import {
 import { IsMobile } from "../config/constants";
 import { DefaultBackgroundColor, DefaultMargin } from "../config/themeConfig";
 import NativeView from "./NativeView";
-import Orientation from "react-native-orientation";
 import { useFocusEffect } from "@react-navigation/native";
+import Orientation from "../native/orientation";
 
 export interface INativeLayoutProps {
   backgroundColor?: string;
@@ -87,8 +87,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   safeArea: {
-    flex: IsMobile ? 1 : undefined,
-    height: !IsMobile ? "100vh" : undefined,
+    flex: 1,
   },
 });
 

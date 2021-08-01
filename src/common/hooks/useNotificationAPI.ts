@@ -4,8 +4,6 @@ import GetNotification from "../api/GetNotifications";
 import PatchNotificationsAsSeen from "../api/PatchNotificationsAsSeen";
 import { AxiosApi, IResponse } from "../helpers/axios";
 import INotification, { INotificationQuery } from "../models/Notification";
-import IPaginatedRequest from "../models/PaginatedRequest";
-import { PaginateResult } from "../models/PaginateResult";
 
 export default function useNotificationAPI() {
   const dispatch: any = useDispatch();

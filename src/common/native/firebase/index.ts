@@ -9,3 +9,4 @@ export const auth: ReactNativeFirebase.FirebaseModuleWithStaticsAndApp<
 > = firebase.auth as any;
 export const analytics = firebase.analytics;
 export const remoteConfig = firebase.remoteConfig;
+export const isSupported = firebase.messaging.isSupported;

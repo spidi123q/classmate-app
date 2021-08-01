@@ -93,6 +93,16 @@ export interface IStyles {
   containerStyle: any;
 }
 
+export interface ISource {
+  uri?: string | undefined;
+  headers?:
+    | {
+        [key: string]: string;
+      }
+    | undefined;
+  type?: string | undefined;
+}
+
 export interface IProps extends VideoProperties {
   toggleResizeModeOnFullscreen?: boolean;
   controlAnimationTiming?: 500;
@@ -114,6 +124,7 @@ export interface IProps extends VideoProperties {
   disableFullscreen?: boolean;
   disableVolume?: boolean;
   disableBack?: boolean;
+  source: ISource;
   onEnterFullscreen?: () => void;
   onExitFullscreen?: () => void;
   onShowControls?: () => void;
@@ -161,3 +172,6 @@ export const availableBitrates: IBitRate[] = [
     bitrate: 863983,
   },
 ];
+
+declare const VideoPlayer: React.ComponentType<IProps>;
+export default VideoPlayer;

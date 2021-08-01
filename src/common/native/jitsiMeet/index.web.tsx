@@ -7,9 +7,6 @@ import {
 } from "react-native";
 import { IParams } from ".";
 
-const VideoView = requireNativeComponent<any>("RNJitsiMeetView");
-export const RNJitsiMeet = NativeModules.RNJitsiMeetView;
-
 export const JitsiMeetView = () => {
   const { params } = useRoute();
   const { height, width } = useWindowDimensions();
@@ -17,8 +14,8 @@ export const JitsiMeetView = () => {
 
   useEffect(() => {
     const { userInfo, url } = params as IParams;
-    RNJitsiMeet.join(url, userInfo);
   }, []);
+
   const onConferenceTerminated = (nativeEvent: any) => {
     navigation.goBack();
     /* Conference terminated event */
@@ -31,12 +28,9 @@ export const JitsiMeetView = () => {
   const onConferenceWillJoin = (nativeEvent: any) => {
     /* Conference will join event */
   };
-  return (
-    <VideoView
-      style={{ height, width }}
-      onConferenceTerminated={onConferenceTerminated}
-      onConferenceJoined={onConferenceJoined}
-      onConferenceWillJoin={onConferenceWillJoin}
-    />
-  );
+  return null;
+};
+
+export const RNJitsiMeet = {
+  join: () => {},
 };

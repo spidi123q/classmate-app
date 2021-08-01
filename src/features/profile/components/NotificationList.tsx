@@ -2,9 +2,7 @@ import React, { createRef, useEffect, useRef } from "react";
 import { FlatList } from "react-native";
 import { Icon, ListItem } from "react-native-elements";
 import EmpyListPlaceholder from "../../../common/components/EmpyListPlaceholder";
-import NativeAvatar from "../../../common/components/NativeAvatar";
 import NativeHeader from "../../../common/components/NativeHeader";
-import NativeImage from "../../../common/components/NativeImage";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
 import SubSection from "../../../common/components/SubSection";
@@ -42,10 +40,8 @@ export default function NotificationList() {
     seenAndUpdateNotificationAlert,
     deleteNotifications,
   } = useNotificationAPI();
-  const notificationPagination = usePagination<
-    INotification,
-    INotificationQuery
-  >(getNotifications);
+  const notificationPagination =
+    usePagination<INotification, INotificationQuery>(getNotifications);
 
   const { refList } = useRefList(notificationPagination.collections.length);
 
@@ -66,7 +62,6 @@ export default function NotificationList() {
       viewRef={refList[index]}
     >
       <ListItem bottomDivider>
-        <NativeAvatar firebaseRef={item.image} />
         <ListItem.Content>
           <Typography size={FontSize.h3x}>{item.title}</Typography>
           <Typography
@@ -83,7 +78,6 @@ export default function NotificationList() {
   return (
     <NativeLayout>
       <NativeHeader
-        noBorder
         title="Notifications"
         component={
           <NativeView

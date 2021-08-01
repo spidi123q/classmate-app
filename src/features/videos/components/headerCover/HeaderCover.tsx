@@ -10,11 +10,7 @@ import Live from "../../assets/Live.svg";
 import {
   DefaultMargin,
   DefaultOpacity,
-  DefaultPlaceholderBackgroudColor,
-  DefaultPlaceholderHighlightColor,
-  SecondaryOpacity,
 } from "../../../../common/config/themeConfig";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import useVideo from "../../hooks/useVideo";
 import useUser from "../../../login/hooks/useUser";
 import { first } from "lodash";
@@ -27,6 +23,10 @@ import {
   RNJitsiMeet,
 } from "../../../../common/native/jitsiMeet";
 import { getJitsiUrl } from "../../../../common/helpers/misc";
+import {
+  NativeSkeletonItem,
+  NativeSkeletonPlaceholder,
+} from "../../../../common/components/nativeSkeleton";
 
 interface IProps {
   isLoading?: boolean;
@@ -49,12 +49,9 @@ export default function HeaderCover(props: IProps) {
 
   if (isLoading) {
     return (
-      <SkeletonPlaceholder
-        backgroundColor={DefaultPlaceholderBackgroudColor}
-        highlightColor={DefaultPlaceholderHighlightColor}
-      >
-        <SkeletonPlaceholder.Item width={width} height={coverHeight} />
-      </SkeletonPlaceholder>
+      <NativeSkeletonPlaceholder>
+        <NativeSkeletonItem width={width} height={coverHeight} />
+      </NativeSkeletonPlaceholder>
     );
   }
 

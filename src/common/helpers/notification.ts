@@ -3,7 +3,6 @@ import { AxiosApi } from "./axios";
 import { getDeviceName } from "react-native-device-info";
 import Toast from "react-native-toast-message";
 import { DefaultMargin } from "../config/themeConfig";
-import { TAB_HEIGHT } from "../../layouts/headerNavigation/navigationFooter/NavigationFooter.style";
 import { Platform } from "react-native";
 import { messaging } from "../native/firebase";
 
@@ -21,7 +20,6 @@ export const showToast = (
     text2: message,
     type: type ?? "success",
     position: position ?? "bottom",
-    bottomOffset: position === "top" ? DefaultMargin : TAB_HEIGHT,
   });
 };
 

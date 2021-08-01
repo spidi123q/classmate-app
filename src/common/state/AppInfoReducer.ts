@@ -3,12 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 
 import { AnyAction, Reducer } from "redux";
 import {
-  AppInfoReducerState,
+  IAppInfoReducerState,
   InitialAppInfoReducerState,
 } from "./AppInfoReducerState";
 
 export const AppInfoReducer: Reducer<any> = (
-  state: AppInfoReducerState = InitialAppInfoReducerState,
+  state: IAppInfoReducerState = InitialAppInfoReducerState,
   action: AnyAction
 ) => {
   switch (action.type) {
