@@ -22,7 +22,7 @@ import { Formik, FormikProps } from "formik";
 import { slideUpProps } from "../../../common/helpers/animation";
 import { otpSchema } from "./yupSchema";
 import { Platform } from "react-native";
-import firebase from "firebase";
+import RecaptchaVerifier from "../../../common/components/recaptchaVerifier";
 
 interface IProps {}
 
@@ -81,19 +81,9 @@ const OtpVerifier = (props: IProps) => {
     }
   };
 
-  const init = () => {
-    if (Platform.OS === "web") {
-      (window as any).recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
-        "sign-in-button"
-      );
-    }
-    sendOTP();
-  };
-
   useEffect(() => {
-    init();
+    sendOTP();
     const unsubscribeAuth = onAuthStateChanged();
-
     //cleanup
     return () => {
       unsubscribeAuth();
@@ -135,14 +125,9 @@ const OtpVerifier = (props: IProps) => {
                   title="Submit"
                   onPress={() => formikProps.handleSubmit()}
                 />
-                {Platform.OS === "web" && (
-                  <>
-                    <br />
-                    <div id="sign-in-button" />
-                  </>
-                )}
               </NativeView>
             </NativeView>
+            <RecaptchaVerifier />
           </NativeView>
         )}
       </Formik>

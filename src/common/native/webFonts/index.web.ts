@@ -11,10 +11,6 @@ export const initWebFonts = () => {
       src: url(${Ionicons});
       font-family: Ionicons;
     }
-    @font-face {
-      font-family: 'MaterialIcons';
-      src: url(${MaterialIcons}) format('truetype');
-    }
     `;
     // Create stylesheet
     const style: any = document.createElement("style");
