@@ -8,11 +8,11 @@ import {
   ImageBackground,
   ImageBackgroundProps,
 } from "react-native";
-import Ripple, { RippleProps } from "react-native-material-ripple";
 import * as Animatable from "react-native-animatable";
 import LinearGradient, {
   LinearGradientProps,
 } from "react-native-linear-gradient";
+import NativeRipple, { INativeRippleProps } from "./nativeRipple";
 
 type IProps =
   | IGradientProps
@@ -117,7 +117,7 @@ type ViewTypes =
 const viewMap: Record<ViewTypes, any> = {
   default: View,
   scroll: ScrollView,
-  ripple: Ripple,
+  ripple: NativeRipple,
   gradient: LinearGradient,
   animatable: Animatable.View,
   image: ImageBackground,
@@ -141,7 +141,7 @@ interface IScrollViewProps extends ScrollViewProps, IBaseProps {
   type: "scroll";
 }
 
-interface IRippleProps extends RippleProps, IBaseProps {
+interface IRippleProps extends INativeRippleProps, IBaseProps {
   type: "ripple";
 }
 
