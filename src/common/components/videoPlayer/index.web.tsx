@@ -3,6 +3,6 @@ import { IProps } from ".";
 import { Stream } from "@cloudflare/stream-react";
 
 export default function VideoPlayer(props: IProps) {
-  const { source, ...rest } = props;
-  return <Stream controls src={source.uri} {...rest} />;
+  const { cloudflareStreamVideoId, ...rest } = props;
+  return <Stream controls src={cloudflareStreamVideoId} {...rest} />;
 }

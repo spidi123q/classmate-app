@@ -49,6 +49,7 @@ export function VideoDetails() {
             })?.path,
             type: "m3u8",
           }}
+          cloudflareStreamVideoId={"3b17da6e93c3a204016b7d2d274a4792"}
           style={{ height: height / 2.05 }}
           onBack={navigation.goBack}
           onEnterFullscreen={() => {

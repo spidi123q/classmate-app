@@ -92,17 +92,6 @@ export interface IStyles {
   videoStyle: any;
   containerStyle: any;
 }
-
-export interface ISource {
-  uri?: string | undefined;
-  headers?:
-    | {
-        [key: string]: string;
-      }
-    | undefined;
-  type?: string | undefined;
-}
-
 export interface IProps extends VideoProperties {
   toggleResizeModeOnFullscreen?: boolean;
   controlAnimationTiming?: 500;
@@ -124,7 +113,7 @@ export interface IProps extends VideoProperties {
   disableFullscreen?: boolean;
   disableVolume?: boolean;
   disableBack?: boolean;
-  source: ISource;
+  cloudflareStreamVideoId?: string;
   onEnterFullscreen?: () => void;
   onExitFullscreen?: () => void;
   onShowControls?: () => void;

@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   safeArea: {
-    flex: 1,
+    flex: IsMobile ? 1 : undefined,
+    height: !IsMobile ? "100vh" : undefined,
   },
 });
 

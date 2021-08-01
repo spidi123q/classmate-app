@@ -35,16 +35,17 @@ const ProfileForm = (props: IProps) => {
     loading.start();
     const user = await getUser(false);
     try {
-      const isValid = await profileSchema.isValid(user.payload);
+      const isValid = profileSchema.isValidSync(user.payload);
       if (!isValid) {
         // Firebase is still logged in so need to logout first if user want to login again
         logout();
       }
+      loading.stop();
       setIsProfileComplete(isValid);
     } catch (e) {
+      loading.stop();
       showToast(ToastTitle.FormError, "Validation Failed", "error");
     }
-    loading.stop();
     successLottieRef.current?.play();
   };
 
