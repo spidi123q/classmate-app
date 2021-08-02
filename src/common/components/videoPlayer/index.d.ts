@@ -147,6 +147,12 @@ export interface IState extends Omit<IProps, "source"> {
   currentVideoTrack?: IVideoTrack;
 }
 
+export interface INativeVideoPlayerProps extends IProps {
+  cloudflareStreamVideoId: string;
+  height?: number;
+  width?: number;
+}
+
 export const availableBitrates: IBitRate[] = [
   {
     name: "180p",
