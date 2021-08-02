@@ -35,6 +35,7 @@ export default function () {
           onRefresh={() => reloadVideos(videoQuery)}
         />
       }
+      lockToPortrait
     >
       <HeaderCover isLoading={showPlaceholder} />
       <NativeView marginHorizontal={DefaultMargin} marginBottom={DefaultMargin}>

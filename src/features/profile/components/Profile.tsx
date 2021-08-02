@@ -11,7 +11,7 @@ import BlankUser from "../assets/BlankUser.svg";
 export default function Profile() {
   const { name, phone, email, organization, classroom } = useUser();
   return (
-    <NativeLayout scroll>
+    <NativeLayout scroll lockToPortrait>
       <NativeHeader title="Edit Profile" />
       <NativeView marginTop={DefaultMargin} marginHorizontal={DefaultMargin}>
         <NativeView

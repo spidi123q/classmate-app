@@ -91,7 +91,7 @@ const OtpVerifier = (props: IProps) => {
   }, []);
 
   return (
-    <NativeLayout horizontalMargin>
+    <NativeLayout horizontalMargin lockToPortrait>
       <Formik
         validationSchema={otpSchema}
         initialValues={{

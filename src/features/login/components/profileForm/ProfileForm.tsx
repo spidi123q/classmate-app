@@ -70,7 +70,7 @@ const ProfileForm = (props: IProps) => {
 
   if (isProfileComplete) {
     return (
-      <NativeLayout>
+      <NativeLayout lockToPortrait>
         <Loader
           type="success"
           onAnimationFinish={() => getUser()}

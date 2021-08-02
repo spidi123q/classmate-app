@@ -328,7 +328,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
       : this._renderNextButton();
 
     return (
-      <NativeLayout noSafeArea>
+      <NativeLayout noSafeArea lockToPortrait>
         <StatusBar translucent backgroundColor={"transparent"} />
         <NativeView flex={3}>
           <FlatList

@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <NativeLayout horizontalMargin>
+    <NativeLayout horizontalMargin lockToPortrait>
       <Formik
         validationSchema={loginSchema}
         initialValues={InitialLoginForm}

@@ -22,6 +22,7 @@ export interface INativeLayoutProps {
   marginTop?: number;
   noSafeArea?: boolean;
   scroll?: boolean;
+  lockToPortrait?: boolean;
   refreshControl?:
     | React.ReactElement<
         RefreshControlProps,
@@ -42,11 +43,14 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
     noSafeArea,
     scroll,
     refreshControl,
+    lockToPortrait,
     ...rest
   } = props;
 
   useFocusEffect(() => {
-    Orientation.lockToPortrait();
+    if (lockToPortrait) {
+      Orientation.lockToPortrait();
+    }
   });
 
   const LayoutView = noSafeArea ? View : SafeAreaView;
