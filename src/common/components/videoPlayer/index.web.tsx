@@ -19,7 +19,13 @@ export default function CloudFlareVideoPlayer(props: IProps) {
           onPress={onBack}
         />
       </NativeView>
-      <Stream controls src={cloudflareStreamVideoId} {...rest} />
+      <Stream
+        controls
+        preload
+        autoplay
+        src={cloudflareStreamVideoId}
+        {...rest}
+      />
     </NativeView>
   );
 }
