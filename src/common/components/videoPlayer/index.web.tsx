@@ -6,7 +6,7 @@ import { DefaultIconFamily } from "../../config/themeConfig";
 import styles, { PlayerIconColor } from "./VideoPlayer.style";
 import NativeView from "../NativeView";
 
-export default function VideoPlayer(props: IProps) {
+export default function CloudFlareVideoPlayer(props: IProps) {
   const { cloudflareStreamVideoId, onBack, ...rest } = props;
   return (
     <NativeView minHeight={200}>

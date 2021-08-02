@@ -7,7 +7,7 @@ import NativeHeader from "../../../common/components/NativeHeader";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
-import VideoPlayer from "../../../common/components/videoPlayer";
+import CloudFlareVideoPlayer from "../../../common/components/videoPlayer";
 import {
   DefaultMargin,
   DefaultOpacity,
@@ -40,16 +40,14 @@ export function VideoDetails() {
   return (
     <NativeLayout statusBarColor="black" noSafeArea>
       <ScrollView ref={scrollRef}>
-        <VideoPlayer
+        <CloudFlareVideoPlayer
           source={{
-            uri: find(video.streamingLocatorAzure, {
-              streamingProtocol: getSystemConfigValue(
-                "streamingProtocol"
-              ) as StreamingPolicyStreamingProtocol,
-            })?.path,
+            uri: "https://videodelivery.net/eyJhbGciOiJSUzI1NiIsImtpZCI6ImUzOTFhMDAxYjFkZDU0YjM2MjEyYjJhYThkZjQyZTk3In0.eyJzdWIiOiIwMmFjMGI4MDZjM2MyMzFjNWUxMzdkZTBjM2M3ZDUxYSIsImtpZCI6ImUzOTFhMDAxYjFkZDU0YjM2MjEyYjJhYThkZjQyZTk3IiwiZXhwIjoxNjI3OTAwNjA3fQ.XL083vmcwPFk70uJyzi1EPxB2PgQHM9sScbmsg5x68pbsdA1K6oKcPv1ZNJFYV3WZPI2aDInYUboLN-ZP-0M2pbrrfWvvWUGp21ZCb94_-iBLi-8YuPtJ2crnifeVL_DcyVGcej-xYNxaI80S6wuiMHcyWDrvaHGwtP4PexeX2WLBohTB06s44YI6VfIpUnVln2Qlq3-0hxLtAxw5FSfbEAe-EW7xrM2gYKiH4VL6sYcSM9SXvT9xQBPG9fQysZG7l2A_z3F8KqxEn5X9dVAcSoqfrb13a-xaeMJqYNpPr25pB7em2si7bFNpQJgTtWlXGfZsJuMBesh5Tl2ruu9TA/manifest/video.m3u8",
             type: "m3u8",
           }}
-          cloudflareStreamVideoId={"3b17da6e93c3a204016b7d2d274a4792"}
+          cloudflareStreamVideoId={
+            "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUzOTFhMDAxYjFkZDU0YjM2MjEyYjJhYThkZjQyZTk3In0.eyJzdWIiOiIwMmFjMGI4MDZjM2MyMzFjNWUxMzdkZTBjM2M3ZDUxYSIsImtpZCI6ImUzOTFhMDAxYjFkZDU0YjM2MjEyYjJhYThkZjQyZTk3IiwiZXhwIjoxNjI3OTAwNjA3fQ.XL083vmcwPFk70uJyzi1EPxB2PgQHM9sScbmsg5x68pbsdA1K6oKcPv1ZNJFYV3WZPI2aDInYUboLN-ZP-0M2pbrrfWvvWUGp21ZCb94_-iBLi-8YuPtJ2crnifeVL_DcyVGcej-xYNxaI80S6wuiMHcyWDrvaHGwtP4PexeX2WLBohTB06s44YI6VfIpUnVln2Qlq3-0hxLtAxw5FSfbEAe-EW7xrM2gYKiH4VL6sYcSM9SXvT9xQBPG9fQysZG7l2A_z3F8KqxEn5X9dVAcSoqfrb13a-xaeMJqYNpPr25pB7em2si7bFNpQJgTtWlXGfZsJuMBesh5Tl2ruu9TA"
+          }
           style={{ height: height / 2.05 }}
           onBack={navigation.goBack}
           onEnterFullscreen={() => {

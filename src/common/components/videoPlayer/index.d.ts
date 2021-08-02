@@ -162,5 +162,5 @@ export const availableBitrates: IBitRate[] = [
   },
 ];
 
-declare const VideoPlayer: React.ComponentType<IProps>;
-export default VideoPlayer;
+declare const CloudFlareVideoPlayer: React.ComponentType<IProps>;
+export default CloudFlareVideoPlayer;

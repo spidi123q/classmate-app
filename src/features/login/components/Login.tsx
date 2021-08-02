@@ -20,7 +20,7 @@ import {
 } from "../../../common/config/themeConfig";
 import Typography from "../../../common/components/Typography";
 import { Icon } from "react-native-elements";
-import VideoPlayer from "../../../common/components/videoPlayer/index.native";
+import VideoPlayer from "../../../common/components/videoPlayer/VideoPlayer";
 import { VericalSpacer } from "../../../common/components/VericalSpacer";
 import NativeButton from "../../../common/components/NativeButton";
 import NativeField from "../../../common/components/NativeField";
