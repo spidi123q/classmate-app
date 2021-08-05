@@ -91,11 +91,7 @@ const NativeHeader = forwardRef((props: IProps, ref: any) => {
               style={styles.titleContainer}
               ref={(ref) => (titleViewRef.current = ref)}
             >
-              <Typography
-                type="h3x"
-                family="semiBold"
-                marginTop={DefaultMargin + 10}
-              >
+              <Typography type="h3x" marginTop={DefaultMargin + 10}>
                 {title}
               </Typography>
             </Animatable.View>

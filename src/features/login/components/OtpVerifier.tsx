@@ -103,10 +103,10 @@ const OtpVerifier = (props: IProps) => {
         {(formikProps: FormikProps<IOtpForm>) => (
           <NativeView type="animatable" {...slideUpProps}>
             <NativeView marginTop={DoubleMargin}>
-              <Typography type="h1x" family="semiBold">
+              <Typography type="h1x" family="bold">
                 Enter Verification
               </Typography>
-              <Typography type="h1x" family="semiBold">
+              <Typography type="h1x" family="bold">
                 code
               </Typography>
             </NativeView>

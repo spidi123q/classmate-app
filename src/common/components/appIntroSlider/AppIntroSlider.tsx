@@ -155,7 +155,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
           title={label}
           onPress={onPress}
           titleStyle={{
-            fontFamily: FontFamily.semiBold,
+            fontFamily: FontFamily.regular,
             color: AppTheme["color-primary-500"],
           }}
         />

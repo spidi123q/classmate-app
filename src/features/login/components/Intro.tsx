@@ -33,7 +33,6 @@ export default function Intro() {
             <Typography
               marginBottom={5}
               type="h2"
-              family="semiBold"
               marginHorizontal={DefaultMargin}
             >
               {item.title}

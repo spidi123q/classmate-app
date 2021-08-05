@@ -40,11 +40,7 @@ export default function ErrorLayout(props: IProps) {
                     />
                   </Animatable.View>
                   <NativeView justifyContent="center" alignItems="center">
-                    <Typography
-                      family="semiBold"
-                      type="h2"
-                      marginVertical={DefaultMargin}
-                    >
+                    <Typography type="h2" marginVertical={DefaultMargin}>
                       Update app to continue
                     </Typography>
                     <NativeButton

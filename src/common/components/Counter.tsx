@@ -29,7 +29,6 @@ function Counter(props: ICounterProps) {
           {value}
         </Typography>
         <Typography
-          family="semiBold"
           size={FontSize.regular}
           marginLeft={TextMargin}
           marginBottom={Platform.OS === "android" ? -7 : undefined}

@@ -96,7 +96,7 @@ const ProfileForm = (props: IProps) => {
         >
           {(formikProps: FormikProps<IUserEdit>) => (
             <NativeView flex={1} alignItems="center" justifyContent="center">
-              <Typography family="semiBold" type="h1x" textAlign="center">
+              <Typography type="h1x" textAlign="center">
                 You have no active subscription.
               </Typography>
             </NativeView>

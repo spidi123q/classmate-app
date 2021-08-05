@@ -1,6 +1,6 @@
 # # XD Screens
 
-https://xd.adobe.com/view/f6d1ae63-4e55-49ad-9500-58849b48f71b-a382/
+https://xd.adobe.com/view/68792abe-d733-4c9c-9fe1-056f3c98b9c7-3d2a/screen/ebcfefdf-884e-4749-8f67-8a81d98ec92f/specs/
 
 # # Native Modules
 
