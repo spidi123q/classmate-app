@@ -1,10 +1,10 @@
 import { Platform } from "react-native";
 import Ionicons from "react-native-vector-icons/Fonts/Ionicons.ttf";
-import HelveticaNeue from "../../assets/fonts/HelveticaNeue.otf";
-import HelveticaNeueUltraLight from "../../assets/fonts/HelveticaNeue-UltraLight.otf";
-import HelveticaNeueMedium from "../../assets/fonts/HelveticaNeue-Medium.otf";
-import HelveticaNeueLight from "../../assets/fonts/HelveticaNeue-Light.otf";
-import HelveticaNeueBold from "../../assets/fonts/HelveticaNeue-Bold.otf";
+import HelveticaNeue from "../../assets/fonts/HelveticaNeue.woff2";
+import HelveticaNeueUltraLight from "../../assets/fonts/HelveticaNeue-UltraLight.woff2";
+import HelveticaNeueMedium from "../../assets/fonts/HelveticaNeue-Medium.woff2";
+import HelveticaNeueLight from "../../assets/fonts/HelveticaNeue-Light.woff2";
+import HelveticaNeueBold from "../../assets/fonts/HelveticaNeue-Bold.woff2";
 
 /**
  * insert font icons for web
@@ -17,27 +17,27 @@ export const initWebFonts = () => {
     }
 
     @font-face {
-      src: url(${HelveticaNeue});
+      src: url(${HelveticaNeue}) format('woff2');
       font-family: HelveticaNeue;
     }
 
     @font-face {
-      src: url(${HelveticaNeueUltraLight});
+      src: url(${HelveticaNeueUltraLight}) format('woff2');
       font-family: HelveticaNeue-UltraLight;
     }
 
     @font-face {
-      src: url(${HelveticaNeueMedium});
+      src: url(${HelveticaNeueMedium}) format('woff2');
       font-family: HelveticaNeue-Medium;
     }
 
     @font-face {
-      src: url(${HelveticaNeueLight});
+      src: url(${HelveticaNeueLight}) format('woff2');
       font-family: HelveticaNeue-Light;
     }
 
     @font-face {
-      src: url(${HelveticaNeueBold});
+      src: url(${HelveticaNeueBold}) format('woff2');
       font-family: HelveticaNeue-Bold;
     }
     `;

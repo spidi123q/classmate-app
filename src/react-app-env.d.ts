@@ -21,6 +21,9 @@ declare module "*.otf" {
   export default content;
 }
 
+declare module "*.woff2" {
+  export default content;
+}
 declare module "react-native-material-ripple" {
   import { TouchableWithoutFeedbackProps } from "react-native";
   export interface RippleProps extends TouchableWithoutFeedbackProps {
