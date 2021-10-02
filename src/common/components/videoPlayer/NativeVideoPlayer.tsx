@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useWindowDimensions } from "react-native";
 import CloudFlareVideoPlayer, { INativeVideoPlayerProps } from ".";
 import { getSystemConfigValue } from "../../helpers/remoteConfig";
-import useCloudflareStream from "../../hooks/useCloudflareStream";
+import useCloudflareStreamAPI from "../../hooks/useCloudflareStreamAPI";
 import {
   ICloudflareVideoDetails,
   IPlayback,
@@ -12,15 +12,14 @@ import { NativeSkeletonPlaceholder } from "../nativeSkeleton";
 
 export default function NativeVideoPlayer(props: INativeVideoPlayerProps) {
   const { cloudflareStreamVideoId, height, width, ...rest } = props;
-  const { getVideoDetails } = useCloudflareStream();
-  const [videoDetails, setVideoDetails] = useState<ICloudflareVideoDetails>();
+  const { getVideoSignedToken } = useCloudflareStreamAPI();
+  const [signedVideoToken, setSignedVideoToken] = useState<string>();
   const navigation = useNavigation();
-  const protocol = getSystemConfigValue("streamingProtocol") as keyof IPlayback;
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const initVideo = async () => {
-    const result = await getVideoDetails(cloudflareStreamVideoId);
-    setVideoDetails(result?.payload);
+    const result = await getVideoSignedToken(cloudflareStreamVideoId);
+    setSignedVideoToken(result?.payload.data);
     setIsLoading(false);
   };
 
@@ -41,18 +40,18 @@ export default function NativeVideoPlayer(props: INativeVideoPlayerProps) {
     );
   }
 
-  if (!videoDetails) {
+  if (!signedVideoToken) {
     return null;
   }
 
   return (
     <CloudFlareVideoPlayer
-      cloudflareStreamVideoId={videoDetails.token}
+      cloudflareStreamVideoId={signedVideoToken}
       style={{ height, width }}
       onBack={navigation.goBack}
       {...rest}
       source={{
-        uri: videoDetails.playback[protocol],
+        uri: `https://videodelivery.net/${signedVideoToken}/manifest/video.m3u8`,
       }}
     />
   );

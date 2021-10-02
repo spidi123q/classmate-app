@@ -40,7 +40,7 @@ export default function VideoList(props: IProps) {
     >
       <Image
         source={{
-          uri: item.coverImageAzureBlob.url,
+          uri: item.coverImageUrl,
         }}
         style={imageStyle}
       />
