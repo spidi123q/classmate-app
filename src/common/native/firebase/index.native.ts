@@ -7,3 +7,4 @@ export const messaging = Messaging;
 export const auth = Auth;
 export const analytics = Analytics;
 export const remoteConfig = RemoteConfig;
+export const isSupported = () => true;

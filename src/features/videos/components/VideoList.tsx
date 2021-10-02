@@ -2,21 +2,16 @@ import React from "react";
 import { FlatList, ImageStyle, StyleProp } from "react-native";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
-import {
-  DefaultBorderRadius,
-  DefaultMargin,
-  DefaultPlaceholderBackgroudColor,
-  DefaultPlaceholderHighlightColor,
-} from "../../../common/config/themeConfig";
+import { DefaultMargin } from "../../../common/config/themeConfig";
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { Image } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { HomePages } from "../../../models/RoutePath";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { DefaultPlaceholderList } from "../../../common/config/constants";
 import IVideo from "../../../models/Video";
 import { IParam } from "./VideoDetails";
 import useVideoActions from "../hooks/useVideoActions";
+import { NativeSkeletonPlaceholder } from "../../../common/components/nativeSkeleton";
 
 interface IProps {
   title?: string;
@@ -83,19 +78,17 @@ const Placeholder = () => (
   <FlatList
     data={DefaultPlaceholderList}
     renderItem={({ item }) => (
-      <SkeletonPlaceholder
-        backgroundColor={DefaultPlaceholderBackgroudColor}
-        highlightColor={DefaultPlaceholderHighlightColor}
-      >
-        <SkeletonPlaceholder.Item
-          width={imageStyle.width}
-          height={imageStyle.height}
-          borderRadius={imageStyle.borderRadius}
-          marginTop={DefaultMargin / 2}
-          marginRight={DefaultMargin}
-          key={item}
-        />
-      </SkeletonPlaceholder>
+      <NativeSkeletonPlaceholder
+        items={[
+          {
+            width: imageStyle.width,
+            height: imageStyle.height,
+            borderRadius: imageStyle.borderRadius,
+            marginTop: DefaultMargin / 2,
+            marginRight: DefaultMargin,
+          },
+        ]}
+      ></NativeSkeletonPlaceholder>
     )}
     keyExtractor={(item) => item.toString()}
     horizontal

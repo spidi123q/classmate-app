@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
 import KeyValuePair from "./common/models/KeyValuePair";
 import appJson from "./app.json";
-import { StreamingPolicyStreamingProtocol } from "./common/models/azure/mediaServices";
+import { IPlayback } from "./common/models/cloudflare/CloudflareVideoDetails";
 
 interface SystemConfig {
   currency: string;
@@ -11,7 +11,7 @@ interface SystemConfig {
   appName: string;
   // Maximum allowed video track height
   maxVideoResolution: number;
-  streamingProtocol: StreamingPolicyStreamingProtocol;
+  streamingProtocol: keyof IPlayback;
   jitsiDomain: string;
 }
 
@@ -22,7 +22,7 @@ const SystemConfig: SystemConfig = {
   swipeCancelSpeed: 50,
   appName: appJson.displayName,
   maxVideoResolution: 550,
-  streamingProtocol: "Hls",
+  streamingProtocol: "hls",
   jitsiDomain: "meet.jit.si",
 };
 

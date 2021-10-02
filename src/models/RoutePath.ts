@@ -2,9 +2,9 @@ export enum RoutePath {
   Root = "root",
   Home = "/",
   Auth = "auth",
-  Login = "/login",
-  OtpVerifier = "/login/otp",
-  ProfileComplete = "/login/profileComplete",
+  Login = "Login",
+  OtpVerifier = "Login OTP",
+  ProfileComplete = "Login Complete Profile",
   Page = "/page/:name",
   Error = "/error/:type",
   Dashboard = "dashboard",
@@ -12,8 +12,8 @@ export enum RoutePath {
 }
 
 export const HomePages = {
-  Videos: "/videos",
-  VideoDetails: "/videos/details",
-  Profile: "/profile",
-  JitsiMeet: "/jitsi",
+  Videos: "Videos",
+  VideoDetails: "Video Details",
+  Profile: "Profile",
+  JitsiMeet: "Live",
 };

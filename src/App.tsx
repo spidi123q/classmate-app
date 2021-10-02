@@ -16,7 +16,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 function App() {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate persistor={persistor}>
         <ThemeProvider>
           <NotificationProvider>
             <NavigationContainer>

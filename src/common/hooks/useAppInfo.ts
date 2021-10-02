@@ -1,7 +1,5 @@
-import _ from "lodash";
 import { useSelector } from "react-redux";
 import AppState from "../../store/AppState";
-import { AppInfoReducerState } from "../state/AppInfoReducerState";
 
 /**
  * Get user data

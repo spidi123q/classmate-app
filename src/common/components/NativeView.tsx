@@ -8,11 +8,11 @@ import {
   ImageBackground,
   ImageBackgroundProps,
 } from "react-native";
-import Ripple, { RippleProps } from "react-native-material-ripple";
 import * as Animatable from "react-native-animatable";
 import LinearGradient, {
   LinearGradientProps,
 } from "react-native-linear-gradient";
+import NativeRipple, { INativeRippleProps } from "./nativeRipple";
 
 type IProps =
   | IGradientProps
@@ -41,6 +41,7 @@ const NativeView: React.FunctionComponent<IProps> = (props) => {
     borderBottomColor,
     borderBottomWidth,
     backgroundColor,
+    minHeight,
     viewRef,
     top,
     bottom,
@@ -48,6 +49,8 @@ const NativeView: React.FunctionComponent<IProps> = (props) => {
     right,
     position,
     height,
+    maxWidth,
+    maxHeight,
     width,
     ...rest
   } = props;
@@ -83,6 +86,9 @@ const NativeView: React.FunctionComponent<IProps> = (props) => {
           position,
           height,
           width,
+          maxWidth,
+          maxHeight,
+          minHeight,
           resizeMethod: props.type === "image" ? props.resizeMethod : undefined,
           resizeMode: props.type === "image" ? props.resizeMode : undefined,
         },
@@ -111,7 +117,7 @@ type ViewTypes =
 const viewMap: Record<ViewTypes, any> = {
   default: View,
   scroll: ScrollView,
-  ripple: Ripple,
+  ripple: NativeRipple,
   gradient: LinearGradient,
   animatable: Animatable.View,
   image: ImageBackground,
@@ -135,7 +141,7 @@ interface IScrollViewProps extends ScrollViewProps, IBaseProps {
   type: "scroll";
 }
 
-interface IRippleProps extends RippleProps, IBaseProps {
+interface IRippleProps extends INativeRippleProps, IBaseProps {
   type: "ripple";
 }
 

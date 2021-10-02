@@ -54,10 +54,7 @@ const SubSection: React.FunctionComponent<IProps> = ({
             rippleContainerBorderRadius={DefaultBorderRadius}
             onPress={() => onViewMore(title)}
           >
-            <Typography
-              family="semiBold"
-              color={AppTheme["color-primary-dark"]}
-            >
+            <Typography color={AppTheme["color-primary-dark"]}>
               View More
             </Typography>
             <Icon

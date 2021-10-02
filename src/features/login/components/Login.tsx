@@ -8,7 +8,6 @@ import NativeLayout from "../../../common/components/NativeLayout";
 import styles from "./Login.style";
 import * as Animatable from "react-native-animatable";
 import { slideUpProps } from "../../../common/helpers/animation";
-import useKeyBoard from "../../../common/helpers/useKeyboard";
 import { useNavigation } from "@react-navigation/native";
 import {
   DefaultIconFamily,
@@ -28,7 +27,6 @@ import { isEmpty } from "lodash";
 import NativeView from "../../../common/components/NativeView";
 
 const Login = () => {
-  const isKeyBoardActive = useKeyBoard();
   const navigation = useNavigation();
 
   const signIn = ({ phone }: LoginForm) => {
@@ -38,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <NativeLayout horizontalMargin>
+    <NativeLayout horizontalMargin lockToPortrait>
       <Formik
         validationSchema={loginSchema}
         initialValues={InitialLoginForm}
@@ -48,10 +46,10 @@ const Login = () => {
         {(formikProps: FormikProps<LoginForm>) => (
           <NativeView type="animatable" {...slideUpProps}>
             <NativeView marginTop={DoubleMargin}>
-              <Typography type="h1x" family="semiBold">
+              <Typography type="h1x" family="bold">
                 Login to your
               </Typography>
-              <Typography type="h1x" family="semiBold">
+              <Typography type="h1x" family="bold">
                 account
               </Typography>
               <Typography opacity={DefaultOpacity} marginTop={DefaultMargin}>

@@ -8,6 +8,7 @@ import { AppTheme } from "../common/config/custom-theme";
 import { Platform, SafeAreaView } from "react-native";
 import BackgroundColor from "@codebet/react-native-background-color";
 import { DefaultBackgroundColor } from "../common/config/themeConfig";
+import { initWebFonts } from "../common/native/webFonts";
 
 const elementsTheme: Theme = {
   colors: {
@@ -24,6 +25,7 @@ const ThemeProvider: React.FunctionComponent = (props) => {
       SplashScreen.hide();
     }
     BackgroundColor.setColor(DefaultBackgroundColor);
+    initWebFonts();
   }, []);
 
   return (

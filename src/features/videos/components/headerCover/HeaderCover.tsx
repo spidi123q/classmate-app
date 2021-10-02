@@ -10,11 +10,7 @@ import Live from "../../assets/Live.svg";
 import {
   DefaultMargin,
   DefaultOpacity,
-  DefaultPlaceholderBackgroudColor,
-  DefaultPlaceholderHighlightColor,
-  SecondaryOpacity,
 } from "../../../../common/config/themeConfig";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import useVideo from "../../hooks/useVideo";
 import useUser from "../../../login/hooks/useUser";
 import { first } from "lodash";
@@ -27,6 +23,8 @@ import {
   RNJitsiMeet,
 } from "../../../../common/native/jitsiMeet";
 import { getJitsiUrl } from "../../../../common/helpers/misc";
+import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeSkeleton";
+import Airboard2 from "../../../login/assets/Artboard_2.jpg";
 
 interface IProps {
   isLoading?: boolean;
@@ -43,19 +41,21 @@ export default function HeaderCover(props: IProps) {
   const { setLastPlayedVideo } = useVideoActions();
   const isLive = classroom?.liveDetails?.isLive;
 
-  if (!video && !isLive) {
-    return null;
-  }
-
   if (isLoading) {
     return (
-      <SkeletonPlaceholder
-        backgroundColor={DefaultPlaceholderBackgroudColor}
-        highlightColor={DefaultPlaceholderHighlightColor}
-      >
-        <SkeletonPlaceholder.Item width={width} height={coverHeight} />
-      </SkeletonPlaceholder>
+      <NativeSkeletonPlaceholder
+        items={[
+          {
+            width,
+            height: coverHeight,
+          },
+        ]}
+      />
     );
+  }
+
+  if (!video && !isLive) {
+    return null;
   }
 
   const openVideo = (video: IVideo) => {
@@ -67,15 +67,17 @@ export default function HeaderCover(props: IProps) {
 
   const onPlay = (video?: IVideo) => {
     if (isLive) {
-      const url = getJitsiUrl(classroom?.liveDetails?.roomName ?? "");
+      const roomName = classroom?.liveDetails?.roomName ?? "";
+      const url = getJitsiUrl(roomName);
       const userInfo: IJitsiMeetUserInfo = {
         displayName: name,
       };
 
-      if (Platform.OS === "ios") {
+      if (Platform.OS === "ios" || Platform.OS === "web") {
         navigation.navigate(HomePages.JitsiMeet, {
           url,
           userInfo,
+          roomName,
         });
       } else if (Platform.OS === "android") {
         RNJitsiMeet.join(url, userInfo);
@@ -90,7 +92,7 @@ export default function HeaderCover(props: IProps) {
       type="image"
       source={
         isLive
-          ? require("../../../login/assets/Artboard_2.jpg")
+          ? Airboard2
           : {
               uri: video?.coverImageAzureBlob.url,
             }

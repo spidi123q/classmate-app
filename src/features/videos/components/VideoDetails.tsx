@@ -7,14 +7,12 @@ import NativeHeader from "../../../common/components/NativeHeader";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
-import VideoPlayer from "../../../common/components/videoPlayer/VideoPlayer";
+import NativeVideoPlayer from "../../../common/components/videoPlayer/NativeVideoPlayer";
 import {
   DefaultMargin,
   DefaultOpacity,
   DescriptionLineHeight,
 } from "../../../common/config/themeConfig";
-import { getSystemConfigValue } from "../../../common/helpers/remoteConfig";
-import { StreamingPolicyStreamingProtocol } from "../../../common/models/azure/mediaServices";
 import IVideo from "../../../models/Video";
 import useUser from "../../login/hooks/useUser";
 import useVideo from "../hooks/useVideo";
@@ -26,7 +24,6 @@ export function VideoDetails() {
   const { params } = useRoute();
   const video = (params as IParam).video;
   const { height, width } = useWindowDimensions();
-  const navigation = useNavigation();
   const scrollRef = useRef<ScrollView>(null);
   const { classroom } = useUser();
   const { videoSummary } = useVideo();
@@ -40,17 +37,13 @@ export function VideoDetails() {
   return (
     <NativeLayout statusBarColor="black" noSafeArea>
       <ScrollView ref={scrollRef}>
-        <VideoPlayer
+        <NativeVideoPlayer
           source={{
-            uri: find(video.streamingLocatorAzure, {
-              streamingProtocol: getSystemConfigValue(
-                "streamingProtocol"
-              ) as StreamingPolicyStreamingProtocol,
-            })?.path,
+            uri: "https://videodelivery.net/eyJhbGciOiJSUzI1NiIsImtpZCI6ImUzOTFhMDAxYjFkZDU0YjM2MjEyYjJhYThkZjQyZTk3In0.eyJzdWIiOiIwMmFjMGI4MDZjM2MyMzFjNWUxMzdkZTBjM2M3ZDUxYSIsImtpZCI6ImUzOTFhMDAxYjFkZDU0YjM2MjEyYjJhYThkZjQyZTk3IiwiZXhwIjoxNjI3OTAwNjA3fQ.XL083vmcwPFk70uJyzi1EPxB2PgQHM9sScbmsg5x68pbsdA1K6oKcPv1ZNJFYV3WZPI2aDInYUboLN-ZP-0M2pbrrfWvvWUGp21ZCb94_-iBLi-8YuPtJ2crnifeVL_DcyVGcej-xYNxaI80S6wuiMHcyWDrvaHGwtP4PexeX2WLBohTB06s44YI6VfIpUnVln2Qlq3-0hxLtAxw5FSfbEAe-EW7xrM2gYKiH4VL6sYcSM9SXvT9xQBPG9fQysZG7l2A_z3F8KqxEn5X9dVAcSoqfrb13a-xaeMJqYNpPr25pB7em2si7bFNpQJgTtWlXGfZsJuMBesh5Tl2ruu9TA/manifest/video.m3u8",
             type: "m3u8",
           }}
-          style={{ height: height / 2.05 }}
-          onBack={navigation.goBack}
+          cloudflareStreamVideoId={"02ac0b806c3c231c5e137de0c3c7d51a"}
+          height={height / 2.05}
           onEnterFullscreen={() => {
             scrollRef.current?.setNativeProps({
               scrollEnabled: false,

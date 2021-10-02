@@ -1,5 +1,5 @@
 import GeoJSON from "../common/models/GeoJSON";
-import ITimeStamps from "../common/models/TimeStamps";
+import { ITimeStamps } from "../common/models/TimeStamps";
 
 export default interface IOrganization extends ITimeStamps {
   _id: string;

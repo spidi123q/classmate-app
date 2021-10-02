@@ -21,6 +21,8 @@ import NativeField from "../../../common/components/NativeField";
 import { Formik, FormikProps } from "formik";
 import { slideUpProps } from "../../../common/helpers/animation";
 import { otpSchema } from "./yupSchema";
+import { Platform } from "react-native";
+import RecaptchaVerifier from "../../../common/components/recaptchaVerifier";
 
 interface IProps {}
 
@@ -28,19 +30,13 @@ const OtpVerifier = (props: IProps) => {
   const route = useRoute<Route<string, IParams | undefined>>();
   const [confirmationResult, setConfirmationResult] =
     useState<FirebaseAuthTypes.ConfirmationResult>();
-  const [isVerified, setIsVerified] = useState<boolean>(false);
   const navigation = useNavigation();
 
-  // Launch profile complete form if profile is verified
-  if (isVerified) {
+  const onVerified = async () => {
     navigation.reset({
       index: 0,
       routes: [{ name: RoutePath.ProfileComplete }],
     });
-  }
-
-  const onVerified = async () => {
-    setIsVerified(true);
   };
 
   const loginSuccess = (result: FirebaseAuthTypes.User | undefined | null) => {
@@ -76,7 +72,8 @@ const OtpVerifier = (props: IProps) => {
     }
     try {
       const confirmationResult = await auth().signInWithPhoneNumber(
-        route.params.phone
+        route.params.phone,
+        Platform.OS === "web" ? (window as any).recaptchaVerifier : undefined
       );
       setConfirmationResult(confirmationResult);
     } catch (err) {
@@ -87,7 +84,6 @@ const OtpVerifier = (props: IProps) => {
   useEffect(() => {
     sendOTP();
     const unsubscribeAuth = onAuthStateChanged();
-
     //cleanup
     return () => {
       unsubscribeAuth();
@@ -95,7 +91,7 @@ const OtpVerifier = (props: IProps) => {
   }, []);
 
   return (
-    <NativeLayout horizontalMargin>
+    <NativeLayout horizontalMargin lockToPortrait>
       <Formik
         validationSchema={otpSchema}
         initialValues={{
@@ -107,10 +103,10 @@ const OtpVerifier = (props: IProps) => {
         {(formikProps: FormikProps<IOtpForm>) => (
           <NativeView type="animatable" {...slideUpProps}>
             <NativeView marginTop={DoubleMargin}>
-              <Typography type="h1x" family="semiBold">
+              <Typography type="h1x" family="bold">
                 Enter Verification
               </Typography>
-              <Typography type="h1x" family="semiBold">
+              <Typography type="h1x" family="bold">
                 code
               </Typography>
             </NativeView>
@@ -131,6 +127,7 @@ const OtpVerifier = (props: IProps) => {
                 />
               </NativeView>
             </NativeView>
+            <RecaptchaVerifier />
           </NativeView>
         )}
       </Formik>

@@ -26,7 +26,7 @@ export default function useVideoAPI() {
     query: IVideoQuery
   ): IPaginateResponse<IVideo> => {
     loading.start();
-    await dispatch(VideoActions.GetUserOnSuccess([]));
+    await dispatch(VideoActions.GetVideoOnSuccess([]));
     loading.stop();
     // used to update classroom live status
     await getUser();

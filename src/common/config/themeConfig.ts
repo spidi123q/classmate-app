@@ -11,13 +11,7 @@ export type FontType =
   | "xsx"
   | "xs";
 
-export type IFontFamily =
-  | "light"
-  | "regular"
-  | "medium"
-  | "semiBold"
-  | "bold"
-  | "extraBold";
+export type IFontFamily = "light" | "regular" | "medium" | "bold" | "ultaLight";
 
 export const FontSize: Record<FontType, number> = {
   h1x: 30,
@@ -31,17 +25,16 @@ export const FontSize: Record<FontType, number> = {
 };
 
 export enum AppFonts {
-  regular = "SFUIDisplay-Regular",
-  light = "SFUIDisplay-Light",
-  extraBold = "SFUIDisplay-Heavy",
-  bold = "SFUIDisplay-Bold",
-  semiBold = "SFUIDisplay-Semibold",
-  medium = "SFUIDisplay-Medium",
+  regular = "HelveticaNeue",
+  light = "HelveticaNeue-Light",
+  ultaLight = "HelveticaNeue-UltraLight",
+  bold = "HelveticaNeue-Bold",
+  medium = "HelveticaNeue-Medium",
 }
 
-export const DefaultFontLight: AppFonts = AppFonts.light;
-export const DefaultFontBold: AppFonts = AppFonts.bold;
-export const DefaultFont: AppFonts = AppFonts.medium;
+export const DefaultFontLight: AppFonts = AppFonts.ultaLight;
+export const DefaultFontBold: AppFonts = AppFonts.regular;
+export const DefaultFont: AppFonts = AppFonts.light;
 
 export const InputHeight: number = 62;
 export const InputFontSize: number = 16;
@@ -55,12 +48,11 @@ export const SubTextLineHeight: number = 19;
 export const DoubleMargin: number = DefaultMargin * 2;
 
 export const FontFamily: Record<IFontFamily, AppFonts> = {
-  light: DefaultFontLight,
-  regular: DefaultFont,
+  light: AppFonts.light,
+  regular: AppFonts.regular,
   medium: AppFonts.medium,
-  semiBold: AppFonts.semiBold,
-  bold: DefaultFontBold,
-  extraBold: AppFonts.extraBold,
+  ultaLight: AppFonts.ultaLight,
+  bold: AppFonts.bold,
 };
 
 export enum IconFamily {

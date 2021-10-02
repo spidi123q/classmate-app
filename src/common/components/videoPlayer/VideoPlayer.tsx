@@ -53,8 +53,7 @@ import {
   IState,
   IStyles,
   IVideoTrack,
-} from "./models";
-import SystemConfig from "../../../SystemConfig";
+} from ".";
 import { getSystemConfigValue } from "../../helpers/remoteConfig";
 
 export default class VideoPlayer extends Component<IProps, IState> {

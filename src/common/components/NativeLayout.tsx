@@ -10,8 +10,8 @@ import {
 import { IsMobile } from "../config/constants";
 import { DefaultBackgroundColor, DefaultMargin } from "../config/themeConfig";
 import NativeView from "./NativeView";
-import Orientation from "react-native-orientation";
 import { useFocusEffect } from "@react-navigation/native";
+import Orientation from "../native/orientation";
 
 export interface INativeLayoutProps {
   backgroundColor?: string;
@@ -22,6 +22,7 @@ export interface INativeLayoutProps {
   marginTop?: number;
   noSafeArea?: boolean;
   scroll?: boolean;
+  lockToPortrait?: boolean;
   refreshControl?:
     | React.ReactElement<
         RefreshControlProps,
@@ -42,11 +43,14 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
     noSafeArea,
     scroll,
     refreshControl,
+    lockToPortrait,
     ...rest
   } = props;
 
   useFocusEffect(() => {
-    Orientation.lockToPortrait();
+    if (lockToPortrait) {
+      Orientation.lockToPortrait();
+    }
   });
 
   const LayoutView = noSafeArea ? View : SafeAreaView;

@@ -5,15 +5,11 @@ import {
   requireNativeComponent,
   useWindowDimensions,
 } from "react-native";
-import { IJitsiMeetUserInfo } from ".";
+import { IParams } from ".";
 
 const VideoView = requireNativeComponent<any>("RNJitsiMeetView");
 export const RNJitsiMeet = NativeModules.RNJitsiMeetView;
 
-interface IParams {
-  userInfo: IJitsiMeetUserInfo;
-  url: string;
-}
 export const JitsiMeetView = () => {
   const { params } = useRoute();
   const { height, width } = useWindowDimensions();

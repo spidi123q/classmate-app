@@ -62,7 +62,7 @@ export default function TemplateList({
                 >
                   {innterField.name}
                 </Typography>
-                <Typography marginTop={DefaultMargin / 2} family="semiBold">
+                <Typography marginTop={DefaultMargin / 2}>
                   {parseFieldValue(get(value, innterField.key), innterField)}
                 </Typography>
               </NativeView>

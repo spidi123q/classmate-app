@@ -35,16 +35,17 @@ const ProfileForm = (props: IProps) => {
     loading.start();
     const user = await getUser(false);
     try {
-      const isValid = await profileSchema.isValid(user.payload);
+      const isValid = profileSchema.isValidSync(user.payload);
       if (!isValid) {
         // Firebase is still logged in so need to logout first if user want to login again
         logout();
       }
+      loading.stop();
       setIsProfileComplete(isValid);
     } catch (e) {
+      loading.stop();
       showToast(ToastTitle.FormError, "Validation Failed", "error");
     }
-    loading.stop();
     successLottieRef.current?.play();
   };
 
@@ -69,7 +70,7 @@ const ProfileForm = (props: IProps) => {
 
   if (isProfileComplete) {
     return (
-      <NativeLayout>
+      <NativeLayout lockToPortrait>
         <Loader
           type="success"
           onAnimationFinish={() => getUser()}
@@ -95,7 +96,7 @@ const ProfileForm = (props: IProps) => {
         >
           {(formikProps: FormikProps<IUserEdit>) => (
             <NativeView flex={1} alignItems="center" justifyContent="center">
-              <Typography family="semiBold" type="h1x" textAlign="center">
+              <Typography type="h1x" textAlign="center">
                 You have no active subscription.
               </Typography>
             </NativeView>

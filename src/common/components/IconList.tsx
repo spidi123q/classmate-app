@@ -50,7 +50,6 @@ export default function IconList({ iconColor, textColor, list }: IProps) {
           color={AppTheme["color-grey3"]}
           size={FontSize.xs}
           marginVertical={DoubleMargin}
-          family="semiBold"
         >
           Nothing found
         </Typography>

@@ -8,7 +8,7 @@ export enum VideoActionTypes {
 }
 
 export const VideoActions = {
-  GetUserOnSuccess: createAction(
+  GetVideoOnSuccess: createAction(
     VideoActionTypes.GetVideosOnSuccess,
     (videos: IVideo[]) => videos
   ),
