@@ -94,7 +94,7 @@ export default function HeaderCover(props: IProps) {
         isLive
           ? Airboard2
           : {
-              uri: video?.coverImageAzureBlob.url,
+              uri: video?.coverImageUrl,
             }
       }
       height={coverHeight}

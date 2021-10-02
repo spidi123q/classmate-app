@@ -147,7 +147,7 @@ export interface IState extends Omit<IProps, "source"> {
   currentVideoTrack?: IVideoTrack;
 }
 
-export interface INativeVideoPlayerProps extends IProps {
+export interface INativeVideoPlayerProps extends Omit<IProps, "source"> {
   cloudflareStreamVideoId: string;
   height?: number;
   width?: number;

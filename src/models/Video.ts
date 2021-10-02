@@ -1,6 +1,3 @@
-import ICustomBlobUploadCommonResponse from "../common/models/azure/CustomBlobUploadCommonResponse";
-import ICustomJobsCreateResponse from "../common/models/azure/CustomJobsCreateResponse";
-import ICustomStreamingPath from "../common/models/azure/CustomStreamingPath";
 import { ITimeStamps } from "../common/models/TimeStamps";
 import { IClassroom } from "./Classroom";
 import IOrganization from "./Organization";
@@ -9,10 +6,6 @@ export default interface IVideo extends ITimeStamps {
   _id: string;
   name: string;
   description: string;
-  videoAzureBlob: ICustomBlobUploadCommonResponse;
-  coverImageAzureBlob: ICustomBlobUploadCommonResponse;
-  encodingAzureJob: ICustomJobsCreateResponse;
-  streamingLocatorAzure?: ICustomStreamingPath[];
   active: boolean;
   category: string;
   organizationId: string;
@@ -20,6 +13,8 @@ export default interface IVideo extends ITimeStamps {
   order: number;
   organization?: IOrganization;
   classroom?: IClassroom;
+  cloudflareStreamVideoId: string;
+  coverImageUrl: string;
 }
 
 export interface IVideoEdit extends Partial<IVideo> {}
