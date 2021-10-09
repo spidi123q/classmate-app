@@ -15,6 +15,7 @@ export default interface IVideo extends ITimeStamps {
   classroom?: IClassroom;
   cloudflareStreamVideoId: string;
   coverImageUrl: string;
+  coverImagePath: string;
 }
 
 export interface IVideoEdit extends Partial<IVideo> {}
