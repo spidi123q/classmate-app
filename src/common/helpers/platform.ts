@@ -126,7 +126,7 @@ export const openURL = async (
     // by some browser in the mobile
     try {
       await Linking.openURL(newUrl);
-    } catch (err) {
+    } catch (err: any) {
       showToast(ToastTitle.Error, err.message, "error");
     }
   } else {
@@ -152,7 +152,7 @@ export const onShare = async (message: string) => {
     } else if (result.action === Share.dismissedAction) {
       // dismissed
     }
-  } catch (error) {
+  } catch (error: any) {
     alert(error.message);
   }
 };
