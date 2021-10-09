@@ -1,5 +1,5 @@
 {
-  "endpoint": "http://localhost:9090",
+  "endpoint": "https://api.classmate.guru",
   "firebase": {
     "apiKey": "AIzaSyCjMzZkd3XXDKSHAovz6JJx77MzR_llVo4",
     "authDomain": "classmate-ca068.firebaseapp.com",
