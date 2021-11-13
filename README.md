@@ -31,3 +31,29 @@ yarn add --dev @types/google\_\_maps @types/lodash @types/react-native-vector-ic
 cd android
 chmod +x gradlew
 "endpoint": "http://10.0.2.2:9090",
+
+# Temp release build fix
+
+. react-native-orientation
+
+apply plugin: 'com.android.library'
+
+android {
+compileSdkVersion rootProject.ext.compileSdkVersion
+buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+
+}
+
+dependencies {
+compile "com.facebook.react:react-native:+"
+}
