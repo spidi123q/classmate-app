@@ -30,7 +30,10 @@ gulp.task(
 );
 gulp.task(
   "gradleBuildRelease",
-  shell.task("./gradlew assembleRelease", { cwd: "./android" })
+  shell.task(
+    argv.apk ? "./gradlew assembleRelease" : "./gradlew bundleRelease",
+    { cwd: "./android" }
+  )
 );
 
 exports.buildDebugAndroid = series(

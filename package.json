@@ -13,6 +13,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "build:debug-android": "gulp buildDebugAndroid",
     "build:release-android": "gulp buildReleaseAndroid",
+    "build:release-android-apk": "gulp buildReleaseAndroid --apk",
     "clean": "react-native-clean-project",
     "clean:android": "cd android && ./gradlew clean && cd ../",
     "clean:ios": "cd ios && xcodebuild clean && cd ../",
