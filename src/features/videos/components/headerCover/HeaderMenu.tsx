@@ -13,7 +13,7 @@ import { Image } from "react-native-elements";
 
 export function HeaderMenu() {
   const navigation = useNavigation();
-  const { classroom } = useUser();
+  const { organization } = useUser();
 
   const openProfile = () => {
     navigation.navigate(HomePages.Profile);
@@ -27,14 +27,14 @@ export function HeaderMenu() {
       justifyContent="space-between"
       alignItems="center"
     >
-      {classroom?.appLogoUrl ? (
+      {organization?.appLogoUrl ? (
         <Image
           style={{
             height: 30,
             width: 114,
           }}
           source={{
-            uri: classroom?.appLogoUrl,
+            uri: organization?.appLogoUrl,
           }}
         />
       ) : (

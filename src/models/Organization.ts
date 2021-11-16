@@ -11,6 +11,7 @@ export default interface IOrganization extends ITimeStamps {
   phone: string;
   active: boolean;
   website?: string;
+  appLogoUrl?: string;
 }
 
 export interface IOrganizationEdit extends Partial<IOrganization> {}
@@ -18,7 +19,6 @@ export interface IOrganizationEdit extends Partial<IOrganization> {}
 export interface IOrganizationQuery extends Partial<IOrganization> {
   page: number;
 }
-
 export const InitialOrganizationEdit: IOrganizationEdit = {
   name: "",
   city: "",
