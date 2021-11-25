@@ -12,6 +12,7 @@ import NotificationProvider from "./layouts/NotificationProvider";
 import ErrorLayout from "./layouts/errorLayout/ErrorLayout";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import TabNavigator from "./layouts/TabsNavigator";
 
 function App() {
   return (
@@ -25,11 +26,10 @@ function App() {
                   screenOptions={{
                     headerShown: false,
                   }}
-                  initialRouteName={RoutePath.Dashboard}
                 >
                   <Stack.Screen
                     name={RoutePath.Dashboard}
-                    component={DashboardRoute}
+                    component={TabNavigator}
                   />
                   <Stack.Screen
                     name={RoutePath.Error}

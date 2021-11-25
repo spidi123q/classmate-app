@@ -17,3 +17,8 @@ export const HomePages = {
   Profile: "Profile",
   JitsiMeet: "Live",
 };
+
+export enum TabPages {
+  Explore = "Explore",
+  MyBookings = "My Bookings",
+}
