@@ -3,10 +3,12 @@ import {
   BottomTabBarProps,
   BottomTabBarOptions,
 } from "@react-navigation/bottom-tabs";
-import { Animated, SafeAreaView, View } from "react-native";
-import styles from "./HeaderNavigation.style";
 import NavigationFooter from "./navigationFooter/NavigationFooter";
 import { useNavigation } from "@react-navigation/native";
+import NativeLayout from "../../common/components/NativeLayout";
+import { HeaderMenu } from "./HeaderMenu";
+import NativeView from "../../common/components/NativeView";
+import { DefaultBackgroundColor } from "../../common/config/themeConfig";
 
 export default function HeaderNavigation(
   props: BottomTabBarProps<BottomTabBarOptions>
@@ -14,8 +16,9 @@ export default function HeaderNavigation(
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <NativeLayout>
+      <HeaderMenu />
       <NavigationFooter {...props} />
-    </SafeAreaView>
+    </NativeLayout>
   );
 }

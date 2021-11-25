@@ -10,8 +10,10 @@ import _ from "lodash";
 import {
   DefaultBorderRadius,
   DefaultIconFamily,
+  DefaultMargin,
   DoubleMargin,
   FontSize,
+  SecondaryFontColor,
 } from "../../../common/config/themeConfig";
 import Ripple from "react-native-material-ripple";
 import {
@@ -31,7 +33,7 @@ const NavigationFooter = (props: BottomTabBarProps<BottomTabBarOptions>) => {
   }
   return (
     <View style={styles.container}>
-      <NativeView flexDirection="row" marginHorizontal={DoubleMargin}>
+      <NativeView flexDirection="row" marginHorizontal={5}>
         {state.routes.map((route, index) => (
           <Tab
             key={route.key}
@@ -62,6 +64,7 @@ interface ITabProps {
 }
 const Tab = (props: ITabProps) => {
   const { path, onPress, isMatch } = props;
+  const fontColor = isMatch ? SecondaryFontColor : undefined;
   switch (path) {
     case TabPages.Explore: {
       return (
@@ -70,7 +73,9 @@ const Tab = (props: ITabProps) => {
           style={borderHighLight(isMatch)}
           rippleContainerBorderRadius={DefaultBorderRadius}
         >
-          <Typography style={textHighLight(isMatch)}>Wallet</Typography>
+          <Typography family="regular" color={fontColor} textAlign="center">
+            Explore
+          </Typography>
         </Ripple>
       );
     }
@@ -81,7 +86,9 @@ const Tab = (props: ITabProps) => {
           style={borderHighLight(isMatch)}
           rippleContainerBorderRadius={DefaultBorderRadius}
         >
-          <Typography style={textHighLight(isMatch)}>Seller</Typography>
+          <Typography family="regular" color={fontColor} textAlign="center">
+            My Bookings
+          </Typography>
         </Ripple>
       );
     default:

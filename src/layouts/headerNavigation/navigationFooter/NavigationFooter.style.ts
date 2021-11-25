@@ -5,43 +5,40 @@ import {
   DefaultBackgroundColor,
   DefaultFontColor,
   DefaultMargin,
+  DefaultSecondaryColor,
   DoubleMargin,
   FontSize,
   ICON_SIZE,
+  SecondaryFontColor,
 } from "../../../common/config/themeConfig";
 
-export let TAB_HEIGHT: number = 35;
+export let TAB_HEIGHT: number = 43;
 const ICON_HIGHLIGHT_WIDTH: number = ICON_SIZE * 3 * 0.75;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: DefaultBackgroundColor,
+    backgroundColor: AppTheme["color-primary-shade"],
     height: TAB_HEIGHT,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
     zIndex: 1,
-    borderBottomColor: AppTheme["color-grey"],
-    borderBottomWidth: 1,
+    marginHorizontal: DefaultMargin,
+    borderRadius: 9,
   },
   icon: {},
   iconContainer: {
-    height: TAB_HEIGHT,
+    height: TAB_HEIGHT - 10,
     width: ICON_HIGHLIGHT_WIDTH,
     justifyContent: "center",
     flex: 1,
   },
   iconContainerHightlight: {
-    borderBottomColor: AppTheme["color-primary-500"],
-    borderStyle: "solid",
-    borderBottomWidth: 2,
+    backgroundColor: DefaultSecondaryColor,
+    borderRadius: 7,
   },
   titleText: {
-    fontSize: FontSize.h3x,
-    color: DefaultFontColor,
-    opacity: 0.6,
     textAlign: "center",
-    //backgroundColor: "red",
   },
 });
 

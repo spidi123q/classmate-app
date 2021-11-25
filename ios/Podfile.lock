@@ -163,7 +163,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.6.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.7.0)
-  - JitsiMeetSDK (3.5.0)
+  - JitsiMeetSDK (3.10.4)
   - libevent (2.1.12)
   - lottie-ios (3.1.8)
   - lottie-react-native (4.0.2):
@@ -360,6 +360,8 @@ PODS:
     - React-Core
   - react-native-orientation (3.1.3):
     - React
+  - react-native-pager-view (5.4.9):
+    - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
   - react-native-splash-screen (3.2.0):
@@ -529,6 +531,7 @@ DEPENDENCIES:
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-orientation (from `../node_modules/react-native-orientation`)
+  - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-video (from `../node_modules/react-native-video`)
@@ -644,6 +647,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-image-resizer"
   react-native-orientation:
     :path: "../node_modules/react-native-orientation"
+  react-native-pager-view:
+    :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-splash-screen:
@@ -741,7 +746,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
-  JitsiMeetSDK: ef6ebbad2237c0e3ea6ff61fea78745f9543b238
+  JitsiMeetSDK: 66a6524472740c047ccb1d30bee99cd09fe47276
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   lottie-react-native: 4dff8fe8d10ddef9e7880e770080f4a56121397e
@@ -764,6 +769,7 @@ SPEC CHECKSUMS:
   react-native-image-picker: 5bb3325530fd4dc3053a77a73d4f65b6649de820
   react-native-image-resizer: 13ac4af788f88af36d0353a1324401ebabd04fe4
   react-native-orientation: f1caf84d65f1a4fd4511a18f2b924e634ad7a628
+  react-native-pager-view: 3ee7d4c7697fb3ef788346e834a60cca97ed8540
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28

@@ -1,5 +1,5 @@
 import React from "react";
-import NativeLayout from "../../../../common/components/NativeLayout";
+import NativeView from "../../../../common/components/NativeView";
 import Typography from "../../../../common/components/Typography";
 
 export interface IProps {
@@ -8,8 +8,14 @@ export interface IProps {
 
 export function MyBookings(props: IProps) {
   return (
-    <NativeLayout>
+    <NativeView
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      backgroundColor="red"
+    >
       <Typography>Hello Booking</Typography>
-    </NativeLayout>
+      <Typography>Hello Booking</Typography>
+    </NativeView>
   );
 }

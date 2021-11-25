@@ -5,7 +5,7 @@ import NativeButton from "../../../../common/components/NativeButton";
 import NativeView from "../../../../common/components/NativeView";
 import Typography from "../../../../common/components/Typography";
 import { AppTheme } from "../../../../common/config/custom-theme";
-import { HeaderMenu } from "./HeaderMenu";
+import { HeaderMenu } from "../../../../layouts/headerNavigation/HeaderMenu";
 import Live from "../../assets/Live.svg";
 import {
   DefaultMargin,

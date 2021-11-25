@@ -7,6 +7,8 @@ import {
   ScrollViewProps,
   ImageBackground,
   ImageBackgroundProps,
+  SafeAreaViewBase,
+  SafeAreaView,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import LinearGradient, {
@@ -20,6 +22,7 @@ type IProps =
   | IScrollViewProps
   | IRippleProps
   | IImageProps
+  | ISafeAreaProps
   | IAnimatableProps;
 
 const NativeView: React.FunctionComponent<IProps> = (props) => {
@@ -112,6 +115,7 @@ type ViewTypes =
   | "default"
   | "animatable"
   | "gradient"
+  | "safeArea"
   | "image";
 
 const viewMap: Record<ViewTypes, any> = {
@@ -121,6 +125,7 @@ const viewMap: Record<ViewTypes, any> = {
   gradient: LinearGradient,
   animatable: Animatable.View,
   image: ImageBackground,
+  safeArea: SafeAreaView,
 };
 
 interface IBaseProps extends ViewStyle {
@@ -147,6 +152,10 @@ interface IRippleProps extends INativeRippleProps, IBaseProps {
 
 interface IAnimatableProps extends ViewProps, IBaseProps {
   type: "animatable";
+}
+
+interface ISafeAreaProps extends ViewProps, IBaseProps {
+  type: "safeArea";
 }
 
 interface IImageProps

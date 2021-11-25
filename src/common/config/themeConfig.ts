@@ -63,6 +63,7 @@ export enum IconFamily {
 export const DefaultBackgroundColor: string = AppTheme["color-primary"];
 export const DefaultPrimaryColor: string = AppTheme["color-primary-500"];
 export const DefaultFontColor: string = AppTheme["color-secondary"];
+export const SecondaryFontColor: string = AppTheme["color-secondary-font"];
 export const DefaultSecondaryColor: string = AppTheme["color-secondary"];
 export const SecondaryBackgroundColor: string = AppTheme["color-primary2"];
 export const TrasparentColor: string = "rgba(255, 0, 0, 0)";

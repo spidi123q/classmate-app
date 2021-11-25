@@ -1,15 +1,11 @@
 import React from "react";
-import NativeLayout from "../../../../common/components/NativeLayout";
+import NativeView from "../../../../common/components/NativeView";
 import Typography from "../../../../common/components/Typography";
 
-export interface IProps {
-  prop?: string;
-}
-
-export function Explore(props: IProps) {
+export function Explore() {
   return (
-    <NativeLayout>
+    <NativeView>
       <Typography>Hello Wallet</Typography>
-    </NativeLayout>
+    </NativeView>
   );
 }

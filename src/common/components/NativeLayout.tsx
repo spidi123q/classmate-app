@@ -53,35 +53,17 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
     }
   });
 
-  const LayoutView = noSafeArea ? View : SafeAreaView;
-
   return (
-    <LayoutView
-      style={[
-        styles.safeArea,
-        {
-          backgroundColor: backgroundColor ?? DefaultBackgroundColor,
-        },
-      ]}
+    <NativeView
+      type={noSafeArea ? undefined : "safeArea"}
+      backgroundColor={backgroundColor ?? DefaultBackgroundColor}
     >
-      <NativeView
-        type={scroll ? "scroll" : undefined}
-        style={[
-          styles.container,
-          {
-            marginHorizontal: horizontalMargin ? DefaultMargin : undefined,
-            marginTop,
-          },
-        ]}
-        refreshControl={refreshControl}
-      >
-        <StatusBar
-          backgroundColor={statusBarColor ?? DefaultBackgroundColor}
-          barStyle={barStyle ?? "light-content"}
-        />
-        {children}
-      </NativeView>
-    </LayoutView>
+      {children}
+      <StatusBar
+        backgroundColor={statusBarColor ?? DefaultBackgroundColor}
+        barStyle={barStyle ?? "light-content"}
+      />
+    </NativeView>
   );
 };
 
