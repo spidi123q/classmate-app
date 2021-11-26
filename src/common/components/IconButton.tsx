@@ -88,7 +88,7 @@ export default function IconButton({
         </NativeView>
       </NativeView>
       {label && (
-        <Typography marginTop={DefaultMargin} size={FontSize.xs + 1}>
+        <Typography marginTop={DefaultMargin} size={FontSize.xsx}>
           {label}
         </Typography>
       )}

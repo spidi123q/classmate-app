@@ -16,7 +16,7 @@ import LinearGradient, {
 } from "react-native-linear-gradient";
 import NativeRipple, { INativeRippleProps } from "./nativeRipple";
 
-type IProps =
+export type INativeViewProps =
   | IGradientProps
   | IViewProps
   | IScrollViewProps
@@ -25,7 +25,7 @@ type IProps =
   | ISafeAreaProps
   | IAnimatableProps;
 
-const NativeView: React.FunctionComponent<IProps> = (props) => {
+const NativeView: React.FunctionComponent<INativeViewProps> = (props) => {
   const {
     type,
     children,

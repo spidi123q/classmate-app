@@ -7,10 +7,15 @@ import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeS
 import {
   DefaultMargin,
   DefaultSecondaryColor,
+  FontSize,
   SecondaryBackgroundColor,
 } from "../../../../common/config/themeConfig";
 import { AppTheme } from "../../../../common/config/custom-theme";
 import NativeButton from "../../../../common/components/NativeButton";
+import Instagram from "../../../../common/assets/Instagram.svg";
+import Youtube from "../../../../common/assets/Youtube.svg";
+import { SvgProps } from "react-native-svg";
+import { IconLabel } from "../../../../common/components/IconLabel";
 
 interface IProps {}
 
@@ -39,7 +44,7 @@ export default function OrganizationCard(props: IProps) {
           ></NativeSkeletonPlaceholder>
         }
       />
-      <NativeView marginLeft={DefaultMargin / 2}>
+      <NativeView marginLeft={DefaultMargin / 2} flex={1}>
         <Typography type="h3">Shreyas Surendranathan</Typography>
         <Typography
           type="xsx"
@@ -50,7 +55,13 @@ export default function OrganizationCard(props: IProps) {
         >
           Fashion influencer
         </Typography>
-        <NativeView>
+        <NativeView
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <IconLabel Icon={Youtube} label="123k" />
+          <IconLabel Icon={Instagram} label="44k" />
           <NativeButton
             title="Book slot"
             size="xs"
