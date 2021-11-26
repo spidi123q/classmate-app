@@ -72,20 +72,26 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
   if (buttonBackgroundColor) {
     customStyle.backgroundColor = buttonBackgroundColor;
   }
+  const defaultButtonStyle = getButtonStyle(mode, size);
   return (
     <NativeView
       type={isLoading ? "default" : "ripple"}
       onPress={onPress}
       rippleContainerBorderRadius={DefaultBorderRadius}
       width={width}
+      height={height ?? ButtonSize[size ?? "lg"]}
     >
-      <View style={[getButtonStyle(mode, size), buttonStyle, customStyle]}>
+      <View style={[defaultButtonStyle, buttonStyle, customStyle]}>
         {children ??
           (!isLoading && (
             <NativeView flexDirection="row" alignItems="center">
               {iconName && (
                 <NativeView marginRight={10} marginBottom={0.5}>
-                  <Icon type={DefaultIconFamily} name={iconName} />
+                  <Icon
+                    type={DefaultIconFamily}
+                    name={iconName}
+                    color={buttonTextColor ?? DefaultBackgroundColor}
+                  />
                 </NativeView>
               )}
               <Typography

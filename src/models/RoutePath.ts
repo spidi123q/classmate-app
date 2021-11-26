@@ -1,3 +1,6 @@
+import { StackNavigationProp } from "@react-navigation/stack";
+import { IParams as IJitsiParams } from "../common/native/jitsiMeet";
+
 export enum RoutePath {
   Root = "root",
   Home = "/",
@@ -11,9 +14,7 @@ export enum RoutePath {
   Intro = "/intro",
 }
 
-export const HomePages = {
-  Videos: "Videos",
-  VideoDetails: "Video Details",
+export const UserPages = {
   Profile: "Profile",
   JitsiMeet: "Live",
 };
@@ -22,3 +23,14 @@ export enum TabPages {
   Explore = "Explore",
   MyBookings = "My Bookings",
 }
+
+type RootStackParamList = {
+  JitsiMeet: IJitsiParams;
+  Profile: undefined;
+  Feed: { sort: "latest" | "top" } | undefined;
+};
+
+export type IUserStackNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  keyof typeof UserPages
+>;

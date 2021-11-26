@@ -63,7 +63,7 @@ export const AppTheme = {
   "color-danger-200": "#F4A3A5",
   "color-danger-300": "#DF6F7D",
   "color-danger-400": "#C04762",
-  "color-danger-500": "#961941",
+  "color-danger-500": "#FF0000",
   "color-danger-600": "#811240",
   "color-danger-700": "#6C0C3D",
   "color-danger-800": "#570738",

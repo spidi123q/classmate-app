@@ -1,6 +1,8 @@
 import React from "react";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
+import { DefaultMargin } from "../../../common/config/themeConfig";
+import OrganizationCard from "./organizationCard/OrganizationCard";
 
 export interface IProps {
   prop?: string;
@@ -8,14 +10,8 @@ export interface IProps {
 
 export function MyBookings(props: IProps) {
   return (
-    <NativeView
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      backgroundColor="red"
-    >
-      <Typography>Hello Booking</Typography>
-      <Typography>Hello Booking</Typography>
+    <NativeView marginHorizontal={DefaultMargin} marginTop={DefaultMargin}>
+      <OrganizationCard showSchedule />
     </NativeView>
   );
 }

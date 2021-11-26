@@ -6,7 +6,7 @@ import Typography from "./Typography";
 
 interface IIconLabelProps {
   Icon: React.FC<SvgProps>;
-  label: string;
+  label?: string;
 }
 
 export const IconLabel = ({
@@ -22,9 +22,11 @@ export const IconLabel = ({
     justifyContent="center"
     {...rest}
   >
-    <Icon height={FontSize.regular} />
-    <Typography marginLeft={DefaultMargin / 5} type="xsx">
-      {label}
-    </Typography>
+    <Icon height={rest.height ?? FontSize.regular} />
+    {label && (
+      <Typography marginLeft={DefaultMargin / 5} type="xsx">
+        {label}
+      </Typography>
+    )}
   </NativeView>
 );

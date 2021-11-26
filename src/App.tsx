@@ -7,12 +7,14 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import PrivateRoute from "./layouts/PrivateRoute";
 import DashboardRoute from "./layouts/DashboardRoute";
-import { RoutePath } from "./models/RoutePath";
+import { RoutePath, UserPages } from "./models/RoutePath";
 import NotificationProvider from "./layouts/NotificationProvider";
 import ErrorLayout from "./layouts/errorLayout/ErrorLayout";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import TabNavigator from "./layouts/TabsNavigator";
+import { JitsiMeetView } from "./common/native/jitsiMeet";
+import Profile from "./features/profile/components/Profile";
 
 function App() {
   return (
@@ -35,6 +37,11 @@ function App() {
                     name={RoutePath.Error}
                     component={ErrorLayout}
                   />
+                  <Stack.Screen
+                    name={UserPages.JitsiMeet}
+                    component={JitsiMeetView}
+                  />
+                  <Stack.Screen name={UserPages.Profile} component={Profile} />
                 </Stack.Navigator>
               </PrivateRoute>
             </NavigationContainer>

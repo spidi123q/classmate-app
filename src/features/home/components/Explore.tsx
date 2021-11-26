@@ -7,7 +7,7 @@ import OrganizationCard from "./organizationCard/OrganizationCard";
 export function Explore() {
   return (
     <NativeView marginHorizontal={DefaultMargin} marginTop={DefaultMargin}>
-      <OrganizationCard />
+      <OrganizationCard showBooking />
     </NativeView>
   );
 }

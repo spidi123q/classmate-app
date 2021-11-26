@@ -6,12 +6,12 @@ import { DefaultMargin } from "../../../common/config/themeConfig";
 import useUser from "../../login/hooks/useUser";
 import { formatPhoneNumber } from "../../../common/helpers/format";
 import NativeTextInput from "../../../common/components/NativeTextInput";
-import BlankUser from "../assets/BlankUser.svg";
+import BlankUser from "../../../common/assets/BlankUser.svg";
 
 export default function Profile() {
   const { name, phone, email, organization, classroom } = useUser();
   return (
-    <NativeLayout scroll lockToPortrait>
+    <NativeLayout scroll lockToPortrait flex={1}>
       <NativeHeader title="Edit Profile" />
       <NativeView marginTop={DefaultMargin} marginHorizontal={DefaultMargin}>
         <NativeView
@@ -19,10 +19,7 @@ export default function Profile() {
           alignItems="center"
           marginVertical={DefaultMargin}
         >
-          <BlankUser />
-        </NativeView>
-        <NativeView marginBottom={DefaultMargin}>
-          <NativeTextInput label="Name" value={name} editable={false} />
+          <BlankUser height={profilePicSize} width={profilePicSize} />
         </NativeView>
         <NativeView marginBottom={DefaultMargin}>
           <NativeTextInput
@@ -31,26 +28,9 @@ export default function Profile() {
             editable={false}
           />
         </NativeView>
-        <NativeView marginBottom={DefaultMargin}>
-          <NativeTextInput label="Email" value={email} editable={false} />
-        </NativeView>
-        <NativeView marginBottom={DefaultMargin}>
-          <NativeTextInput
-            label="Organization"
-            value={organization?.name}
-            editable={false}
-          />
-        </NativeView>
-        <NativeView marginBottom={DefaultMargin}>
-          <NativeTextInput
-            label="Classroom"
-            value={classroom?.name}
-            editable={false}
-          />
-        </NativeView>
       </NativeView>
     </NativeLayout>
   );
 }
 
-const profilePicSize = 100;
+const profilePicSize = 87;

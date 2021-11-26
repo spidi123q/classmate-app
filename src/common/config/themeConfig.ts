@@ -21,7 +21,7 @@ export const FontSize: Record<FontType, number> = {
   h3: 16,
   regular: 15,
   xsx: 13,
-  xs: 11,
+  xs: 12,
 };
 
 export enum AppFonts {
