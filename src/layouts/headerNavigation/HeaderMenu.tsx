@@ -10,7 +10,7 @@ export function HeaderMenu() {
   const navigation = useNavigation();
 
   const openProfile = () => {
-    navigation.navigate(HomePages.Profile);
+    //  navigation.navigate(HomePages.Profile);
   };
 
   return (

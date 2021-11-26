@@ -5,8 +5,8 @@ import Profile from "../features/profile/components/Profile";
 import { TabPages } from "../models/RoutePath";
 import HeaderNavigation from "./headerNavigation/HeaderNavigation";
 import Login from "../features/login/components/Login";
-import { Explore } from "../features/home/components/Explore/Explore";
-import { MyBookings } from "../features/profile/components/MyBookings/MyBookings";
+import { Explore } from "../features/home/components/Explore";
+import { MyBookings } from "../features/home/components/MyBookings";
 export default function TabNavigator() {
   return (
     <Tab.Navigator

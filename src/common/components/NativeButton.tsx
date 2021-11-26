@@ -17,6 +17,7 @@ import {
   DefaultPrimaryColor,
   DefaultSecondaryColor,
   FontSize,
+  IFontFamily,
   InputHeight,
 } from "../config/themeConfig";
 import _ from "lodash";
@@ -35,6 +36,9 @@ interface IProps extends ButtonProps {
   title?: string;
   isLoading?: boolean;
   iconName?: string;
+  buttonTextColor?: string;
+  buttonBackgroundColor?: string;
+  buttonFontFamily?: IFontFamily;
 }
 
 const NativeButton: React.FunctionComponent<IProps> = (props) => {
@@ -51,6 +55,9 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
     children,
     isLoading,
     iconName,
+    buttonBackgroundColor,
+    buttonTextColor,
+    buttonFontFamily,
     ...rest
   } = props;
   const mode = props.mode;
@@ -61,11 +68,16 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
   if (height) {
     customStyle.height = height;
   }
+
+  if (buttonBackgroundColor) {
+    customStyle.backgroundColor = buttonBackgroundColor;
+  }
   return (
     <NativeView
       type={isLoading ? "default" : "ripple"}
       onPress={onPress}
       rippleContainerBorderRadius={DefaultBorderRadius}
+      width={width}
     >
       <View style={[getButtonStyle(mode, size), buttonStyle, customStyle]}>
         {children ??
@@ -78,8 +90,8 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
               )}
               <Typography
                 size={ButtonFontSize[size ?? "lg"]}
-                color={DefaultBackgroundColor}
-                family="medium"
+                color={buttonTextColor ?? DefaultBackgroundColor}
+                family={buttonFontFamily ?? "medium"}
               >
                 {title}
               </Typography>

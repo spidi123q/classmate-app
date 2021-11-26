@@ -75,7 +75,7 @@ export const AppTheme = {
   "color-danger-transparent-500": "rgba(150, 25, 65, 0.4)",
   "color-danger-transparent-600": "rgba(150, 25, 65, 0.48)",
   "color-primary": "#1C1C1D",
-  "color-primary2": "#2C2C2C",
+  "color-primary2": "#252525",
   "color-secondary": "#FFFFFF",
   "color-secondary-dark": "#005da6",
   "color-primary-dark": "#000766",
@@ -90,4 +90,5 @@ export const AppTheme = {
   "color-danger": "#ED2359",
   "color-secondary-font": "#151215",
   "color-primary-shade": "#272727",
+  "color-accent1": "#0089FF",
 };
