@@ -12,5 +12,7 @@
   "versionCode": 1,
   "packageId": "guru.classmate",
   "licenseUrl": "https://classmate.guru/license",
-  "privacyUrl": "https://classmate.guru/privacy"
+  "privacyUrl": "https://classmate.guru/privacy",
+  "refundPolicyUrl": "https://classmate.guru/refund",
+  "contactUsUrl": "https://classmate.guru/contact"
 }
