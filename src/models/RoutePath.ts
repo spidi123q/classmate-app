@@ -14,10 +14,11 @@ export enum RoutePath {
   Intro = "/intro",
 }
 
-export const UserPages = {
-  Profile: "Profile",
-  JitsiMeet: "Live",
-};
+export enum UserPages {
+  Profile = "Profile",
+  JitsiMeet = "Live",
+  Booking = "Booking",
+}
 
 export enum TabPages {
   Explore = "Explore",
@@ -27,6 +28,7 @@ export enum TabPages {
 type RootStackParamList = {
   JitsiMeet: IJitsiParams;
   Profile: undefined;
+  Booking: undefined;
   Feed: { sort: "latest" | "top" } | undefined;
 };
 

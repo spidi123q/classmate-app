@@ -15,6 +15,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import TabNavigator from "./layouts/TabsNavigator";
 import { JitsiMeetView } from "./common/native/jitsiMeet";
 import Profile from "./features/profile/components/Profile";
+import Booking from "./features/home/components/Booking";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
                     component={JitsiMeetView}
                   />
                   <Stack.Screen name={UserPages.Profile} component={Profile} />
+                  <Stack.Screen name={UserPages.Booking} component={Booking} />
                 </Stack.Navigator>
               </PrivateRoute>
             </NavigationContainer>

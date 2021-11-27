@@ -1,5 +1,7 @@
 import React from "react";
-import NativeView from "../../../../common/components/NativeView";
+import NativeView, {
+  INativeViewProps,
+} from "../../../../common/components/NativeView";
 import Typography from "../../../../common/components/Typography";
 import { Image } from "react-native-elements";
 import { buttonHeight, buttonWidth, styles } from "./OrganizationCard.style";
@@ -27,6 +29,7 @@ import {
   IUserStackNavigationProp,
   UserPages,
 } from "../../../../models/RoutePath";
+import Schedule from "./Schedule";
 
 interface IProps {
   showSchedule?: boolean;
@@ -34,34 +37,20 @@ interface IProps {
 }
 
 export default function OrganizationCard(props: IProps) {
-  const { showSchedule, showBooking } = props;
+  const { showSchedule, showBooking, ...rest } = props;
   const navigation = useNavigation<IUserStackNavigationProp>();
+
+  const bookSlot = () => navigation.navigate("Booking");
 
   const dummyButton = (
     <NativeView
       width={buttonWidth}
       height={buttonHeight}
       backgroundColor={SecondaryBackgroundColor}
+      {...rest}
     />
   );
 
-  const goLive = () => {
-    const roomName = "werwerwerw";
-    const url = getJitsiUrl(roomName);
-    const userInfo: IJitsiMeetUserInfo = {
-      displayName: "user 4",
-    };
-
-    if (Platform.OS === "ios" || Platform.OS === "web") {
-      navigation.navigate("JitsiMeet", {
-        url,
-        userInfo,
-        roomName,
-      });
-    } else if (Platform.OS === "android") {
-      RNJitsiMeet.join(url, userInfo);
-    }
-  };
   return (
     <NativeView
       backgroundColor={SecondaryBackgroundColor}
@@ -112,6 +101,7 @@ export default function OrganizationCard(props: IProps) {
                 buttonTextColor={DefaultSecondaryColor}
                 buttonFontFamily="regular"
                 width={buttonWidth}
+                onPress={bookSlot}
               />
             ) : (
               dummyButton
@@ -119,34 +109,7 @@ export default function OrganizationCard(props: IProps) {
           </NativeView>
         </NativeView>
       </NativeView>
-      {showSchedule && (
-        <NativeView
-          marginTop={DefaultMargin}
-          flexDirection="row"
-          justifyContent="space-between"
-        >
-          <NativeView>
-            <Typography type="xs" color={AppTheme["color-dark"]}>
-              Scheduled at
-            </Typography>
-            <Typography marginTop={DefaultMargin / 4} type="xsx">
-              {new Date().toLocaleString()}
-            </Typography>
-          </NativeView>
-          <NativeView justifyContent="flex-end">
-            <NativeButton
-              title="Go Live"
-              size="xs"
-              buttonBackgroundColor={AppTheme["color-danger-500"]}
-              buttonTextColor={DefaultSecondaryColor}
-              buttonFontFamily="regular"
-              iconName="videocam"
-              width={buttonWidth}
-              onPress={goLive}
-            />
-          </NativeView>
-        </NativeView>
-      )}
+      {showSchedule && <Schedule />}
     </NativeView>
   );
 }
