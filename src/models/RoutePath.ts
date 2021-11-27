@@ -25,7 +25,7 @@ export enum TabPages {
   MyBookings = "My Bookings",
 }
 
-type RootStackParamList = {
+type IUserStackParamList = {
   JitsiMeet: IJitsiParams;
   Profile: undefined;
   Booking: undefined;
@@ -33,6 +33,16 @@ type RootStackParamList = {
 };
 
 export type IUserStackNavigationProp = StackNavigationProp<
-  RootStackParamList,
+  IUserStackParamList,
   keyof typeof UserPages
+>;
+
+type ITabParamList = {
+  Explore: undefined;
+  MyBookings: undefined;
+};
+
+export type ITabNavigationProp = StackNavigationProp<
+  ITabParamList,
+  keyof typeof TabPages
 >;

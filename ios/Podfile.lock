@@ -176,6 +176,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - OpenSSL-Universal (1.1.180)
   - PromisesObjC (2.0.0)
+  - razorpay-pod (1.1.16)
   - RCTRequired (0.63.4)
   - RCTTypeSafety (0.63.4):
     - FBLazyVector (= 0.63.4)
@@ -362,6 +363,9 @@ PODS:
     - React
   - react-native-pager-view (5.4.9):
     - React-Core
+  - react-native-razorpay (2.2.8):
+    - razorpay-pod
+    - React
   - react-native-safe-area-context (3.2.0):
     - React-Core
   - react-native-splash-screen (3.2.0):
@@ -532,6 +536,7 @@ DEPENDENCIES:
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-orientation (from `../node_modules/react-native-orientation`)
   - react-native-pager-view (from `../node_modules/react-native-pager-view`)
+  - react-native-razorpay (from `../node_modules/react-native-razorpay`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - react-native-video (from `../node_modules/react-native-video`)
@@ -596,6 +601,7 @@ SPEC REPOS:
     - nanopb
     - OpenSSL-Universal
     - PromisesObjC
+    - razorpay-pod
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -649,6 +655,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-orientation"
   react-native-pager-view:
     :path: "../node_modules/react-native-pager-view"
+  react-native-razorpay:
+    :path: "../node_modules/react-native-razorpay"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-splash-screen:
@@ -753,6 +761,7 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  razorpay-pod: f1763f8ee8f83152837abe7de1cdfbcd4eb035b9
   RCTRequired: 082f10cd3f905d6c124597fd1c14f6f2655ff65e
   RCTTypeSafety: 8c9c544ecbf20337d069e4ae7fd9a377aadf504b
   React: b0a957a2c44da4113b0c4c9853d8387f8e64e615
@@ -770,6 +779,7 @@ SPEC CHECKSUMS:
   react-native-image-resizer: 13ac4af788f88af36d0353a1324401ebabd04fe4
   react-native-orientation: f1caf84d65f1a4fd4511a18f2b924e634ad7a628
   react-native-pager-view: 3ee7d4c7697fb3ef788346e834a60cca97ed8540
+  react-native-razorpay: 6796178680164b4716b9cbdacdda5da98781fb0a
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28

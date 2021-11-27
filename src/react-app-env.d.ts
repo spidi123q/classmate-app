@@ -62,3 +62,31 @@ declare module "react-native-android-immersive-mode" {
   declare const immersiveModeOn: () => void;
   declare const immersiveModeOff: () => void;
 }
+
+declare module "react-native-razorpay" {
+  export interface IOptions {
+    description: string;
+    image: string;
+    currency: string;
+    key: string;
+    amount: string;
+    name: string;
+    order_id: string;
+    prefill: IPrefill;
+    theme: ITheme;
+  }
+
+  export interface IPrefill {
+    email: string;
+    contact: string;
+    name: string;
+  }
+
+  export interface ITheme {
+    color: string;
+  }
+  declare const RazorpayCheckout: {
+    open(options: IOptions): Promise<"already-enabled" | "enabled">;
+  };
+  export default RazorpayCheckout;
+}
