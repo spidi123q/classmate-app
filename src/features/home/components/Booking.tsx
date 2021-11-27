@@ -48,7 +48,7 @@ export default function Booking() {
                 key: "rzp_test_CqxXRbtceqACE3",
                 amount: "5000",
                 name: "Acme Corp",
-                order_id: "order_IQXxE4yhqdQRUl", //Replace this with an order_id created using Orders API.
+                order_id: "order_IQh9iYKN3ND6CY", //Replace this with an order_id created using Orders API.
                 prefill: {
                   email: "gaurav.kumar@example.com",
                   contact: "9191919191",
@@ -60,7 +60,7 @@ export default function Booking() {
                 .then((data) => {
                   console.log(
                     "success 🚀 ~ file: Booking.tsx ~ line 63 ~ .then ~ data",
-                    data
+                    JSON.stringify(data)
                   );
                   goToMyBooking();
                 })
