@@ -26,12 +26,14 @@ interface INativeCheckBoxProps {
   label: string;
   hint?: string;
   defaultValue?: boolean;
+  value?: boolean;
 }
 
 export default function NativeCheckBox(props: INativeCheckBoxProps) {
   const { borderRadius, onChange, defaultValue, label, hint } = props;
   const [isChecked, setIsChecked] = useState<boolean>(!!defaultValue);
-  const checkboxProps: Partial<IViewProps> = isChecked
+  const value: boolean = props.value ?? isChecked;
+  const checkboxProps: Partial<IViewProps> = value
     ? {
         backgroundColor: DefaultSecondaryColor,
       }
@@ -65,7 +67,7 @@ export default function NativeCheckBox(props: INativeCheckBoxProps) {
         alignItems="center"
         {...checkboxProps}
       >
-        {isChecked && <Animatable.Image source={Checked} {...zoomInProps()} />}
+        {value && <Animatable.Image source={Checked} {...zoomInProps()} />}
       </NativeView>
       <NativeView
         marginLeft={DefaultMargin / 2}
