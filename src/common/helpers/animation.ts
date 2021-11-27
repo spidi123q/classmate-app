@@ -20,6 +20,12 @@ export const bounceInProps = (duration: number = DefaultDuration): any => ({
   duration: duration,
 });
 
+export const zoomInProps = (duration: number = DefaultDuration): any => ({
+  animation: "zoomIn",
+  iterationCount: 1,
+  duration: duration,
+});
+
 export const bounce = (ref: React.MutableRefObject<any>) =>
   ref.current.bounce(DefaultDuration);
 

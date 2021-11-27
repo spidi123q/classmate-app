@@ -7,6 +7,7 @@ import { Image } from "react-native-elements";
 import { buttonHeight, buttonWidth, styles } from "./OrganizationCard.style";
 import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeSkeleton";
 import {
+  DefaultHintFontColor,
   DefaultMargin,
   DefaultSecondaryColor,
   FontSize,
@@ -81,7 +82,7 @@ export default function OrganizationCard(props: IProps) {
             type="xsx"
             marginTop={DefaultMargin / 4}
             marginBottom={DefaultMargin / 2}
-            color={AppTheme["color-dark"]}
+            color={DefaultHintFontColor}
             numberOfLines={1}
           >
             Fashion influencer

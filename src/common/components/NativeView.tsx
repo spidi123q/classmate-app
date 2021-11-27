@@ -148,7 +148,7 @@ interface IGradientProps
   type: "gradient";
 }
 
-interface IViewProps extends ViewProps, IBaseProps {
+export interface IViewProps extends ViewProps, IBaseProps {
   type?: "default" | undefined;
 }
 

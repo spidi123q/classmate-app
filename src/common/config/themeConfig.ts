@@ -8,6 +8,7 @@ export type FontType =
   | "h3"
   | "h3x"
   | "regular"
+  | "xregular"
   | "xsx"
   | "xs";
 
@@ -20,6 +21,7 @@ export const FontSize: Record<FontType, number> = {
   h3x: 18,
   h3: 16,
   regular: 15,
+  xregular: 14,
   xsx: 13,
   xs: 12,
 };
@@ -63,6 +65,7 @@ export enum IconFamily {
 export const DefaultBackgroundColor: string = AppTheme["color-primary"];
 export const DefaultPrimaryColor: string = AppTheme["color-primary-500"];
 export const DefaultFontColor: string = AppTheme["color-secondary"];
+export const DefaultHintFontColor: string = AppTheme["color-dark"];
 export const SecondaryFontColor: string = AppTheme["color-secondary-font"];
 export const DefaultSecondaryColor: string = AppTheme["color-secondary"];
 export const SecondaryBackgroundColor: string = AppTheme["color-primary2"];
