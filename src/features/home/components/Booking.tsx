@@ -1,31 +1,20 @@
 import React from "react";
-import { TouchableHighlight } from "react-native";
-import { CheckBox } from "react-native-elements";
 import NativeHeader from "../../../common/components/NativeHeader";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
-import {
-  DefaultBackgroundColor,
-  DefaultIconFamily,
-  DefaultMargin,
-  DefaultPrimaryColor,
-} from "../../../common/config/themeConfig";
+import { DefaultMargin } from "../../../common/config/themeConfig";
 import OrganizationCard from "./organizationCard/OrganizationCard";
 import RazorpayCheckout from "react-native-razorpay";
 import NativeButton from "../../../common/components/NativeButton";
 import { useNavigation } from "@react-navigation/native";
-import {
-  ITabNavigationProp,
-  RoutePath,
-  TabPages,
-} from "../../../models/RoutePath";
+import { IAppTabrNavigationProp } from "../../../models/RoutePath";
 
 export default function Booking() {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<IAppTabrNavigationProp>();
 
   const goToMyBooking = () =>
-    navigation.navigate(RoutePath.Dashboard, {
-      screen: TabPages.MyBookings,
+    navigation.navigate("Tabs", {
+      screen: "My Bookings",
     });
 
   return (
@@ -48,7 +37,7 @@ export default function Booking() {
                 key: "rzp_test_CqxXRbtceqACE3",
                 amount: "5000",
                 name: "Acme Corp",
-                order_id: "order_IQh9iYKN3ND6CY", //Replace this with an order_id created using Orders API.
+                order_id: "order_IQxHF0NEmNq3ZP", //Replace this with an order_id created using Orders API.
                 prefill: {
                   email: "gaurav.kumar@example.com",
                   contact: "9191919191",

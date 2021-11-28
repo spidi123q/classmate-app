@@ -10,12 +10,12 @@ import {
 } from "../../../common/config/themeConfig";
 import useFirstLauch from "../../../common/hooks/useFirstLauch";
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
-import { RoutePath } from "../../../models/RoutePath";
 import { useWindowDimensions } from "react-native";
 import { AppTheme } from "../../../common/config/custom-theme";
+import { IAppStackNavigationProp } from "../../../models/RoutePath";
 
 export default function Intro() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<IAppStackNavigationProp>();
   const { onFirstLaunch } = useFirstLauch();
   const { height, width } = useWindowDimensions();
   const renderItem = ({ item }: FlatListRenderItem<ISlide>) => {
@@ -54,7 +54,7 @@ export default function Intro() {
   };
   const goToLogin = () => {
     onFirstLaunch();
-    navigation.navigate(RoutePath.Login);
+    navigation.navigate("Tabs");
   };
 
   return (
@@ -73,7 +73,6 @@ export default function Intro() {
         >
           Already have account?{" "}
           <Typography type="h3" color={DefaultFontColor} onPress={goToLogin}>
-            {" "}
             Login
           </Typography>
         </Typography>

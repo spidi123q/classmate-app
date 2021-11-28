@@ -23,7 +23,7 @@ export default function useUserAPI() {
    * @param isStateUpdate If true will update app state with new user
    * @returns
    */
-  const getUser = async (isStateUpdate: boolean = true): Promise<any> => {
+  const getUser = async (isStateUpdate: boolean = true): IResponse<IUser> => {
     const request = GetUser(isStateUpdate);
     setIsLoading(true);
     const response = await dispatch(AxiosApi(request));

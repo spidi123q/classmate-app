@@ -6,6 +6,7 @@ export interface IRequest extends AxiosRequestConfig {
   actionType?: string;
 }
 export type IResponse<T> = Promise<{ payload: T }>;
+export const IResponse = Promise;
 //export const IResponse = Promise;
 
 export const client = axios.create({

@@ -1,12 +1,10 @@
 import React from "react";
 import { View } from "react-native";
-import { RoutePath } from "../../../models/RoutePath";
+import { ILoginStackNavigationProp } from "../../../models/RoutePath";
 import { Formik, FormikProps } from "formik";
 import LoginForm, { InitialLoginForm } from "../../../models/LoginForm";
 import { loginSchema } from "./yupSchema";
 import NativeLayout from "../../../common/components/NativeLayout";
-import styles from "./Login.style";
-import * as Animatable from "react-native-animatable";
 import { slideUpProps } from "../../../common/helpers/animation";
 import { useNavigation } from "@react-navigation/native";
 import {
@@ -14,29 +12,24 @@ import {
   DefaultMargin,
   DefaultOpacity,
   DoubleMargin,
-  FontSize,
-  SecondaryBackgroundColor,
 } from "../../../common/config/themeConfig";
 import Typography from "../../../common/components/Typography";
-import { Icon } from "react-native-elements";
-import VideoPlayer from "../../../common/components/videoPlayer/VideoPlayer";
-import { VericalSpacer } from "../../../common/components/VericalSpacer";
 import NativeButton from "../../../common/components/NativeButton";
 import NativeField from "../../../common/components/NativeField";
 import { isEmpty } from "lodash";
 import NativeView from "../../../common/components/NativeView";
 
 const Login = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<ILoginStackNavigationProp>();
 
   const signIn = ({ phone }: LoginForm) => {
-    navigation.navigate(RoutePath.OtpVerifier, {
+    navigation.navigate("Verify OTP", {
       phone,
     });
   };
 
   return (
-    <NativeLayout horizontalMargin lockToPortrait>
+    <NativeLayout lockToPortrait flexDirection="column">
       <Formik
         validationSchema={loginSchema}
         initialValues={InitialLoginForm}
@@ -44,7 +37,11 @@ const Login = () => {
         validateOnChange={false}
       >
         {(formikProps: FormikProps<LoginForm>) => (
-          <NativeView type="animatable" {...slideUpProps}>
+          <NativeView
+            type="animatable"
+            {...slideUpProps}
+            paddingHorizontal={DefaultMargin}
+          >
             <NativeView marginTop={DoubleMargin}>
               <Typography type="h1x" family="bold">
                 Login to your

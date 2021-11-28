@@ -1,31 +1,25 @@
-import { StackNavigationProp } from "@react-navigation/stack";
+import {
+  BottomTabNavigationProp,
+  BottomTabScreenProps,
+} from "@react-navigation/bottom-tabs";
+import {
+  CompositeNavigationProp,
+  CompositeScreenProps,
+  NavigatorScreenParams,
+} from "@react-navigation/native";
+import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
 import { IParams as IJitsiParams } from "../common/native/jitsiMeet";
 
-export enum RoutePath {
-  Root = "root",
-  Home = "/",
-  Auth = "auth",
-  Login = "Login",
-  OtpVerifier = "Login OTP",
-  ProfileComplete = "Login Complete Profile",
-  Page = "/page/:name",
-  Error = "/error/:type",
-  Dashboard = "dashboard",
-  Intro = "/intro",
-}
+export type IIntroStackParamList = {
+  Intro: undefined;
+};
 
-export enum UserPages {
-  Profile = "Profile",
-  JitsiMeet = "Live",
-  Booking = "Booking",
-}
+export type IIntroStackNavigationProp = StackNavigationProp<
+  IIntroStackParamList,
+  keyof IIntroStackParamList
+>;
 
-export enum TabPages {
-  Explore = "Explore",
-  MyBookings = "My Bookings",
-}
-
-type IUserStackParamList = {
+export type IUserStackParamList = {
   JitsiMeet: IJitsiParams;
   Profile: undefined;
   Booking: undefined;
@@ -34,15 +28,57 @@ type IUserStackParamList = {
 
 export type IUserStackNavigationProp = StackNavigationProp<
   IUserStackParamList,
-  keyof typeof UserPages
+  keyof IUserStackParamList
 >;
 
-type ITabParamList = {
-  Explore: undefined;
-  MyBookings: undefined;
+export type ILoginStackParamList = {
+  Login: undefined;
+  "Verify OTP": { phone: string };
+  "Complete Profile": undefined;
 };
 
-export type ITabNavigationProp = StackNavigationProp<
+export type ILoginStackNavigationProp = StackNavigationProp<
+  ILoginStackParamList,
+  keyof ILoginStackParamList
+>;
+
+export type ITabParamList = {
+  Explore: undefined;
+  "My Bookings": undefined;
+};
+
+export type ITabNavigationProp = BottomTabScreenProps<
   ITabParamList,
-  keyof typeof TabPages
+  keyof ITabParamList
+>;
+
+export type IAppStackParamList = {
+  Tabs: undefined;
+  Dashboard: undefined;
+  Error: undefined;
+};
+
+export type IAppStackNavigationProp = StackNavigationProp<
+  IAppStackParamList,
+  keyof IAppStackParamList
+>;
+
+export type IDashboardUserNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<
+    {
+      Dashboard: NavigatorScreenParams<IUserStackParamList>;
+    },
+    "Dashboard"
+  >,
+  StackNavigationProp<IUserStackParamList>
+>;
+
+export type IAppTabrNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<
+    {
+      Tabs: NavigatorScreenParams<ITabParamList>;
+    },
+    "Tabs"
+  >,
+  BottomTabNavigationProp<ITabParamList>
 >;

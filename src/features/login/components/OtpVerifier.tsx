@@ -12,7 +12,6 @@ import {
   DefaultOpacity,
 } from "../../../common/config/themeConfig";
 import NativeHeader from "../../../common/components/NativeHeader";
-import { RoutePath } from "../../../models/RoutePath";
 import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import { auth } from "../../../common/native/firebase";
 import NativeView from "../../../common/components/NativeView";
@@ -23,19 +22,18 @@ import { slideUpProps } from "../../../common/helpers/animation";
 import { otpSchema } from "./yupSchema";
 import { Platform } from "react-native";
 import RecaptchaVerifier from "../../../common/components/recaptchaVerifier";
+import { ILoginStackNavigationProp } from "../../../models/RoutePath";
 
-interface IProps {}
-
-const OtpVerifier = (props: IProps) => {
+const OtpVerifier = () => {
   const route = useRoute<Route<string, IParams | undefined>>();
   const [confirmationResult, setConfirmationResult] =
     useState<FirebaseAuthTypes.ConfirmationResult>();
-  const navigation = useNavigation();
+  const navigation = useNavigation<ILoginStackNavigationProp>();
 
   const onVerified = async () => {
     navigation.reset({
       index: 0,
-      routes: [{ name: RoutePath.ProfileComplete }],
+      routes: [{ name: "Complete Profile" }],
     });
   };
 
@@ -51,7 +49,7 @@ const OtpVerifier = (props: IProps) => {
     try {
       await confirmationResult?.confirm(values.otp);
     } catch (err) {
-      showToast(ToastTitle.Error, err.message, "error");
+      showToast(ToastTitle.Error, (err as Error).message, "error");
     }
   };
 
@@ -77,7 +75,7 @@ const OtpVerifier = (props: IProps) => {
       );
       setConfirmationResult(confirmationResult);
     } catch (err) {
-      showToast(ToastTitle.Error, err.message, "error");
+      showToast(ToastTitle.Error, (err as Error).message, "error");
     }
   };
 
@@ -91,7 +89,7 @@ const OtpVerifier = (props: IProps) => {
   }, []);
 
   return (
-    <NativeLayout horizontalMargin lockToPortrait>
+    <NativeLayout lockToPortrait>
       <Formik
         validationSchema={otpSchema}
         initialValues={{
@@ -101,7 +99,11 @@ const OtpVerifier = (props: IProps) => {
         validateOnChange={false}
       >
         {(formikProps: FormikProps<IOtpForm>) => (
-          <NativeView type="animatable" {...slideUpProps}>
+          <NativeView
+            type="animatable"
+            {...slideUpProps}
+            paddingHorizontal={DefaultMargin}
+          >
             <NativeView marginTop={DoubleMargin}>
               <Typography type="h1x" family="bold">
                 Enter Verification

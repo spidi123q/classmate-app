@@ -9,11 +9,11 @@ import {
 
 import { IsMobile } from "../config/constants";
 import { DefaultBackgroundColor, DefaultMargin } from "../config/themeConfig";
-import NativeView, { INativeViewProps } from "./NativeView";
+import NativeView, { INativeViewProps, IViewProps } from "./NativeView";
 import { useFocusEffect } from "@react-navigation/native";
 import Orientation from "../native/orientation";
 
-export interface INativeLayoutProps {
+export interface INativeLayoutProps extends IViewProps {
   backgroundColor?: string;
   statusBarColor?: string;
   barStyle?: "default" | "light-content" | "dark-content";
@@ -21,6 +21,7 @@ export interface INativeLayoutProps {
   noSafeArea?: boolean;
   scroll?: boolean;
   lockToPortrait?: boolean;
+  unsetFlex?: boolean;
   refreshControl?:
     | React.ReactElement<
         RefreshControlProps,
@@ -29,9 +30,7 @@ export interface INativeLayoutProps {
     | undefined;
 }
 
-const NativeLayout: React.FunctionComponent<
-  INativeLayoutProps & INativeViewProps
-> = (props = { flex: 1 }) => {
+const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
   const {
     children,
     barStyle,
@@ -40,6 +39,8 @@ const NativeLayout: React.FunctionComponent<
     statusBarColor,
     noSafeArea,
     lockToPortrait,
+    unsetFlex,
+    flex,
     ...rest
   } = props;
 
@@ -53,6 +54,7 @@ const NativeLayout: React.FunctionComponent<
     <NativeView
       type={noSafeArea ? undefined : "safeArea"}
       backgroundColor={backgroundColor ?? DefaultBackgroundColor}
+      flex={unsetFlex ? undefined : flex ?? 1}
       {...rest}
     >
       {children}

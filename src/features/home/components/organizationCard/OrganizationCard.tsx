@@ -26,11 +26,9 @@ import {
 } from "../../../../common/native/jitsiMeet";
 import { Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import {
-  IUserStackNavigationProp,
-  UserPages,
-} from "../../../../models/RoutePath";
+import { IDashboardUserNavigationProp } from "../../../../models/RoutePath";
 import Schedule from "./Schedule";
+import useLoginActions from "../../../login/hooks/useLoginActions";
 
 interface IProps {
   showSchedule?: boolean;
@@ -39,9 +37,15 @@ interface IProps {
 
 export default function OrganizationCard(props: IProps) {
   const { showSchedule, showBooking, ...rest } = props;
-  const navigation = useNavigation<IUserStackNavigationProp>();
+  const { authorizedOnly } = useLoginActions();
+  const navigation = useNavigation<IDashboardUserNavigationProp>();
 
-  const bookSlot = () => navigation.navigate("Booking");
+  const bookSlot = () =>
+    authorizedOnly(() =>
+      navigation.navigate("Dashboard", {
+        screen: "Booking",
+      })
+    );
 
   const dummyButton = (
     <NativeView

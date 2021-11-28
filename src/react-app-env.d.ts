@@ -111,3 +111,9 @@ declare module "react-native-razorpay" {
   };
   export default RazorpayCheckout;
 }
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}

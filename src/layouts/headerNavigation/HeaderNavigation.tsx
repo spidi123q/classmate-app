@@ -13,10 +13,8 @@ import { DefaultBackgroundColor } from "../../common/config/themeConfig";
 export default function HeaderNavigation(
   props: BottomTabBarProps<BottomTabBarOptions>
 ) {
-  const navigation = useNavigation();
-
   return (
-    <NativeLayout>
+    <NativeLayout unsetFlex>
       <HeaderMenu />
       <NavigationFooter {...props} />
     </NativeLayout>

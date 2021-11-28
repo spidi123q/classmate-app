@@ -6,13 +6,14 @@ import Profile from "../../common/assets/BlankUser.svg";
 import { useNavigation } from "@react-navigation/native";
 import { IUserStackNavigationProp } from "../../models/RoutePath";
 import { IconLabel } from "../../common/components/IconLabel";
+import useLoginActions from "../../features/login/hooks/useLoginActions";
 
 export function HeaderMenu() {
   const navigation = useNavigation<IUserStackNavigationProp>();
+  const { authorizedOnly } = useLoginActions();
 
-  const openProfile = () => {
-    navigation.navigate("Profile");
-  };
+  const openProfile = () =>
+    authorizedOnly(() => navigation.navigate("Profile"));
 
   return (
     <NativeView

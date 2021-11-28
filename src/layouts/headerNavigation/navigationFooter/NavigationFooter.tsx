@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import { RoutePath, TabPages } from "../../../models/RoutePath";
+import { ITabParamList } from "../../../models/RoutePath";
 import styles, {
   borderHighLight,
   iconHighLight,
@@ -37,7 +37,7 @@ const NavigationFooter = (props: BottomTabBarProps<BottomTabBarOptions>) => {
         {state.routes.map((route, index) => (
           <Tab
             key={route.key}
-            path={route.name}
+            path={route.name as keyof ITabParamList}
             isMatch={index === activeTabIndex}
             onPress={() => {
               const event = navigation.emit({
@@ -58,7 +58,7 @@ const NavigationFooter = (props: BottomTabBarProps<BottomTabBarOptions>) => {
 };
 
 interface ITabProps {
-  path: string;
+  path: keyof ITabParamList;
   onPress: () => any;
   isMatch: boolean;
 }
@@ -66,7 +66,7 @@ const Tab = (props: ITabProps) => {
   const { path, onPress, isMatch } = props;
   const fontColor = isMatch ? SecondaryFontColor : undefined;
   switch (path) {
-    case TabPages.Explore: {
+    case "Explore": {
       return (
         <Ripple
           onPress={onPress}
@@ -79,7 +79,7 @@ const Tab = (props: ITabProps) => {
         </Ripple>
       );
     }
-    case TabPages.MyBookings:
+    case "My Bookings":
       return (
         <Ripple
           onPress={onPress}

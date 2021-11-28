@@ -1,22 +1,13 @@
 import React, { useEffect } from "react";
-import { isAuthorized } from "../helpers/auth";
-import { UserPermissions, UserRoles } from "../models/enum";
-import useUser from "../features/login/hooks/useUser";
 import LoginNavigator from "./LoginNavigator";
-import HomeNavigator from "./HomeNavigator";
-import useAppInfo from "../common/hooks/useAppInfo";
-import ErrorLayout from "./errorLayout/ErrorLayout";
+import UserNavigator from "./UserNavigator";
+import useLoginActions from "../features/login/hooks/useLoginActions";
 
 const DashboardRoute: React.FunctionComponent = () => {
-  const user = useUser();
-  const { isValidVersion } = useAppInfo();
+  const { isLoggedIn } = useLoginActions();
 
-  if (!isValidVersion) {
-    return <ErrorLayout type="update" />;
-  }
-
-  if (isAuthorized(user?.permissions, UserPermissions.WriteUserSelf)) {
-    return <HomeNavigator />;
+  if (isLoggedIn) {
+    return <UserNavigator />;
   } else {
     return <LoginNavigator />;
   }
