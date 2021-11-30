@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { showToast } from "../../../common/helpers/notification";
 import { ToastTitle } from "../../../common/models/enum";
 import NativeLayout from "../../../common/components/NativeLayout";
-import { Route, useNavigation, useRoute } from "@react-navigation/native";
+import {
+  Route,
+  RouteProp,
+  useNavigation,
+  useRoute,
+} from "@react-navigation/native";
 import Typography from "../../../common/components/Typography";
 import {
   FontSize,
@@ -22,24 +27,32 @@ import { slideUpProps } from "../../../common/helpers/animation";
 import { otpSchema } from "./yupSchema";
 import { Platform } from "react-native";
 import RecaptchaVerifier from "../../../common/components/recaptchaVerifier";
-import { ILoginStackNavigationProp } from "../../../models/RoutePath";
+import {
+  ILoginStackNavigationProp,
+  ILoginStackParamList,
+} from "../../../models/RoutePath";
 
 const OtpVerifier = () => {
-  const route = useRoute<Route<string, IParams | undefined>>();
+  const route = useRoute<RouteProp<ILoginStackParamList, "Verify OTP">>();
   const [confirmationResult, setConfirmationResult] =
     useState<FirebaseAuthTypes.ConfirmationResult>();
   const navigation = useNavigation<ILoginStackNavigationProp>();
 
-  const onVerified = async () => {
+  const onVerified = async (firebaseUser: FirebaseAuthTypes.User) => {
     navigation.reset({
       index: 0,
-      routes: [{ name: "Complete Profile" }],
+      routes: [
+        {
+          name: "Complete Profile",
+          params: { phone: firebaseUser.phoneNumber },
+        },
+      ],
     });
   };
 
   const loginSuccess = (result: FirebaseAuthTypes.User | undefined | null) => {
     if (result) {
-      onVerified();
+      onVerified(result);
     } else {
       showToast(ToastTitle.Error, "Login Failed", "error");
     }
@@ -57,7 +70,7 @@ const OtpVerifier = () => {
     const unsubscribe = auth().onAuthStateChanged((user) => {
       if (user && !user.isAnonymous) {
         console.log("User verified: ", user.phoneNumber);
-        loginSuccess(user as any);
+        loginSuccess(user);
       }
     });
     return unsubscribe;

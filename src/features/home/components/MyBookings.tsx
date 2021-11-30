@@ -10,8 +10,9 @@ export interface IProps {
 
 export function MyBookings(props: IProps) {
   return (
-    <NativeView marginHorizontal={DefaultMargin} marginTop={DefaultMargin}>
-      <OrganizationCard showSchedule />
-    </NativeView>
+    <NativeView
+      marginHorizontal={DefaultMargin}
+      marginTop={DefaultMargin}
+    ></NativeView>
   );
 }

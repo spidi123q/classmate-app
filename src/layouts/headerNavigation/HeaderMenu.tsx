@@ -4,16 +4,20 @@ import { DoubleMargin, DefaultMargin } from "../../common/config/themeConfig";
 import LogoHorizontal from "../../common/assets/LogoHorizontal.svg";
 import Profile from "../../common/assets/BlankUser.svg";
 import { useNavigation } from "@react-navigation/native";
-import { IUserStackNavigationProp } from "../../models/RoutePath";
+import { IDashboardUserNavigationProp } from "../../models/RoutePath";
 import { IconLabel } from "../../common/components/IconLabel";
 import useLoginActions from "../../features/login/hooks/useLoginActions";
 
 export function HeaderMenu() {
-  const navigation = useNavigation<IUserStackNavigationProp>();
+  const navigation = useNavigation<IDashboardUserNavigationProp>();
   const { authorizedOnly } = useLoginActions();
 
   const openProfile = () =>
-    authorizedOnly(() => navigation.navigate("Profile"));
+    authorizedOnly(() =>
+      navigation.navigate("Dashboard", {
+        screen: "Profile",
+      })
+    );
 
   return (
     <NativeView

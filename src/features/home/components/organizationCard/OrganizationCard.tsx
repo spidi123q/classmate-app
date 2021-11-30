@@ -1,6 +1,7 @@
 import React from "react";
 import NativeView, {
   INativeViewProps,
+  IViewProps,
 } from "../../../../common/components/NativeView";
 import Typography from "../../../../common/components/Typography";
 import { Image } from "react-native-elements";
@@ -29,14 +30,17 @@ import { useNavigation } from "@react-navigation/native";
 import { IDashboardUserNavigationProp } from "../../../../models/RoutePath";
 import Schedule from "./Schedule";
 import useLoginActions from "../../../login/hooks/useLoginActions";
+import IOrganization from "../../../../models/Organization";
+import { openURL } from "../../../../common/helpers/platform";
 
 interface IProps {
+  organization: IOrganization;
   showSchedule?: boolean;
   showBooking?: boolean;
 }
 
 export default function OrganizationCard(props: IProps) {
-  const { showSchedule, showBooking, ...rest } = props;
+  const { organization, showSchedule, showBooking, ...rest } = props;
   const { authorizedOnly } = useLoginActions();
   const navigation = useNavigation<IDashboardUserNavigationProp>();
 
@@ -44,6 +48,7 @@ export default function OrganizationCard(props: IProps) {
     authorizedOnly(() =>
       navigation.navigate("Dashboard", {
         screen: "Booking",
+        params: { organization },
       })
     );
 
@@ -66,7 +71,7 @@ export default function OrganizationCard(props: IProps) {
         <Image
           style={styles.profilePicture}
           source={{
-            uri: "https://imagedelivery.net/ZVvTnL_5y8yMkXz-CrbmWg/bde96183-dad9-45c5-9a8d-c6b79c8aed00/classmateThumbnail",
+            uri: organization.profileThumbUrl,
           }}
           PlaceholderContent={
             <NativeSkeletonPlaceholder
@@ -81,7 +86,7 @@ export default function OrganizationCard(props: IProps) {
           }
         />
         <NativeView marginLeft={DefaultMargin / 2} flex={1}>
-          <Typography type="h3">Shreyas Surendranathan</Typography>
+          <Typography type="h3">{organization.name}</Typography>
           <Typography
             type="xsx"
             marginTop={DefaultMargin / 4}
@@ -89,15 +94,27 @@ export default function OrganizationCard(props: IProps) {
             color={DefaultHintFontColor}
             numberOfLines={1}
           >
-            Fashion influencer
+            {organization.caption}
           </Typography>
           <NativeView
             flexDirection="row"
             alignItems="center"
             justifyContent="space-between"
           >
-            <IconLabel Icon={Youtube} label="123k" />
-            <IconLabel Icon={Instagram} label="44k" />
+            {organization.youtubeCountFormated && (
+              <IconLabel
+                Icon={Youtube}
+                label={organization.youtubeCountFormated}
+                onPress={() => openURL(organization.youtube)}
+              />
+            )}
+            {organization.instagramCountFormated && (
+              <IconLabel
+                Icon={Instagram}
+                label={organization.instagramCountFormated}
+                onPress={() => openURL(organization.instagram)}
+              />
+            )}
             {showBooking ? (
               <NativeButton
                 title="Book slot"

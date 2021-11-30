@@ -1,17 +1,24 @@
-import GeoJSON from "../common/models/GeoJSON";
 import { ITimeStamps } from "../common/models/TimeStamps";
 
 export default interface IOrganization extends ITimeStamps {
   _id: string;
   name: string;
   address: string;
-  location: GeoJSON;
   city: string;
   email: string;
   phone: string;
-  active: boolean;
+  caption: string;
+  profileImageId: string;
+  profileThumbUrl: string;
   website?: string;
-  appLogoUrl?: string;
+  youtube?: string;
+  instagram?: string;
+  youtubeCount?: number;
+  instagramCount?: number;
+  youtubeCountFormated?: string;
+  instagramCountFormated?: string;
+  price: number;
+  active: boolean;
 }
 
 export interface IOrganizationEdit extends Partial<IOrganization> {}

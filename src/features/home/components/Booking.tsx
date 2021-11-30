@@ -6,11 +6,16 @@ import { DefaultMargin } from "../../../common/config/themeConfig";
 import OrganizationCard from "./organizationCard/OrganizationCard";
 import RazorpayCheckout from "react-native-razorpay";
 import NativeButton from "../../../common/components/NativeButton";
-import { useNavigation } from "@react-navigation/native";
-import { IAppTabrNavigationProp } from "../../../models/RoutePath";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
+import {
+  IAppTabrNavigationProp,
+  IUserStackParamList,
+} from "../../../models/RoutePath";
 
 export default function Booking() {
   const navigation = useNavigation<IAppTabrNavigationProp>();
+  const { params } = useRoute<RouteProp<IUserStackParamList, "Booking">>();
+  const { organization } = params;
 
   const goToMyBooking = () =>
     navigation.navigate("Tabs", {
@@ -26,7 +31,7 @@ export default function Booking() {
         marginHorizontal={DefaultMargin}
       >
         <NativeView marginTop={DefaultMargin / 2}>
-          <OrganizationCard />
+          <OrganizationCard organization={organization} />
           <NativeButton
             title="sadas"
             onPress={() => {

@@ -21,9 +21,9 @@ export default function UserNavigator() {
       >
         {user.active && (
           <>
-            <Stack.Screen name="JitsiMeet" component={JitsiMeetView} />
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="Booking" component={Booking} />
+            <Stack.Screen name="JitsiMeet" component={JitsiMeetView} />
           </>
         )}
       </Stack.Navigator>

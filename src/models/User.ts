@@ -8,7 +8,7 @@ export default interface IUser extends Partial<ITimeStamps> {
   _id: string;
   name?: string;
   email?: string;
-  phone?: string;
+  phone?: string | null;
   role: string;
   firebaseId: string;
   avatarURL?: string;

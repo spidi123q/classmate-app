@@ -14,15 +14,17 @@ import useLoading from "../../../common/hooks/useLoading";
 import LottieView from "lottie-react-native";
 import useLoginActions from "../hooks/useLoginActions";
 import NativeHeader from "../../../common/components/NativeHeader";
-import { IAppStackNavigationProp } from "../../../models/RoutePath";
-import { useNavigation } from "@react-navigation/native";
+import {
+  IAppStackNavigationProp,
+  ILoginStackParamList,
+} from "../../../models/RoutePath";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { isAuthorized } from "../../../helpers/auth";
 import { UserPermissions, UserRoles } from "../../../models/enum";
 
-interface IProps {}
-
-const ProfileForm = (props: IProps) => {
+const ProfileForm = () => {
   const { getUser, updateUser } = useUserAPI();
+  const route = useRoute<RouteProp<ILoginStackParamList, "Complete Profile">>();
   const { logout } = useLoginActions();
   const [isProfileComplete, setIsProfileComplete] = useState<boolean>(false);
   const loading = useLoading();
@@ -44,6 +46,7 @@ const ProfileForm = (props: IProps) => {
       if (!isValid) {
         await updateUser({
           role: UserRoles.User,
+          phone: route.params.phone,
           active: true,
         });
       }

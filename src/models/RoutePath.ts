@@ -1,3 +1,4 @@
+import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import {
   BottomTabNavigationProp,
   BottomTabScreenProps,
@@ -9,6 +10,7 @@ import {
 } from "@react-navigation/native";
 import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
 import { IParams as IJitsiParams } from "../common/native/jitsiMeet";
+import IOrganization from "./Organization";
 
 export type IIntroStackParamList = {
   Intro: undefined;
@@ -22,7 +24,9 @@ export type IIntroStackNavigationProp = StackNavigationProp<
 export type IUserStackParamList = {
   JitsiMeet: IJitsiParams;
   Profile: undefined;
-  Booking: undefined;
+  Booking: {
+    organization: IOrganization;
+  };
   Feed: { sort: "latest" | "top" } | undefined;
 };
 
@@ -34,7 +38,9 @@ export type IUserStackNavigationProp = StackNavigationProp<
 export type ILoginStackParamList = {
   Login: undefined;
   "Verify OTP": { phone: string };
-  "Complete Profile": undefined;
+  "Complete Profile": {
+    phone: string;
+  };
 };
 
 export type ILoginStackNavigationProp = StackNavigationProp<
