@@ -33,7 +33,7 @@ const NavigationFooter = (props: BottomTabBarProps<BottomTabBarOptions>) => {
   }
   return (
     <View style={styles.container}>
-      <NativeView flexDirection="row" marginHorizontal={5}>
+      <NativeView flexDirection="row" marginHorizontal={5} flex={1}>
         {state.routes.map((route, index) => (
           <Tab
             key={route.key}
