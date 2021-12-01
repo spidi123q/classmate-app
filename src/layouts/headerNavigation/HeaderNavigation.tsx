@@ -14,7 +14,7 @@ export default function HeaderNavigation(
   props: BottomTabBarProps<BottomTabBarOptions>
 ) {
   return (
-    <NativeLayout unsetFlex>
+    <NativeLayout unsetFlex unsetHeight>
       <HeaderMenu />
       <NavigationFooter {...props} />
     </NativeLayout>

@@ -22,6 +22,7 @@ export interface INativeLayoutProps extends IViewProps {
   scroll?: boolean;
   lockToPortrait?: boolean;
   unsetFlex?: boolean;
+  unsetHeight?: boolean;
   refreshControl?:
     | React.ReactElement<
         RefreshControlProps,
@@ -41,6 +42,8 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
     lockToPortrait,
     unsetFlex,
     flex,
+    height,
+    unsetHeight,
     ...rest
   } = props;
 
@@ -49,12 +52,15 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
       Orientation.lockToPortrait();
     }
   });
+  const defaultFlex = unsetFlex ? undefined : flex;
+  const defaultHeight = unsetHeight ? undefined : height;
 
   return (
     <NativeView
       type={noSafeArea ? undefined : "safeArea"}
       backgroundColor={backgroundColor ?? DefaultBackgroundColor}
-      flex={unsetFlex ? undefined : flex ?? 1}
+      flex={defaultFlex}
+      height={defaultHeight}
       {...rest}
     >
       {children}
@@ -64,6 +70,12 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
       />
     </NativeView>
   );
+};
+
+NativeLayout.defaultProps = {
+  flex: 1,
+  unsetFlex: !IsMobile,
+  height: !IsMobile ? "100vh" : undefined,
 };
 
 export default NativeLayout;
