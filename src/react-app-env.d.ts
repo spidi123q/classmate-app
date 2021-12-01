@@ -66,14 +66,14 @@ declare module "react-native-android-immersive-mode" {
 declare module "react-native-razorpay" {
   export interface IOptions {
     description: string;
-    image: string;
+    image?: string;
     currency: string;
     key: string;
     amount: string;
     name: string;
     order_id: string;
     prefill: IPrefill;
-    theme: ITheme;
+    theme?: ITheme;
   }
 
   export interface IPrefill {
