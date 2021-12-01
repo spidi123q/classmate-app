@@ -1,6 +1,6 @@
 import { IError, ISuccess } from "react-native-razorpay";
 import { ICheckoutOptions, INativeRazorpayCheckout } from ".";
-import { getOptions } from "./constants";
+import { getOptions } from "./helpers";
 
 export const NativeRazorpayCheckout: INativeRazorpayCheckout = {
   open: (options: ICheckoutOptions) => {
