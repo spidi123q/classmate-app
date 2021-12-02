@@ -18,3 +18,15 @@ export enum UserPermissions {
   ReadUserSelf = "ReadUserSelf",
   WriteUserSelf = "WriteUserSelf",
 }
+
+export enum BookingStatus {
+  AwaitingConfirmation = "Awaiting Confirmation",
+  Accepted = "Accepted",
+}
+
+export enum PreferredSlot {
+  Morning = "Morning",
+  Noon = "Noon",
+  Evening = "Evening",
+  Night = "Night",
+}

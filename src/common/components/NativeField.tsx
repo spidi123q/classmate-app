@@ -37,6 +37,9 @@ import NativeLabel from "./NativeLabel";
 import NativeButtonGroup from "./NativeButtonGroup";
 import LocationInput from "./location/LocationInput";
 import KeyValuePair from "../models/KeyValuePair";
+import NativeCheckBoxGroup, {
+  INativeCheckBoxGroupOptions,
+} from "./NativeCheckboxGroup";
 
 type InputTypes =
   | "country"
@@ -47,7 +50,8 @@ type InputTypes =
   | "dropdown"
   | "button-group"
   | "location"
-  | "image";
+  | "image"
+  | "checkbox";
 
 interface IProps extends Partial<INativeTextInput>, Partial<CountryProps> {
   name: string;
@@ -57,7 +61,7 @@ interface IProps extends Partial<INativeTextInput>, Partial<CountryProps> {
   min?: Date;
   max?: Date;
   iconName?: string;
-  options?: KeyValuePair[];
+  options?: KeyValuePair[] | INativeCheckBoxGroupOptions[];
   onLongPress?: (item: string) => any;
   locationFieldName?: string;
   addressFieldName?: string;
@@ -227,6 +231,16 @@ const NativeField = (props: IProps) => {
             {...rest}
           />
         );
+
+      case "checkbox":
+        return (
+          <NativeCheckBoxGroup
+            value={formikProps.values[name]}
+            onChange={(value) => formikProps.setFieldValue(name, value)}
+            options={options as INativeCheckBoxGroupOptions[]}
+          />
+        );
+
       default:
         return null;
     }

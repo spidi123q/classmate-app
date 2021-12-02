@@ -20,20 +20,18 @@ import {
   zoomInProps,
 } from "../helpers/animation";
 
-interface INativeCheckBoxProps {
+export interface INativeCheckBoxProps {
   borderRadius?: number;
-  onChange?: (value: boolean) => void;
+  onChange: (value: boolean) => void;
   label: string;
   hint?: string;
   defaultValue?: boolean;
-  value?: boolean;
+  checked?: boolean;
 }
 
 export default function NativeCheckBox(props: INativeCheckBoxProps) {
-  const { borderRadius, onChange, defaultValue, label, hint } = props;
-  const [isChecked, setIsChecked] = useState<boolean>(!!defaultValue);
-  const value: boolean = props.value ?? isChecked;
-  const checkboxProps: Partial<IViewProps> = value
+  const { borderRadius, onChange, defaultValue, label, hint, checked } = props;
+  const checkboxProps: Partial<IViewProps> = checked
     ? {
         backgroundColor: DefaultSecondaryColor,
       }
@@ -43,9 +41,7 @@ export default function NativeCheckBox(props: INativeCheckBoxProps) {
       };
 
   const onToggleCheck = () => {
-    const value = !isChecked;
-    setIsChecked(value);
-    onChange && onChange(value);
+    onChange(!checked);
   };
 
   return (
@@ -67,7 +63,7 @@ export default function NativeCheckBox(props: INativeCheckBoxProps) {
         alignItems="center"
         {...checkboxProps}
       >
-        {value && <Animatable.Image source={Checked} {...zoomInProps()} />}
+        {checked && <Animatable.Image source={Checked} {...zoomInProps()} />}
       </NativeView>
       <NativeView
         marginLeft={DefaultMargin / 2}

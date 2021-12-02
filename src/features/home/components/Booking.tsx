@@ -11,6 +11,11 @@ import {
   IUserStackParamList,
 } from "../../../models/RoutePath";
 import { NativeRazorpayCheckout } from "../../../common/native/razorpayCheckout";
+import { Formik, FormikProps } from "formik";
+import NativeField from "../../../common/components/NativeField";
+import { IBookingEdit } from "../../../models/Booking";
+import { PreferredSlot } from "../../../models/enum";
+import { INativeCheckBoxGroupOptions } from "../../../common/components/NativeCheckboxGroup";
 
 export default function Booking() {
   const navigation = useNavigation<IAppTabrNavigationProp>();
@@ -22,41 +27,43 @@ export default function Booking() {
       screen: "My Bookings",
     });
 
+  const onSubmit = (values: IBookingEdit) => {
+    console.log("🚀 ~ file: Booking.tsx ~ line 26 ~ onSubmit ~ values", values);
+  };
+
   return (
     <NativeLayout lockToPortrait flex={1}>
       <NativeHeader title="Booking" />
-      <NativeView
-        type="scroll"
-        marginTop={DefaultMargin}
-        marginHorizontal={DefaultMargin}
+      <Formik
+        initialValues={{ name: "" }}
+        onSubmit={onSubmit}
+        validateOnChange={false}
       >
-        <NativeView marginTop={DefaultMargin / 2}>
-          <OrganizationCard organization={organization} />
-          <NativeButton
-            title="sadas"
-            onPress={() => {
-              NativeRazorpayCheckout.open({
-                description: "test description",
-                amount: 5000,
-                order_id: "order_ISIKD5aBU6itzK",
-              })
-                .then((data) => {
-                  console.log(
-                    "success 🚀 ~ file: Booking.tsx ~ line 63 ~ .then ~ data",
-                    JSON.stringify(data)
-                  );
-                  goToMyBooking();
-                })
-                .catch((error) => {
-                  console.log(
-                    "error 🚀 ~ file: Booking.tsx ~ line 67 ~ Booking ~ error",
-                    error
-                  );
-                });
-            }}
-          />
-        </NativeView>
-      </NativeView>
+        {(formikProps: FormikProps<IBookingEdit>) => (
+          <NativeView
+            type="scroll"
+            marginTop={DefaultMargin}
+            marginHorizontal={DefaultMargin}
+          >
+            <NativeView marginTop={DefaultMargin / 2}>
+              <OrganizationCard organization={organization} />
+            </NativeView>
+            <NativeView>
+              <NativeField
+                type="checkbox"
+                name="preferredSlot"
+                formikProps={formikProps}
+                options={Object.values(
+                  PreferredSlot
+                ).map<INativeCheckBoxGroupOptions>((slot) => ({
+                  Key: slot,
+                  Value: slot,
+                }))}
+              />
+            </NativeView>
+          </NativeView>
+        )}
+      </Formik>
     </NativeLayout>
   );
 }
