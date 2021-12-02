@@ -52,7 +52,7 @@ export default function NativeCheckBox(props: INativeCheckBoxProps) {
       alignItems="center"
       padding={DefaultMargin / 2}
       onPress={onToggleCheck}
-      borderRadius={borderRadius ?? DefaultBorderRadius}
+      borderRadius={borderRadius ?? 10}
       flexDirection="row"
     >
       <NativeView
