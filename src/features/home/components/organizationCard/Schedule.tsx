@@ -58,8 +58,7 @@ export default function Schedule(props: IProps) {
         <NativeButton
           title="Go Live"
           size="xs"
-          buttonBackgroundColor={AppTheme["color-danger-500"]}
-          buttonTextColor={DefaultSecondaryColor}
+          backgroundColor="color-danger-500"
           buttonFontFamily="regular"
           iconName="videocam"
           width={buttonWidth}

@@ -119,8 +119,7 @@ export default function OrganizationCard(props: IProps) {
               <NativeButton
                 title="Book slot"
                 size="xs"
-                buttonBackgroundColor={AppTheme["color-accent1"]}
-                buttonTextColor={DefaultSecondaryColor}
+                backgroundColor="color-accent1"
                 buttonFontFamily="regular"
                 width={buttonWidth}
                 onPress={bookSlot}

@@ -22,126 +22,108 @@ import {
 } from "../config/themeConfig";
 import _ from "lodash";
 import Typography from "./Typography";
-import NativeView from "./NativeView";
+import NativeView, { IRippleProps } from "./NativeView";
 import { Circle } from "react-native-progress";
 
-interface IProps extends ButtonProps {
+interface IProps extends Partial<IRippleProps> {
   size?: ButtonSizes;
-  width?: number;
-  height?: number;
-  mode?: ModeTypes;
-  margin?: number;
   fontFamily?: AppFonts;
   color?: string;
   title?: string;
   isLoading?: boolean;
   iconName?: string;
-  buttonTextColor?: string;
-  buttonBackgroundColor?: string;
+  buttonTextColor?: keyof typeof AppTheme;
+  backgroundColor?: keyof typeof AppTheme;
   buttonFontFamily?: IFontFamily;
+  leftText?: string | number;
+  rightText?: string | number;
 }
 
 const NativeButton: React.FunctionComponent<IProps> = (props) => {
   const {
     onPress,
     size,
-    width,
-    margin,
     fontFamily,
     color,
-    buttonStyle,
     title,
-    height,
     children,
     isLoading,
     iconName,
-    buttonBackgroundColor,
+    backgroundColor,
     buttonTextColor,
     buttonFontFamily,
+    leftText,
+    rightText,
     ...rest
   } = props;
-  const mode = props.mode;
-  const customStyle: any = {};
-  if (width) {
-    customStyle.width = width;
-  }
-  if (height) {
-    customStyle.height = height;
-  }
 
-  if (buttonBackgroundColor) {
-    customStyle.backgroundColor = buttonBackgroundColor;
-  }
-  const defaultButtonStyle = getButtonStyle(mode, size);
+  const textColor = buttonTextColor
+    ? AppTheme[buttonTextColor]
+    : backgroundColor
+    ? DefaultSecondaryColor
+    : DefaultBackgroundColor;
   return (
     <NativeView
-      type={isLoading ? "default" : "ripple"}
+      type="ripple"
+      flexDirection="row"
+      alignItems="center"
+      justifyContent={
+        (leftText || rightText) && !isLoading ? "space-between" : "center"
+      }
+      backgroundColor={
+        backgroundColor ? AppTheme[backgroundColor] : DefaultSecondaryColor
+      }
+      height={ButtonSize[size as ButtonSizes]}
+      borderRadius={DefaultBorderRadius}
       onPress={onPress}
-      rippleContainerBorderRadius={DefaultBorderRadius}
-      width={width}
-      height={height ?? ButtonSize[size ?? "lg"]}
+      {...(rest as any)}
     >
-      <View style={[defaultButtonStyle, buttonStyle, customStyle]}>
-        {children ??
-          (!isLoading && (
-            <NativeView flexDirection="row" alignItems="center">
-              {iconName && (
-                <NativeView marginRight={10} marginBottom={0.5}>
-                  <Icon
-                    type={DefaultIconFamily}
-                    name={iconName}
-                    color={buttonTextColor ?? DefaultBackgroundColor}
-                  />
-                </NativeView>
-              )}
-              <Typography
-                size={ButtonFontSize[size ?? "lg"]}
-                color={buttonTextColor ?? DefaultBackgroundColor}
-                family={buttonFontFamily ?? "medium"}
-              >
-                {title}
-              </Typography>
+      {isLoading ? (
+        <Circle
+          size={ButtonFontSize[size ?? "lg"]}
+          color="white"
+          indeterminate={true}
+        />
+      ) : (
+        <>
+          {iconName && (
+            <NativeView marginRight={10} marginBottom={0.5}>
+              <Icon
+                type={DefaultIconFamily}
+                name={iconName}
+                color={textColor}
+              />
             </NativeView>
-          ))}
-        {isLoading && (
-          <Circle
-            size={ButtonFontSize[size ?? "lg"]}
-            color="white"
-            indeterminate={true}
-          />
-        )}
-      </View>
+          )}
+          {title && (
+            <Typography
+              size={ButtonFontSize[size as ButtonSizes]}
+              color={textColor}
+              family={buttonFontFamily}
+            >
+              {title}
+            </Typography>
+          )}
+          {leftText && (
+            <Typography type="h3" color={textColor}>
+              {leftText}
+            </Typography>
+          )}
+          {rightText && (
+            <Typography type="h3" color={textColor}>
+              {rightText}
+            </Typography>
+          )}
+        </>
+      )}
     </NativeView>
   );
 };
 
-const getButtonStyle = (
-  mode?: ModeTypes,
-  size?: ButtonSizes
-): StyleProp<ViewStyle> => {
-  let style: StyleProp<ViewStyle> = {
-    height: ButtonSize[size ?? "lg"],
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: DefaultSecondaryColor,
-    borderRadius: DefaultBorderRadius,
-  };
-  if (mode === "oval") {
-    return {
-      ...style,
-      borderRadius: DefaultBorderRadius * 100,
-    };
-  } else if (mode === "square") {
-    return {
-      ...style,
-      borderRadius: DefaultBorderRadius,
-    };
-  } else {
-    return style;
-  }
+NativeButton.defaultProps = {
+  size: "lg",
+  buttonFontFamily: "medium",
 };
-
-type ModeTypes = "oval" | "square";
 
 type ButtonSizes = "lg" | "sm" | "xs";
 
@@ -154,7 +136,7 @@ const ButtonSize: Record<ButtonSizes, number> = {
 const ButtonFontSize: Record<ButtonSizes, number> = {
   lg: FontSize["h3x"],
   sm: FontSize["regular"],
-  xs: FontSize["xs"],
+  xs: FontSize["xsx"],
 };
 
 export default NativeButton;

@@ -79,19 +79,13 @@ export default function Booking() {
               marginBottom={DoubleMargin}
               marginHorizontal={DefaultMargin}
             >
-              <NativeView
-                type="ripple"
-                flexDirection="row"
-                alignItems="center"
-                justifyContent="space-between"
+              <NativeButton
                 paddingHorizontal={DefaultMargin}
-                backgroundColor={AppTheme["color-accent1"]}
-                height={InputHeight}
-                borderRadius={DefaultBorderRadius}
-              >
-                <Typography type="h3">Request to Book</Typography>
-                <Typography type="h3">₹{organization.price}</Typography>
-              </NativeView>
+                leftText="Request to Book"
+                rightText={`₹${organization.price}`}
+                backgroundColor="color-accent1"
+                isLoading={false}
+              />
             </NativeView>
           </>
         )}

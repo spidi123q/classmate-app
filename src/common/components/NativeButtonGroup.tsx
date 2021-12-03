@@ -78,8 +78,6 @@ const Item = ({ isSelected, title, onPress }: ItemProps) => {
   return (
     <Animatable.View ref={(ref) => (buttonRef.current = ref)} {...slideUpProps}>
       <NativeButton
-        mode={isSelected ? "oval" : undefined}
-        type="clear"
         color={
           isSelected ? AppTheme["color-primary-500"] : AppTheme["color-dark"]
         }
@@ -87,7 +85,6 @@ const Item = ({ isSelected, title, onPress }: ItemProps) => {
         margin={DefaultMargin / 3}
         size="xs"
         fontFamily={AppFonts.medium}
-        buttonStyle={isSelected ? undefined : styles.unSelectedButton}
         onPress={() => {
           onPress();
           pulse(buttonRef);

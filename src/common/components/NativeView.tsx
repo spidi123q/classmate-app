@@ -156,7 +156,7 @@ interface IScrollViewProps extends ScrollViewProps, IBaseProps {
   type: "scroll";
 }
 
-interface IRippleProps extends INativeRippleProps, IBaseProps {
+export interface IRippleProps extends INativeRippleProps, IBaseProps {
   type: "ripple";
 }
 
