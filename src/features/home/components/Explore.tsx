@@ -24,7 +24,7 @@ export function Explore() {
 
   const renderItem = ({ item }: FlatListRenderItem<IOrganization>) => (
     <NativeView marginBottom={DefaultMargin}>
-      <OrganizationCard organization={item} showBooking showSchedule />
+      <OrganizationCard organization={item} showBooking />
     </NativeView>
   );
 

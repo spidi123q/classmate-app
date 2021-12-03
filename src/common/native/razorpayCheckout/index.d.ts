@@ -1,4 +1,4 @@
-import { IError, IOptions, IPrefill } from "react-native-razorpay";
+import { IError, IOptions, ISuccess, IPrefill } from "react-native-razorpay";
 
 interface ICheckoutOptions
   extends IPrefill,

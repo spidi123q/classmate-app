@@ -78,7 +78,7 @@ declare module "react-native-razorpay" {
 
   export interface IPrefill {
     email?: string;
-    contact?: string;
+    contact?: string | null;
     name?: string;
   }
 

@@ -64,7 +64,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
     : DefaultBackgroundColor;
   return (
     <NativeView
-      type="ripple"
+      type={isLoading ? "default" : "ripple"}
       flexDirection="row"
       alignItems="center"
       justifyContent={
@@ -75,7 +75,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
       }
       height={ButtonSize[size as ButtonSizes]}
       borderRadius={DefaultBorderRadius}
-      onPress={onPress}
+      onPress={!isLoading && onPress}
       {...(rest as any)}
     >
       {isLoading ? (

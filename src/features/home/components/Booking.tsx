@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NativeHeader from "../../../common/components/NativeHeader";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
@@ -15,7 +15,6 @@ import {
   IAppTabrNavigationProp,
   IUserStackParamList,
 } from "../../../models/RoutePath";
-import { NativeRazorpayCheckout } from "../../../common/native/razorpayCheckout";
 import { Formik, FormikProps } from "formik";
 import NativeField from "../../../common/components/NativeField";
 import { IBookingEdit } from "../../../models/Booking";
@@ -23,25 +22,75 @@ import { PreferredSlot } from "../../../models/enum";
 import { INativeCheckBoxGroupOptions } from "../../../common/components/NativeCheckboxGroup";
 import Typography from "../../../common/components/Typography";
 import { AppTheme } from "../../../common/config/custom-theme";
+import useLoading from "../../../common/hooks/useLoading";
+import useBookingsAPI from "../hooks/useBookingAPI";
+import { showToast } from "../../../common/helpers/notification";
+import { IError } from "react-native-razorpay";
+import { NativeRazorpayCheckout } from "../../../common/native/razorpayCheckout";
+import useUser from "../../login/hooks/useUser";
+import Loader from "../../../common/components/Loader";
 
 export default function Booking() {
   const navigation = useNavigation<IAppTabrNavigationProp>();
   const { params } = useRoute<RouteProp<IUserStackParamList, "Booking">>();
   const { organization } = params;
+  const loading = useLoading();
+  const { createElseUpdate } = useBookingsAPI();
+  const { name, email, phone } = useUser();
+  const [isPaymentCompleted, setIsPaymentCompleted] = useState<boolean>(false);
 
   const goToMyBooking = () =>
     navigation.navigate("Tabs", {
       screen: "My Bookings",
     });
 
-  const onSubmit = (values: IBookingEdit) => {
-    console.log("🚀 ~ file: Booking.tsx ~ line 26 ~ onSubmit ~ values", values);
+  const onSubmit = async (values: IBookingEdit) => {
+    try {
+      loading.start();
+      const draftBooking = await createElseUpdate(values);
+      if (!draftBooking.payload?.razorpayOrderId) {
+        throw new Error("Draft booking failed");
+      }
+      const payment = await NativeRazorpayCheckout.open({
+        description: `Booking for ${organization.name}`,
+        amount: organization.price,
+        order_id: draftBooking.payload.razorpayOrderId,
+        contact: phone,
+        name,
+        email,
+      });
+      await createElseUpdate({
+        _id: draftBooking.payload._id,
+        active: true,
+        paymentDetails: payment,
+      });
+      loading.stop();
+      setIsPaymentCompleted(true);
+    } catch (err) {
+      showToast(
+        "Server error",
+        (err as IError).description ?? (err as Error).message,
+        "error"
+      );
+      loading.stop();
+    }
   };
 
+  if (isPaymentCompleted) {
+    return (
+      <NativeLayout lockToPortrait>
+        <Loader type="success" onAnimationFinish={goToMyBooking} loop={false} />
+      </NativeLayout>
+    );
+  }
+
   return (
-    <NativeLayout lockToPortrait flex={1}>
-      <Formik
-        initialValues={{ preferredSlot: PreferredSlot.Noon }}
+    <NativeLayout lockToPortrait>
+      <Formik<IBookingEdit>
+        initialValues={{
+          preferredSlot: PreferredSlot.Noon,
+          organizationId: organization._id,
+        }}
         onSubmit={onSubmit}
         validateOnChange={false}
       >
@@ -82,9 +131,10 @@ export default function Booking() {
               <NativeButton
                 paddingHorizontal={DefaultMargin}
                 leftText="Request to Book"
-                rightText={`₹${organization.price}`}
+                rightText={`₹${organization.price / 100}`}
                 backgroundColor="color-accent1"
-                isLoading={false}
+                isLoading={loading.isLoading}
+                onPress={formikProps.submitForm}
               />
             </NativeView>
           </>

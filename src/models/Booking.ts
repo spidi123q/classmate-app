@@ -4,6 +4,7 @@ import { BookingStatus, PreferredSlot } from "./enum";
 import IOrganization from "./Organization";
 
 export default interface IBooking extends ITimeStamps {
+  _id: string;
   organizationId: string;
   active: boolean;
   razorpayOrderId?: string;
@@ -19,6 +20,10 @@ export interface ILiveDetails {
   roomName: string;
   lastSeem: Date;
   isLive: boolean;
+}
+
+export interface IBookingQuery extends Partial<IBooking> {
+  page: number;
 }
 
 export interface IBookingEdit extends Partial<IBooking> {}
