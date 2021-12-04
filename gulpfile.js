@@ -4,14 +4,27 @@ const shell = require("gulp-shell");
 const argv = require("yargs").argv;
 const jeditor = require("gulp-json-editor");
 
-gulp.task("setBaseUrl", function (done) {
+const prodConfig = {
+  endpoint: "https://api.classmate.guru",
+  razorpayKeyId: "rzp_live_Cgs8SSSTrZ5cEJ",
+};
+
+const localConfig = {
+  endpoint: "http://localhost:9090",
+  razorpayKeyId: "rzp_test_CqxXRbtceqACE3",
+};
+
+gulp.task("setConfig", function (done) {
   return gulp
     .src("src/config.json")
     .pipe(
       jeditor(function (json) {
-        json.endpoint = argv.local
-          ? "http://localhost:9090"
-          : "https://api.classmate.guru";
+        if (argv.local) {
+          json.endpoint = localConfig.endpoint;
+        } else {
+          json.endpoint = prodConfig.endpoint;
+          json.razorpayKeyId = prodConfig.razorpayKeyId;
+        }
         return json; // must return JSON object.
       })
     )
@@ -37,8 +50,8 @@ gulp.task(
 );
 
 exports.buildDebugAndroid = series(
-  "setBaseUrl",
+  "setConfig",
   "bundleAndroid",
   "gradleBuildDebug"
 );
-exports.buildReleaseAndroid = series("setBaseUrl", "gradleBuildRelease");
+exports.buildReleaseAndroid = series("setConfig", "gradleBuildRelease");
