@@ -23,8 +23,8 @@ export function MyBookings(props: IProps) {
   const organizationPagination = usePagination<IBooking, IBookingQuery>(
     (query) =>
       getBookings({
-        ...query,
         active: true,
+        ...query,
       })
   );
   const route = useRoute<RouteProp<ITabParamList, "My Bookings">>();

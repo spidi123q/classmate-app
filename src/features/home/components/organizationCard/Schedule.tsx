@@ -9,6 +9,7 @@ import {
   DefaultMargin,
   DefaultSecondaryColor,
 } from "../../../../common/config/themeConfig";
+import { formatWithTime } from "../../../../common/helpers/formatDate";
 import { getJitsiUrl } from "../../../../common/helpers/misc";
 import {
   IJitsiMeetUserInfo,
@@ -61,20 +62,14 @@ export default function Schedule(props: IProps) {
     >
       <NativeView>
         <Typography type="xs" color={AppTheme["color-dark"]}>
-          {booking.status === BookingStatus.Rejected
-            ? booking.status
-            : "Scheduled at"}
+          {getSheduleTitle(booking)}
         </Typography>
         <Typography marginTop={DefaultMargin / 4} type="xsx">
-          {booking.status === BookingStatus.Rejected
-            ? "Refund will be completed in 5-7 working days"
-            : booking.scheduledAt
-            ? booking.scheduledAt.toLocaleString()
-            : booking.status}
+          {getScheduleDetails(booking)}
         </Typography>
       </NativeView>
       <NativeView justifyContent="flex-end">
-        {booking.scheduledAt && (
+        {booking.status == BookingStatus.Accepted && (
           <NativeButton
             title="Go Live"
             size="xs"
@@ -89,3 +84,25 @@ export default function Schedule(props: IProps) {
     </NativeView>
   );
 }
+
+const getSheduleTitle = (booking: IBooking): string => {
+  switch (booking.status) {
+    case BookingStatus.Accepted:
+      return "Scheduled at";
+    default:
+      return booking.status;
+  }
+};
+
+const getScheduleDetails = (booking: IBooking): string => {
+  switch (booking.status) {
+    case BookingStatus.Accepted:
+      return formatWithTime(booking.scheduledAt);
+    case BookingStatus.Rejected:
+      return "Refund will be completed in 5-7 working days";
+    case BookingStatus.AwaitingConfirmation:
+      return BookingStatus.AwaitingConfirmation;
+    default:
+      return "";
+  }
+};

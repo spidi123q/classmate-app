@@ -60,6 +60,7 @@ const NativeView: React.FunctionComponent<INativeViewProps> = (props) => {
     maxWidth,
     maxHeight,
     width,
+    borderRadius,
     ...rest
   } = props;
   const SelectedView = viewMap[(type as ViewTypes) ?? "default"];
@@ -89,6 +90,7 @@ const NativeView: React.FunctionComponent<INativeViewProps> = (props) => {
           flexDirection,
           justifyContent,
           alignItems,
+          borderRadius,
           borderBottomColor,
           borderBottomWidth,
           backgroundColor,

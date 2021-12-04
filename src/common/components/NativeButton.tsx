@@ -54,6 +54,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
     buttonFontFamily,
     leftText,
     rightText,
+    width,
     ...rest
   } = props;
 
@@ -76,6 +77,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
       height={ButtonSize[size as ButtonSizes]}
       borderRadius={DefaultBorderRadius}
       onPress={!isLoading && onPress}
+      width={width}
       {...(rest as any)}
     >
       {isLoading ? (

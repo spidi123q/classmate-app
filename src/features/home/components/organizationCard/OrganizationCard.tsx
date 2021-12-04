@@ -8,6 +8,7 @@ import { Image } from "react-native-elements";
 import { buttonHeight, buttonWidth, styles } from "./OrganizationCard.style";
 import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeSkeleton";
 import {
+  DefaultBorderRadius,
   DefaultHintFontColor,
   DefaultMargin,
   DefaultSecondaryColor,
@@ -68,7 +69,7 @@ export default function OrganizationCard(props: IProps) {
     <NativeView
       backgroundColor={SecondaryBackgroundColor}
       padding={DefaultMargin / 2}
-      borderRadius={10}
+      borderRadius={DefaultBorderRadius}
     >
       <NativeView flexDirection="row">
         <Image

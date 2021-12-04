@@ -29,6 +29,7 @@ import { IError } from "react-native-razorpay";
 import { NativeRazorpayCheckout } from "../../../common/native/razorpayCheckout";
 import useUser from "../../login/hooks/useUser";
 import Loader from "../../../common/components/Loader";
+import { Platform } from "react-native";
 
 export default function Booking() {
   const navigation = useNavigation<IAppTabrNavigationProp>();
@@ -126,8 +127,11 @@ export default function Booking() {
               />
             </NativeView>
             <NativeView
-              marginBottom={DoubleMargin}
+              marginBottom={
+                Platform.OS === "ios" ? DoubleMargin : DefaultMargin
+              }
               marginHorizontal={DefaultMargin}
+              height={InputHeight}
             >
               <NativeButton
                 paddingHorizontal={DefaultMargin}

@@ -1,7 +1,11 @@
+import { isNil } from "lodash";
 import moment from "moment";
 
-export const formatWithTime = (date: string | Date) => {
-  return moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a");
+export const formatWithTime = (date?: string | Date | null) => {
+  if (isNil(date)) {
+    return "";
+  }
+  return moment(date).format("dddd, MMM Do YYYY, h:mm:ss a");
 };
 
 export const formatDate = (date: string | Date) => {
