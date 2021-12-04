@@ -32,15 +32,19 @@ import Schedule from "./Schedule";
 import useLoginActions from "../../../login/hooks/useLoginActions";
 import IOrganization from "../../../../models/Organization";
 import { openURL } from "../../../../common/helpers/platform";
+import IBooking from "../../../../models/Booking";
 
 interface IProps {
-  organization: IOrganization;
-  showSchedule?: boolean;
-  showBooking?: boolean;
+  organization?: IOrganization;
+  booking?: IBooking;
 }
 
 export default function OrganizationCard(props: IProps) {
-  const { organization, showSchedule, showBooking, ...rest } = props;
+  const { booking } = props;
+  const organization = props.organization ?? booking?.organization;
+  if (!organization) {
+    return <NativeView>No organization</NativeView>;
+  }
   const { authorizedOnly } = useLoginActions();
   const navigation = useNavigation<IDashboardUserNavigationProp>();
 
@@ -57,7 +61,6 @@ export default function OrganizationCard(props: IProps) {
       width={buttonWidth}
       height={buttonHeight}
       backgroundColor={SecondaryBackgroundColor}
-      {...rest}
     />
   );
 
@@ -115,7 +118,7 @@ export default function OrganizationCard(props: IProps) {
                 onPress={() => openURL(organization.instagram)}
               />
             )}
-            {showBooking ? (
+            {!booking ? (
               <NativeButton
                 title="Book slot"
                 size="xs"
@@ -130,7 +133,7 @@ export default function OrganizationCard(props: IProps) {
           </NativeView>
         </NativeView>
       </NativeView>
-      {showSchedule && <Schedule />}
+      {booking && <Schedule booking={booking} />}
     </NativeView>
   );
 }

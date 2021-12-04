@@ -20,8 +20,9 @@ export enum UserPermissions {
 }
 
 export enum BookingStatus {
-  AwaitingConfirmation = "Awaiting Confirmation",
+  AwaitingConfirmation = "Waiting for confirmation",
   Accepted = "Accepted",
+  Rejected = "Rejected",
 }
 
 export enum PreferredSlot {

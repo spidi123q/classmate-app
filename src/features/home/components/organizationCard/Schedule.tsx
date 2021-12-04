@@ -14,26 +14,39 @@ import {
   IJitsiMeetUserInfo,
   RNJitsiMeet,
 } from "../../../../common/native/jitsiMeet";
-import { IUserStackNavigationProp } from "../../../../models/RoutePath";
+import IBooking from "../../../../models/Booking";
+import { BookingStatus } from "../../../../models/enum";
+import {
+  IDashboardUserNavigationProp,
+  IUserStackNavigationProp,
+} from "../../../../models/RoutePath";
+import useUser from "../../../login/hooks/useUser";
 import { buttonWidth } from "./OrganizationCard.style";
 
-interface IProps {}
+interface IProps {
+  booking: IBooking;
+}
 
 export default function Schedule(props: IProps) {
-  const navigation = useNavigation<IUserStackNavigationProp>();
+  const { booking } = props;
+  const navigation = useNavigation<IDashboardUserNavigationProp>();
+  const { name, phone } = useUser();
 
   const goLive = () => {
-    const roomName = "werwerwerw";
+    const roomName = booking.liveDetails.roomName;
     const url = getJitsiUrl(roomName);
     const userInfo: IJitsiMeetUserInfo = {
       displayName: "user 4",
     };
 
     if (Platform.OS === "ios" || Platform.OS === "web") {
-      navigation.navigate("JitsiMeet", {
-        url,
-        userInfo,
-        roomName,
+      navigation.navigate("Dashboard", {
+        screen: "JitsiMeet",
+        params: {
+          url,
+          userInfo,
+          roomName,
+        },
       });
     } else if (Platform.OS === "android") {
       RNJitsiMeet.join(url, userInfo);
@@ -48,22 +61,30 @@ export default function Schedule(props: IProps) {
     >
       <NativeView>
         <Typography type="xs" color={AppTheme["color-dark"]}>
-          Scheduled at
+          {booking.status === BookingStatus.Rejected
+            ? booking.status
+            : "Scheduled at"}
         </Typography>
         <Typography marginTop={DefaultMargin / 4} type="xsx">
-          {new Date().toLocaleString()}
+          {booking.status === BookingStatus.Rejected
+            ? "Refund will be completed in 5-7 working days"
+            : booking.scheduledAt
+            ? booking.scheduledAt.toLocaleString()
+            : booking.status}
         </Typography>
       </NativeView>
       <NativeView justifyContent="flex-end">
-        <NativeButton
-          title="Go Live"
-          size="xs"
-          backgroundColor="color-danger-500"
-          buttonFontFamily="regular"
-          iconName="videocam"
-          width={buttonWidth}
-          onPress={goLive}
-        />
+        {booking.scheduledAt && (
+          <NativeButton
+            title="Go Live"
+            size="xs"
+            backgroundColor="color-danger-500"
+            buttonFontFamily="regular"
+            iconName="videocam"
+            width={buttonWidth}
+            onPress={goLive}
+          />
+        )}
       </NativeView>
     </NativeView>
   );

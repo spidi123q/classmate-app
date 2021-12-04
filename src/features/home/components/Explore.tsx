@@ -24,12 +24,16 @@ export function Explore() {
 
   const renderItem = ({ item }: FlatListRenderItem<IOrganization>) => (
     <NativeView marginBottom={DefaultMargin}>
-      <OrganizationCard organization={item} showBooking />
+      <OrganizationCard organization={item} />
     </NativeView>
   );
 
   return (
-    <NativeView marginHorizontal={DefaultMargin} marginTop={DefaultMargin}>
+    <NativeView
+      marginHorizontal={DefaultMargin}
+      marginTop={DefaultMargin}
+      flex={1}
+    >
       <FlatList
         keyExtractor={defaultDocKeyExtractor}
         data={organizationPagination.collections}

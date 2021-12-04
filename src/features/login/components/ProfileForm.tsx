@@ -47,6 +47,8 @@ const ProfileForm = () => {
         await updateUser({
           role: UserRoles.User,
           phone: route.params.phone,
+          name: route.params.name,
+          email: route.params.email,
           active: true,
         });
       }

@@ -10,7 +10,8 @@ import BlankUser from "../../../common/assets/BlankUser.svg";
 import ProfileMenu from "./ProfileMenu";
 
 export default function Profile() {
-  const { name, phone, email, organization, classroom } = useUser();
+  const { name, phone, email } = useUser();
+  const editable = false;
   return (
     <NativeLayout lockToPortrait flex={1}>
       <NativeHeader title="Edit Profile" />
@@ -27,11 +28,17 @@ export default function Profile() {
           <BlankUser height={profilePicSize} width={profilePicSize} />
         </NativeView>
         <NativeView marginBottom={DefaultMargin}>
+          <NativeTextInput label="Name" value={name} editable={editable} />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
           <NativeTextInput
             label="Phone Number"
             value={formatPhoneNumber(phone)}
-            editable={false}
+            editable={editable}
           />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
+          <NativeTextInput label="Email" value={email} editable={editable} />
         </NativeView>
         <NativeView>
           <ProfileMenu />

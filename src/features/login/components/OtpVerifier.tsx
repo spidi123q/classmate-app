@@ -44,7 +44,11 @@ const OtpVerifier = () => {
       routes: [
         {
           name: "Complete Profile",
-          params: { phone: firebaseUser.phoneNumber },
+          params: {
+            phone: firebaseUser.phoneNumber,
+            email: firebaseUser.email,
+            name: firebaseUser.displayName,
+          },
         },
       ],
     });

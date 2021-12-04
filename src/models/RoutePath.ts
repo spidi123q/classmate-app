@@ -40,6 +40,8 @@ export type ILoginStackParamList = {
   "Verify OTP": { phone: string };
   "Complete Profile": {
     phone: string;
+    name?: string;
+    email?: string;
   };
 };
 
@@ -50,7 +52,11 @@ export type ILoginStackNavigationProp = StackNavigationProp<
 
 export type ITabParamList = {
   Explore: undefined;
-  "My Bookings": undefined;
+  "My Bookings":
+    | {
+        reload?: boolean;
+      }
+    | undefined;
 };
 
 export type ITabNavigationProp = BottomTabScreenProps<

@@ -20,7 +20,8 @@ export const parseFieldValue = (value: string, field: IField) => {
   }
 };
 
-export const formatPhoneNumber = (phone: string = "") => {
+export const formatPhoneNumber = (phone?: string | null) => {
+  if (!phone) return "";
   const phoneNumber = parsePhoneNumber(phone);
   return phoneNumber?.formatInternational();
 };

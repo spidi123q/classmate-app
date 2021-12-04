@@ -12,7 +12,8 @@ export default interface IBooking extends ITimeStamps {
   organization?: IOrganization;
   status: BookingStatus;
   preferredSlot: PreferredSlot;
-  liveDetails?: ILiveDetails;
+  liveDetails: ILiveDetails;
+  scheduledAt?: Date;
   liveUpdateInterval: number;
 }
 

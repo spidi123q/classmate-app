@@ -42,6 +42,7 @@ export default function Booking() {
   const goToMyBooking = () =>
     navigation.navigate("Tabs", {
       screen: "My Bookings",
+      params: { reload: true },
     });
 
   const onSubmit = async (values: IBookingEdit) => {
