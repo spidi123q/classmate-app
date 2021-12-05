@@ -1,5 +1,5 @@
 {
-  "endpoint": "http://localhost:9090",
+  "endpoint": "https://api.classmate.guru",
   "firebase": {
     "apiKey": "AIzaSyCjMzZkd3XXDKSHAovz6JJx77MzR_llVo4",
     "authDomain": "classmate-ca068.firebaseapp.com",
@@ -9,7 +9,7 @@
     "appId": "1:1029614808285:web:ebc68e47e2e11584193f34",
     "measurementId": "G-F51BWH0W73"
   },
-  "razorpayKeyId": "rzp_test_CqxXRbtceqACE3",
+  "razorpayKeyId": "rzp_live_Cgs8SSSTrZ5cEJ",
   "versionCode": 1,
   "packageId": "guru.classmate",
   "companyName": "Classmate Technolabs Pvt Ltd",
