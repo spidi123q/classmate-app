@@ -91,23 +91,22 @@ interface ISlide {
 const slides: ISlide[] = [
   {
     key: "1",
-    title: "Real Classes and Real Institutions",
+    title: "Explore experts and influencers",
     description:
-      "We provide comprehensive live sessions and video call features with subscribed institutions.",
+      "Explore and meet top experts and influencers of your interest.",
     image: require("../assets/Artboard_1.jpg"),
   },
   {
     key: "2",
-    title: "Personalized Sessions",
-    description:
-      "Create your own learning sessions and subscribe to your favorite lectures or institutions",
+    title: "Book your meetings",
+    description: "You can set the time schedule before the request of booking.",
     image: require("../assets/Artboard_2.jpg"),
   },
   {
     key: "3",
-    title: "Live Sessions and Video Call",
+    title: "Live video call and chat",
     description:
-      "We provide comprehensive live sessions and video call features with subscribed institutions.",
+      "We provide comprehensive live sessions and video call features.",
     image: require("../assets/Artboard_3.jpg"),
   },
 ];
