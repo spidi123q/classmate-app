@@ -28,14 +28,14 @@ export default function Profile() {
           <BlankUser height={profilePicSize} width={profilePicSize} />
         </NativeView>
         <NativeView marginBottom={DefaultMargin}>
-          <NativeTextInput label="Name" value={name} editable={editable} />
-        </NativeView>
-        <NativeView marginBottom={DefaultMargin}>
           <NativeTextInput
             label="Phone Number"
             value={formatPhoneNumber(phone)}
             editable={editable}
           />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
+          <NativeTextInput label="Name" value={name} editable={editable} />
         </NativeView>
         <NativeView marginBottom={DefaultMargin}>
           <NativeTextInput label="Email" value={email} editable={editable} />

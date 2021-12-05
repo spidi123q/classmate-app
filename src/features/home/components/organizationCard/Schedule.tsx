@@ -69,7 +69,7 @@ export default function Schedule(props: IProps) {
         </Typography>
       </NativeView>
       <NativeView justifyContent="flex-end">
-        {booking.status == BookingStatus.Accepted && (
+        {booking.status == BookingStatus.Accepted && booking.paymentDetails && (
           <NativeButton
             title="Go Live"
             size="xs"
@@ -88,6 +88,7 @@ export default function Schedule(props: IProps) {
 const getSheduleTitle = (booking: IBooking): string => {
   switch (booking.status) {
     case BookingStatus.Accepted:
+    case BookingStatus.AwaitingConfirmation:
       return "Scheduled at";
     default:
       return booking.status;
@@ -97,6 +98,7 @@ const getSheduleTitle = (booking: IBooking): string => {
 const getScheduleDetails = (booking: IBooking): string => {
   switch (booking.status) {
     case BookingStatus.Accepted:
+    case BookingStatus.Completed:
       return formatWithTime(booking.scheduledAt);
     case BookingStatus.Rejected:
       return "Refund will be completed in 5-7 working days";

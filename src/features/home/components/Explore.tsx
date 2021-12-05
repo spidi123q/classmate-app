@@ -19,8 +19,15 @@ import OrganizationCard from "./organizationCard/OrganizationCard";
 
 export function Explore() {
   const { getOrganizations } = useOrganizationAPI();
-  const organizationPagination =
-    usePagination<IOrganization, IOrganizationQuery>(getOrganizations);
+  const organizationPagination = usePagination<
+    IOrganization,
+    IOrganizationQuery
+  >((query) =>
+    getOrganizations({
+      active: true,
+      ...query,
+    })
+  );
 
   const renderItem = ({ item }: FlatListRenderItem<IOrganization>) => (
     <NativeView marginBottom={DefaultMargin}>
