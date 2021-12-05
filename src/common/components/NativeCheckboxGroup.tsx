@@ -1,5 +1,6 @@
 import { find } from "lodash";
 import React, { useState } from "react";
+import { DefaultMargin } from "../config/themeConfig";
 import KeyValuePair from "../models/KeyValuePair";
 import NativeCheckBox, { INativeCheckBoxProps } from "./NativeCheckBox";
 import NativeView from "./NativeView";
@@ -30,12 +31,13 @@ export default function NativeCheckBoxGroup(
   return (
     <NativeView>
       {options.map((option) => (
-        <NativeCheckBox
-          key={option.Key}
-          label={option.Key.toString()}
-          onChange={(value: boolean) => onChange(option, value)}
-          checked={option.Value === value}
-        />
+        <NativeView key={option.Key} marginBottom={DefaultMargin}>
+          <NativeCheckBox
+            label={option.Key.toString()}
+            onChange={(value: boolean) => onChange(option, value)}
+            checked={option.Value === value}
+          />
+        </NativeView>
       ))}
     </NativeView>
   );
