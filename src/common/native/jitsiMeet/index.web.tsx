@@ -36,6 +36,7 @@ export const JitsiMeetView = () => {
           fileRecordingsEnabled: false,
           fileRecordingsServiceEnabled: false,
           disableDeepLinking: true,
+          disableInviteFunctions: true,
         }}
         frameStyle={{ height, width }}
         onAPILoad={onAPILoad}

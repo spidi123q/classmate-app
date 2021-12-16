@@ -5,7 +5,7 @@ export const formatWithTime = (date?: string | Date | null) => {
   if (isNil(date)) {
     return "";
   }
-  return moment(date).format("dddd, MMM Do YYYY, h:mm:ss a");
+  return moment(date).format("ddd, MMM Do YYYY, h:mm a");
 };
 
 export const formatDate = (date: string | Date) => {

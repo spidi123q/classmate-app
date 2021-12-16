@@ -14,6 +14,7 @@ import {
   DefaultBackgroundColor,
   DefaultBorderRadius,
   DefaultIconFamily,
+  DefaultMargin,
   DefaultPrimaryColor,
   DefaultSecondaryColor,
   FontSize,
@@ -77,6 +78,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
       height={ButtonSize[size as ButtonSizes]}
       borderRadius={DefaultBorderRadius}
       onPress={!isLoading && onPress}
+      paddingHorizontal={DefaultMargin / 2}
       width={width}
       {...(rest as any)}
     >
