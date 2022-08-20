@@ -6,6 +6,7 @@ import useUser from "../features/login/hooks/useUser";
 import Profile from "../features/profile/components/Profile";
 import VideoDetails from "../features/videos/components/VideoDetails";
 import { JitsiMeetView } from "../common/native/jitsiMeet";
+import PdfViewer from "../common/native/pdfViewer";
 
 export default function HomeNavigator() {
   const user = useUser();
@@ -24,6 +25,7 @@ export default function HomeNavigator() {
           />
           <Stack.Screen name={HomePages.Profile} component={Profile} />
           <Stack.Screen name={HomePages.JitsiMeet} component={JitsiMeetView} />
+          <Stack.Screen name={HomePages.PdfViewer} component={PdfViewer} />
         </>
       )}
     </Stack.Navigator>

@@ -16,4 +16,5 @@ export const HomePages = {
   VideoDetails: "Video Details",
   Profile: "Profile",
   JitsiMeet: "Live",
+  PdfViewer: "Pdf Viewer",
 };
