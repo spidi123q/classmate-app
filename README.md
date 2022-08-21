@@ -1,6 +1,6 @@
-# # XD Screens
+# # Figama Screens
 
-https://xd.adobe.com/view/68792abe-d733-4c9c-9fe1-056f3c98b9c7-3d2a/screen/ebcfefdf-884e-4749-8f67-8a81d98ec92f/specs/
+https://www.figma.com/file/6OqwS1AC8AkTrZMbfIbNCH/Classmate?node-id=0%3A1
 
 # # Native Modules
 
