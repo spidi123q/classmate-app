@@ -6,7 +6,7 @@ import { DefaultMargin } from "../../../common/config/themeConfig";
 import useUser from "../../login/hooks/useUser";
 import { formatPhoneNumber } from "../../../common/helpers/format";
 import NativeTextInput from "../../../common/components/NativeTextInput";
-import BlankUser from "../assets/BlankUser.svg";
+import BlankUser from "../../../common/assets/BlankUser.svg";
 
 export default function Profile() {
   const { name, phone, email, organization, classroom } = useUser();
@@ -19,7 +19,7 @@ export default function Profile() {
           alignItems="center"
           marginVertical={DefaultMargin}
         >
-          <BlankUser />
+          <BlankUser height={87} width={87} />
         </NativeView>
         <NativeView marginBottom={DefaultMargin}>
           <NativeTextInput label="Name" value={name} editable={false} />

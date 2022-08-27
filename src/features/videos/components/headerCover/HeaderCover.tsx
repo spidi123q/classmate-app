@@ -54,10 +54,6 @@ export default function HeaderCover(props: IProps) {
     );
   }
 
-  if (!video && !isLive) {
-    return null;
-  }
-
   const openVideo = (video: IVideo) => {
     setLastPlayedVideo(video);
     navigation.navigate(HomePages.VideoDetails, {

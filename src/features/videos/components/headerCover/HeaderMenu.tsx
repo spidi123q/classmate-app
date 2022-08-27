@@ -5,7 +5,7 @@ import {
   DefaultMargin,
 } from "../../../../common/config/themeConfig";
 import LogoHorizontal from "../../../../common/assets/LogoHorizontal.svg";
-import Profile from "../../assets/Profile.svg";
+import BlankUser from "../../../../common/assets/BlankUser.svg";
 import { useNavigation } from "@react-navigation/native";
 import { HomePages } from "../../../../models/RoutePath";
 import useUser from "../../../login/hooks/useUser";
@@ -42,7 +42,7 @@ export function HeaderMenu() {
       )}
       <NativeView>
         <NativeView type="ripple" onPress={openProfile}>
-          <Profile />
+          <BlankUser />
         </NativeView>
       </NativeView>
     </NativeView>

@@ -13,6 +13,7 @@ import {
   AppFonts,
   DefaultBackgroundColor,
   DefaultBorderRadius,
+  DefaultFontColor,
   DefaultIconFamily,
   DefaultPrimaryColor,
   DefaultSecondaryColor,
@@ -78,7 +79,7 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
               )}
               <Typography
                 size={ButtonFontSize[size ?? "lg"]}
-                color={DefaultBackgroundColor}
+                color={DefaultFontColor}
                 family="medium"
               >
                 {title}
