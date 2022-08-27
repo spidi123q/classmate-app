@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Classmate-tvOS.app"
-               BlueprintName = "Classmate-tvOS"
-               ReferencedContainer = "container:Classmate.xcodeproj">
+               BuildableName = "B7International-tvOS.app"
+               BlueprintName = "B7International-tvOS"
+               ReferencedContainer = "container:B7International.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Classmate-tvOSTests.xctest"
-               BlueprintName = "Classmate-tvOSTests"
-               ReferencedContainer = "container:Classmate.xcodeproj">
+               BuildableName = "B7International-tvOSTests.xctest"
+               BlueprintName = "B7International-tvOSTests"
+               ReferencedContainer = "container:B7International.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Classmate-tvOS.app"
-            BlueprintName = "Classmate-tvOS"
-            ReferencedContainer = "container:Classmate.xcodeproj">
+            BuildableName = "B7International-tvOS.app"
+            BlueprintName = "B7International-tvOS"
+            ReferencedContainer = "container:B7International.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Classmate-tvOS.app"
-            BlueprintName = "Classmate-tvOS"
-            ReferencedContainer = "container:Classmate.xcodeproj">
+            BuildableName = "B7International-tvOS.app"
+            BlueprintName = "B7International-tvOS"
+            ReferencedContainer = "container:B7International.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,4 +1,4 @@
-package guru.classmate.jitsi;
+package b7.classmatetechnolabs.com.jitsi;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -22,8 +22,8 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.UiThreadUtil;
 import com.facebook.react.module.annotations.ReactModule;
 import com.facebook.react.bridge.ReadableMap;
-import guru.classmate.MainActivity;
-import guru.classmate.R;
+import b7.classmatetechnolabs.com.MainActivity;
+import b7.classmatetechnolabs.com.R;
 
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;

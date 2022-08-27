@@ -1,4 +1,4 @@
-package guru.classmate.jitsi;
+package b7.classmatetechnolabs.com.jitsi;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

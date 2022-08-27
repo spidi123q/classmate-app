@@ -4,14 +4,14 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '11.0'
 $RNFirebaseAnalyticsWithoutAdIdSupport = true
 
-target 'Classmate' do
+target 'B7International' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
   pod 'JitsiMeetSDK'
 
 
-  target 'ClassmateTests' do
+  target 'B7InternationalTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -31,10 +31,10 @@ target 'Classmate' do
   end
 end
 
-target 'Classmate-tvOS' do
-  # Pods for Classmate-tvOS
+target 'B7International-tvOS' do
+  # Pods for B7International-tvOS
 
-  target 'Classmate-tvOSTests' do
+  target 'B7International-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

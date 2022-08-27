@@ -1,4 +1,4 @@
-package guru.classmate.jitsi;
+package b7.classmatetechnolabs.com.jitsi;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -22,10 +22,10 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import guru.classmate.MainActivity;
-import guru.classmate.R;
-import guru.classmate.jitsi.MeetingNotificationReceiver;
-import guru.classmate.jitsi.NotificationHelper;
+import b7.classmatetechnolabs.com.MainActivity;
+import b7.classmatetechnolabs.com.R;
+import b7.classmatetechnolabs.com.jitsi.MeetingNotificationReceiver;
+import b7.classmatetechnolabs.com.jitsi.NotificationHelper;
 
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 

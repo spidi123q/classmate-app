@@ -11,7 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2034461564E6EF5315518FC0 /* libPods-Classmate-ClassmateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC80D7D50DB40BD7861A018B /* libPods-Classmate-ClassmateTests.a */; };
+		2034461564E6EF5315518FC0 /* libPods-B7International-B7InternationalTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC80D7D50DB40BD7861A018B /* libPods-B7International-B7InternationalTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -29,9 +29,9 @@
 		448A89F526590822001D98AE /* RNJitsiMeetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89F326590822001D98AE /* RNJitsiMeetView.m */; };
 		448A89F626590822001D98AE /* RNJitsiMeetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448A89F326590822001D98AE /* RNJitsiMeetView.m */; };
 		44C7301A264FD1EE00C656F9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C73019264FD1EE00C656F9 /* File.swift */; };
-		7952CE3826D9F028428D7346 /* libPods-Classmate-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34080A1651268D23ADCBA17D /* libPods-Classmate-tvOS.a */; };
-		9D5CC5D7D5300E4AA98642AA /* libPods-Classmate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF80C3045E99CD69C7A6056F /* libPods-Classmate.a */; };
-		C50529E981DB51C83A192C35 /* libPods-Classmate-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E17F7810F627DC26AAB4381 /* libPods-Classmate-tvOSTests.a */; };
+		7952CE3826D9F028428D7346 /* libPods-B7International-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34080A1651268D23ADCBA17D /* libPods-B7International-tvOS.a */; };
+		9D5CC5D7D5300E4AA98642AA /* libPods-B7International.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF80C3045E99CD69C7A6056F /* libPods-B7International.a */; };
+		C50529E981DB51C83A192C35 /* libPods-B7International-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E17F7810F627DC26AAB4381 /* libPods-B7International-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,37 +40,37 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = Classmate;
+			remoteInfo = B7International;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "Classmate-tvOS";
+			remoteInfo = "B7International-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* ClassmateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassmateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* B7InternationalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = B7InternationalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* KissanSevaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KissanSevaTests.m; sourceTree = "<group>"; };
-		0566BDD7CD92B2DADBB70A00 /* Pods-Classmate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate.release.xcconfig"; path = "Target Support Files/Pods-Classmate/Pods-Classmate.release.xcconfig"; sourceTree = "<group>"; };
-		078421A0C1AAFE3DA1E566C1 /* Pods-Classmate-ClassmateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate-ClassmateTests.debug.xcconfig"; path = "Target Support Files/Pods-Classmate-ClassmateTests/Pods-Classmate-ClassmateTests.debug.xcconfig"; sourceTree = "<group>"; };
-		11DBC23AB1B54BA932665026 /* Pods-Classmate-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Classmate-tvOS/Pods-Classmate-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Classmate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classmate.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classmate/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classmate/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Classmate/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Classmate/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classmate/main.m; sourceTree = "<group>"; };
-		1BA93797B40B35C69B2EEC6C /* Pods-Classmate-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Classmate-tvOS/Pods-Classmate-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		290FB493AEC690FF28509E10 /* Pods-Classmate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate.debug.xcconfig"; path = "Target Support Files/Pods-Classmate/Pods-Classmate.debug.xcconfig"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* Classmate-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Classmate-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* Classmate-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Classmate-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E17F7810F627DC26AAB4381 /* libPods-Classmate-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Classmate-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		34080A1651268D23ADCBA17D /* libPods-Classmate-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Classmate-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0566BDD7CD92B2DADBB70A00 /* Pods-B7International.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B7International.release.xcconfig"; path = "Target Support Files/Pods-B7International/Pods-B7International.release.xcconfig"; sourceTree = "<group>"; };
+		078421A0C1AAFE3DA1E566C1 /* Pods-B7International-B7InternationalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B7International-B7InternationalTests.debug.xcconfig"; path = "Target Support Files/Pods-B7International-B7InternationalTests/Pods-B7International-B7InternationalTests.debug.xcconfig"; sourceTree = "<group>"; };
+		11DBC23AB1B54BA932665026 /* Pods-B7International-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B7International-tvOS.release.xcconfig"; path = "Target Support Files/Pods-B7International-tvOS/Pods-B7International-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* B7International.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = B7International.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = B7International/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = B7International/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = B7International/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = B7International/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = B7International/main.m; sourceTree = "<group>"; };
+		1BA93797B40B35C69B2EEC6C /* Pods-B7International-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B7International-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-B7International-tvOS/Pods-B7International-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		290FB493AEC690FF28509E10 /* Pods-B7International.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B7International.debug.xcconfig"; path = "Target Support Files/Pods-B7International/Pods-B7International.debug.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* B7International-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B7International-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* B7International-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "B7International-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E17F7810F627DC26AAB4381 /* libPods-B7International-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-B7International-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34080A1651268D23ADCBA17D /* libPods-B7International-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-B7International-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4480DF5326BBF97500A06CBC /* HelveticaNeue-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Medium.otf"; sourceTree = "<group>"; };
 		4480DF5426BBF97500A06CBC /* HelveticaNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeue.otf; sourceTree = "<group>"; };
 		4480DF5526BBF97500A06CBC /* HelveticaNeue-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Bold.otf"; sourceTree = "<group>"; };
@@ -81,14 +81,14 @@
 		448A89EE2658EAA7001D98AE /* RCTJitsiMeetModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTJitsiMeetModule.m; sourceTree = "<group>"; };
 		448A89F2265907BB001D98AE /* RNJitsiMeetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNJitsiMeetView.h; sourceTree = "<group>"; };
 		448A89F326590822001D98AE /* RNJitsiMeetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNJitsiMeetView.m; sourceTree = "<group>"; };
-		44C73018264FD1ED00C656F9 /* Classmate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Classmate-Bridging-Header.h"; sourceTree = "<group>"; };
+		44C73018264FD1ED00C656F9 /* B7International-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "B7International-Bridging-Header.h"; sourceTree = "<group>"; };
 		44C73019264FD1EE00C656F9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		81480BB5CE464BD1177C7B66 /* Pods-Classmate-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Classmate-tvOSTests/Pods-Classmate-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Classmate/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BCB51ADF896289318A48B464 /* Pods-Classmate-ClassmateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate-ClassmateTests.release.xcconfig"; path = "Target Support Files/Pods-Classmate-ClassmateTests/Pods-Classmate-ClassmateTests.release.xcconfig"; sourceTree = "<group>"; };
-		CF0DE29F7A55E1F4DF98C397 /* Pods-Classmate-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Classmate-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Classmate-tvOSTests/Pods-Classmate-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		CF80C3045E99CD69C7A6056F /* libPods-Classmate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Classmate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC80D7D50DB40BD7861A018B /* libPods-Classmate-ClassmateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Classmate-ClassmateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81480BB5CE464BD1177C7B66 /* Pods-B7International-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B7International-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-B7International-tvOSTests/Pods-B7International-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = B7International/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BCB51ADF896289318A48B464 /* Pods-B7International-B7InternationalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B7International-B7InternationalTests.release.xcconfig"; path = "Target Support Files/Pods-B7International-B7InternationalTests/Pods-B7International-B7InternationalTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF0DE29F7A55E1F4DF98C397 /* Pods-B7International-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B7International-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-B7International-tvOSTests/Pods-B7International-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF80C3045E99CD69C7A6056F /* libPods-B7International.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-B7International.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC80D7D50DB40BD7861A018B /* libPods-B7International-B7InternationalTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-B7International-B7InternationalTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2034461564E6EF5315518FC0 /* libPods-Classmate-ClassmateTests.a in Frameworks */,
+				2034461564E6EF5315518FC0 /* libPods-B7International-B7InternationalTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D5CC5D7D5300E4AA98642AA /* libPods-Classmate.a in Frameworks */,
+				9D5CC5D7D5300E4AA98642AA /* libPods-B7International.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7952CE3826D9F028428D7346 /* libPods-Classmate-tvOS.a in Frameworks */,
+				7952CE3826D9F028428D7346 /* libPods-B7International-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,20 +122,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C50529E981DB51C83A192C35 /* libPods-Classmate-tvOSTests.a in Frameworks */,
+				C50529E981DB51C83A192C35 /* libPods-B7International-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* ClassmateTests */ = {
+		00E356EF1AD99517003FC87E /* B7InternationalTests */ = {
 			isa = PBXGroup;
 			children = (
 				00E356F21AD99517003FC87E /* KissanSevaTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = ClassmateTests;
+			path = B7InternationalTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -146,7 +146,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* Classmate */ = {
+		13B07FAE1A68108700A75B9A /* B7International */ = {
 			isa = PBXGroup;
 			children = (
 				448A89F72659109C001D98AE /* Jitsi */,
@@ -158,7 +158,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = Classmate;
+			name = B7International;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -166,10 +166,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				CF80C3045E99CD69C7A6056F /* libPods-Classmate.a */,
-				EC80D7D50DB40BD7861A018B /* libPods-Classmate-ClassmateTests.a */,
-				34080A1651268D23ADCBA17D /* libPods-Classmate-tvOS.a */,
-				2E17F7810F627DC26AAB4381 /* libPods-Classmate-tvOSTests.a */,
+				CF80C3045E99CD69C7A6056F /* libPods-B7International.a */,
+				EC80D7D50DB40BD7861A018B /* libPods-B7International-B7InternationalTests.a */,
+				34080A1651268D23ADCBA17D /* libPods-B7International-tvOS.a */,
+				2E17F7810F627DC26AAB4381 /* libPods-B7International-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,14 +177,14 @@
 		43ECF10E73F86FAA80C03D23 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				290FB493AEC690FF28509E10 /* Pods-Classmate.debug.xcconfig */,
-				0566BDD7CD92B2DADBB70A00 /* Pods-Classmate.release.xcconfig */,
-				078421A0C1AAFE3DA1E566C1 /* Pods-Classmate-ClassmateTests.debug.xcconfig */,
-				BCB51ADF896289318A48B464 /* Pods-Classmate-ClassmateTests.release.xcconfig */,
-				1BA93797B40B35C69B2EEC6C /* Pods-Classmate-tvOS.debug.xcconfig */,
-				11DBC23AB1B54BA932665026 /* Pods-Classmate-tvOS.release.xcconfig */,
-				81480BB5CE464BD1177C7B66 /* Pods-Classmate-tvOSTests.debug.xcconfig */,
-				CF0DE29F7A55E1F4DF98C397 /* Pods-Classmate-tvOSTests.release.xcconfig */,
+				290FB493AEC690FF28509E10 /* Pods-B7International.debug.xcconfig */,
+				0566BDD7CD92B2DADBB70A00 /* Pods-B7International.release.xcconfig */,
+				078421A0C1AAFE3DA1E566C1 /* Pods-B7International-B7InternationalTests.debug.xcconfig */,
+				BCB51ADF896289318A48B464 /* Pods-B7International-B7InternationalTests.release.xcconfig */,
+				1BA93797B40B35C69B2EEC6C /* Pods-B7International-tvOS.debug.xcconfig */,
+				11DBC23AB1B54BA932665026 /* Pods-B7International-tvOS.release.xcconfig */,
+				81480BB5CE464BD1177C7B66 /* Pods-B7International-tvOSTests.debug.xcconfig */,
+				CF0DE29F7A55E1F4DF98C397 /* Pods-B7International-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -212,14 +212,14 @@
 			children = (
 				44C73019264FD1EE00C656F9 /* File.swift */,
 				4481B0CC25B73873007E992A /* GoogleService-Info.plist */,
-				13B07FAE1A68108700A75B9A /* Classmate */,
+				13B07FAE1A68108700A75B9A /* B7International */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* ClassmateTests */,
+				00E356EF1AD99517003FC87E /* B7InternationalTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				FF0CE6C6F5004BEFB10BD92A /* Resources */,
 				43ECF10E73F86FAA80C03D23 /* Pods */,
-				44C73018264FD1ED00C656F9 /* Classmate-Bridging-Header.h */,
+				44C73018264FD1ED00C656F9 /* B7International-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -229,10 +229,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Classmate.app */,
-				00E356EE1AD99517003FC87E /* ClassmateTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* Classmate-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* Classmate-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* B7International.app */,
+				00E356EE1AD99517003FC87E /* B7InternationalTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* B7International-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* B7International-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,9 +252,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* ClassmateTests */ = {
+		00E356ED1AD99517003FC87E /* B7InternationalTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ClassmateTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "B7InternationalTests" */;
 			buildPhases = (
 				75DB358CBDD34E8655044047 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -268,14 +268,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = ClassmateTests;
+			name = B7InternationalTests;
 			productName = KissanSevaTests;
-			productReference = 00E356EE1AD99517003FC87E /* ClassmateTests.xctest */;
+			productReference = 00E356EE1AD99517003FC87E /* B7InternationalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* Classmate */ = {
+		13B07F861A680F5B00A75B9A /* B7International */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Classmate" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "B7International" */;
 			buildPhases = (
 				491EFCDE5248DE2FC86C626A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -291,14 +291,14 @@
 			);
 			dependencies = (
 			);
-			name = Classmate;
-			productName = Classmate;
-			productReference = 13B07F961A680F5B00A75B9A /* Classmate.app */;
+			name = B7International;
+			productName = B7International;
+			productReference = 13B07F961A680F5B00A75B9A /* B7International.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* Classmate-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* B7International-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Classmate-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "B7International-tvOS" */;
 			buildPhases = (
 				879EACDF38C3808943640E34 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -311,14 +311,14 @@
 			);
 			dependencies = (
 			);
-			name = "Classmate-tvOS";
-			productName = "Classmate-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* Classmate-tvOS.app */;
+			name = "B7International-tvOS";
+			productName = "B7International-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* B7International-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* Classmate-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* B7International-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Classmate-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "B7International-tvOSTests" */;
 			buildPhases = (
 				B70E009BB29DC85771CBDDC7 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -330,9 +330,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "Classmate-tvOSTests";
-			productName = "Classmate-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* Classmate-tvOSTests.xctest */;
+			name = "B7International-tvOSTests";
+			productName = "B7International-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* B7International-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -361,7 +361,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Classmate" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "B7International" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -374,10 +374,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* Classmate */,
-				00E356ED1AD99517003FC87E /* ClassmateTests */,
-				2D02E47A1E0B4A5D006451C7 /* Classmate-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* Classmate-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* B7International */,
+				00E356ED1AD99517003FC87E /* B7InternationalTests */,
+				2D02E47A1E0B4A5D006451C7 /* B7International-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* B7International-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -443,7 +443,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Classmate-ClassmateTests/Pods-Classmate-ClassmateTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-B7International-B7InternationalTests/Pods-B7International-B7InternationalTests-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/JitsiMeetSDK/JitsiMeetSDK.framework/JitsiMeetSDK",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/JitsiMeetSDK/WebRTC.framework/WebRTC",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal/OpenSSL.framework/OpenSSL",
@@ -456,7 +456,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Classmate-ClassmateTests/Pods-Classmate-ClassmateTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-B7International-B7InternationalTests/Pods-B7International-B7InternationalTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
@@ -479,7 +479,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Classmate/Pods-Classmate-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-B7International/Pods-B7International-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/JitsiMeetSDK/JitsiMeetSDK.framework/JitsiMeetSDK",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/JitsiMeetSDK/WebRTC.framework/WebRTC",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal/OpenSSL.framework/OpenSSL",
@@ -492,7 +492,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Classmate/Pods-Classmate-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-B7International/Pods-B7International-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		491EFCDE5248DE2FC86C626A /* [CP] Check Pods Manifest.lock */ = {
@@ -510,7 +510,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Classmate-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-B7International-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -532,7 +532,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Classmate-ClassmateTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-B7International-B7InternationalTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -554,7 +554,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Classmate-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-B7International-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -567,7 +567,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Classmate/Pods-Classmate-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-B7International/Pods-B7International-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -608,7 +608,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Classmate/Pods-Classmate-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-B7International/Pods-B7International-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B70E009BB29DC85771CBDDC7 /* [CP] Check Pods Manifest.lock */ = {
@@ -626,7 +626,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Classmate-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-B7International-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -639,7 +639,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Classmate-ClassmateTests/Pods-Classmate-ClassmateTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-B7International-B7InternationalTests/Pods-B7International-B7InternationalTests-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -680,7 +680,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Classmate-ClassmateTests/Pods-Classmate-ClassmateTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-B7International-B7InternationalTests/Pods-B7International-B7InternationalTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F3CCE41BA381E53234181BF5 /* [CP-User] [RNFB] Core Configuration */ = {
@@ -782,12 +782,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* Classmate */;
+			target = 13B07F861A680F5B00A75B9A /* B7International */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* Classmate-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* B7International-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -795,7 +795,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 078421A0C1AAFE3DA1E566C1 /* Pods-Classmate-ClassmateTests.debug.xcconfig */;
+			baseConfigurationReference = 078421A0C1AAFE3DA1E566C1 /* Pods-B7International-B7InternationalTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -813,13 +813,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classmate.app/Classmate";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/B7International.app/B7International";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCB51ADF896289318A48B464 /* Pods-Classmate-ClassmateTests.release.xcconfig */;
+			baseConfigurationReference = BCB51ADF896289318A48B464 /* Pods-B7International-B7InternationalTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -834,19 +834,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classmate.app/Classmate";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/B7International.app/B7International";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 290FB493AEC690FF28509E10 /* Pods-Classmate.debug.xcconfig */;
+			baseConfigurationReference = 290FB493AEC690FF28509E10 /* Pods-B7International.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = Classmate/Info.plist;
+				INFOPLIST_FILE = B7International/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -854,8 +854,8 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = guru.classmate;
-				PRODUCT_NAME = Classmate;
-				SWIFT_OBJC_BRIDGING_HEADER = "Classmate-Bridging-Header.h";
+				PRODUCT_NAME = B7International;
+				SWIFT_OBJC_BRIDGING_HEADER = "B7International-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -864,12 +864,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0566BDD7CD92B2DADBB70A00 /* Pods-Classmate.release.xcconfig */;
+			baseConfigurationReference = 0566BDD7CD92B2DADBB70A00 /* Pods-B7International.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Classmate/Info.plist;
+				INFOPLIST_FILE = B7International/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -877,8 +877,8 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = guru.classmate;
-				PRODUCT_NAME = Classmate;
-				SWIFT_OBJC_BRIDGING_HEADER = "Classmate-Bridging-Header.h";
+				PRODUCT_NAME = B7International;
+				SWIFT_OBJC_BRIDGING_HEADER = "B7International-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -886,7 +886,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BA93797B40B35C69B2EEC6C /* Pods-Classmate-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 1BA93797B40B35C69B2EEC6C /* Pods-B7International-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -897,14 +897,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Classmate-tvOS/Info.plist";
+				INFOPLIST_FILE = "B7International-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Classmate-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.B7International-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -914,7 +914,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11DBC23AB1B54BA932665026 /* Pods-Classmate-tvOS.release.xcconfig */;
+			baseConfigurationReference = 11DBC23AB1B54BA932665026 /* Pods-B7International-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -925,14 +925,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Classmate-tvOS/Info.plist";
+				INFOPLIST_FILE = "B7International-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Classmate-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.B7International-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -942,7 +942,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81480BB5CE464BD1177C7B66 /* Pods-Classmate-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 81480BB5CE464BD1177C7B66 /* Pods-B7International-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -952,24 +952,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Classmate-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "B7International-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Classmate-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.B7International-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classmate-tvOS.app/Classmate-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/B7International-tvOS.app/B7International-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF0DE29F7A55E1F4DF98C397 /* Pods-Classmate-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = CF0DE29F7A55E1F4DF98C397 /* Pods-B7International-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -979,17 +979,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Classmate-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "B7International-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Classmate-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.B7International-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classmate-tvOS.app/Classmate-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/B7International-tvOS.app/B7International-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
@@ -1112,7 +1112,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ClassmateTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "B7InternationalTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1121,7 +1121,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Classmate" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "B7International" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1130,7 +1130,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Classmate-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "B7International-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1139,7 +1139,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Classmate-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "B7International-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1148,7 +1148,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Classmate" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "B7International" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Classmate.app"
-               BlueprintName = "Classmate"
-               ReferencedContainer = "container:Classmate.xcodeproj">
+               BuildableName = "B7International.app"
+               BlueprintName = "B7International"
+               ReferencedContainer = "container:B7International.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ClassmateTests.xctest"
-               BlueprintName = "ClassmateTests"
-               ReferencedContainer = "container:Classmate.xcodeproj">
+               BuildableName = "B7InternationalTests.xctest"
+               BlueprintName = "B7InternationalTests"
+               ReferencedContainer = "container:B7International.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Classmate.app"
-            BlueprintName = "Classmate"
-            ReferencedContainer = "container:Classmate.xcodeproj">
+            BuildableName = "B7International.app"
+            BlueprintName = "B7International"
+            ReferencedContainer = "container:B7International.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -78,9 +78,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Classmate.app"
-            BlueprintName = "Classmate"
-            ReferencedContainer = "container:Classmate.xcodeproj">
+            BuildableName = "B7International.app"
+            BlueprintName = "B7International"
+            ReferencedContainer = "container:B7International.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -89,7 +89,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "Classmate"
+      customArchiveName = "B7International"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

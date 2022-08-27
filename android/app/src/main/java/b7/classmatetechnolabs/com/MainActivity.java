@@ -1,4 +1,4 @@
-package guru.classmate;
+package b7.classmatetechnolabs.com;
 
 import com.facebook.react.ReactActivity;
 
@@ -9,7 +9,7 @@ import android.util.Log;
 import org.devio.rn.splashscreen.SplashScreen;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
-import guru.classmate.jitsi.MeetingService;
+import b7.classmatetechnolabs.com.jitsi.MeetingService;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -25,7 +25,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "Classmate";
+    return "B7International";
   }
 
   @Override

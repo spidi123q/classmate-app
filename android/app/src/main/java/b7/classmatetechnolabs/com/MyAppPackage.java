@@ -1,9 +1,9 @@
-package guru.classmate;
+package b7.classmatetechnolabs.com;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import guru.classmate.jitsi.RNJitsiMeetModule;
+import b7.classmatetechnolabs.com.jitsi.RNJitsiMeetModule;
 
 import java.util.ArrayList;
 import java.util.Collections;
