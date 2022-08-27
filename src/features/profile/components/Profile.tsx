@@ -7,9 +7,15 @@ import useUser from "../../login/hooks/useUser";
 import { formatPhoneNumber } from "../../../common/helpers/format";
 import NativeTextInput from "../../../common/components/NativeTextInput";
 import BlankUser from "../../../common/assets/BlankUser.svg";
+import NativeButton from "../../../common/components/NativeButton";
+import { AppTheme } from "../../../common/config/custom-theme";
+import { Button } from "react-native-elements";
+import useLoginActions from "../../login/hooks/useLoginActions";
 
 export default function Profile() {
   const { name, phone, email, organization, classroom } = useUser();
+  const { logout } = useLoginActions();
+
   return (
     <NativeLayout scroll lockToPortrait>
       <NativeHeader title="Edit Profile" />
@@ -46,6 +52,16 @@ export default function Profile() {
             label="Classroom"
             value={classroom?.name}
             editable={false}
+          />
+        </NativeView>
+        <NativeView marginBottom={DefaultMargin}>
+          <Button
+            title="Logout"
+            type="clear"
+            titleStyle={{
+              color: AppTheme["color-danger"],
+            }}
+            onPress={logout}
           />
         </NativeView>
       </NativeView>

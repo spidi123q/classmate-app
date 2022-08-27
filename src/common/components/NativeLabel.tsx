@@ -13,11 +13,7 @@ const NativeLabel: React.FunctionComponent<IProps> = function (props) {
   return (
     <View>
       {label && (
-        <Typography
-          type="xsx"
-          marginVertical={5}
-          color={AppTheme["color-grey2"]}
-        >
+        <Typography type="xsx" marginVertical={5}>
           {label}
         </Typography>
       )}

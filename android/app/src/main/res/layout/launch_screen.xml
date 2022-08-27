@@ -15,6 +15,6 @@
         android:maxWidth="124dp"
         android:minHeight="109dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/logoinverted" />
+        android:src="@drawable/ic_logohorizontal" />
 
 </RelativeLayout>
