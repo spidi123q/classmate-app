@@ -853,7 +853,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = guru.classmate;
+				PRODUCT_BUNDLE_IDENTIFIER = b7.classmatetechnolabs.com;
 				PRODUCT_NAME = B7International;
 				SWIFT_OBJC_BRIDGING_HEADER = "B7International-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -876,7 +876,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = guru.classmate;
+				PRODUCT_BUNDLE_IDENTIFIER = b7.classmatetechnolabs.com;
 				PRODUCT_NAME = B7International;
 				SWIFT_OBJC_BRIDGING_HEADER = "B7International-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
