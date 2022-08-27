@@ -1,4 +1,4 @@
-import Orientation from "react-native-orientation";
+import Orientation from "react-native-orientation-locker";
 
 type orientation = "LANDSCAPE" | "PORTRAIT" | "UNKNOWN" | "PORTRAITUPSIDEDOWN";
 type specificOrientation =

@@ -32,32 +32,6 @@ cd android
 chmod +x gradlew
 "endpoint": "http://10.0.2.2:9090",
 
-# Temp release build fix
-
-. react-native-orientation
-
-apply plugin: 'com.android.library'
-
-android {
-compileSdkVersion rootProject.ext.compileSdkVersion
-buildToolsVersion rootProject.ext.buildToolsVersion
-
-    defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        ndk {
-            abiFilters "armeabi-v7a", "x86"
-        }
-    }
-
-}
-
-dependencies {
-compile "com.facebook.react:react-native:+"
-}
-
 # Rename package
 1. ```npx react-native-rename "B7 International" -b b7.classmatetechnolabs.com```
 2. search & remove all occurrences old package name

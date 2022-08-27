@@ -32,7 +32,7 @@ import {
   DefaultMargin,
 } from "../../config/themeConfig";
 import Loader from "../Loader";
-import Orientation from "react-native-orientation";
+import Orientation from "react-native-orientation-locker";
 import {
   immersiveModeOn,
   immersiveModeOff,

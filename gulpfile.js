@@ -11,7 +11,7 @@ gulp.task("setBaseUrl", function (done) {
       jeditor(function (json) {
         json.endpoint = argv.local
           ? "http://localhost:9090"
-          : "https://api.classmate.guru";
+          : "https://api.classmate-technolabs.com";
         return json; // must return JSON object.
       })
     )

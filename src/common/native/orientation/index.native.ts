@@ -1,3 +1,3 @@
-import Orientation from "react-native-orientation";
+import Orientation from "react-native-orientation-locker";
 
 export default Orientation;
