@@ -57,3 +57,6 @@ buildToolsVersion rootProject.ext.buildToolsVersion
 dependencies {
 compile "com.facebook.react:react-native:+"
 }
+
+# Rename package
+```npx react-native-rename "B7 International" -b b7.classmatetechnolabs.com```

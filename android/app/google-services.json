@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1029614808285:android:2e5717272e446c7c193f34",
+        "mobilesdk_app_id": "1:1029614808285:android:8b59843576bce726193f34",
         "android_client_info": {
-          "package_name": "guru.classmate"
+          "package_name": "b7.classmatetechnolabs.com"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1029614808285-i6h7rv1gfp06mk10sohrov8upagm2rkv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "b7.classmatetechnolabs.com",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
         {
           "client_id": "1029614808285-makkoc90h5ggu9mdv1v2sj77kml09q8b.apps.googleusercontent.com",
           "client_type": 3
@@ -31,10 +39,70 @@
               "client_type": 3
             },
             {
-              "client_id": "1029614808285-te5d2rksvdqqsmldqoaub306iaq5h8gi.apps.googleusercontent.com",
+              "client_id": "1029614808285-rqhu83vhh4da2frqlrnajcfkvdis3ejg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.inspiritsolutions.classmate"
+                "bundle_id": "guru.classmate"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029614808285:android:2e5717272e446c7c193f34",
+        "android_client_info": {
+          "package_name": "guru.classmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029614808285-4er5mu28ba1ecrafqt14k9586ks7qc5o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "guru.classmate",
+            "certificate_hash": "ddd90609da395e77da1c8c4d082ded5dac2bdd4f"
+          }
+        },
+        {
+          "client_id": "1029614808285-f4df9lkgg70sust9jg68rknctvaohemu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "guru.classmate",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1029614808285-lvjnaf4t6ncn0mrs1b53qfjjsud615il.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "guru.classmate",
+            "certificate_hash": "17e6a2cca8ada92e4c1f86e0fb210c09a0b38a74"
+          }
+        },
+        {
+          "client_id": "1029614808285-makkoc90h5ggu9mdv1v2sj77kml09q8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7WHznsB24H5VP0AG4m-N9hwq1mmfykmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029614808285-makkoc90h5ggu9mdv1v2sj77kml09q8b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1029614808285-rqhu83vhh4da2frqlrnajcfkvdis3ejg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "guru.classmate"
               }
             }
           ]

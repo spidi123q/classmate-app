@@ -77,7 +77,7 @@ const NativeLayout: React.FunctionComponent<INativeLayoutProps> = (props) => {
       >
         <StatusBar
           backgroundColor={statusBarColor ?? DefaultBackgroundColor}
-          barStyle={barStyle ?? "light-content"}
+          barStyle={barStyle ?? "dark-content"}
         />
         {children}
       </NativeView>

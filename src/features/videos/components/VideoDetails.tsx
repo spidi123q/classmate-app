@@ -35,7 +35,7 @@ export function VideoDetails() {
     .getVideos();
 
   return (
-    <NativeLayout statusBarColor="black" noSafeArea>
+    <NativeLayout noSafeArea>
       <ScrollView ref={scrollRef}>
         <NativeVideoPlayer
           cloudflareStreamVideoId={video.cloudflareStreamVideoId}
