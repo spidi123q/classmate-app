@@ -2,7 +2,10 @@ import React from "react";
 import { FlatList, ImageStyle, StyleProp } from "react-native";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
-import { DefaultMargin } from "../../../common/config/themeConfig";
+import {
+  DefaultHintFontColor,
+  DefaultMargin,
+} from "../../../common/config/themeConfig";
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { Image } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
@@ -62,6 +65,13 @@ export default function VideoList(props: IProps) {
             renderItem={renderItem}
             keyExtractor={(item) => item._id}
             horizontal
+            ListEmptyComponent={
+              <NativeView marginVertical={DefaultMargin / 4}>
+                <Typography color={DefaultHintFontColor} type="xs">
+                  Nothing uploaded yet
+                </Typography>
+              </NativeView>
+            }
           />
         )}
       </NativeView>

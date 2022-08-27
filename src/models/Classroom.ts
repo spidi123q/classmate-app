@@ -1,3 +1,4 @@
+import IDocumetResponse from "../common/models/DocumetResponse";
 import { ITimeStamps } from "../common/models/TimeStamps";
 import IOrganization from "./Organization";
 export interface IClassroom extends ITimeStamps {
@@ -12,6 +13,7 @@ export interface IClassroom extends ITimeStamps {
   categories: string[];
   liveDetails?: ILiveDetails;
   liveUpdateInterval: number;
+  documents?: IDocumetResponse[];
 }
 
 export interface ILiveDetails {

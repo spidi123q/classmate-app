@@ -61,13 +61,14 @@ export enum IconFamily {
 }
 
 export const DefaultBackgroundColor: string = AppTheme["color-secondary"];
-export const DefaultPrimaryColor: string = AppTheme["color-primary-500"];
+export const DefaultPrimaryColor: string = AppTheme["color-primary"];
 export const DefaultFontColor: string = AppTheme["color-primary"];
+export const DefaultHintFontColor: string = AppTheme["color-grey"];
 export const DefaultSecondaryColor: string = AppTheme["color-secondary"];
 export const SecondaryBackgroundColor: string = AppTheme["color-primary2"];
 export const TrasparentColor: string = "rgba(255, 0, 0, 0)";
-export const DefaultPlaceholderBackgroudColor: string = AppTheme["color-grey5"];
-export const DefaultPlaceholderHighlightColor: string = AppTheme["color-grey4"];
+export const DefaultPlaceholderBackgroudColor = undefined;
+export const DefaultPlaceholderHighlightColor = undefined;
 
 export const DefaultOpacity: number = 0.65;
 

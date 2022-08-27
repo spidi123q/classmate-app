@@ -8,6 +8,7 @@ import { AppTheme } from "../../../../common/config/custom-theme";
 import { HeaderMenu } from "./HeaderMenu";
 import Live from "../../assets/Live.svg";
 import {
+  DefaultHintFontColor,
   DefaultMargin,
   DefaultOpacity,
 } from "../../../../common/config/themeConfig";
@@ -41,19 +42,6 @@ export default function HeaderCover(props: IProps) {
   const { setLastPlayedVideo } = useVideoActions();
   const isLive = classroom?.liveDetails?.isLive;
 
-  if (isLoading) {
-    return (
-      <NativeSkeletonPlaceholder
-        items={[
-          {
-            width,
-            height: coverHeight,
-          },
-        ]}
-      />
-    );
-  }
-
   const openVideo = (video: IVideo) => {
     setLastPlayedVideo(video);
     navigation.navigate(HomePages.VideoDetails, {
@@ -84,55 +72,27 @@ export default function HeaderCover(props: IProps) {
   };
 
   return (
-    <NativeView
-      type="image"
-      source={
-        isLive
-          ? Airboard2
-          : {
-              uri: video?.coverImageUrl,
-            }
-      }
-      height={coverHeight}
-      width={width}
-      backgroundColor={AppTheme["color-grey"]}
-    >
-      <StatusBar
-        translucent
-        backgroundColor={"transparent"}
-        barStyle="light-content"
-      />
-      <NativeView
-        type="gradient"
-        colors={["#000000", "#00000000"]}
-        height={150}
-      >
+    <NativeView>
+      <StatusBar translucent />
+      <NativeView marginBottom={20}>
         <HeaderMenu />
       </NativeView>
-      <NativeView
-        type="gradient"
-        colors={["#00000000", "#00000000", "#0000009E", "#151215"]}
-        height={250}
-        width={width}
-        position="absolute"
-        bottom={0}
-        justifyContent="flex-end"
-      >
+      <NativeView justifyContent="flex-end">
         <NativeView marginHorizontal={DefaultMargin}>
           <NativeView marginBottom={DefaultMargin / 2}>
             {isLive ? (
               <>
-                <Typography opacity={DefaultOpacity} type="xs">
+                <Typography family="medium" type="h3x">
                   {classroom?.name}
                 </Typography>
               </>
             ) : (
               <>
-                <Typography opacity={DefaultOpacity} type="xs">
-                  {classroom?.name} · {video?.category}
-                </Typography>
                 <Typography family="medium" type="h3x">
                   {video?.name}
+                </Typography>
+                <Typography type="xs" color={DefaultHintFontColor}>
+                  {classroom?.name} · {video?.category}
                 </Typography>
               </>
             )}

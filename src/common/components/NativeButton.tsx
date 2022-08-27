@@ -74,12 +74,16 @@ const NativeButton: React.FunctionComponent<IProps> = (props) => {
             <NativeView flexDirection="row" alignItems="center">
               {iconName && (
                 <NativeView marginRight={10} marginBottom={0.5}>
-                  <Icon type={DefaultIconFamily} name={iconName} />
+                  <Icon
+                    type={DefaultIconFamily}
+                    name={iconName}
+                    color={DefaultBackgroundColor}
+                  />
                 </NativeView>
               )}
               <Typography
                 size={ButtonFontSize[size ?? "lg"]}
-                color={DefaultFontColor}
+                color={DefaultBackgroundColor}
                 family="medium"
               >
                 {title}
@@ -106,7 +110,7 @@ const getButtonStyle = (
     height: ButtonSize[size ?? "lg"],
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: DefaultSecondaryColor,
+    backgroundColor: DefaultPrimaryColor,
     borderRadius: DefaultBorderRadius,
   };
   if (mode === "oval") {

@@ -1,9 +1,14 @@
+import { useRoute } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Dimensions, View } from "react-native";
 import Pdf from "react-native-pdf";
-import NativeView from "../../components/NativeView";
+import { IParam } from ".";
+import NativeView from "../NativeView";
 
 export default function () {
+  const { params } = useRoute();
+  const { document } = params as IParam;
+
   return (
     <View
       style={{
@@ -16,7 +21,7 @@ export default function () {
       <Pdf
         trustAllCerts={false}
         source={{
-          uri: "https://classmate-public-files.s3.ap-south-1.amazonaws.com/90377ee2-3b10-4f68-be79-68004cc8b707-cv_2022_05.pdf",
+          uri: document.objectUrl,
           cache: true,
         }}
         onLoadComplete={(numberOfPages, filePath) => {

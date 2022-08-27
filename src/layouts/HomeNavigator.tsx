@@ -6,7 +6,7 @@ import useUser from "../features/login/hooks/useUser";
 import Profile from "../features/profile/components/Profile";
 import VideoDetails from "../features/videos/components/VideoDetails";
 import { JitsiMeetView } from "../common/native/jitsiMeet";
-import PdfViewer from "../common/native/pdfViewer";
+import PdfViewer from "../common/components/pdfViewer";
 
 export default function HomeNavigator() {
   const user = useUser();

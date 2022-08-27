@@ -1,10 +1,14 @@
+import { useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Button } from "react-native-elements";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
-import NativeLayout from "../../components/NativeLayout";
-import NativeView from "../../components/NativeView";
+import { IParam } from ".";
+import NativeLayout from "../NativeLayout";
+import NativeView from "../NativeView";
 
 export default function () {
+  const { params } = useRoute();
+  const { document } = params as IParam;
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -14,10 +18,7 @@ export default function () {
 
   return (
     <NativeLayout>
-      <Document
-        file="https://classmate-public-files.s3.ap-south-1.amazonaws.com/90377ee2-3b10-4f68-be79-68004cc8b707-cv_2022_05.pdf"
-        onLoadSuccess={onDocumentLoadSuccess}
-      >
+      <Document file={document.objectUrl} onLoadSuccess={onDocumentLoadSuccess}>
         <Page pageNumber={pageNumber} />
       </Document>
       <NativeView flexDirection="row">

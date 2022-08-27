@@ -25,3 +25,5 @@ export const IsMobile: boolean =
   Platform.OS === "ios" || Platform.OS === "android";
 
 export const DefaultPlaceholderList = Array.from(Array(10).keys());
+
+export const ONE_MEGABYTE = 1024 * 1024;

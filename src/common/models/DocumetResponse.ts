@@ -3,4 +3,6 @@ export default interface IDocumetResponse {
   region: string;
   fileName: string;
   bucket: string;
+  originalname: string;
+  size: number;
 }
