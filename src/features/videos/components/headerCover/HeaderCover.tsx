@@ -91,7 +91,11 @@ export default function HeaderCover(props: IProps) {
                 <Typography family="medium" type="h3x">
                   {video?.name}
                 </Typography>
-                <Typography type="xs" color={DefaultHintFontColor}>
+                <Typography
+                  type="xs"
+                  color={DefaultHintFontColor}
+                  marginTop={DefaultMargin / 4}
+                >
                   {classroom?.name} · {video?.category}
                 </Typography>
               </>

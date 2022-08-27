@@ -59,4 +59,7 @@ compile "com.facebook.react:react-native:+"
 }
 
 # Rename package
-```npx react-native-rename "B7 International" -b b7.classmatetechnolabs.com```
+1. ```npx react-native-rename "B7 International" -b b7.classmatetechnolabs.com```
+2. search & remove all occurrences old package name
+3. replace firebase config files
+4. replace URL scheme for your reversed client ID in Info.plist. To find this value, open the GoogleService-Info.plist configuration file, and look for the REVERSED_CLIENT_ID key
