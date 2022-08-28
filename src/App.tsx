@@ -1,6 +1,4 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import NativeTextInput from "./common/components/NativeTextInput";
 import ThemeProvider from "./layouts/ThemeProvider";
 import { store, persistor } from "./store/AppStore";
 import { PersistGate } from "redux-persist/integration/react";
@@ -11,7 +9,7 @@ import { RoutePath } from "./models/RoutePath";
 import NotificationProvider from "./layouts/NotificationProvider";
 import ErrorLayout from "./layouts/errorLayout/ErrorLayout";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 function App() {
   return (
@@ -45,6 +43,6 @@ function App() {
   );
 }
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default App; //codePush(App);

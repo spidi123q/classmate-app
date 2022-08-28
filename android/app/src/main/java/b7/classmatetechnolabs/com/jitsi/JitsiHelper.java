@@ -25,7 +25,6 @@ public class JitsiHelper {
                         // Settings for audio and video
                         //.setAudioMuted(true)
                         //.setVideoMuted(true)
-                        .setWelcomePageEnabled(false)
                         .setFeatureFlag("recording.enabled", false)
                         .setFeatureFlag("live-streaming.enabled", false)
                         .setFeatureFlag("invite.enabled", false)

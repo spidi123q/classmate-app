@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../features/login/components/Login";
 import OtpVerifier from "../features/login/components/OtpVerifier";
 import ProfileForm from "../features/login/components/profileForm/ProfileForm";
@@ -28,4 +28,4 @@ export default function LoginNavigator() {
   );
 }
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();

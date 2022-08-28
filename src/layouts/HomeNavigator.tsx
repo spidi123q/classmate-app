@@ -1,7 +1,7 @@
 import React from "react";
 import Videos from "../features/videos/components/Videos";
 import { HomePages } from "../models/RoutePath";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import useUser from "../features/login/hooks/useUser";
 import Profile from "../features/profile/components/Profile";
 import VideoDetails from "../features/videos/components/VideoDetails";
@@ -32,4 +32,4 @@ export default function HomeNavigator() {
   );
 }
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();

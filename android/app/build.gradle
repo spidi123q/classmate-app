@@ -215,7 +215,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.squareup.okhttp3:okhttp:4.9.2'
 
-    implementation ('org.jitsi.react:jitsi-meet-sdk:3.+') {
+    implementation ('org.jitsi.react:jitsi-meet-sdk:6.0+') {
         exclude group: 'com.facebook.react',module:'react-native-svg'
         exclude group: 'com.facebook.react',module:'react-native-device-info'
         exclude group: 'com.facebook.react',module:'react-native-splash-screen'
