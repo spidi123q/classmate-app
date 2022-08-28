@@ -221,6 +221,12 @@ dependencies {
         exclude group: 'com.facebook.react',module:'react-native-splash-screen'
         exclude group: 'com.facebook.react',module:'react-native-async-storage'
         exclude group: 'com.facebook.react',module:'react-native-video'
+        exclude group: 'com.facebook.react',module:'react-native-screens'
+        exclude group: 'com.facebook.react',module:'react-native-get-random-values'
+        exclude group: 'com.facebook.react',module:'react-native-masked-view_masked-view'
+        exclude group: 'com.facebook.react',module:'react-native-reanimated'
+        exclude group: 'com.facebook.react',module:'react-native-community_clipboard'
+        exclude group: 'com.facebook.react',module:'react-native-safe-area-context'
         transitive = true
     }
 
