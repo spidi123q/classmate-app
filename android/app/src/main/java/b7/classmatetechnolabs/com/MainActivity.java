@@ -7,11 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import org.devio.rn.splashscreen.SplashScreen;
-import com.facebook.react.ReactActivityDelegate;
-import com.facebook.react.ReactRootView;
-import b7.classmatetechnolabs.com.jitsi.MeetingService;
-import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
-import android.content.Intent;
+
 import android.content.res.Configuration;
 import android.view.WindowManager;
 
@@ -32,8 +28,6 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
       SplashScreen.show(this, R.style.SplashScreenTheme);  // here
       super.onCreate(null);
-      Intent meetingService = new Intent(this, MeetingService.class);
-      startService(meetingService);
       Bundle extras = getIntent().getExtras();
       getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
@@ -46,16 +40,6 @@ public class MainActivity extends ReactActivity {
       else {
           Log.d(TAG, "extras null : " );
       }
-  }
-
-  @Override
-    protected ReactActivityDelegate createReactActivityDelegate() {
-    return new ReactActivityDelegate(this, getMainComponentName()) {
-      @Override
-      protected ReactRootView createRootView() {
-       return new RNGestureHandlerEnabledRootView(MainActivity.this);
-      }
-    };
   }
 
   @Override
