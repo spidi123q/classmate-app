@@ -23,11 +23,13 @@ import { slideUpProps } from "../../../common/helpers/animation";
 import { otpSchema } from "./yupSchema";
 import { Platform } from "react-native";
 import RecaptchaVerifier from "../../../common/components/recaptchaVerifier";
+import useLoading from "../../../common/hooks/useLoading";
 
 interface IProps {}
 
 const OtpVerifier = (props: IProps) => {
   const route = useRoute<Route<string, IParams | undefined>>();
+  const loading = useLoading();
   const [confirmationResult, setConfirmationResult] =
     useState<FirebaseAuthTypes.ConfirmationResult>();
   const navigation = useNavigation();
@@ -45,13 +47,15 @@ const OtpVerifier = (props: IProps) => {
     } else {
       showToast(ToastTitle.Error, "Login Failed", "error");
     }
+    loading.stop();
   };
 
   const codeFilled = async (values: IOtpForm) => {
+    loading.start();
     try {
       await confirmationResult?.confirm(values.otp);
     } catch (err) {
-      showToast(ToastTitle.Error, err.message, "error");
+      showToast(ToastTitle.Error, (err as Error).message, "error");
     }
   };
 
@@ -77,7 +81,7 @@ const OtpVerifier = (props: IProps) => {
       );
       setConfirmationResult(confirmationResult);
     } catch (err) {
-      showToast(ToastTitle.Error, err.message, "error");
+      showToast(ToastTitle.Error, (err as Error).message, "error");
     }
   };
 
@@ -124,6 +128,7 @@ const OtpVerifier = (props: IProps) => {
                   size="lg"
                   title="Submit"
                   onPress={() => formikProps.handleSubmit()}
+                  isLoading={loading.isLoading}
                 />
               </NativeView>
             </NativeView>
