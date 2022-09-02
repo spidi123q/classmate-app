@@ -209,8 +209,6 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     implementation 'androidx.multidex:multidex:2.0.1'
-
-    implementation project(path: ":@react-native-firebase_storage")
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.squareup.okhttp3:okhttp:4.9.2'
