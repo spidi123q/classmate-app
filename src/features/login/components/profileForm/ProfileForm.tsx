@@ -75,7 +75,6 @@ const ProfileForm = (props: IProps) => {
           type="success"
           onAnimationFinish={() => getUser()}
           loop={false}
-          autoPlay={false}
           onInit={(lottie) => {
             successLottieRef.current = lottie;
           }}
