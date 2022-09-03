@@ -14,8 +14,10 @@ import useLoading from "../../../../common/hooks/useLoading";
 import LottieView from "lottie-react-native";
 import useLoginActions from "../../hooks/useLoginActions";
 import NativeHeader from "../../../../common/components/NativeHeader";
-import { RoutePath } from "../../../../models/RoutePath";
+import { HomePages, RoutePath } from "../../../../models/RoutePath";
 import { useNavigation } from "@react-navigation/native";
+import { Pie } from "react-native-progress";
+import { DefaultPrimaryColor } from "../../../../common/config/themeConfig";
 
 interface IProps {}
 
@@ -24,12 +26,8 @@ const ProfileForm = (props: IProps) => {
   const { logout } = useLoginActions();
   const [isProfileComplete, setIsProfileComplete] = useState<boolean>(false);
   const loading = useLoading();
-  const successLottieRef = useRef<LottieView | null>(null);
   const navigation = useNavigation();
-
-  const updateCurrentUser = async (values: IUserEdit) => {
-    setIsProfileComplete(true);
-  };
+  const { setUser } = useLoginActions();
 
   const validateUser = async () => {
     loading.start();
@@ -40,13 +38,12 @@ const ProfileForm = (props: IProps) => {
         // Firebase is still logged in so need to logout first if user want to login again
         logout();
       }
-      loading.stop();
       setIsProfileComplete(isValid);
+      await getUser(true);
     } catch (e) {
-      loading.stop();
       showToast(ToastTitle.FormError, "Validation Failed", "error");
     }
-    successLottieRef.current?.play();
+    loading.stop();
   };
 
   const onBack = () => {
@@ -60,54 +57,25 @@ const ProfileForm = (props: IProps) => {
     validateUser();
   }, []);
 
-  if (loading.isLoading) {
-    return (
-      <NativeLayout>
-        <Loader />
-      </NativeLayout>
-    );
-  }
-
-  if (isProfileComplete) {
-    return (
-      <NativeLayout lockToPortrait>
-        <Loader
-          type="success"
-          onAnimationFinish={() => getUser()}
-          loop={false}
-          onInit={(lottie) => {
-            successLottieRef.current = lottie;
-          }}
-        />
-      </NativeLayout>
-    );
-  }
-
   return (
-    <>
-      <NativeLayout>
-        <NativeHeader onBack={onBack} />
-        <Formik
-          validationSchema={profileSchema}
-          initialValues={{ name: "" }}
-          onSubmit={updateCurrentUser}
-          validateOnChange={false}
-        >
-          {(formikProps: FormikProps<IUserEdit>) => (
-            <NativeView flex={1} alignItems="center" justifyContent="center">
-              <Typography type="h1x" textAlign="center">
-                You have no active subscription.
-              </Typography>
-            </NativeView>
-          )}
-        </Formik>
-      </NativeLayout>
-    </>
+    <NativeLayout>
+      {!loading.isLoading && <NativeHeader onBack={onBack} />}
+      <NativeView flex={1} alignItems="center" justifyContent="center">
+        {loading.isLoading ? (
+          <Pie
+            progress={0.4}
+            size={50}
+            color={DefaultPrimaryColor}
+            indeterminate
+          />
+        ) : (
+          <Typography type="h1x" textAlign="center">
+            You have no active subscription.
+          </Typography>
+        )}
+      </NativeView>
+    </NativeLayout>
   );
 };
 
 export default ProfileForm;
-
-LogBox.ignoreLogs([
-  "Can't perform a React state update on an unmounted component",
-]);
