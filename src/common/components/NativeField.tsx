@@ -35,7 +35,6 @@ import NativeTextInput, { INativeTextInput } from "./NativeTextInput";
 import Typography from "./Typography";
 import NativeLabel from "./NativeLabel";
 import NativeButtonGroup from "./NativeButtonGroup";
-import LocationInput from "./location/LocationInput";
 import KeyValuePair from "../models/KeyValuePair";
 
 type InputTypes =
@@ -207,23 +206,6 @@ const NativeField = (props: IProps) => {
               formikProps.setFieldValue(name, selected);
             }}
             options={options ?? []}
-            {...rest}
-          />
-        );
-      case "location":
-        return (
-          <LocationInput
-            defaultLocation={formikProps.values[name]}
-            onSelected={(location) => {
-              formikProps.setFieldValue(
-                locationFieldName ?? "location",
-                location.location
-              );
-              formikProps.setFieldValue(
-                addressFieldName ?? "address",
-                location.address
-              );
-            }}
             {...rest}
           />
         );

@@ -4,13 +4,9 @@ import {
   Rationale,
   Platform,
   Linking,
-  Alert,
   Permission as AndroidPermission,
   Share,
 } from "react-native";
-import RNAndroidLocationEnabler from "react-native-android-location-enabler";
-import { delay } from "./misc";
-import Geolocation, { GeoPosition } from "react-native-geolocation-service";
 import { ToastTitle } from "../models/enum";
 
 /**
@@ -50,56 +46,6 @@ const permissionMap: Record<Permission, AndroidPermission> = {
   read_external_storage: PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
 };
 type Permission = "location" | "read_external_storage";
-
-/**
- * Get geo location of the user
- */
-export const getCurrentPosition = async (): Promise<GeoPosition> => {
-  const hasPermission: boolean = await requestPermission("location");
-  return new Promise(async (resolve, reject) => {
-    !hasPermission && reject("No permission");
-    const isLocEnabled: boolean = await promptForEnableLocationIfNeeded();
-    !isLocEnabled && reject("No location enabled");
-    if (hasPermission && isLocEnabled) {
-      Geolocation.getCurrentPosition(
-        (success) => resolve(success),
-        (error) => {
-          console.error(error);
-          reject(error);
-        },
-        {
-          timeout: 70000,
-        }
-      );
-    }
-  });
-};
-
-/**
- * Enable location prompt for android only
- */
-const promptForEnableLocationIfNeeded = async (): Promise<boolean> => {
-  if (Platform.OS === "ios") {
-    const result = await Geolocation.requestAuthorization("whenInUse");
-    console.log(
-      "🚀 ~ file: platform.ts ~ line 83 ~ promptForEnableLocationIfNeeded ~ result",
-      result
-    );
-    return true;
-  }
-  try {
-    await RNAndroidLocationEnabler.promptForEnableLocationIfNeeded({
-      interval: 10000,
-      fastInterval: 5000,
-    });
-    // for better accuracy
-    await delay();
-    return true;
-  } catch (err) {
-    console.log("Prompt error", err);
-    return false;
-  }
-};
 
 export const openURL = async (
   url?: string,

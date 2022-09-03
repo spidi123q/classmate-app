@@ -36,9 +36,16 @@ gulp.task(
   )
 );
 
+gulp.task(
+  "xcodeBuildRelease",
+  shell.task("react-native run-ios --configuration Release")
+);
+
 exports.buildDebugAndroid = series(
   "setBaseUrl",
   "bundleAndroid",
   "gradleBuildDebug"
 );
 exports.buildReleaseAndroid = series("setBaseUrl", "gradleBuildRelease");
+
+exports.buildReleaseIOS = series("setBaseUrl", "xcodeBuildRelease");

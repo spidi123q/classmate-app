@@ -23,13 +23,12 @@ interface IProps {
   type?: "update";
 }
 
-export default function ErrorLayout(props: IProps) {
-  const { type } = props;
+export default function ErrorLayout(props?: IProps) {
   return (
     <NativeLayout>
       <NativeView style={styles.container}>
         {(() => {
-          switch (type) {
+          switch (props?.type) {
             case "update":
               return (
                 <>

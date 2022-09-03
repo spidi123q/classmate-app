@@ -451,8 +451,6 @@ PODS:
     - React-Core
   - react-native-camera/RN (3.43.8):
     - React-Core
-  - react-native-geolocation-service (5.2.0):
-    - React
   - react-native-get-random-values (1.7.0):
     - React-Core
   - react-native-image-picker (3.6.0):
@@ -637,7 +635,6 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - react-native-camera (from `../node_modules/react-native-camera`)
-  - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
@@ -761,8 +758,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-blob-util"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
-  react-native-geolocation-service:
-    :path: "../node_modules/react-native-geolocation-service"
   react-native-get-random-values:
     :path: "../node_modules/react-native-get-random-values"
   react-native-image-picker:
@@ -894,7 +889,6 @@ SPEC CHECKSUMS:
   React-logger: f79dd3cc0f9b44f5611c6c7862badd891a862cf8
   react-native-blob-util: c3b0faecd2919db568e9d552084396f3e50b57c7
   react-native-camera: a22b33e521dbf3f8cd886f79f3aa310f401443d5
-  react-native-geolocation-service: 7c9436da6dfdecd9526c62eac62ea2bc3f0cc8ea
   react-native-get-random-values: 237bffb1c7e05fb142092681531810a29ba53015
   react-native-image-picker: 5bb3325530fd4dc3053a77a73d4f65b6649de820
   react-native-image-resizer: 13ac4af788f88af36d0353a1324401ebabd04fe4
@@ -934,6 +928,6 @@ SPEC CHECKSUMS:
   Yoga: 17cd9a50243093b547c1e539c749928dd68152da
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 39f55fce5b362b3a3feb809d3c17bbbe53b6d5f8
+PODFILE CHECKSUM: 970974e95a5de294d39351decf28da4353a4642e
 
 COCOAPODS: 1.11.2
