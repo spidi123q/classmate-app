@@ -16,7 +16,7 @@ react-native-splash-screen
 
 # # Misc
 
-to connect to local api, run ipconfg and get ipv4 address
+to connect to local api, run ipconfg and get ipv4 address 
 
 # # Boilerplate
 
