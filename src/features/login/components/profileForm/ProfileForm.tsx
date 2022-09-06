@@ -6,18 +6,15 @@ import Loader from "../../../../common/components/Loader";
 import useUserAPI from "../../hooks/useUserAPI";
 import { showToast } from "../../../../common/helpers/notification";
 import { ToastTitle } from "../../../../common/models/enum";
-import { Formik, FormikProps } from "formik";
-import { LogBox, View } from "react-native";
 import Typography from "../../../../common/components/Typography";
 import NativeView from "../../../../common/components/NativeView";
 import useLoading from "../../../../common/hooks/useLoading";
-import LottieView from "lottie-react-native";
 import useLoginActions from "../../hooks/useLoginActions";
 import NativeHeader from "../../../../common/components/NativeHeader";
 import { HomePages, RoutePath } from "../../../../models/RoutePath";
 import { useNavigation } from "@react-navigation/native";
-import { Pie } from "react-native-progress";
 import { DefaultPrimaryColor } from "../../../../common/config/themeConfig";
+import Pie from "../../../../common/components/pie";
 
 interface IProps {}
 

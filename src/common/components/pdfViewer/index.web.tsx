@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "react-native-elements";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
 import { IParam } from ".";
+import NativeHeader from "../NativeHeader";
 import NativeLayout from "../NativeLayout";
 import NativeView from "../NativeView";
 
@@ -18,6 +19,7 @@ export default function () {
 
   return (
     <NativeLayout>
+      <NativeHeader title="Document" />
       <Document file={document.objectUrl} onLoadSuccess={onDocumentLoadSuccess}>
         <Page pageNumber={pageNumber} />
       </Document>
