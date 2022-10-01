@@ -36,7 +36,6 @@ export default function () {
       }
       lockToPortrait
     >
-      <HeaderCover isLoading={showPlaceholder} />
       <NativeView marginHorizontal={DefaultMargin} marginBottom={DefaultMargin}>
         <DocumentList />
         {classroom?.categories.map((category) => (

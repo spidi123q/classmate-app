@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import AppIntroSlider from "../../../common/components/appIntroSlider/AppIntroSlider";
+import AppIntroSlider, {
+  ISlide,
+} from "../../../common/components/appIntroSlider/AppIntroSlider";
 import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
 import {
@@ -80,13 +82,6 @@ export default function Intro() {
       }
     />
   );
-}
-
-interface ISlide {
-  key: string;
-  title: string;
-  description: string;
-  image: any;
 }
 
 const slides: ISlide[] = [

@@ -1,3 +1,4 @@
+import { size } from "lodash";
 import * as React from "react";
 import {
   StyleSheet,
@@ -20,6 +21,7 @@ import { Button } from "react-native-elements";
 import { AppTheme } from "../../config/custom-theme";
 import {
   DefaultFontColor,
+  DefaultPrimaryColor,
   DoubleMargin,
   FontFamily,
 } from "../../config/themeConfig";
@@ -59,6 +61,8 @@ type Props<ItemT> = {
   showPrevButton: boolean;
   showSkipButton: boolean;
   bottomButton: boolean;
+  slideShow?: boolean;
+  slideShowInterval?: number;
   footer?: JSX.Element;
 } & FlatListProps<ItemT>;
 
@@ -98,6 +102,8 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
     isLastSlide: false,
   };
   flatList: FlatList<ItemT> | undefined;
+
+  slideShowIntervalRef: NodeJS.Timeout | undefined;
 
   goToSlide = (pageNum: number, triggerOnSlideChange?: boolean) => {
     const isLastSlide = pageNum === this.props.data.length - 1;
@@ -156,7 +162,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
           onPress={onPress}
           titleStyle={{
             fontFamily: FontFamily.regular,
-            color: AppTheme["color-primary-500"],
+            color: DefaultPrimaryColor,
           }}
         />
       );
@@ -296,6 +302,25 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
     }
   };
 
+  startSlideShow = () => {
+    if (this.props.slideShow) {
+      this.slideShowIntervalRef = setInterval(() => {
+        this.goToSlide(
+          (this.state.activeIndex + 1) % size(this.props.data),
+          true
+        );
+      }, this.props.slideShowInterval ?? 3000);
+    }
+  };
+
+  componentDidMount() {
+    this.startSlideShow();
+  }
+
+  componentWillUnmount() {
+    this.slideShowIntervalRef && clearInterval(this.slideShowIntervalRef);
+  }
+
   render() {
     // Separate props used by the component to props passed to FlatList
     /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -418,3 +443,11 @@ const styles = StyleSheet.create({
     padding: 12,
   },
 });
+
+export interface ISlide {
+  key: string;
+  title?: string;
+  description?: string;
+  image?: any;
+  url?: string;
+}

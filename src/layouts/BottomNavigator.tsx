@@ -6,9 +6,9 @@ import { HomePages } from "../models/RoutePath";
 import Icon from "react-native-remix-icon";
 import { DefaultPrimaryColor } from "../common/config/themeConfig";
 import { AppTheme } from "../common/config/custom-theme";
+import { Home } from "../features/videos/components/Home";
 
 const Tab = createBottomTabNavigator();
-
 
 export function BottomNavigator() {
   return (
@@ -26,7 +26,7 @@ export function BottomNavigator() {
           ),
         }}
         name={HomePages.Home}
-        component={Videos}
+        component={Home}
       />
       <Tab.Screen
         options={{

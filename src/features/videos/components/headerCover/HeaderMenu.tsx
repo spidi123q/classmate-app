@@ -21,7 +21,7 @@ export function HeaderMenu() {
 
   return (
     <NativeView
-      marginTop={DoubleMargin}
+      marginVertical={DefaultMargin}
       marginHorizontal={DefaultMargin}
       flexDirection="row"
       justifyContent="space-between"
