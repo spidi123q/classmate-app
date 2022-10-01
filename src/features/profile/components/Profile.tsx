@@ -17,9 +17,8 @@ export default function Profile() {
   const { logout } = useLoginActions();
 
   return (
-    <NativeLayout scroll lockToPortrait>
-      <NativeHeader title="Edit Profile" />
-      <NativeView marginTop={DefaultMargin} marginHorizontal={DefaultMargin}>
+    <NativeLayout scroll lockToPortrait horizontalMargin>
+      <NativeView>
         <NativeView
           justifyContent="center"
           alignItems="center"

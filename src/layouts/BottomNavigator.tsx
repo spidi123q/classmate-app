@@ -4,9 +4,16 @@ import Profile from "../features/profile/components/Profile";
 import Videos from "../features/videos/components/Videos";
 import { HomePages } from "../models/RoutePath";
 import Icon from "react-native-remix-icon";
-import { DefaultPrimaryColor } from "../common/config/themeConfig";
+import {
+  DefaultMargin,
+  DefaultPrimaryColor,
+  FontFamily,
+} from "../common/config/themeConfig";
 import { AppTheme } from "../common/config/custom-theme";
 import { Home } from "../features/videos/components/Home";
+import { DocumentSummary } from "../features/documents/components/DocumentSummary";
+import NativeHeader from "../common/components/NativeHeader";
+import { getHeaderTitle } from "@react-navigation/elements";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,13 +21,18 @@ export function BottomNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{
-        headerShown: false,
         tabBarActiveTintColor: DefaultPrimaryColor,
         tabBarInactiveTintColor: AppTheme["color-grey2"],
+        headerShadowVisible: false,
+        headerTitleStyle: {
+          fontFamily: FontFamily.regular,
+          fontWeight: "700",
+        },
       }}
     >
       <Tab.Screen
         options={{
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="ri-home-5-line" color={color} size={size} />
           ),
@@ -35,7 +47,7 @@ export function BottomNavigator() {
           ),
         }}
         name={HomePages.Videos}
-        component={Profile}
+        component={Videos}
       />
       <Tab.Screen
         options={{
@@ -44,7 +56,7 @@ export function BottomNavigator() {
           ),
         }}
         name={HomePages.Documents}
-        component={Profile}
+        component={DocumentSummary}
       />
       <Tab.Screen
         options={{

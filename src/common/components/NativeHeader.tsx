@@ -27,6 +27,7 @@ interface IProps {
   title?: string;
   component?: JSX.Element;
   onBack?: () => any;
+  style?: any;
 }
 
 export interface IHeader {
@@ -36,70 +37,12 @@ export interface IHeader {
 
 const NativeHeader = forwardRef((props: IProps, ref: any) => {
   const navigation = useNavigation();
-  const { title, component, onBack } = props;
-  const titleViewRef = useRef<any>();
-  const actionViewRef = useRef<any>();
-  const actionsRef = useRef<IActions[]>([]);
-  const [showActions, setShowActions] = useState<boolean>(false);
+  const { title, component, onBack, style } = props;
 
-  if (ref) {
-    ref.current = {
-      toggle: () => setShowActions(!showActions),
-      setActions: (actions) => (actionsRef.current = actions),
-    } as IHeader;
-  }
-
-  const goBack = onBack ?? navigation.goBack;
-
-  useEffect(() => {
-    //showActions ? fadeIn(actionViewRef) : fadeIn(titleViewRef);
-  }, [showActions]);
   return (
-    <NativeView>
-      <View style={[styles.container]}>
-        <Icon
-          containerStyle={styles.backButton}
-          type={DefaultIconFamily}
-          name="chevron-back-outline"
-          size={ICON_SIZE}
-          color={DefaultFontColor}
-          onPress={showActions ? ref.current.toggle : goBack}
-        />
-        <>
-          {showActions ? (
-            <Animatable.View
-              ref={(ref) => (actionViewRef.current = ref)}
-              style={styles.actionsContainer}
-            >
-              {actionsRef &&
-                actionsRef.current.map((action) => (
-                  <Icon
-                    key={action.icon}
-                    containerStyle={styles.iconContainer}
-                    size={FontSize.h1}
-                    name={action.icon}
-                    type={DefaultIconFamily}
-                    color="black"
-                    onPress={() => {
-                      console.log(action.onPress());
-                    }}
-                  />
-                ))}
-            </Animatable.View>
-          ) : (
-            <Animatable.View
-              style={styles.titleContainer}
-              ref={(ref) => (titleViewRef.current = ref)}
-            >
-              <Typography type="h3x" marginTop={DefaultMargin + 10}>
-                {title}
-              </Typography>
-            </Animatable.View>
-          )}
-        </>
-      </View>
-      {component}
-    </NativeView>
+    <View style={style}>
+      <Typography type="h2">{title}</Typography>
+    </View>
   );
 });
 
@@ -108,34 +51,4 @@ export interface IActions {
   onPress: () => any;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    marginTop: DefaultMargin / 3,
-  },
-  cancelButtonText: {
-    color: AppTheme["color-dark"],
-  },
-  cancelButton: {
-    width: 75,
-  },
-  iconContainer: {
-    height: ICON_SIZE,
-    width: ICON_SIZE,
-  },
-  actionsContainer: {
-    flexDirection: "row",
-  },
-  titleContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-  },
-  backButton: {
-    position: "absolute",
-    top: DefaultMargin + 6,
-    left: DefaultMargin / 2,
-    zIndex: 1,
-  },
-});
 export default NativeHeader;

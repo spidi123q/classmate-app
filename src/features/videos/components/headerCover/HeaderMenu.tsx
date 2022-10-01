@@ -40,11 +40,6 @@ export function HeaderMenu() {
       ) : (
         <LogoHorizontal />
       )}
-      <NativeView>
-        <NativeView type="ripple" onPress={openProfile}>
-          <BlankUser />
-        </NativeView>
-      </NativeView>
     </NativeView>
   );
 }
