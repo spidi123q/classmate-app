@@ -60,7 +60,7 @@ export enum IconFamily {
   Material = "material",
 }
 
-export const DefaultBackgroundColor: string = AppTheme["color-secondary"];
+export const DefaultBackgroundColor: string = "white";
 export const DefaultPrimaryColor: string = AppTheme["color-primary"];
 export const DefaultFontColor: string = AppTheme["color-primary"];
 export const DefaultHintFontColor: string = AppTheme["color-grey"];

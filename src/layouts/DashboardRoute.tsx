@@ -6,6 +6,7 @@ import LoginNavigator from "./LoginNavigator";
 import HomeNavigator from "./HomeNavigator";
 import useAppInfo from "../common/hooks/useAppInfo";
 import ErrorLayout from "./errorLayout/ErrorLayout";
+import { BottomNavigator } from "./BottomNavigator";
 
 const DashboardRoute: React.FunctionComponent = () => {
   const user = useUser();
@@ -16,7 +17,7 @@ const DashboardRoute: React.FunctionComponent = () => {
   }
 
   if (isAuthorized(user?.permissions, UserPermissions.WriteUserSelf)) {
-    return <HomeNavigator />;
+    return <BottomNavigator />;
   } else {
     return <LoginNavigator />;
   }

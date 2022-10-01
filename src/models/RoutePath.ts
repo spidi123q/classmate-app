@@ -12,7 +12,9 @@ export enum RoutePath {
 }
 
 export const HomePages = {
+  Home: "Home",
   Videos: "Videos",
+  Documents: "Documents",
   VideoDetails: "Video Details",
   Profile: "Profile",
   JitsiMeet: "Live",

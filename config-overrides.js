@@ -22,6 +22,7 @@ module.exports = override(
     path.resolve(__dirname, "node_modules/react-native-progress"),
     path.resolve(__dirname, "node_modules/react-native-raw-bottom-sheet"),
     path.resolve(__dirname, "node_modules/react-native-skeleton-placeholder"),
+    path.resolve(__dirname, "node_modules/react-native-remix-icon"),
     path.resolve(
       __dirname,
       "node_modules/@twotalltotems/react-native-otp-input"
