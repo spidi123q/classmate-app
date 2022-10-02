@@ -11,20 +11,22 @@ import Typography from "../../../../common/components/Typography";
 import { first, split } from "lodash";
 import { ONE_MEGABYTE } from "../../../../common/config/constants";
 import Pdf from "../../../../common/assets/Pdf.svg";
-import { HomePages } from "../../../../models/RoutePath";
-import { IParam } from "../../../../common/components/pdfViewer";
+import {
+  HomePages,
+  IRootStackNavigationProps,
+} from "../../../../models/RoutePath";
 
 interface IProps {
   document: IDocumetResponse;
 }
 export function DocumentItem(props: IProps) {
   const { document } = props;
-  const navigation = useNavigation();
+  const navigation = useNavigation<IRootStackNavigationProps>();
 
   const openDocument = (document: IDocumetResponse) => {
-    navigation.navigate(HomePages.PdfViewer, {
+    navigation.navigate("Pdf Viewer", {
       document,
-    } as IParam);
+    });
   };
   return (
     <NativeView

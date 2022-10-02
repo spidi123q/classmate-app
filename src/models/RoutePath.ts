@@ -9,7 +9,20 @@ export enum RoutePath {
   Error = "/error/:type",
   Dashboard = "dashboard",
   Intro = "/intro",
+  UserPages = "UserPages",
 }
+
+import type {
+  BottomTabScreenProps,
+  BottomTabNavigationProp,
+} from "@react-navigation/bottom-tabs";
+import { CompositeScreenProps } from "@react-navigation/native";
+import type {
+  NativeStackScreenProps,
+  NativeStackNavigationProp,
+} from "@react-navigation/native-stack";
+import type { CompositeNavigationProp } from "@react-navigation/native";
+import { IPdfViewerParam } from "../common/components/pdfViewer";
 
 export const HomePages = {
   Home: "Home",
@@ -19,4 +32,29 @@ export const HomePages = {
   Profile: "Profile",
   JitsiMeet: "Live",
   PdfViewer: "Pdf Viewer",
+  ViewDocuments: "View Documents",
+};
+
+export type ITabParamList = {
+  Home: undefined;
+  Videos: undefined;
+  Documents: undefined;
+  Profile: undefined;
+};
+
+export type IRootStackNavigationProps = CompositeNavigationProp<
+  NativeStackNavigationProp<IRootStackParamList, "Dashboard">,
+  BottomTabNavigationProp<ITabParamList>
+>;
+
+export type IRootStackParamList = {
+  Live: undefined;
+  "Pdf Viewer": IPdfViewerParam;
+  "View Documents": undefined;
+  Error: undefined;
+  "Video Details": undefined;
+  Dashboard: CompositeScreenProps<
+    NativeStackScreenProps<IRootStackParamList, "Dashboard">,
+    BottomTabScreenProps<ITabParamList>
+  >;
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import IDocumetResponse from "../../models/DocumetResponse";
 
-export interface IParam {
+export interface IPdfViewerParam {
   document: IDocumetResponse;
 }
 

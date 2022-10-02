@@ -70,6 +70,7 @@ export const SecondaryBackgroundColor: string = AppTheme["color-primary2"];
 export const TrasparentColor: string = "rgba(255, 0, 0, 0)";
 export const DefaultPlaceholderBackgroudColor = undefined;
 export const DefaultPlaceholderHighlightColor = undefined;
+export const DeafultBorderColor = AppTheme["color-dark-light"];
 
 export const DefaultOpacity: number = 0.65;
 

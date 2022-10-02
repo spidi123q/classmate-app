@@ -37,6 +37,7 @@ const Typography: React.FunctionComponent<IProps> = (props) => {
     opacity,
     textAlign,
     lineHeight,
+    paddingLeft,
     backgroundColor,
     ...rest
   } = props;
@@ -57,6 +58,7 @@ const Typography: React.FunctionComponent<IProps> = (props) => {
         textAlign,
         lineHeight,
         backgroundColor,
+        paddingLeft,
       }}
       {...rest}
     >

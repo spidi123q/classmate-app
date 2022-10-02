@@ -3,22 +3,31 @@ import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
 import { AppTheme } from "../../../common/config/custom-theme";
 import {
+  DeafultBorderColor,
   DefaultBorderRadius,
   DefaultFontColor,
+  DefaultHintFontColor,
   DefaultMargin,
 } from "../../../common/config/themeConfig";
 import Icon from "react-native-remix-icon";
+import { useNavigation } from "@react-navigation/native";
+import {
+  HomePages,
+  IRootStackNavigationProps,
+} from "../../../models/RoutePath";
 
 export function MainCategory() {
+  const navigation = useNavigation<IRootStackNavigationProps>();
   return (
     <NativeView
       type="ripple"
       borderWidth={1}
-      borderColor={AppTheme["color-dark-light"]}
+      borderColor={DeafultBorderColor}
       height={ItemDimension}
       borderRadius={DefaultBorderRadius}
       justifyContent="center"
       alignItems="center"
+      onPress={() => navigation.navigate("View Documents")}
     >
       <NativeView justifyContent="center" alignItems="center">
         <NativeView
@@ -26,7 +35,7 @@ export function MainCategory() {
           height={46}
           width={46}
           borderRadius={DefaultBorderRadius}
-          borderColor={AppTheme["color-dark-light"]}
+          borderColor={DeafultBorderColor}
           justifyContent="center"
           alignItems="center"
         >
@@ -39,7 +48,9 @@ export function MainCategory() {
         >
           Writing
         </Typography>
-        <Typography type="xsx">3 chapters</Typography>
+        <Typography color={DefaultHintFontColor} type="xsx">
+          3 chapters
+        </Typography>
       </NativeView>
     </NativeView>
   );

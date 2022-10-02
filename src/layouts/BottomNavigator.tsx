@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Profile from "../features/profile/components/Profile";
 import Videos from "../features/videos/components/Videos";
-import { HomePages } from "../models/RoutePath";
+import { HomePages, ITabParamList } from "../models/RoutePath";
 import Icon from "react-native-remix-icon";
 import {
   DefaultMargin,
@@ -15,7 +15,7 @@ import { DocumentSummary } from "../features/documents/components/DocumentSummar
 import NativeHeader from "../common/components/NativeHeader";
 import { getHeaderTitle } from "@react-navigation/elements";
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<ITabParamList>();
 
 export function BottomNavigator() {
   return (
@@ -37,7 +37,7 @@ export function BottomNavigator() {
             <Icon name="ri-home-5-line" color={color} size={size} />
           ),
         }}
-        name={HomePages.Home}
+        name="Home"
         component={Home}
       />
       <Tab.Screen
@@ -46,7 +46,7 @@ export function BottomNavigator() {
             <Icon name="ri-video-line" color={color} size={size} />
           ),
         }}
-        name={HomePages.Videos}
+        name="Videos"
         component={Videos}
       />
       <Tab.Screen
@@ -55,7 +55,7 @@ export function BottomNavigator() {
             <Icon name="ri-bill-line" color={color} size={size} />
           ),
         }}
-        name={HomePages.Documents}
+        name="Documents"
         component={DocumentSummary}
       />
       <Tab.Screen
@@ -64,7 +64,7 @@ export function BottomNavigator() {
             <Icon name="ri-user-3-line" color={color} size={size} />
           ),
         }}
-        name={HomePages.Profile}
+        name="Profile"
         component={Profile}
       />
     </Tab.Navigator>

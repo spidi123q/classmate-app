@@ -18,12 +18,10 @@ export default function HomeNavigator() {
     >
       {user.active && (
         <>
-          <Stack.Screen name={HomePages.Videos} component={Videos} />
           <Stack.Screen
             name={HomePages.VideoDetails}
             component={VideoDetails}
           />
-          <Stack.Screen name={HomePages.Profile} component={Profile} />
           <Stack.Screen name={HomePages.JitsiMeet} component={JitsiMeetView} />
           <Stack.Screen name={HomePages.PdfViewer} component={PdfViewer} />
         </>
