@@ -1,4 +1,5 @@
 import { createAction } from "redux-actions";
+import { IPaginateResponse } from "../../../common/models/PaginateResult";
 import IVideo from "../../../models/Video";
 export enum VideoActionTypes {
   GetVideos = "@@UI/videos/GetVideos",
@@ -10,7 +11,7 @@ export enum VideoActionTypes {
 export const VideoActions = {
   GetVideoOnSuccess: createAction(
     VideoActionTypes.GetVideosOnSuccess,
-    (videos: IVideo[]) => videos
+    (result: IPaginateResponse<IVideo>) => result
   ),
   SetLastPlayedVideo: createAction(
     VideoActionTypes.SetLastPlayedVideo,

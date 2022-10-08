@@ -17,13 +17,9 @@ export default function () {
   const showPlaceholder: boolean = isLoading && isEmpty(videoSummary?.docs);
   const videos: IVideo[] = filter(
     videoSummary.docs,
-    (doc) => doc.classroomId && doc.category
+    (doc) => !isEmpty(doc.classroomId) && !isEmpty(doc.category)
   ) as IVideo[];
   const videosByCategory = groupBy(videos, (video) => video.category);
-
-  useEffect(() => {
-    getVideos(videoQuery);
-  }, []);
 
   return (
     <NativeLayout
@@ -51,7 +47,7 @@ export default function () {
   );
 }
 
-const videoQuery: IVideoQuery = {
+export const videoQuery: IVideoQuery = {
   active: true,
   pagination: false,
 };

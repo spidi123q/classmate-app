@@ -3,7 +3,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AxiosApi } from "../../../common/helpers/axios";
 import useLoading from "../../../common/hooks/useLoading";
-import { IPaginateResponse } from "../../../common/models/PaginateResult";
+import {
+  InitialPaginateResult,
+  IPaginateResponse,
+} from "../../../common/models/PaginateResult";
 import IVideo, { IVideoEdit, IVideoQuery } from "../../../models/Video";
 import useUserAPI from "../../login/hooks/useUserAPI";
 import GetVideos from "../api/GetVideos";
@@ -26,7 +29,9 @@ export default function useVideoAPI() {
     query: IVideoQuery
   ): IPaginateResponse<IVideo> => {
     loading.start();
-    await dispatch(VideoActions.GetVideoOnSuccess([]));
+    await dispatch(
+      VideoActions.GetVideoOnSuccess(InitialPaginateResult as any)
+    );
     loading.stop();
     // used to update classroom live status
     await getUser();

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Profile from "../features/profile/components/Profile";
-import Videos from "../features/videos/components/Videos";
+import Videos, { videoQuery } from "../features/videos/components/Videos";
 import { HomePages, ITabParamList } from "../models/RoutePath";
 import Icon from "react-native-remix-icon";
 import {
@@ -12,8 +12,6 @@ import {
 import { AppTheme } from "../common/config/custom-theme";
 import { Home } from "../features/videos/components/home/Home";
 import { DocumentSummary } from "../features/documents/components/DocumentSummary";
-import NativeHeader from "../common/components/NativeHeader";
-import { getHeaderTitle } from "@react-navigation/elements";
 
 const Tab = createBottomTabNavigator<ITabParamList>();
 
