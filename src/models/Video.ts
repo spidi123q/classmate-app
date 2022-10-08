@@ -7,15 +7,16 @@ export default interface IVideo extends ITimeStamps {
   name: string;
   description: string;
   active: boolean;
-  category: string;
+  category?: string;
   organizationId: string;
-  classroomId: string;
+  classroomId?: string;
   order: number;
   organization?: IOrganization;
   classroom?: IClassroom;
   cloudflareStreamVideoId: string;
   coverImageUrl: string;
   coverImagePath: string;
+  duration?: number;
 }
 
 export interface IVideoEdit extends Partial<IVideo> {}

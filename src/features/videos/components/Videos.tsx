@@ -1,24 +1,26 @@
-import { isEmpty } from "lodash";
+import { filter, groupBy, isEmpty } from "lodash";
 import React, { useEffect } from "react";
 import { RefreshControl } from "react-native";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
 import { DefaultMargin } from "../../../common/config/themeConfig";
-import { IVideoQuery } from "../../../models/Video";
+import IVideo, { IVideoQuery } from "../../../models/Video";
 import useUser from "../../login/hooks/useUser";
 import useVideo from "../hooks/useVideo";
 import useVideoAPI from "../hooks/useVideoAPI";
 import { DocumentList } from "./documents/DocumentList";
 import HeaderCover from "./headerCover/HeaderCover";
 import VideoList from "./VideoList";
-import VideoListDTO from "./VideoListDTO";
 
 export default function () {
   const { getVideos, reloadVideos, isLoading } = useVideoAPI();
-  const { classroom } = useUser();
   const { videoSummary } = useVideo();
   const showPlaceholder: boolean = isLoading && isEmpty(videoSummary?.docs);
-  const videoListDTO = new VideoListDTO(videoSummary?.docs ?? []);
+  const videos: IVideo[] = filter(
+    videoSummary.docs,
+    (doc) => doc.classroomId && doc.category
+  ) as IVideo[];
+  const videosByCategory = groupBy(videos, (video) => video.category);
 
   useEffect(() => {
     getVideos(videoQuery);
@@ -37,13 +39,12 @@ export default function () {
       lockToPortrait
     >
       <NativeView marginHorizontal={DefaultMargin} marginBottom={DefaultMargin}>
-        <DocumentList />
-        {classroom?.categories.map((category) => (
+        {Object.keys(videosByCategory).map((category) => (
           <VideoList
             title={category}
             isLoading={showPlaceholder}
             key={category}
-            videos={videoListDTO.byCategory(category).getVideos()}
+            videos={videosByCategory[category]}
           />
         ))}
       </NativeView>

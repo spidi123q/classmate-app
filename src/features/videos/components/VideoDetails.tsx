@@ -1,4 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import axios from "axios";
 import { find, first, isEmpty } from "lodash";
 import React, { useEffect, useRef, useState } from "react";
@@ -13,6 +14,7 @@ import {
   DefaultOpacity,
   DescriptionLineHeight,
 } from "../../../common/config/themeConfig";
+import { IRootStackParamList } from "../../../models/RoutePath";
 import IVideo from "../../../models/Video";
 import useUser from "../../login/hooks/useUser";
 import useVideo from "../hooks/useVideo";
@@ -21,8 +23,11 @@ import VideoList from "./VideoList";
 import VideoListDTO from "./VideoListDTO";
 
 export function VideoDetails() {
-  const { params } = useRoute();
-  const video = (params as IParam).video;
+  const { params } =
+    useRoute<
+      NativeStackScreenProps<IRootStackParamList, "Video Details">["route"]
+    >();
+  const video = params.video;
   const { height, width } = useWindowDimensions();
   const scrollRef = useRef<ScrollView>(null);
   const { classroom } = useUser();
@@ -87,10 +92,6 @@ export function VideoDetails() {
       </ScrollView>
     </NativeLayout>
   );
-}
-
-export interface IParam {
-  video: IVideo;
 }
 
 export default React.memo(VideoDetails);

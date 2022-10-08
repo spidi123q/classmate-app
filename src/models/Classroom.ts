@@ -13,7 +13,6 @@ export interface IClassroom extends ITimeStamps {
   categories: string[];
   liveDetails?: ILiveDetails;
   liveUpdateInterval: number;
-  documents?: IDocumetResponse[];
 }
 
 export interface ILiveDetails {

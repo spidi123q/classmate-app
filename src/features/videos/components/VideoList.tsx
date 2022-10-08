@@ -9,12 +9,15 @@ import {
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { Image } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
-import { HomePages } from "../../../models/RoutePath";
+import {
+  HomePages,
+  IRootStackNavigationProps,
+} from "../../../models/RoutePath";
 import { DefaultPlaceholderList } from "../../../common/config/constants";
 import IVideo from "../../../models/Video";
-import { IParam } from "./VideoDetails";
 import useVideoActions from "../hooks/useVideoActions";
 import { NativeSkeletonPlaceholder } from "../../../common/components/nativeSkeleton";
+import { truncate } from "lodash";
 
 interface IProps {
   title?: string;
@@ -24,15 +27,15 @@ interface IProps {
 }
 
 export default function VideoList(props: IProps) {
-  const navigation = useNavigation();
+  const navigation = useNavigation<IRootStackNavigationProps>();
   const { title, titleComponent, isLoading, videos } = props;
   const { setLastPlayedVideo } = useVideoActions();
 
   const openVideo = (video: IVideo) => {
     setLastPlayedVideo(video);
-    navigation.navigate(HomePages.VideoDetails, {
+    navigation.navigate("Video Details", {
       video,
-    } as IParam);
+    });
   };
   const renderItem = ({ item }: FlatListRenderItem<IVideo>) => (
     <NativeView
@@ -47,12 +50,26 @@ export default function VideoList(props: IProps) {
         }}
         style={imageStyle}
       />
+      <Typography
+        family="medium"
+        marginTop={DefaultMargin / 4}
+        numberOfLines={1}
+      >
+        {truncate(item.name, {
+          length: 20,
+        })}
+      </Typography>
+      {item.duration && (
+        <Typography type="xsx" color={DefaultHintFontColor}>
+          {Math.floor(item.duration / 60)} mins
+        </Typography>
+      )}
     </NativeView>
   );
   return (
     <NativeView marginTop={DefaultMargin}>
       {titleComponent ?? (
-        <Typography family="medium" type="h3">
+        <Typography family="medium" type="h3x">
           {title}
         </Typography>
       )}

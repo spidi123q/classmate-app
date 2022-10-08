@@ -23,6 +23,7 @@ import type {
 } from "@react-navigation/native-stack";
 import type { CompositeNavigationProp } from "@react-navigation/native";
 import { IPdfViewerParam } from "../common/components/pdfViewer";
+import IVideo from "./Video";
 
 export const HomePages = {
   Home: "Home",
@@ -52,7 +53,9 @@ export type IRootStackParamList = {
   "Pdf Viewer": IPdfViewerParam;
   "View Documents": undefined;
   Error: undefined;
-  "Video Details": undefined;
+  "Video Details": {
+    video: IVideo;
+  };
   Dashboard: CompositeScreenProps<
     NativeStackScreenProps<IRootStackParamList, "Dashboard">,
     BottomTabScreenProps<ITabParamList>
