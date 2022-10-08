@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "react-native-elements";
+import Icon from "react-native-remix-icon";
 import { Circle } from "react-native-progress";
 import { AppTheme } from "../config/custom-theme";
 import {

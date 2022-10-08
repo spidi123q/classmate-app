@@ -9,7 +9,6 @@ import useUser from "../../login/hooks/useUser";
 import useVideo from "../hooks/useVideo";
 import useVideoAPI from "../hooks/useVideoAPI";
 import { DocumentList } from "./documents/DocumentList";
-import HeaderCover from "./headerCover/HeaderCover";
 import VideoList from "./VideoList";
 
 export default function () {

@@ -5,8 +5,6 @@ import NativeButton from "../../../../common/components/NativeButton";
 import NativeView from "../../../../common/components/NativeView";
 import Typography from "../../../../common/components/Typography";
 import { AppTheme } from "../../../../common/config/custom-theme";
-import { HeaderMenu } from "./HeaderMenu";
-import Live from "../../assets/Live.svg";
 import {
   DefaultHintFontColor,
   DefaultMargin,
@@ -17,36 +15,39 @@ import useUser from "../../../login/hooks/useUser";
 import { first } from "lodash";
 import useVideoActions from "../../hooks/useVideoActions";
 import IVideo from "../../../../models/Video";
-import { HomePages } from "../../../../models/RoutePath";
-import { IParam } from "../VideoDetails";
+import {
+  HomePages,
+  IRootStackNavigationProps,
+} from "../../../../models/RoutePath";
 import {
   IJitsiMeetUserInfo,
   RNJitsiMeet,
 } from "../../../../common/native/jitsiMeet";
 import { getJitsiUrl } from "../../../../common/helpers/misc";
 import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeSkeleton";
-import Airboard2 from "../../../login/assets/Artboard_2.jpg";
+import { Button } from "react-native-elements";
+import RedPlay from "../../assets/RedPlay.svg";
 
 interface IProps {
   isLoading?: boolean;
 }
 
-export default function HeaderCover(props: IProps) {
+export function HeaderCover(props: IProps) {
   const { isLoading } = props;
   const { height, width } = useWindowDimensions();
   const coverHeight = height / 1.95;
   const { videoSummary, lastPlayedVideo } = useVideo();
   const { classroom, name } = useUser();
   const video = lastPlayedVideo ?? first(videoSummary.docs);
-  const navigation = useNavigation();
+  const navigation = useNavigation<IRootStackNavigationProps>();
   const { setLastPlayedVideo } = useVideoActions();
   const isLive = classroom?.liveDetails?.isLive;
 
   const openVideo = (video: IVideo) => {
     setLastPlayedVideo(video);
-    navigation.navigate(HomePages.VideoDetails, {
+    navigation.navigate("Video Details", {
       video,
-    } as IParam);
+    });
   };
 
   const onPlay = (video?: IVideo) => {
@@ -58,7 +59,7 @@ export default function HeaderCover(props: IProps) {
       };
 
       if (Platform.OS === "ios" || Platform.OS === "web") {
-        navigation.navigate(HomePages.JitsiMeet, {
+        navigation.navigate("Live", {
           url,
           userInfo,
           roomName,
@@ -72,49 +73,41 @@ export default function HeaderCover(props: IProps) {
   };
 
   return (
-    <NativeView>
-      <StatusBar translucent />
-      <NativeView marginBottom={20}>
-        <HeaderMenu />
-      </NativeView>
-      <NativeView justifyContent="flex-end">
-        <NativeView marginHorizontal={DefaultMargin}>
-          <NativeView marginBottom={DefaultMargin / 2}>
-            {isLive ? (
-              <>
-                <Typography family="medium" type="h3x">
-                  {classroom?.name}
-                </Typography>
-              </>
-            ) : (
-              <>
-                <Typography family="medium" type="h3x">
-                  {video?.name}
-                </Typography>
-                <Typography
-                  type="xs"
-                  color={DefaultHintFontColor}
-                  marginTop={DefaultMargin / 4}
-                >
-                  {classroom?.name} · {video?.category}
-                </Typography>
-              </>
-            )}
-          </NativeView>
-          <NativeView
-            flexDirection="row"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <NativeButton
-              width={175}
-              title={`Play ${isLive ? "live" : "Now"}`}
-              size="sm"
-              iconName="videocam"
-              onPress={() => onPlay(video)}
-            />
-            {isLive && <Live />}
-          </NativeView>
+    <NativeView justifyContent="flex-end">
+      <NativeView marginHorizontal={DefaultMargin} flexDirection="row">
+        <NativeView
+          marginBottom={DefaultMargin / 2}
+          flexDirection="row"
+          alignItems="center"
+        >
+          <Button
+            type="clear"
+            icon={<RedPlay />}
+            onPress={() => onPlay(video)}
+          />
+          {isLive ? (
+            <NativeView>
+              <Typography family="medium" type="h3x">
+                {classroom?.name}
+              </Typography>
+              <Typography
+                type="xs"
+                color={AppTheme["color-danger"]}
+                marginLeft={DefaultMargin / 2}
+              >
+                Live
+              </Typography>
+            </NativeView>
+          ) : (
+            <NativeView>
+              <Typography type="xs" color={DefaultHintFontColor}>
+                {classroom?.name} · {video?.category}
+              </Typography>
+              <Typography family="medium" type="h3x">
+                {video?.name}
+              </Typography>
+            </NativeView>
+          )}
         </NativeView>
       </NativeView>
     </NativeView>

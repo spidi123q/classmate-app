@@ -10,7 +10,7 @@ import {
   FontFamily,
 } from "../common/config/themeConfig";
 import { AppTheme } from "../common/config/custom-theme";
-import { Home } from "../features/videos/components/Home";
+import { Home } from "../features/videos/components/home/Home";
 import { DocumentSummary } from "../features/documents/components/DocumentSummary";
 import NativeHeader from "../common/components/NativeHeader";
 import { getHeaderTitle } from "@react-navigation/elements";

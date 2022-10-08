@@ -3,17 +3,19 @@ import NativeView from "../../../../common/components/NativeView";
 import {
   DoubleMargin,
   DefaultMargin,
+  DefaultFontColor,
 } from "../../../../common/config/themeConfig";
 import LogoHorizontal from "../../../../common/assets/LogoHorizontal.svg";
-import BlankUser from "../../../../common/assets/BlankUser.svg";
 import { useNavigation } from "@react-navigation/native";
-import { HomePages, IRootStackParamList } from "../../../../models/RoutePath";
 import useUser from "../../../login/hooks/useUser";
-import { Image } from "react-native-elements";
+import { Button, Image } from "react-native-elements";
+import Icon from "react-native-remix-icon";
+import useUserAPI from "../../../login/hooks/useUserAPI";
 
 export function HeaderMenu() {
   const navigation = useNavigation();
   const { organization } = useUser();
+  const { getUser } = useUserAPI();
 
   return (
     <NativeView
@@ -36,6 +38,13 @@ export function HeaderMenu() {
       ) : (
         <LogoHorizontal />
       )}
+      <Button
+        type="clear"
+        icon={
+          <Icon name="ri-refresh-line" size={20} color={DefaultFontColor} />
+        }
+        onPress={() => getUser()}
+      />
     </NativeView>
   );
 }

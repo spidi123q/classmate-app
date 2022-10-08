@@ -3,12 +3,15 @@ import React, { useEffect } from "react";
 import { useWindowDimensions } from "react-native";
 import AppIntroSlider, {
   ISlide,
-} from "../../../common/components/appIntroSlider/AppIntroSlider";
-import NativeLayout from "../../../common/components/NativeLayout";
-import NativeView from "../../../common/components/NativeView";
-import { MediaBorderRadius } from "../../../common/config/themeConfig";
+} from "../../../../common/components/appIntroSlider/AppIntroSlider";
+import NativeLayout from "../../../../common/components/NativeLayout";
+import NativeView from "../../../../common/components/NativeView";
+import {
+  DefaultMargin,
+  MediaBorderRadius,
+} from "../../../../common/config/themeConfig";
 
-import { FlatListRenderItem } from "../../../common/models/RenderItem";
+import { FlatListRenderItem } from "../../../../common/models/RenderItem";
 
 export function InfoSlideShow() {
   const { width } = useWindowDimensions();
