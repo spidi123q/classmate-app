@@ -7,6 +7,7 @@ import NativeView from "../../../common/components/NativeView";
 import Typography from "../../../common/components/Typography";
 import {
   DefaultFontColor,
+  DefaultHintFontColor,
   DefaultMargin,
   SubTextLineHeight,
 } from "../../../common/config/themeConfig";
@@ -15,6 +16,8 @@ import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { ILoginStackNavigationProps } from "../../../models/RoutePath";
 import { useWindowDimensions } from "react-native";
 import { AppTheme } from "../../../common/config/custom-theme";
+import LogoHorizontal from "../../../common/assets/LogoHorizontal.svg";
+import NativeLayout from "../../../common/components/NativeLayout";
 
 export default function Intro() {
   const navigation = useNavigation<ILoginStackNavigationProps>();
@@ -23,36 +26,41 @@ export default function Intro() {
   const { height, width } = useWindowDimensions();
   const renderItem = ({ item }: FlatListRenderItem<ISlide>) => {
     return (
-      <NativeView>
-        {item.image && (
-          <NativeView
-            type="image"
-            source={item.image}
-            height={height / 1.5}
-            width={width}
-            alignItems="center"
-            justifyContent="flex-end"
-          >
+      <NativeLayout>
+        <NativeView flex={1} justifyContent="center" alignItems="center">
+          <LogoHorizontal height={33} />
+          {item.image && (
+            <NativeView
+              type="image"
+              source={item.image}
+              height={height / 2}
+              width={width}
+              alignItems="center"
+              justifyContent="flex-end"
+            />
+          )}
+          <NativeView marginTop={10} marginHorizontal={DefaultMargin}>
             <Typography
               marginBottom={5}
               type="h2"
+              family="bold"
               marginHorizontal={DefaultMargin}
+              textAlign="center"
             >
               {item.title}
             </Typography>
+            <Typography
+              textAlign="center"
+              type="xsx"
+              color={DefaultHintFontColor}
+              lineHeight={SubTextLineHeight}
+              paddingTop={DefaultMargin / 2}
+            >
+              {item.description}
+            </Typography>
           </NativeView>
-        )}
-        <NativeView marginTop={10} marginHorizontal={DefaultMargin}>
-          <Typography
-            textAlign="center"
-            type="xsx"
-            color={AppTheme["color-grey3"]}
-            lineHeight={SubTextLineHeight}
-          >
-            {item.description}
-          </Typography>
         </NativeView>
-      </NativeView>
+      </NativeLayout>
     );
   };
   const goToLogin = () => {
@@ -88,23 +96,23 @@ export default function Intro() {
 const slides: ISlide[] = [
   {
     key: "1",
-    title: "Real Classes and Real Institutions",
+    title: "Welcome to B-Seven",
     description:
-      "We provide comprehensive live sessions and video call features with subscribed institutions.",
+      "A comprehensive e-learning platform for IELTS and spoken English.",
     image: require("../assets/Artboard_1.jpg"),
   },
   {
     key: "2",
-    title: "Personalized Sessions",
+    title: "Seamless learning experience",
     description:
-      "Create your own learning sessions and subscribe to your favorite lectures or institutions",
+      "B7 provides rich video and text contents for easy and fast learning experience",
     image: require("../assets/Artboard_2.jpg"),
   },
   {
     key: "3",
-    title: "Live Sessions and Video Call",
+    title: "Fully featured live meetings",
     description:
-      "We provide comprehensive live sessions and video call features with subscribed institutions.",
+      "Provides best in class live online classes with latest features",
     image: require("../assets/Artboard_3.jpg"),
   },
 ];

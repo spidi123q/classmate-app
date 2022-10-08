@@ -34,6 +34,10 @@ const Typography: React.FunctionComponent<IProps> = (props) => {
     marginTop,
     marginBottom,
     paddingVertical,
+    paddingTop,
+    paddingBottom,
+    paddingRight,
+    paddingEnd,
     opacity,
     textAlign,
     lineHeight,
@@ -59,6 +63,10 @@ const Typography: React.FunctionComponent<IProps> = (props) => {
         lineHeight,
         backgroundColor,
         paddingLeft,
+        paddingTop,
+        paddingBottom,
+        paddingRight,
+        paddingEnd,
       }}
       {...rest}
     >

@@ -22,6 +22,7 @@ import { AppTheme } from "../../config/custom-theme";
 import {
   DefaultFontColor,
   DefaultPrimaryColor,
+  DefaultSecondaryColor,
   DoubleMargin,
   FontFamily,
 } from "../../config/themeConfig";
@@ -161,13 +162,23 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
           title={label}
           onPress={onPress}
           titleStyle={{
-            fontFamily: FontFamily.regular,
+            fontFamily: FontFamily.medium,
             color: DefaultPrimaryColor,
           }}
         />
       );
     }
-    return <NativeButton width={200} title={label} onPress={onPress} />;
+    return (
+      <Button
+        type="clear"
+        title={label}
+        onPress={onPress}
+        titleStyle={{
+          fontFamily: FontFamily.medium,
+          color: DefaultSecondaryColor,
+        }}
+      />
+    );
   };
 
   _renderOuterButton = (
@@ -221,7 +232,11 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
   _renderPagination = () => {
     return (
       <View style={styles.paginationContainer}>
-        <View>
+        <NativeView
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
           <View style={styles.paginationDots}>
             {this.props.data.length > 1 &&
               this.props.data.map((_, i) =>
@@ -265,7 +280,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
                 )
               )}
           </View>
-        </View>
+        </NativeView>
       </View>
     );
   };
@@ -348,10 +363,9 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
     const secondaryButton =
       (!isFirstSlide && this._renderPrevButton()) ||
       (!isLastSlide && this._renderSkipButton());
-    const primaryButton = isLastSlide
+    const nextButton = isLastSlide
       ? this._renderDoneButton()
       : this._renderNextButton();
-
     return (
       <NativeLayout noSafeArea lockToPortrait>
         <StatusBar translucent backgroundColor={"transparent"} />
@@ -379,7 +393,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
               ? renderPagination(this.state.activeIndex)
               : this._renderPagination()}
           </NativeView>
-          {primaryButton}
+          <NativeView flexDirection="row">{nextButton}</NativeView>
           {footer}
         </NativeView>
       </NativeLayout>

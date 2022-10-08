@@ -5,7 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import PrivateRoute from "./layouts/PrivateRoute";
 import DashboardRoute from "./layouts/DashboardRoute";
-import { HomePages, IRootStackParamList, RoutePath } from "./models/RoutePath";
+import { IRootStackParamList } from "./models/RoutePath";
 import NotificationProvider from "./layouts/NotificationProvider";
 import ErrorLayout from "./layouts/errorLayout/ErrorLayout";
 import { NavigationContainer } from "@react-navigation/native";
