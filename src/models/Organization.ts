@@ -1,3 +1,4 @@
+import IDocumetResponse from "../common/models/DocumetResponse";
 import GeoJSON from "../common/models/GeoJSON";
 import { ITimeStamps } from "../common/models/TimeStamps";
 
@@ -12,6 +13,7 @@ export default interface IOrganization extends ITimeStamps {
   active: boolean;
   website?: string;
   appLogoUrl?: string;
+  appSlideShowImages?: IDocumetResponse[];
 }
 
 export interface IOrganizationEdit extends Partial<IOrganization> {}

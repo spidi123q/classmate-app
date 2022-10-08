@@ -12,9 +12,15 @@ import {
 } from "../../../../common/config/themeConfig";
 
 import { FlatListRenderItem } from "../../../../common/models/RenderItem";
+import useUser from "../../../login/hooks/useUser";
 
 export function InfoSlideShow() {
   const { width } = useWindowDimensions();
+  const { organization } = useUser();
+  const slides = organization?.appSlideShowImages?.map<ISlide>((doc) => ({
+    key: doc.originalname,
+    url: doc.objectUrl,
+  }));
   const renderItem = ({ item }: FlatListRenderItem<ISlide>) => {
     return (
       <NativeView justifyContent="center" alignItems="center">
@@ -35,16 +41,18 @@ export function InfoSlideShow() {
   const goToLogin = () => {};
   return (
     <NativeLayout scroll lockToPortrait>
-      <AppIntroSlider
-        showDoneButton={false}
-        showSkipButton={false}
-        showNextButton={false}
-        renderItem={renderItem}
-        data={slides}
-        onDone={goToLogin}
-        onSkip={goToLogin}
-        slideShow
-      />
+      {slides && (
+        <AppIntroSlider
+          showDoneButton={false}
+          showSkipButton={false}
+          showNextButton={false}
+          renderItem={renderItem}
+          data={slides}
+          onDone={goToLogin}
+          onSkip={goToLogin}
+          slideShow
+        />
+      )}
     </NativeLayout>
   );
 }
