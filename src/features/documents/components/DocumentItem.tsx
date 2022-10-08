@@ -11,10 +11,6 @@ import Typography from "../../../common/components/Typography";
 import { first, split, truncate } from "lodash";
 import { ONE_MEGABYTE } from "../../../common/config/constants";
 import Pdf from "../../../common/assets/Pdf.svg";
-import {
-  HomePages,
-  IRootStackNavigationProps,
-} from "../../../models/RoutePath";
 import { IBook } from "../../../models/Book";
 import { Linking } from "react-native";
 

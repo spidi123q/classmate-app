@@ -11,10 +11,7 @@ import {
 } from "../../../common/config/themeConfig";
 import Icon from "react-native-remix-icon";
 import { useNavigation } from "@react-navigation/native";
-import {
-  HomePages,
-  IRootStackNavigationProps,
-} from "../../../models/RoutePath";
+import { IRootStackNavigationProps } from "../../../models/RoutePath";
 import { IBook } from "../../../models/Book";
 import { find, size } from "lodash";
 import useUser from "../../login/hooks/useUser";

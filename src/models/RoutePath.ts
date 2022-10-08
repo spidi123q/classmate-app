@@ -1,17 +1,3 @@
-export enum RoutePath {
-  Root = "root",
-  Home = "/",
-  Auth = "auth",
-  Login = "Login",
-  OtpVerifier = "Login OTP",
-  ProfileComplete = "Login Complete Profile",
-  Page = "/page/:name",
-  Error = "/error/:type",
-  Dashboard = "dashboard",
-  Intro = "/intro",
-  UserPages = "UserPages",
-}
-
 import type {
   BottomTabScreenProps,
   BottomTabNavigationProp,
@@ -26,17 +12,6 @@ import { IPdfViewerParam } from "../common/components/pdfViewer";
 import IVideo from "./Video";
 import { IBook } from "./Book";
 import { IParams as IJitsiMeetParams } from "../common/native/jitsiMeet";
-
-export const HomePages = {
-  Home: "Home",
-  Videos: "Videos",
-  Documents: "Documents",
-  VideoDetails: "Video Details",
-  Profile: "Profile",
-  JitsiMeet: "Live",
-  PdfViewer: "Pdf Viewer",
-  ViewDocuments: "View Documents",
-};
 
 export type ITabParamList = {
   Home: undefined;
@@ -64,4 +39,18 @@ export type IRootStackParamList = {
     NativeStackScreenProps<IRootStackParamList, "Dashboard">,
     BottomTabScreenProps<ITabParamList>
   >;
+};
+
+export type ILoginStackNavigationProps = CompositeNavigationProp<
+  NativeStackNavigationProp<IRootStackParamList, "Dashboard">,
+  NativeStackNavigationProp<ILoginStackParamList>
+>;
+
+export type ILoginStackParamList = {
+  Intro: undefined;
+  Login: undefined;
+  "Login OTP": {
+    phone: string;
+  };
+  "Login Complete Profile": undefined;
 };

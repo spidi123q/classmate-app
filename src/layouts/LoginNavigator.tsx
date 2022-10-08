@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../features/login/components/Login";
 import OtpVerifier from "../features/login/components/OtpVerifier";
 import ProfileForm from "../features/login/components/profileForm/ProfileForm";
-import { RoutePath } from "../models/RoutePath";
+import { ILoginStackParamList } from "../models/RoutePath";
 import DashboardRoute from "./DashboardRoute";
 import Intro from "../features/login/components/Intro";
 import useFirstLauch from "../common/hooks/useFirstLauch";
@@ -18,14 +18,14 @@ export default function LoginNavigator() {
         headerShown: false,
       }}
     >
-      {false && isFirstLaunch && IsMobile && (
-        <Stack.Screen name={RoutePath.Intro} component={Intro} />
-      )}
-      <Stack.Screen name={RoutePath.Login} component={Login} />
-      <Stack.Screen name={RoutePath.OtpVerifier} component={OtpVerifier} />
-      <Stack.Screen name={RoutePath.ProfileComplete} component={ProfileForm} />
+      <Stack.Screen name="Intro" component={Intro} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Login OTP" component={OtpVerifier} />
+      <Stack.Screen name="Login Complete Profile" component={ProfileForm} />
     </Stack.Navigator>
   );
 }
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<ILoginStackParamList>();
+
+//false && isFirstLaunch && IsMobile

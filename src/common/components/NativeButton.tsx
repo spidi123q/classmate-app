@@ -110,7 +110,7 @@ const getButtonStyle = (
     height: ButtonSize[size ?? "lg"],
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: DefaultPrimaryColor,
+    backgroundColor: DefaultSecondaryColor,
     borderRadius: DefaultBorderRadius,
   };
   if (mode === "oval") {

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NativeLayout from "../../../common/components/NativeLayout";
 import { FlatGrid } from "react-native-super-grid";
-import Typography from "../../../common/components/Typography";
-import NativeView from "../../../common/components/NativeView";
 import { ItemDimension, MainCategory } from "./MainCategory";
-import NativeHeader from "../../../common/components/NativeHeader";
-import { HomePages } from "../../../models/RoutePath";
 import { IBook, IBookQuery } from "../../../models/Book";
 import useBooksAPI from "../hooks/useBooksAPI";
 import { groupBy } from "lodash";

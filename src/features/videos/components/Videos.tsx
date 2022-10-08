@@ -8,7 +8,6 @@ import IVideo, { IVideoQuery } from "../../../models/Video";
 import useUser from "../../login/hooks/useUser";
 import useVideo from "../hooks/useVideo";
 import useVideoAPI from "../hooks/useVideoAPI";
-import { DocumentList } from "./documents/DocumentList";
 import VideoList from "./VideoList";
 
 export default function () {

@@ -12,7 +12,10 @@ import {
   DefaultOpacity,
 } from "../../../common/config/themeConfig";
 import NativeHeader from "../../../common/components/NativeHeader";
-import { RoutePath } from "../../../models/RoutePath";
+import {
+  ILoginStackNavigationProps,
+  ILoginStackParamList,
+} from "../../../models/RoutePath";
 import { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import { auth } from "../../../common/native/firebase";
 import NativeView from "../../../common/components/NativeView";
@@ -24,20 +27,28 @@ import { otpSchema } from "./yupSchema";
 import { Platform } from "react-native";
 import RecaptchaVerifier from "../../../common/components/recaptchaVerifier";
 import useLoading from "../../../common/hooks/useLoading";
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from "@react-navigation/native-stack";
 
 interface IProps {}
 
 const OtpVerifier = (props: IProps) => {
-  const route = useRoute<Route<string, IParams | undefined>>();
+  const route =
+    useRoute<
+      NativeStackScreenProps<ILoginStackParamList, "Login OTP">["route"]
+    >();
   const loading = useLoading();
   const [confirmationResult, setConfirmationResult] =
     useState<FirebaseAuthTypes.ConfirmationResult>();
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<ILoginStackParamList>>();
 
   const onVerified = async () => {
     navigation.reset({
       index: 0,
-      routes: [{ name: RoutePath.ProfileComplete }],
+      routes: [{ name: "Login Complete Profile" }],
     });
   };
 
@@ -139,10 +150,6 @@ const OtpVerifier = (props: IProps) => {
     </NativeLayout>
   );
 };
-
-interface IParams {
-  phone: string;
-}
 
 export interface IOtpForm {
   otp: string;

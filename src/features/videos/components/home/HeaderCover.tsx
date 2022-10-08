@@ -15,10 +15,7 @@ import useUser from "../../../login/hooks/useUser";
 import { first } from "lodash";
 import useVideoActions from "../../hooks/useVideoActions";
 import IVideo from "../../../../models/Video";
-import {
-  HomePages,
-  IRootStackNavigationProps,
-} from "../../../../models/RoutePath";
+import { IRootStackNavigationProps } from "../../../../models/RoutePath";
 import {
   IJitsiMeetUserInfo,
   RNJitsiMeet,

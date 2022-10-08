@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Profile from "../features/profile/components/Profile";
 import Videos, { videoQuery } from "../features/videos/components/Videos";
-import { HomePages, ITabParamList } from "../models/RoutePath";
+import { ITabParamList } from "../models/RoutePath";
 import Icon from "react-native-remix-icon";
 import {
   DefaultMargin,

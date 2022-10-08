@@ -9,10 +9,7 @@ import {
 import { FlatListRenderItem } from "../../../common/models/RenderItem";
 import { Image } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
-import {
-  HomePages,
-  IRootStackNavigationProps,
-} from "../../../models/RoutePath";
+import { IRootStackNavigationProps } from "../../../models/RoutePath";
 import { DefaultPlaceholderList } from "../../../common/config/constants";
 import IVideo from "../../../models/Video";
 import useVideoActions from "../hooks/useVideoActions";

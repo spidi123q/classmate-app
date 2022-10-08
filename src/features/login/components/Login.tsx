@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { RoutePath } from "../../../models/RoutePath";
+import { ILoginStackNavigationProps } from "../../../models/RoutePath";
 import { Formik, FormikProps } from "formik";
 import LoginForm, { InitialLoginForm } from "../../../models/LoginForm";
 import { loginSchema } from "./yupSchema";
@@ -27,10 +27,10 @@ import { isEmpty } from "lodash";
 import NativeView from "../../../common/components/NativeView";
 
 const Login = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<ILoginStackNavigationProps>();
 
   const signIn = ({ phone }: LoginForm) => {
-    navigation.navigate(RoutePath.OtpVerifier, {
+    navigation.navigate("Login OTP", {
       phone,
     });
   };

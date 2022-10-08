@@ -11,10 +11,11 @@ import NativeView from "../../../../common/components/NativeView";
 import useLoading from "../../../../common/hooks/useLoading";
 import useLoginActions from "../../hooks/useLoginActions";
 import NativeHeader from "../../../../common/components/NativeHeader";
-import { HomePages, RoutePath } from "../../../../models/RoutePath";
+import { ILoginStackParamList } from "../../../../models/RoutePath";
 import { useNavigation } from "@react-navigation/native";
 import { DefaultPrimaryColor } from "../../../../common/config/themeConfig";
 import Pie from "../../../../common/components/pie";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 interface IProps {}
 
@@ -23,7 +24,8 @@ const ProfileForm = (props: IProps) => {
   const { logout } = useLoginActions();
   const [isProfileComplete, setIsProfileComplete] = useState<boolean>(false);
   const loading = useLoading();
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<ILoginStackParamList>>();
   const { setUser } = useLoginActions();
 
   const validateUser = async () => {
@@ -46,7 +48,7 @@ const ProfileForm = (props: IProps) => {
   const onBack = () => {
     navigation.reset({
       index: 0,
-      routes: [{ name: RoutePath.Login }],
+      routes: [{ name: "Login" }],
     });
   };
 
