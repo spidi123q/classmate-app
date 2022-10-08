@@ -15,9 +15,23 @@ import {
   HomePages,
   IRootStackNavigationProps,
 } from "../../../models/RoutePath";
+import { IBook } from "../../../models/Book";
+import { find, size } from "lodash";
+import useUser from "../../login/hooks/useUser";
 
-export function MainCategory() {
+interface IProps {
+  mainCategory: string;
+  books: IBook[];
+}
+
+export function MainCategory(props: IProps) {
+  const { mainCategory, books } = props;
+  const { classroom } = useUser();
+
   const navigation = useNavigation<IRootStackNavigationProps>();
+  const category = find(classroom?.categories, {
+    name: mainCategory,
+  });
   return (
     <NativeView
       type="ripple"
@@ -27,7 +41,11 @@ export function MainCategory() {
       borderRadius={DefaultBorderRadius}
       justifyContent="center"
       alignItems="center"
-      onPress={() => navigation.navigate("View Documents")}
+      onPress={() =>
+        navigation.navigate("View Documents", {
+          books,
+        })
+      }
     >
       <NativeView justifyContent="center" alignItems="center">
         <NativeView
@@ -39,17 +57,21 @@ export function MainCategory() {
           justifyContent="center"
           alignItems="center"
         >
-          <Icon name="ri-bill-line" color={DefaultFontColor} size={24} />
+          <Icon
+            name={category?.iconName ?? 'ri-bill-line"'}
+            color={DefaultFontColor}
+            size={24}
+          />
         </NativeView>
         <Typography
           type="h3"
           marginTop={DefaultMargin / 2}
           marginBottom={DefaultMargin / 4}
         >
-          Writing
+          {mainCategory}
         </Typography>
         <Typography color={DefaultHintFontColor} type="xsx">
-          3 chapters
+          {size(books)} items
         </Typography>
       </NativeView>
     </NativeView>

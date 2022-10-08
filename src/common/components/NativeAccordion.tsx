@@ -9,11 +9,13 @@ import {
 import NativeView from "./NativeView";
 import Typography from "./Typography";
 interface IProps {
+  title: string;
   defaultExpanded?: boolean;
 }
 
 export const NativeAccordion: React.FunctionComponent<IProps> = ({
   defaultExpanded,
+  title,
   children,
 }) => {
   const [expanded, setExpanded] = useState<boolean>(defaultExpanded ?? false);
@@ -32,7 +34,7 @@ export const NativeAccordion: React.FunctionComponent<IProps> = ({
             <ListItem.Content>
               <ListItem.Title>
                 <Typography type="h3" family="medium">
-                  Title
+                  {title}
                 </Typography>
                 <NativeView>
                   <Typography

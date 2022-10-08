@@ -10,9 +10,15 @@ export interface IClassroom extends ITimeStamps {
   updatedAt: Date;
   organization?: IOrganization;
   userCount?: number;
-  categories: string[];
   liveDetails?: ILiveDetails;
   liveUpdateInterval: number;
+  categories: IClassroomCategory[];
+}
+
+export interface IClassroomCategory {
+  _id: string | null;
+  name: string;
+  iconName?: string;
 }
 
 export interface ILiveDetails {

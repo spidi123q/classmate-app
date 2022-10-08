@@ -24,6 +24,7 @@ import type {
 import type { CompositeNavigationProp } from "@react-navigation/native";
 import { IPdfViewerParam } from "../common/components/pdfViewer";
 import IVideo from "./Video";
+import { IBook } from "./Book";
 
 export const HomePages = {
   Home: "Home",
@@ -51,7 +52,9 @@ export type IRootStackNavigationProps = CompositeNavigationProp<
 export type IRootStackParamList = {
   Live: undefined;
   "Pdf Viewer": IPdfViewerParam;
-  "View Documents": undefined;
+  "View Documents": {
+    books: IBook[];
+  };
   Error: undefined;
   "Video Details": {
     video: IVideo;

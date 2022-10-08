@@ -14,7 +14,7 @@ import { FlatListRenderItem } from "../../../../common/models/RenderItem";
 import IVideo from "../../../../models/Video";
 import useUser from "../../../login/hooks/useUser";
 import IDocumetResponse from "../../../../common/models/DocumetResponse";
-import { DocumentItem } from "./DocumentItem";
+import { DocumentItem } from "../../../documents/components/DocumentItem";
 
 interface IProps {
   isLoading?: boolean;
