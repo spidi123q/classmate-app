@@ -2,12 +2,10 @@ import { useRoute } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Dimensions, View } from "react-native";
 import Pdf from "react-native-pdf";
-import { IParam } from ".";
-import NativeView from "../NativeView";
 
 export default function () {
   const { params } = useRoute();
-  const { document } = params as IParam;
+  const { document } = params as any;
 
   return (
     <View

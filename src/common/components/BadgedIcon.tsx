@@ -15,7 +15,7 @@ const BadgedIcon = ({
   marginRight,
   ...rest
 }: IProps & ViewStyle) => {
-  const CustomBadgeIcon = withBadge(count, {
+  const CustomBadgeIcon = withBadge(count ?? 0, {
     top: -1,
     right: -2,
     hidden: isNil(count) || count === 0,

@@ -3,7 +3,6 @@ import { isAuthorized } from "../helpers/auth";
 import { UserPermissions, UserRoles } from "../models/enum";
 import useUser from "../features/login/hooks/useUser";
 import LoginNavigator from "./LoginNavigator";
-import HomeNavigator from "./HomeNavigator";
 import useAppInfo from "../common/hooks/useAppInfo";
 import ErrorLayout from "./errorLayout/ErrorLayout";
 import { BottomNavigator } from "./BottomNavigator";

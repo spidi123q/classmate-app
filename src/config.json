@@ -1,5 +1,5 @@
 {
-  "endpoint": "http://localhost:9090",
+  "endpoint": "https://api.classmate-technolabs.com",
   "firebase": {
     "apiKey": "AIzaSyCjMzZkd3XXDKSHAovz6JJx77MzR_llVo4",
     "authDomain": "classmate-ca068.firebaseapp.com",
@@ -11,6 +11,6 @@
   },
   "versionCode": 1,
   "packageId": "b7.classmatetechnolabs.com",
-  "licenseUrl": "https://classmate.guru/license",
-  "privacyUrl": "https://classmate.guru/privacy"
+  "licenseUrl": "https://www.classmate-technolabs.com/license",
+  "privacyUrl": "https://www.classmate-technolabs.com/privacy"
 }

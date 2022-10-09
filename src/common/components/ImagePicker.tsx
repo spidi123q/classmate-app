@@ -6,6 +6,7 @@ import {
   DefaultBorderRadius,
   DefaultMargin,
   DefaultBackgroundColor,
+  DefaultPrimaryColor,
 } from "../config/themeConfig";
 import AddImageIcon from "../assets/AddImage.svg";
 import { isNil, reverse } from "lodash";
@@ -65,7 +66,7 @@ const Item = ({ uri, onLongPressImage, progress }: ItemProps) => (
     {!isNil(progress) && !(progress === 100) && (
       <Pie
         style={styles.progressPie}
-        color={AppTheme["color-primary-500"]}
+        color={DefaultPrimaryColor}
         unfilledColor={DefaultBackgroundColor}
         progress={progress / 100}
         indeterminate={progress === 0}
