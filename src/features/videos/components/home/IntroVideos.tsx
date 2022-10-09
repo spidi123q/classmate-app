@@ -13,8 +13,14 @@ import useVideo from "../../hooks/useVideo";
 import { Image } from "react-native-elements";
 import IVideo from "../../../../models/Video";
 import useVideoActions from "../../hooks/useVideoActions";
+import { ImageStyle } from "react-native";
+import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeSkeleton";
 
-export function IntroVideos() {
+interface IProps {
+  isLoading?: boolean;
+}
+export function IntroVideos(props: IProps) {
+  const { isLoading } = props;
   const { videoSummary } = useVideo();
   const navigation = useNavigation<IRootStackNavigationProps>();
   const videos = videoSummary.docs.filter((video) =>
@@ -29,23 +35,22 @@ export function IntroVideos() {
     });
   };
 
+  const showPlaceholder = isLoading && isEmpty(videoSummary.docs);
+
   return (
     <NativeView marginHorizontal={DefaultMargin}>
-      {videos.map((video) => (
+      {videos.map((video, index) => (
         <NativeView
           type="ripple"
           marginTop={DefaultMargin / 2}
+          key={index}
           onPress={() => openVideo(video)}
         >
           <Image
             source={{
               uri: video.coverImageUrl,
             }}
-            style={{
-              width: "100%",
-              height: 175,
-              borderRadius: DefaultBorderRadius,
-            }}
+            style={imageStyle}
           />
           <Typography
             family="medium"
@@ -63,6 +68,31 @@ export function IntroVideos() {
           )}
         </NativeView>
       ))}
+      {showPlaceholder && <Placeholder />}
     </NativeView>
   );
 }
+
+export const Placeholder = () => (
+  <>
+    {[1, 2, 3].map((item) => (
+      <NativeSkeletonPlaceholder
+        key={item}
+        items={[
+          {
+            width: imageStyle.width,
+            height: imageStyle.height,
+            borderRadius: imageStyle.borderRadius,
+            marginTop: DefaultMargin,
+          },
+        ]}
+      />
+    ))}
+  </>
+);
+
+const imageStyle: ImageStyle = {
+  width: "100%",
+  height: 175,
+  borderRadius: DefaultBorderRadius,
+};

@@ -71,23 +71,19 @@ export default function VideoList(props: IProps) {
         </Typography>
       )}
       <NativeView>
-        {isLoading ? (
-          <Placeholder />
-        ) : (
-          <FlatList
-            data={videos}
-            renderItem={renderItem}
-            keyExtractor={(item) => item._id}
-            horizontal
-            ListEmptyComponent={
-              <NativeView marginVertical={DefaultMargin / 4}>
-                <Typography color={DefaultHintFontColor} type="xs">
-                  Nothing uploaded yet
-                </Typography>
-              </NativeView>
-            }
-          />
-        )}
+        <FlatList
+          data={videos}
+          renderItem={renderItem}
+          keyExtractor={(item) => item._id}
+          horizontal
+          ListEmptyComponent={
+            <NativeView marginVertical={DefaultMargin / 4}>
+              <Typography color={DefaultHintFontColor} type="xs">
+                Nothing uploaded yet
+              </Typography>
+            </NativeView>
+          }
+        />
       </NativeView>
     </NativeView>
   );
@@ -98,23 +94,25 @@ const imageStyle: ImageStyle = {
   width: 175,
   borderRadius: 8,
 };
-const Placeholder = () => (
-  <FlatList
-    data={DefaultPlaceholderList}
-    renderItem={({ item }) => (
-      <NativeSkeletonPlaceholder
-        items={[
-          {
-            width: imageStyle.width,
-            height: imageStyle.height,
-            borderRadius: imageStyle.borderRadius,
-            marginTop: DefaultMargin / 2,
-            marginRight: DefaultMargin,
-          },
-        ]}
-      ></NativeSkeletonPlaceholder>
-    )}
-    keyExtractor={(item) => item.toString()}
-    horizontal
-  />
+export const Placeholder = () => (
+  <NativeView marginTop={DefaultMargin}>
+    <FlatList
+      data={DefaultPlaceholderList}
+      renderItem={({ item }) => (
+        <NativeSkeletonPlaceholder
+          items={[
+            {
+              width: imageStyle.width,
+              height: imageStyle.height,
+              borderRadius: imageStyle.borderRadius,
+              marginTop: DefaultMargin / 2,
+              marginRight: DefaultMargin,
+            },
+          ]}
+        />
+      )}
+      keyExtractor={(item) => item.toString()}
+      horizontal
+    />
+  </NativeView>
 );

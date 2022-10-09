@@ -18,7 +18,10 @@ export default function LoginNavigator() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="Intro" component={Intro} />
+      {isFirstLaunch && IsMobile && (
+        <Stack.Screen name="Intro" component={Intro} />
+      )}
+
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Login OTP" component={OtpVerifier} />
       <Stack.Screen name="Login Complete Profile" component={ProfileForm} />
@@ -27,5 +30,3 @@ export default function LoginNavigator() {
 }
 
 const Stack = createNativeStackNavigator<ILoginStackParamList>();
-
-//false && isFirstLaunch && IsMobile

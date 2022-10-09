@@ -11,6 +11,11 @@ import { IntroVideos } from "./IntroVideos";
 
 export function Home() {
   const { getVideos, reloadVideos, isLoading } = useVideoAPI();
+
+  useEffect(() => {
+    getVideos(videoQuery);
+  }, []);
+
   return (
     <NativeLayout
       scroll
@@ -25,7 +30,7 @@ export function Home() {
       <HeaderMenu />
       <InfoSlideShow />
       <HeaderCover />
-      <IntroVideos />
+      <IntroVideos isLoading={isLoading} />
     </NativeLayout>
   );
 }

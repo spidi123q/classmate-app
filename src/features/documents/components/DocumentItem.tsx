@@ -12,7 +12,7 @@ import { first, split, truncate } from "lodash";
 import { ONE_MEGABYTE } from "../../../common/config/constants";
 import Pdf from "../../../common/assets/Pdf.svg";
 import { IBook } from "../../../models/Book";
-import { Linking } from "react-native";
+import { openURL } from "../../../common/helpers/platform";
 
 interface IProps {
   book: IBook;
@@ -21,8 +21,7 @@ export function DocumentItem(props: IProps) {
   const { book } = props;
 
   const openDocument = async (document: IDocumetResponse) => {
-    const supported = await Linking.canOpenURL(document.objectUrl);
-    supported && Linking.openURL(document.objectUrl);
+    openURL(document.objectUrl);
   };
   return (
     <NativeView

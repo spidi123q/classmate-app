@@ -1,4 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
+import { isEmpty } from "lodash";
 import React, { useEffect } from "react";
 import { useWindowDimensions } from "react-native";
 import AppIntroSlider, {
@@ -41,7 +42,7 @@ export function InfoSlideShow() {
   const goToLogin = () => {};
   return (
     <NativeLayout scroll lockToPortrait>
-      {slides && (
+      {slides && !isEmpty(slides) && (
         <AppIntroSlider
           showDoneButton={false}
           showSkipButton={false}

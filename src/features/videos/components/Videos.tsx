@@ -4,21 +4,29 @@ import { RefreshControl } from "react-native";
 import NativeLayout from "../../../common/components/NativeLayout";
 import NativeView from "../../../common/components/NativeView";
 import { DefaultMargin } from "../../../common/config/themeConfig";
+import useAppInfo from "../../../common/hooks/useAppInfo";
 import IVideo, { IVideoQuery } from "../../../models/Video";
 import useUser from "../../login/hooks/useUser";
 import useVideo from "../hooks/useVideo";
 import useVideoAPI from "../hooks/useVideoAPI";
-import VideoList from "./VideoList";
+import VideoList, { Placeholder } from "./VideoList";
 
 export default function () {
-  const { getVideos, reloadVideos, isLoading } = useVideoAPI();
+  const { reloadVideos, isLoading } = useVideoAPI();
   const { videoSummary } = useVideo();
-  const showPlaceholder: boolean = isLoading && isEmpty(videoSummary?.docs);
+  const { getVideos } = useVideoAPI();
+
+  useEffect(() => {
+    getVideos(videoQuery);
+  }, []);
+
   const videos: IVideo[] = filter(
     videoSummary.docs,
     (doc) => !isEmpty(doc.classroomId) && !isEmpty(doc.category)
   ) as IVideo[];
   const videosByCategory = groupBy(videos, (video) => video.category);
+
+  const showPlaceholder: boolean = isLoading && isEmpty(videosByCategory);
 
   return (
     <NativeLayout
@@ -41,6 +49,8 @@ export default function () {
             videos={videosByCategory[category]}
           />
         ))}
+        {showPlaceholder &&
+          [1, 2, 3, 4].map((item) => <Placeholder key={item} />)}
       </NativeView>
     </NativeLayout>
   );

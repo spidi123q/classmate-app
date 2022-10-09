@@ -12,7 +12,10 @@ export default function useBooksAPI() {
 
   const getBooks = async (query: IBookQuery): IPaginateResponse<IBook> => {
     const request = GetBooks(query);
-    return dispatch(AxiosApi(request));
+    loading.start();
+    const result = await dispatch(AxiosApi(request));
+    loading.stop();
+    return result;
   };
 
   return {

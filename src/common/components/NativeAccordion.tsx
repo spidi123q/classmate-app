@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ListItem } from "react-native-elements";
+import { Icon, ListItem } from "react-native-elements";
 import {
   DeafultBorderColor,
   DefaultBorderRadius,
@@ -8,6 +8,7 @@ import {
 } from "../config/themeConfig";
 import NativeView from "./NativeView";
 import Typography from "./Typography";
+
 interface IProps {
   title: string;
   defaultExpanded?: boolean;

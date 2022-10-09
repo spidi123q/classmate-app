@@ -11,6 +11,7 @@ import useUser from "../../../login/hooks/useUser";
 import { Button, Image } from "react-native-elements";
 import Icon from "react-native-remix-icon";
 import useUserAPI from "../../../login/hooks/useUserAPI";
+import { Platform } from "react-native";
 
 export function HeaderMenu() {
   const navigation = useNavigation();
@@ -19,7 +20,8 @@ export function HeaderMenu() {
 
   return (
     <NativeView
-      marginVertical={DefaultMargin}
+      marginTop={DefaultMargin * (Platform.OS === "android" ? 2 : 1)}
+      marginBottom={DefaultMargin}
       marginHorizontal={DefaultMargin}
       flexDirection="row"
       justifyContent="space-between"
