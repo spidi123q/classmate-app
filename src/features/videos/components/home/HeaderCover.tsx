@@ -87,11 +87,7 @@ export function HeaderCover(props: IProps) {
               <Typography family="medium" type="h3x">
                 {classroom?.name}
               </Typography>
-              <Typography
-                type="xs"
-                color={AppTheme["color-danger"]}
-                marginLeft={DefaultMargin / 2}
-              >
+              <Typography type="xs" color={AppTheme["color-danger"]}>
                 Live
               </Typography>
             </NativeView>
