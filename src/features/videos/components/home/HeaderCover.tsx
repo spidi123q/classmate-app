@@ -24,16 +24,17 @@ import { getJitsiUrl } from "../../../../common/helpers/misc";
 import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeSkeleton";
 import { Button } from "react-native-elements";
 import RedPlay from "../../assets/RedPlay.svg";
+import { IPaginateResult } from "../../../../common/models/PaginateResult";
 
 interface IProps {
   isLoading?: boolean;
+  videoSummary: IPaginateResult<IVideo>;
 }
 
 export function HeaderCover(props: IProps) {
-  const { isLoading } = props;
+  const { isLoading, videoSummary } = props;
   const { height, width } = useWindowDimensions();
-  const coverHeight = height / 1.95;
-  const { videoSummary, lastPlayedVideo } = useVideo();
+  const { lastPlayedVideo } = useVideo();
   const { classroom, name } = useUser();
   const video = lastPlayedVideo ?? first(videoSummary.docs);
   const navigation = useNavigation<IRootStackNavigationProps>();

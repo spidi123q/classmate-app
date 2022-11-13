@@ -33,9 +33,11 @@ export function Home() {
     >
       <HeaderMenu />
       <InfoSlideShow />
-      <HeaderCover />
       {videoSummary && (
-        <IntroVideos videoSummary={videoSummary} isLoading={isLoading} />
+        <>
+          <HeaderCover videoSummary={videoSummary} isLoading={isLoading} />
+          <IntroVideos videoSummary={videoSummary} isLoading={isLoading} />
+        </>
       )}
     </NativeLayout>
   );
