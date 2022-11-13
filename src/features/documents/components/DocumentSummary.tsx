@@ -11,12 +11,23 @@ import {
   DefaultMargin,
 } from "../../../common/config/themeConfig";
 import { RefreshControl } from "react-native";
+import useUserAPI from "../../login/hooks/useUserAPI";
+import useUser from "../../login/hooks/useUser";
 
 export function DocumentSummary() {
   const { getBooks, isLoading } = useBooksAPI();
+  const { getUser } = useUserAPI();
+  const { classroomId } = useUser();
   const [books, setBooks] = useState<IBook[]>([]);
 
+  const bookQuery: IBookQuery = {
+    active: true,
+    pagination: false,
+    classroomId,
+  };
+
   async function loadBooks() {
+    await getUser();
     const result = await getBooks(bookQuery);
     setBooks(result.payload.docs);
   }
@@ -49,11 +60,6 @@ export function DocumentSummary() {
     </NativeLayout>
   );
 }
-
-const bookQuery: IBookQuery = {
-  active: true,
-  pagination: false,
-};
 
 const Placeholder = () => (
   <FlatGrid

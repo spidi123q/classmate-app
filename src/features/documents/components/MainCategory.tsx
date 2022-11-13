@@ -29,6 +29,7 @@ export function MainCategory(props: IProps) {
   const category = find(classroom?.categories, {
     name: mainCategory,
   });
+
   return (
     <NativeView
       type="ripple"

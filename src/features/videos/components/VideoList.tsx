@@ -15,6 +15,7 @@ import IVideo from "../../../models/Video";
 import useVideoActions from "../hooks/useVideoActions";
 import { NativeSkeletonPlaceholder } from "../../../common/components/nativeSkeleton";
 import { truncate } from "lodash";
+import { parseSeconds } from "../../../common/helpers/format";
 
 interface IProps {
   title?: string;
@@ -58,7 +59,7 @@ export default function VideoList(props: IProps) {
       </Typography>
       {item.duration && (
         <Typography type="xsx" color={DefaultHintFontColor}>
-          {Math.floor(item.duration / 60)} mins
+          {parseSeconds(item.duration)}
         </Typography>
       )}
     </NativeView>

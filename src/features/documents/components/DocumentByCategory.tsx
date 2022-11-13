@@ -1,6 +1,6 @@
 import { useRoute } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { groupBy } from "lodash";
+import { groupBy, size } from "lodash";
 import React from "react";
 import { Icon, ListItem } from "react-native-elements";
 import { NativeAccordion } from "../../../common/components/NativeAccordion";
@@ -19,7 +19,11 @@ export function DocumentByCategory() {
   return (
     <NativeLayout scroll>
       {Object.keys(booksByCategory).map((category) => (
-        <NativeAccordion key={category} title={category}>
+        <NativeAccordion
+          key={category}
+          title={category}
+          subTitle={`${size(booksByCategory[category])} docs`}
+        >
           {booksByCategory[category].map((book, index) => (
             <DocumentItem book={book} key={index} />
           ))}

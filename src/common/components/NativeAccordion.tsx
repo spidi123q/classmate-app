@@ -11,6 +11,7 @@ import Typography from "./Typography";
 
 interface IProps {
   title: string;
+  subTitle?: string;
   defaultExpanded?: boolean;
 }
 
@@ -18,6 +19,7 @@ export const NativeAccordion: React.FunctionComponent<IProps> = ({
   defaultExpanded,
   title,
   children,
+  subTitle,
 }) => {
   const [expanded, setExpanded] = useState<boolean>(defaultExpanded ?? false);
 
@@ -43,7 +45,7 @@ export const NativeAccordion: React.FunctionComponent<IProps> = ({
                     type="xs"
                     marginLeft={DefaultMargin / 2}
                   >
-                    2 docs
+                    {subTitle}
                   </Typography>
                 </NativeView>
               </ListItem.Title>

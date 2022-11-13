@@ -24,6 +24,7 @@ export interface IVideoEdit extends Partial<IVideo> {}
 export interface IVideoQuery extends IVideoEdit {
   page?: number;
   pagination?: boolean;
+  classroomCommon?: boolean;
 }
 
 export const InitialVideoEdit: IVideoEdit = {

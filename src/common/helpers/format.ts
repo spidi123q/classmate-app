@@ -8,6 +8,8 @@ import { formatDate } from "./formatDate";
 import parsePhoneNumber from "libphonenumber-js";
 import { capitalize } from "lodash";
 import IField from "../../models/template/Field";
+import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
 
 export const parseFieldValue = (value: string, field: IField) => {
   switch (field.type) {
@@ -27,4 +29,10 @@ export const formatPhoneNumber = (phone: string = "") => {
 
 export const formatUnit = (unit: string = "", length: number = 0) => {
   return length > 1 ? capitalize(unit + "s") : capitalize(unit);
+};
+
+export const parseSeconds = (seconds: number): string => {
+  momentDurationFormatSetup(moment as any);
+  // @ts-ignore
+  return moment.duration(seconds, "seconds").format("h [hrs] m [min]");
 };

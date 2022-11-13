@@ -15,13 +15,15 @@ import IVideo from "../../../../models/Video";
 import useVideoActions from "../../hooks/useVideoActions";
 import { ImageStyle } from "react-native";
 import { NativeSkeletonPlaceholder } from "../../../../common/components/nativeSkeleton";
+import { IPaginateResult } from "../../../../common/models/PaginateResult";
+import { parseSeconds } from "../../../../common/helpers/format";
 
 interface IProps {
   isLoading?: boolean;
+  videoSummary: IPaginateResult<IVideo>;
 }
 export function IntroVideos(props: IProps) {
-  const { isLoading } = props;
-  const { videoSummary } = useVideo();
+  const { isLoading, videoSummary } = props;
   const navigation = useNavigation<IRootStackNavigationProps>();
   const videos = videoSummary.docs.filter((video) =>
     isEmpty(video.classroomId)
@@ -63,7 +65,7 @@ export function IntroVideos(props: IProps) {
           </Typography>
           {video.duration && (
             <Typography type="xsx" color={DefaultHintFontColor}>
-              {Math.floor(video.duration / 60)} mins
+              {parseSeconds(video.duration)}
             </Typography>
           )}
         </NativeView>

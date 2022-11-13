@@ -37,11 +37,11 @@ const Typography: React.FunctionComponent<IProps> = (props) => {
     paddingTop,
     paddingBottom,
     paddingRight,
+    paddingLeft,
     paddingEnd,
     opacity,
     textAlign,
     lineHeight,
-    paddingLeft,
     backgroundColor,
     ...rest
   } = props;
